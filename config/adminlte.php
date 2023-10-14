@@ -324,7 +324,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'Create',
-                    'url'  => '#',
+                    'url'  => 'administrativo',
                 ],
                                [
                     'text' => 'Consultar',

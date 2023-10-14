@@ -10,9 +10,10 @@ class AdministrativoController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function form()
     {
-        //
+        // Pasar el usuario a la vista 
+        return view('Administrativo.Admin-create-form');
     }
 
     /**
