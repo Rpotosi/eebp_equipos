@@ -83,7 +83,7 @@
 
             <div class="col-12">
                 <label for="text" class="form-label">
-                    1. INFORMACION GENERAL:
+                    🔹INFORMACION GENERAL:
                 </label>
             </div>
 
@@ -215,7 +215,7 @@
             <div class="col-12">
                 <br>
                 <label for="text" class="form-label">
-                    2. REVISION TECNICOMECANICA FECHA DE VENCIMIENTO:
+                    🔹REVISION TECNICOMECANICA FECHA DE VENCIMIENTO:
                 </label>
             </div>
             <div class="col-md-4">
@@ -235,7 +235,7 @@
             <div class="col-12">
                 <br>
                 <label for="text" class="form-label">
-                    3. DIRECCION - TRASMISIÓN - SUSPENSIÓN:
+                    🔹DIRECCION - TRASMISIÓN - SUSPENSIÓN:
                 </label>
             </div>
             <div class="col-md-2">
@@ -362,7 +362,7 @@
             <div class="col-12">
                 <br>
                 <label for="text" class="form-label">
-                    4. FRENOS:
+                    🔹FRENOS:
                 </label>
             </div>
             <div class="col-4">
@@ -390,7 +390,7 @@
             <div class="col-12">
                 <br>
                 <label for="text" class="form-label">
-                    5.CARROCERIA:
+                    🔹CARROCERIA:
                 </label>
             </div>
             <div class="col-4">
@@ -424,7 +424,7 @@
             <div class="col-12">
                 <br>
                 <label for="text" class="form-label">
-                    6.DOTACION VEHICULO | EQUIPO DE CARRETERA
+                    🔹DOTACION VEHICULO | EQUIPO DE CARRETERA
                 </label>
             </div>
             <div class="col-md-4">
