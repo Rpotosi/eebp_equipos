@@ -11,5 +11,8 @@ Route::controller(HomeController::class)->group(function(){   //asi se define un
 });
 
 Route::controller(AdministrativoController::class)->group(function(){   //asi se define un grupo de rutas para login para el controlador Home
-    Route::get('administrativo', 'form')->name('administrativo.form'); // la ruta get es para mostrar la vista de home, el primer home unico para la URL y show es el metodo del controller, name(home.show) es el home vista y show del metodo del controller
+    Route::get('administrativo', 'form')->name('administrativo.form'); 
+        Route::get('vehiculo', 'create_vehiculo')->name('vehiculo.create_vehiculo'); // vehiculo= nombre unico para URL || create_vehiculo= nombre del metodo del controlador || vehiculo.create_vehiculo= URL + Nombre del metodo controlador
+    Route::post('vehiculo', 'store_vehiculo')->name('vehiculo.create_vehiculo'); 
+
 });
