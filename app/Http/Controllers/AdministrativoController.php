@@ -21,7 +21,7 @@ class AdministrativoController extends Controller
      */
     public function create_vehiculo()
     {
-        return view("Administrativo.Admin-create");
+        return view("Administrativo.Admin-create-vehiculo");
     }
 
     /**
@@ -113,7 +113,12 @@ class AdministrativoController extends Controller
 
         // Redirecciona a la página anterior
         return back();         
-    }   
+    }  
+    
+    public function create_equipo()
+    {
+        return view("Administrativo.Admin-create-equipo");
+    }
 
 
     /**
