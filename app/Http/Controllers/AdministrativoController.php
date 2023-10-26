@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\AdministrativoController;
+
+
 use App\Models\Administrativo;
 use Illuminate\Http\Request;
 
@@ -27,86 +30,54 @@ class AdministrativoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store_vehiculos(Request $request)
+    public function store_vehiculo(Request $request)
     {     
         // Crea una nueva instancia de Order
-        $order=new Order();
-
-       
+        $vehiculo = new Vehiculo();
         // Asigna los valores de los campos de la orden utilizando los datos del formulario
-        $order->fecha = date('Y-m-d', strtotime($request->fecha));
-        $order->placa = $request->placa;
-        $order->linea = $request->linea;
-        $order->clase = $request->clase;
-        $order->marca = $request->marca;
-        $order->color = $request->color;
-        $order->chasis = $request->chasis;
-        $order->motor = $request->motor;
-        $order->cilindraje = $request->cilindraje;
-        $order->uso_vehiculo = $request->uso_vehiculo;
-        $order->modelo =$request->modelo;
-        $order->fecha_tecnomecanica =$request->fecha_tecnomecanica;
-        $order->licencia =$request->licencia;
-        $order->tipo_direccion =$request->tipo_direccion;
-        $order->tipo_transmision =$request->tipo_transmision;
-        $order->numero_velocidades =$request->numero_velocidades;
-        $order->tipo_rodamiento =$request->tipo_rodamiento;
-        $order->suspencion_delantera =$request->suspencion_delantera;
-        $order->suspension_trasera =$request->suspension_trasera;
-        $order->numero_llantas =$request->numero_llantas;
-        $order->dimensiones_rines =$request->dimensiones_rines;
-        $order->material_rines =$request->material_rines;
-        $order->tipo_frenos_delanteros = $request->tipo_frenos_delanteros;
-        $order->tipo_frenos_traseros = $request->tipo_frenos_traseros;
-        $order->numero_serie = $request->numero_serie;
-        $order->numero_ventanas = $request->numero_ventanas;
-        $order->capacidad_carga = $request->capacidad_carga;
+        $vehiculo->placa = $request->placa;
+        $vehiculo->linea = $request->linea;
+        $vehiculo->clase = $request->clase;
+        $vehiculo->marca = $request->marca;
+        $vehiculo->color = $request->color;
+        $vehiculo->chasis = $request->chasis;
+        $vehiculo->motor = $request->motor;
+        $vehiculo->cilindraje = $request->cilindraje;
+        $vehiculo->uso_vehiculo = $request->uso_vehiculo;
+        $vehiculo->modelo =$request->modelo;
+        $vehiculo->fecha = $request->fecha;
+        $vehiculo->fecha_tecnomecanica =$request->fecha_tecnomecanica;
+        $vehiculo->licencia =$request->licencia;
+        $vehiculo->tipo_direccion =$request->tipo_direccion;
+        $vehiculo->tipo_transmision =$request->tipo_transmision;
+        $vehiculo->numero_velocidades =$request->numero_velocidades;
+        $vehiculo->tipo_rodamiento =$request->tipo_rodamiento;
+        $vehiculo->suspencion_delantera =$request->suspencion_delantera;
+        $vehiculo->suspension_trasera =$request->suspension_trasera;
+        $vehiculo->numero_llantas =$request->numero_llantas;
+        $vehiculo->dimensiones_rines =$request->dimensiones_rines;
+        $vehiculo->material_rines =$request->material_rines;
+        $vehiculo->tipo_frenos_delanteros = $request->tipo_frenos_delanteros;
+        $vehiculo->tipo_frenos_traseros = $request->tipo_frenos_traseros;
+        $vehiculo->numero_serie = $request->numero_serie;
+        $vehiculo->numero_ventanas = $request->numero_ventanas;
+        $vehiculo->capacidad_carga = $request->capacidad_carga;
 
          // Recuperar los valores seleccionados de las casillas de verificación como un arreglo
          $dotacion = $request->input('dotacion');
          // Convertir el arreglo a una cadena separada por comas
          $dotacion = implode(",", $dotacion);
-         $order->dotacion = $dotacion;
+         $vehiculo->dotacion = $dotacion;
 
         // Recuperar los valores seleccionados de las casillas de verificación como un arreglo
         $equipo_carretera = $request->input('equipo_carretera');
         // Convertir el arreglo a una cadena separada por comas
         $equipo_carretera = implode(",", $equipo_carretera);
-        $order->equipo_carretera = $equipo_carretera;
+        $vehiculo->equipo_carretera = $equipo_carretera;
       
-        
-        $order->fecha_mantenimiento = $request->fecha_mantenimiento;
-        $order->descripcion = $request->descripcion;
-        $order->averia_dano = $request->averia_dano;
-        $order->referencia_repuesto = $request->referencia_repuesto;
-        $order->responsable = $request->responsable;
-        $order->precio = $request->precio;
-
-        $order->fecha_mantenimiento2 = $request->fecha_mantenimiento2;
-        $order->descripcion2 = $request->descripcion2;
-        $order->averia_dano2 = $request->averia_dano2;
-        $order->referencia_repuesto2 = $request->referencia_repuesto2;
-        $order->responsable2 = $request->responsable2;
-        $order->precio2 = $request->precio;
-
-        /*$order->orden_fisica = "si";
-        $order->estado = "Pendiente";
-        */
-    
-        /*
-        // Lógica para cargar el archivo adjunto
-        $file = $request->file('file_orden');
-        // Obtener la extensión original del archivo
-        $extension = $file->getClientOriginalExtension(); 
-        // Generar un nombre único para el archivo
-        $uniqueFileName = uniqid() . '.' . $extension;
-        // Guardar el archivo con el nombre único
-        $path = $file->storeAs('public/uploads/order_create', $uniqueFileName);
-        $url = Storage::url($path);
-        $order->file_orden = $url;
-        */
+         
         // Guardar la orden en la base de datos
-        $order->save();    
+        $vehiculo->save();    
 
         // Muestra un mensaje de éxito en la sesión
         session()->flash('success', 'Orden creada exitosamente');
@@ -117,8 +88,68 @@ class AdministrativoController extends Controller
     
     public function create_equipo()
     {
-        return view("Administrativo.Admin-create-equipo");
+        return view("Administrativo.Admin-create-vehiculo");
     }
+
+
+    public function store_equipo(Request $request)
+    {     
+        // Crea una nueva instancia de Order
+        $equipo=new Equipo();
+       
+         $equipo->nombre_equipo = $request->nombre_equipo;
+         $equipo->ubicacion_equipo = $request->ubicacion_equipo;
+         $equipo->estado = $request->estado;
+         $equipo->fecha_fabrica = $request->fecha_fabrica;
+         $equipo->marca = $request->marca;
+         $equipo->modelo = $request->modelo;
+         $equipo->no_serie = $request->no_serie;
+         $equipo->no_lote = $request->no_lote;
+         $equipo->no_activo = $request->no_activo;
+         $equipo->codigo =$request->codigo;
+         $equipo->fecha_ensayo = $request->fecha_ensayo;
+         $equipo->validez= $request->validez ;
+         $equipo->fecha_conformidad= $request->fecha_conformidad;
+         $equipo->fecha_operacion= $request->fecha_operacion;
+         $equipo->nombre_responsable =$request->nombre_responsable;
+         $equipo->cargo= $request->cargo;
+         $equipo->lugar_proceso= $request->lugar_proceso;
+         $equipo->fecha_entrega= $request->fecha_entrega;
+         $equipo->observacion_responsable= $request->observacion_responsable;
+         $equipo->fabricante = $request->fabricante;
+         $equipo->fecha_adquisicion = $request->fecha_adquisicion;
+         $equipo->nombre_proveedor= $request->nombre_proveedor;
+         $equipo->direccion_proveedor = $request->direccion_proveedor;
+         $equipo->email_proveedor = $request->email_proveedor;
+         $equipo->telefono_proveedor = $request->telefono_proveedor;
+         $equipo->catalogo = $request->catalogo;
+         $equipo->mantenimiento_recomendado = $request->mantenimiento_recomendado;
+         $equipo->condiciones_operacion = $request->condiciones_operacion;
+         $equipo->observacion_fabricante = $request->observacion_fabricante;
+         $equipo->medicion = $request->medicion;
+         $equipo->rango_uso = $request->rango_uso;
+         $equipo->resolucion = $request->resolucion;
+         $equipo->exactitud = $request->exactitud;
+         $equipo->fecha_calibracion= $request->fecha_calibracion;
+         $equipo->fecha_verificacion= $request->fecha_verificacion;
+         $equipo->patrones=$request->patrones;
+         $equipo->estandares=$request->estandares;
+         $equipo->regulaciones=$request->regulaciones;
+         $equipo->otras_caracteristicas = $request->otras_caracteristicas;
+         $equipo->garantia = $request->garantias;
+         $equipo->fecha_inicio = $request->fecha_inicio;
+         $equipo->fecha_fin =$request->fecha_fin;
+
+        
+         $equipo->save();    
+
+        // Muestra un mensaje de éxito en la sesión
+        session()->flash('success', 'Orden creada exitosamente');
+
+        // Redirecciona a la página anterior
+        return back();         
+    }  
+
 
 
     /**

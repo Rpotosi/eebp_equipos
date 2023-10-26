@@ -241,10 +241,10 @@
 
 
             <div class="col-2"style="text-align: left;">
-                <label for="nombre" class="form-label">
+                <label for="nombre_responsable" class="form-label">
                     Nombre 
                 </label>
-                <input type="text" class="form-control" id="nombre" placeholder="" name="nombre" required/>
+                <input type="text" class="form-control" id="nombre_responsable" placeholder="" name="nombre_responsable" required/>
                
             </div>
             <div class="col-2"style="text-align: left;">
@@ -295,10 +295,10 @@
             </div>
 
             <div class="col-2" style="text-align: left;">
-                <label for="observacion1" class="form-label">
+                <label for="observacion_responsable" class="form-label">
                     Observaciones
                 </label>
-                <textarea type="text" class="form-control" rows="1" id="observacion1" placeholder="" name="observacion1"></textarea>
+                <textarea type="text" class="form-control" rows="1" id="observacion_responsable" placeholder="" name="observacion_responsable"></textarea>
               
             </div>
 
@@ -398,10 +398,10 @@
               
             </div>
             <div class="col-2" style="text-align: left;">
-                <label for="observacion2" class="form-label"> <br>
+                <label for="observacion_fabricante" class="form-label"> <br>
                     Observaciones
                 </label>
-                <textarea type="text" class="form-control" rows="1" id="observacion2" placeholder="" name="observacion2"></textarea>
+                <textarea type="text" class="form-control" rows="1" id="observacion_fabricante" placeholder="" name="observacion_fabricante"></textarea>
               
             </div>
 
