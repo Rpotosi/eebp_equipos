@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Distribucion;
+use App\Models\Administrativo;
 use Illuminate\Http\Request;
 
 class DistribucionController extends Controller
@@ -106,10 +107,15 @@ class DistribucionController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Distribucion $distribucion)
+    public function edit_equipo($id_vehiculo)
     {
-        //
+        
+        // Busca la orden correspondiente al id proporcionado
+        $equipo = Administrativo::find($id_vehiculo);
+        // Devuelve la vista con los datos 
+        return view('Administrativo.Admin-update-equipo', compact('equipo'));
     }
+
 
     /**
      * Update the specified resource in storage.

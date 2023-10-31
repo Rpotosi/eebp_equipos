@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\SST;
+use App\Models\Administrativo;
+use App\Models\Distribucion;
 use Illuminate\Http\Request;
 
 class SSTController extends Controller
@@ -93,17 +95,28 @@ class SSTController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(SST $sST)
+    public function show_equipo(Request $request)
     {
-        //
+
+        // Crea una consulta del modelo Distribucion
+        $query = Distribucion::query();   
+
+        // Ejecutamos la consulta y obtenemos los pedidos filtrados
+        $equipos = $query->paginate(3);
+
+        return view ('SST.SST-show', compact('equipos'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(SST $sST)
+    public function edit_equipo($id_vehiculo)
     {
-        //
+        
+        // Busca la orden correspondiente al id proporcionado
+        $equipo = Administrativo::find($id_vehiculo);
+        // Devuelve la vista con los datos 
+        return view('Administrativo.Admin-update-equipo', compact('equipo'));
     }
 
     /**
