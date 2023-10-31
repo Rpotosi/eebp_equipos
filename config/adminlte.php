@@ -351,7 +351,7 @@ return [
                 ],
                                [
                     'text' => 'Consultar',
-                    'url'  => '#',
+                    'url'  => 'show-equipo-dis',
                 ],
             ],
         ],
@@ -368,7 +368,7 @@ return [
                 ],
                                [
                     'text' => 'Consultar',
-                    'url'  => '#',
+                    'url'  => 'show-equipo-sst',
                 ],
                
             ],

@@ -91,9 +91,16 @@ class DistribucionController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Distribucion $distribucion)
+    public function show_equipo(Request $request)
     {
-        //
+
+        // Crea una consulta del modelo Distribucion
+        $query = Distribucion::query();   
+
+        // Ejecutamos la consulta y obtenemos los pedidos filtrados
+        $equipos = $query->paginate(3);
+
+        return view ('Distribucion.Dis-show', compact('equipos'));
     }
 
     /**
