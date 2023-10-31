@@ -102,7 +102,7 @@ class SSTController extends Controller
         $query = Distribucion::query();   
 
         // Ejecutamos la consulta y obtenemos los pedidos filtrados
-        $equipos = $query->paginate(3);
+        $equipos = $query->paginate(6);
 
         return view ('SST.SST-show', compact('equipos'));
     }

@@ -60,7 +60,7 @@
     <h1 style="text-align: center">Nuevo Equipo</h1>
 @stop
 
-@section('content')
+   @section('content')
 
     <!--Start Alertas utilizadas en el mensaje de Orden creada exitosamente -->
     @if (session('success'))
@@ -74,8 +74,9 @@
             alert("{{ session('error') }}");
         </script>
     @endif
+
     <div class="form-container">
-        <form id="formulario" action="{{route('show-equipo-sst.show_equipo')}}" method="POST" enctype="multipart/form-data" class="row g-3">
+        <form id="formulario" action="{{route('equipo_sst.create_equipo')}}" method="POST" enctype="multipart/form-data" class="row g-3">
             <!-- esta linea requiere ruta Route::post definida en routes Route EquiposController-->
             
             @csrf

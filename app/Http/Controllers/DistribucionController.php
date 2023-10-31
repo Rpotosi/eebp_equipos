@@ -81,12 +81,12 @@ class DistribucionController extends Controller
          $equipo->fecha_inicio = $request->fecha_inicio;
          $equipo->fecha_fin =$request->fecha_fin;
 
-        $equipo->save();    
+         $equipo->save();    
         // Muestra un mensaje de éxito en la sesión
-        session()->flash('success', 'Equipo creado exitosamente ⚙️ ');
+         session()->flash('success', 'Equipo creado exitosamente ⚙️ ');
 
         // Redirecciona a la página anterior
-        return back();         
+         return back();         
     }  
 
     /**
@@ -99,7 +99,7 @@ class DistribucionController extends Controller
         $query = Distribucion::query();   
 
         // Ejecutamos la consulta y obtenemos los pedidos filtrados
-        $equipos = $query->paginate(3);
+        $equipos = $query->paginate(6);
 
         return view ('Distribucion.Dis-show', compact('equipos'));
     }

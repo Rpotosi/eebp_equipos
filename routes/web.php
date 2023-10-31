@@ -43,6 +43,7 @@ Route::controller(SSTController::class)->group(function(){
     Route::get('SST', 'form')->name('SST.form');
     Route::get('equipo_sst','create_equipo')->name('equipo_sst.create_equipo');
     Route::post('equipo_sst', 'store_equipo')->name('equipo_sst.create_equipo');
+    
     Route::get('show-equipo-sst', 'show_equipo')->name('show-equipo-sst.show_equipo');
     Route::get('update-equipo/{id_equipo}', 'edit_equipo')->name('equipo.edit_equipo');
 });
