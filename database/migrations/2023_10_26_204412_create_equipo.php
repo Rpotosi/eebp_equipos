@@ -57,7 +57,7 @@ return new class extends Migration
             $table->string('fecha_inicio');
             $table->string('fecha_fin');
 
-            $table->timestamps();
+            $table->timestamps();  // tiempo de creación
 
         });
     }

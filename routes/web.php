@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdministrativoController;
+use App\Http\Controllers\SSTController;
+use App\Http\Controllers\DistribucionController;
 
 
 use Illuminate\Support\Facades\Route;
@@ -20,6 +22,16 @@ Route::controller(AdministrativoController::class)->group(function(){   //asi se
     Route::get('equipo', 'create_equipo')->name('equipo.create_equipo'); 
     Route::post('equipo', 'store_equipo')->name('equipo.create_equipo'); 
    
+});
 
+Route::controller(SSTController::class)->group(function(){
+    Route::get('SST', 'form')->name('SST.form');
+    Route::get('equipo_sst','create_equipo')->name('equipo_sst.create_equipo');
+    Route::post('equipo_sst', 'store_equipo')->name('equipo_sst.create_equipo');
+});
 
+Route::controller(DistribucionController::class)->group(function(){
+    Route::get('distribucion', 'form')->name('SST.form');
+    Route::get('distribucion_equipo','create_equipo')->name('distribucion_equipo.create_equipo');
+    Route::post('distribucion_equipo', 'store_equipo')->name('distribucion_equipo.create_equipo');
 });

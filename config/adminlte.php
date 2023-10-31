@@ -347,7 +347,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'Create',
-                    'url'  => '#',
+                    'url'  => 'distribucion',
                 ],
                                [
                     'text' => 'Consultar',
@@ -364,7 +364,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'Create',
-                    'url'  => '#',
+                    'url'  => 'SST',
                 ],
                                [
                     'text' => 'Consultar',

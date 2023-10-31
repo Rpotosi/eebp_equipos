@@ -49,20 +49,10 @@
 
 @section('content')
     <div class="container">
-        <a href="{{route('vehiculo.create_vehiculo')}}" > <!-- Route define and wep.php--->
-            <div class="card"style="text-align: center;">
-                <i id="icon_crear_orden" class="fas fa-shipping-fast"></i>
-                <br>
-                <h5>
-                    <b>
-                        Vehiculos
-                    </b>
-                </h5>
-            </div>
-        </a>
+       
         
         
-        <a href="{{route('distribucion_equipo.create_equipo')}}" > <!-- Route define and wep.php--->
+        <a href="{{route('equipo_sst.create_equipo')}}" > <!-- Route define and wep.php--->
             <div class="card" style="text-align: center;">
                 <i id="icon_crear_orden" class="fas fa-cogs"></i>
                 <br>

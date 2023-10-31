@@ -80,7 +80,7 @@ class AdministrativoController extends Controller
         $vehiculo->save();    
 
         // Muestra un mensaje de éxito en la sesión
-        session()->flash('success', 'Orden creada exitosamente');
+        session()->flash('success', 'Vehiculo creado exitosamente 🚗');
 
         // Redirecciona a la página anterior
         return back();         
@@ -142,7 +142,7 @@ class AdministrativoController extends Controller
 
         $equipo->save();    
         // Muestra un mensaje de éxito en la sesión
-        session()->flash('success', 'Orden creada exitosamente');
+        session()->flash('success', 'Equipo creado exitosamente ⚙️ ');
 
         // Redirecciona a la página anterior
         return back();         
