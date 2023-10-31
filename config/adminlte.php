@@ -328,7 +328,7 @@ return [
                 ],
                                [
                     'text' => 'Consultar',
-                    'url'  => '#',
+                    'url'  => 'show',
                 ],
             ],
         ],

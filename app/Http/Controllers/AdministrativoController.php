@@ -155,9 +155,16 @@ class AdministrativoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Administrativo $administrativo)
+    public function show(Request $request)
     {
-        //
+
+        // Crea una consulta para la entidad Order
+        $query = Administrativo::query(); 
+
+        // Ejecutamos la consulta y obtenemos los pedidos filtrados
+        $vehiculos = $query->paginate(3);
+
+        return view ('Administrativo.Admin-show', compact('vehiculos'));
     }
 
     /**
