@@ -109,7 +109,7 @@ return [
     'preloader' => [
         'enabled' => true,
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',  // Transformito
+            'path' => 'vendor/adminlte/dist/img/transformito.png',  // Transformito
             'alt' => 'AdminLTE Preloader Image',
             'effect' => 'animation__shake',
             'width' => 60,   
