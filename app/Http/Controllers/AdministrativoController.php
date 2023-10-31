@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Administrativo;
+use App\Models\Distribucion;
 use Illuminate\Http\Request;
 
 
@@ -31,8 +32,8 @@ class AdministrativoController extends Controller
      */
     public function store_vehiculo(Request $request)
     {     
-        // Crea una nueva instancia de Order
-        $vehiculo = new Vehiculo();
+        // Crea una nueva instancia de Administrativo
+        $vehiculo = new Administrativo();
         // Asigna los valores de los campos de la orden utilizando los datos del formulario
         $vehiculo->placa = $request->placa;
         $vehiculo->linea = $request->linea;
@@ -93,8 +94,8 @@ class AdministrativoController extends Controller
 
     public function store_equipo(Request $request)
     {     
-        // Crea una nueva instancia de Order
-        $equipo=new Equipo();
+        // Crea una nueva instancia del controlador Distribucion
+        $equipo=new Distribucion();
        
          $equipo->nombre_equipo = $request->nombre_equipo;
          $equipo->ubicacion_equipo = $request->ubicacion_equipo;

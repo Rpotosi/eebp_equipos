@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('vehiculo', function (Blueprint $table) {
+        Schema::create('create_vehiculo', function (Blueprint $table) {
             $table->comment('');
-            $table->bigInteger('id_orden', true);
+            $table->bigInteger('id_vehiculo', true);
             $table->date('fecha')->nullable();
             $table->string('placa', 50)->nullable();
             $table->string('linea', 50)->nullable();
