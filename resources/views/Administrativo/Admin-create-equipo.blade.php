@@ -57,7 +57,7 @@
         
 
     </style>
-    <h1 style="text-align: center">New Device</h1>
+    <h1 style="text-align: center">Nuevo Equipo</h1>
 @stop
 
 @section('content')

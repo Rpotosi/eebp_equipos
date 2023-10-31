@@ -88,7 +88,7 @@ class AdministrativoController extends Controller
     
     public function create_equipo()
     {
-        return view("Administrativo.Admin-create-vehiculo");
+        return view("Administrativo.Admin-create-equipo");
     }
 
 
