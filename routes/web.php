@@ -21,6 +21,8 @@ Route::controller(AdministrativoController::class)->group(function(){   //asi se
 
     Route::get('equipo', 'create_equipo')->name('equipo.create_equipo'); 
     Route::post('equipo', 'store_equipo')->name('equipo.create_equipo'); 
+    Route::get('show-equipo', 'show_equipo')->name('show-equipo.show_equipo');
+    Route::get('update-vehiculo/{id_vehiculo}', 'edit_vehiculo')->name('vehiculo.create_vehiculo');
    
 });
 

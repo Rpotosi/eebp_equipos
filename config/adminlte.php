@@ -333,7 +333,7 @@ return [
                 ],
                                [
                     'text' => 'Consultar Equipo',
-                    'url'  => '',
+                    'url'  => 'show-equipo',
                     
                 ],
             ],
