@@ -41,14 +41,14 @@ return new class extends Migration
             $table->string('telefono_proveedor', 50)->nullable();
             $table->string('catalogo', 50)->nullable();
             $table->string('mantenimiento_recomendado', 50)->nullable();
-            $table->string('codiciones_operacion', 50)->nullable();
+            $table->string('condiciones_operacion', 50)->nullable();
             $table->string('observacion_fabricante', 50)->nullable();
             $table->string('medicion', 150)->nullable();
             $table->string('rango_uso', 255)->nullable();
             $table->string('resolucion', 150)->nullable();
             $table->string('exactitud',150)->nullable();
-            $table->string('frecuencia_calibracion',150)->nullable();
-            $table->string('frecuencia_validacion',150)->nullable();
+            $table->string('fecha_calibracion',150)->nullable();
+            $table->string('fecha_verificacion',150)->nullable();
             $table->string('patrones',150)->nullable(); 
             $table->string('estandares',150)->nullable(); 
             $table->string('regulaciones',150)->nullable(); 
@@ -56,6 +56,9 @@ return new class extends Migration
             $table->string('garantia', 50)->nullable();
             $table->string('fecha_inicio');
             $table->string('fecha_fin');
+
+            $table->timestamps();
+
         });
     }
 

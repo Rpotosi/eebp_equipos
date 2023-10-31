@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Distribucion extends Model
 {
     use HasFactory;
-    protected $table = 'equipo';
+    protected $table = 'create_equipo';
     protected $primaryKey = 'id_equipo';
     protected $fillable = [
 

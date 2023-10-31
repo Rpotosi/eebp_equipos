@@ -95,7 +95,7 @@ class AdministrativoController extends Controller
     public function store_equipo(Request $request)
     {     
         // Crea una nueva instancia del controlador Distribucion
-        $equipo=new Distribucion();
+         $equipo = new Distribucion();
        
          $equipo->nombre_equipo = $request->nombre_equipo;
          $equipo->ubicacion_equipo = $request->ubicacion_equipo;
@@ -140,9 +140,7 @@ class AdministrativoController extends Controller
          $equipo->fecha_inicio = $request->fecha_inicio;
          $equipo->fecha_fin =$request->fecha_fin;
 
-        
-         $equipo->save();    
-
+        $equipo->save();    
         // Muestra un mensaje de éxito en la sesión
         session()->flash('success', 'Orden creada exitosamente');
 
