@@ -155,7 +155,7 @@ class AdministrativoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Request $request)
+    public function show_vehiculo(Request $request)
     {
 
         // Crea una consulta para la entidad Order
@@ -164,23 +164,36 @@ class AdministrativoController extends Controller
         // Ejecutamos la consulta y obtenemos los pedidos filtrados
         $vehiculos = $query->paginate(3);
 
-        return view ('Administrativo.Admin-show', compact('vehiculos'));
+        return view ('Administrativo.Admin-show-vehiculo', compact('vehiculos'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Administrativo $administrativo)
+    public function edit_vehiculo($id_vehiculo)
     {
-        //
+        
+        // Busca la orden correspondiente al id proporcionado
+        $vehiculo = Administrativo::find($id_vehiculo);
+        // Devuelve la vista con los datos 
+        return view('Administrativo.Admin-update-vehiculo', compact('vehiculo'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Administrativo $administrativo)
+    public function update(Request $request, $id_vehiculo)
     {
-        //
+        // Busca la orden correspondiente al id proporcionado
+        $vehiculo = Administrativo::find($id_vehiculo);
+
+        // Obtener todos los datos enviados en la solicitud
+        $input = $request->all();
+
+        // Actualizar la orden con los nuevos datos proporcionados
+        $vehiculo->update($input);
+        // Redireccionar a la vista de la página Consultar Orden Empresa (Metodo index según la ruta del archivo web.php)
+        return redirect('show-vehiculo');
     }
 
     /**

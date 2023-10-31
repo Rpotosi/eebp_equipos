@@ -327,8 +327,14 @@ return [
                     'url'  => 'administrativo',
                 ],
                                [
-                    'text' => 'Consultar',
-                    'url'  => 'show',
+                    'text' => 'Consultar Vehículo',
+                    'url'  => 'show-vehiculo',
+                    
+                ],
+                               [
+                    'text' => 'Consultar Equipo',
+                    'url'  => '',
+                    
                 ],
             ],
         ],
