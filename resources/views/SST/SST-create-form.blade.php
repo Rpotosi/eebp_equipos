@@ -10,20 +10,20 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 70vh;
+            height: 60vh;
         }
 
         /* Estilos para las tarjetas */
         .card {
             color: rgb(0, 0, 0);
             aspect-ratio: 1/1;
-            height: 300px;
+            height: 280px;
             justify-content: center;
             align-items: center;
             background-color: rgb(255, 255, 255);
             margin: 50px;
             box-shadow: 16px 14px 20px #0000008c;
-            border-radius: 10%;
+            border-radius: 100%;
         }
         .card:hover{
             background-color:   #d7d9df;
