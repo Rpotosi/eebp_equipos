@@ -207,6 +207,34 @@ class AdministrativoController extends Controller
         return view ('Administrativo.Admin-show-equipo', compact('equipos'));
     }
 
+
+    public function edit_equipo($id_vehiculo)
+    {
+        
+        // Busca la orden correspondiente al id proporcionado
+        $equipo = Administrativo::find($id_vehiculo);
+        // Devuelve la vista con los datos 
+        return view('Administrativo.Admin-update-equipo', compact('equipo'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update_equipo(Request $request, $id_equipo)
+    {
+        // Busca la orden correspondiente al id proporcionado
+        $equipo = Administrativo::find($id_equipo);
+
+        // Obtener todos los datos enviados en la solicitud
+        $input = $request->all();
+
+        // Actualizar la orden con los nuevos datos proporcionados
+        $equipo->update($input);
+        // Redireccionar a la vista de la página Consultar Orden Empresa (Metodo index según la ruta del archivo web.php)
+        return redirect('show-vehiculo');
+    }
+
+
     /**
      * Remove the specified resource from storage.
      */
