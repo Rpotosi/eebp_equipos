@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('create_equipo', function (Blueprint $table) { // nombre create_vehiculo = nombre de la migración
+        Schema::create('create_equipo_dis', function (Blueprint $table) { // nombre create_vehiculo = nombre de la migración
             $table->comment('');
             $table->bigInteger('id_equipo', true);
             $table->string('nombre_equipo')->nullable();
