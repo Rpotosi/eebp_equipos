@@ -92,7 +92,7 @@
                 <label for="placa" class="form-label">
                     Placa
                 </label>
-                <input type="text" class="form-control" id="placa" name="placa"  disabled/>
+                <input type="text" class="form-control" id="placa" name="placa" value="{{ $vehiculo->placa }}" disabled/>
             </div>
 
             <div class="col-md-2">

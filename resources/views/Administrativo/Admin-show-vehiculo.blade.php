@@ -27,7 +27,7 @@
     </div>
 
 
-    <h1 class="aling-center" style="text-align:center"> Gestión de Vehiculos</h1>    
+    <h1 class="aling-center" style="text-align:center"> Gestión de Vehiculos8888</h1>    
 
 @stop
 
@@ -124,7 +124,7 @@
                     
 
                         <td>
-                            <a href="{{ url('/update-vehiculo/{id_vehiculo}')}}">
+                            <a href="{{ route('vehiculo.edit_vehiculo', $vehiculo)}}">
                                 <button class="btn btn-warning" onclick="Editar"><i class="fas fa-edit"></i></button>
                             </a>    
                         </td>
