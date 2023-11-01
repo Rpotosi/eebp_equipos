@@ -258,7 +258,7 @@
                     <option>Transmisión automática</option>
                     <option>Transmisión semiautomática</option>
                     <option>Transmisión manual automatizada</option>
-                    <option> Transmisión eléctrica de una velocidad</option>
+                    <option>Transmisión eléctrica de una velocidad</option>
                 </select>
             </div>
             <div class="col-2">

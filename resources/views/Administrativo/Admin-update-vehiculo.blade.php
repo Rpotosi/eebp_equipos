@@ -99,17 +99,17 @@
                 <label for="linea" class="form-label">
                     Linea
                 </label>
-                <select id="linea" class="custom-select" name="linea" required>
+                <select id="linea" class="custom-select" name="linea" disabled>
                     <option selected></option>
-                    <option>Hilux</option>
-                    <option>Amarok Trendline</option>
-                    <option>Yaris Cross</option>
-                    <option>Discover 125</option>
-                    <option>4300</option>
-                    <option>Gh8jm8a</option>
-                    <option>Dxk1021tk9 1.5</option>
-                    <option>Eq1021nf33 1.2</option>
-                    <option>Xzu710l - Qkfmp3</option>
+                    <option value="Hilux" {{ $vehiculo->linea == 'Hilux' ? 'selected' : '' }}>Hilux</option>
+                    <option value="Amarok Trendline" {{ $vehiculo->linea == 'Amarok Trendline' ? 'selected' : '' }}>Amarok Trendline</option>
+                    <option value="Yaris Cross" {{ $vehiculo->linea == 'Yaris Cross' ? 'selected' : '' }}>Yaris Cross</option>
+                    <option value="Discover 125" {{ $vehiculo->linea == 'Discover 125' ? 'selected' : '' }}>Discover 125</option>
+                    <option value="4300" {{ $vehiculo->linea == '4300' ? 'selected' : '' }}>4300</option>
+                    <option value="Gh8jm8a" {{ $vehiculo->linea == 'Gh8jm8a' ? 'selected' : '' }}>Gh8jm8a</option>
+                    <option value="Dxk1021tk9 1.5" {{ $vehiculo->linea == 'Dxk1021tk9 1.5' ? 'selected' : '' }}>Dxk1021tk9 1.5</option>
+                    <option value="Eq1021nf33 1.2" {{ $vehiculo->linea == 'Eq1021nf33 1.2' ? 'selected' : '' }}>Eq1021nf33 1.2</option>
+                    <option value="Xzu710l - Qkfmp3" {{ $vehiculo->linea == 'Xzu710l - Qkfmp3' ? 'selected' : '' }}>Xzu710l - Qkfmp3</option>
                 </select>
             </div>
 
@@ -117,12 +117,12 @@
                 <label for="clase" class="form-label">
                     Clase
                 </label>
-                <select id="clase" class="custom-select" name="clase" required>
+                <select id="clase" class="custom-select" name="clase" disabled>
                     <option selected></option>
-                    <option>Camioneta</option>
-                    <option>Camion</option>
-                    <option>Motocicleta</option>
-                    <option>Grua</option>
+                    <option value="Camioneta" {{ $vehiculo->clase == 'Camioneta' ? 'selected' : '' }}>Camioneta</option>
+                    <option value="Camion" {{ $vehiculo->clase == 'Camion' ? 'selected' : '' }}>Camion</option>
+                    <option value="Motocicleta" {{ $vehiculo->clase == 'Motocicleta' ? 'selected' : '' }}>Motocicleta</option>
+                    <option value="Grua" {{ $vehiculo->clase == 'Grua' ? 'selected' : '' }}>Grua</option>
                 </select>
             </div>
 
@@ -130,13 +130,13 @@
                 <label for="marca" class="form-label">
                     Marca
                 </label>
-                <select id="marca" class="custom-select" name="marca" required>
+                <select id="marca" class="custom-select" name="marca" disabled>
                     <option selected></option>
-                    <option>Toyota</option>
-                    <option>DFSK</option>
-                    <option>HINO</option>
-                    <option>BAJAJ</option>
-                    <option>INTERNATIONAL</option>
+                    <option value="Toyota" {{ $vehiculo->marca == 'Toyota' ? 'selected' : '' }}>Toyota</option>
+                    <option value="DFSK" {{ $vehiculo->marca == 'DFSK' ? 'selected' : '' }}>DFSK</option>
+                    <option value="HINO" {{ $vehiculo->marca == 'HINO' ? 'selected' : '' }}>HINO</option>
+                    <option value="BAJAJ" {{ $vehiculo->marca == 'BAJAJ' ? 'selected' : '' }}>BAJAJ</option>
+                    <option value="INTERNATIONAL" {{ $vehiculo->marca == 'INTERNATIONAL' ? 'selected' : '' }}>INTERNATIONAL</option>
                 </select>
             </div>
 
@@ -144,65 +144,65 @@
                 <label for="color" class="form-label">
                     Color
                 </label>
-                <select id="color" class="custom-select" name="color" required>
+                <select id="color" class="custom-select" name="color" disabled>
                     <option selected></option>
-                    <option>Blanco</option>
-                    <option>Negro</option>
-                    <option>Azul</option>
+                    <option value="Blanco" {{ $vehiculo->color == 'Blanco' ? 'selected' : '' }}>Blanco</option>
+                    <option value="Negro" {{ $vehiculo->color == 'Negro' ? 'selected' : '' }}>Negro</option>
+                    <option value="Azul" {{ $vehiculo->color == 'Azul' ? 'selected' : '' }}>Azul</option>
                 </select>
             </div>
             <div class="col-2">
                 <label for="chasis" class="form-label">
                     # Chasis
                 </label>
-                <input type="text" class="form-control" id="chasis" placeholder="" name="chasis" required/>
+                <input type="text" class="form-control" id="chasis" placeholder="" name="chasis" value="{{ $vehiculo->chasis }}" disabled/>
             </div>
             <div class="col-2">
                 <label for="motor" class="form-label">
                     # Motor
                 </label>
-                <input type="text" class="form-control" id="motor" placeholder="" name="motor" required/>
+                <input type="text" class="form-control" id="motor" placeholder="" name="motor" value="{{ $vehiculo->motor }}" disabled/>
             </div>
             <div class="col-2">
                 <label for="cilindraje" class="form-label">
                     Cilindraje
                 </label>
-                <select id="cilindraje" class="custom-select" name="cilindraje" required>
+                <select id="cilindraje" class="custom-select" name="cilindraje" disabled>
                     <option selected></option>
-                    <option>1600 cc</option>
-                    <option>1500 cc</option>
-                    <option>1400 cc</option>
-                    <option>1200 cc</option>
+                    <option value="1600 cc" {{ $vehiculo->cilindraje == '1600 cc' ? 'selected' : '' }}>1600 cc</option>
+                    <option value="1500 cc" {{ $vehiculo->cilindraje == '1500 cc' ? 'selected' : '' }}>1500 cc</option>
+                    <option value="1400 cc" {{ $vehiculo->cilindraje == '1400 cc' ? 'selected' : '' }}>1400 cc</option>
+                    <option value="1200 cc" {{ $vehiculo->cilindraje == '1200 cc' ? 'selected' : '' }}>1200 cc</option>
                 </select>
             </div>
             <div class="col-2">
                 <label for="uso_vehiculo" class="form-label">
                     Uso del vehiculo
                 </label>
-                <select id="uso_vehiculo" class="custom-select" name="uso_vehiculo" required>
+                <select id="uso_vehiculo" class="custom-select" name="uso_vehiculo" disabled>
                     <option selected></option>
-                    <option>Particular</option>
-                    <option>Servicio Publico</option>
+                    <option value="Particular" {{ $vehiculo->uso_vehiculo == 'Particular' ? 'selected' : '' }}>Particular</option>
+                    <option value="Servicio Publico" {{ $vehiculo->uso_vehiculo == 'Servicio Publico' ? 'selected' : '' }}>Servicio Publico</option>
                 </select>
             </div>
             <div class="col-2">
                 <label for="modelo" class="form-label">
                     Modelo
                 </label>
-                <select id="modelo" class="custom-select" name="modelo" required>
+                <select id="modelo" class="custom-select" name="modelo" disabled>
                     <option selected></option>
-                    <option>2023</option>
-                    <option>2022</option>
-                    <option>2021</option>
-                    <option>2020</option>
-                    <option>2019</option>
-                    <option>2018</option>
-                    <option>2017</option>
-                    <option>2016</option>
-                    <option>2015</option>
-                    <option>2014</option>
-                    <option>2013</option>
-                    <option>2012</option>
+                    <option value="2023" {{ $vehiculo->modelo == '2023' ? 'selected' : '' }}>2023</option>
+                    <option value="2022" {{ $vehiculo->modelo == '2022' ? 'selected' : '' }}>2022</option>
+                    <option value="2021" {{ $vehiculo->modelo == '2021' ? 'selected' : '' }}>2021</option>
+                    <option value="2020" {{ $vehiculo->modelo == '2020' ? 'selected' : '' }}>2020</option>
+                    <option value="2019" {{ $vehiculo->modelo == '2019' ? 'selected' : '' }}>2019</option>
+                    <option value="2018" {{ $vehiculo->modelo == '2018' ? 'selected' : '' }}>2018</option>
+                    <option value="2017" {{ $vehiculo->modelo == '2017' ? 'selected' : '' }}>2017</option>
+                    <option value="2016" {{ $vehiculo->modelo == '2016' ? 'selected' : '' }}>2016</option>
+                    <option value="2015" {{ $vehiculo->modelo == '2015' ? 'selected' : '' }}>2015</option>
+                    <option value="2014" {{ $vehiculo->modelo == '2014' ? 'selected' : '' }}>2014</option>
+                    <option value="2013" {{ $vehiculo->modelo == '2013' ? 'selected' : '' }}>2013</option>
+                    <option value="2012" {{ $vehiculo->modelo == '2012' ? 'selected' : '' }}>2012</option>
                 </select>
             </div>
 
@@ -210,7 +210,7 @@
                 <label for="fecha" class="form-label">
                 Fecha SOAT
                 </label>
-                <input type="date" class="form-control" id="fecha" name="fecha" min="{{ \Carbon\Carbon::now()->toDateString() }}" required/> 
+                <input type="date" class="form-control" id="fecha" name="fecha" min="{{ \Carbon\Carbon::now()->toDateString() }}" value="{{ $vehiculo->fecha }}" disabled/> 
             </div>
             
             <div class="col-12">
@@ -223,13 +223,13 @@
                 <label for="fecha_tecnomecanica" class="form-label">
                 Tecnomecanica Fecha
                 </label>
-                <input type="date" class="form-control" id="fecha_tecnomecanica" name="fecha_tecnomecanica" min="{{ \Carbon\Carbon::now()->toDateString() }}" required/> 
+                <input type="date" class="form-control" id="fecha_tecnomecanica" name="fecha_tecnomecanica" min="{{ \Carbon\Carbon::now()->toDateString() }}" value="{{ $vehiculo->fecha_tecnomecanica }}" disabled/> 
             </div>
             <div class="col-4">
                 <label for="licencia" class="form-label">
                     Liciencia Transito
                 </label>
-                <input type="text" class="form-control" id="licencia" placeholder="" name="licencia" required>
+                <input type="text" class="form-control" id="licencia" placeholder="" name="licencia" value="{{ $vehiculo->licencia }}" disabled>
               
             </div>
 
@@ -243,54 +243,54 @@
                 <label for="tipo_direccion" class="form-label">
                     Tipo Direcionsss
                 </label>
-                <select id="clase" class="custom-select" id="tipo_direccion" placeholder="" name="tipo_direccion" required>
+                <select id="clase" class="custom-select" id="tipo_direccion" placeholder="" name="tipo_direccion" disabled>
                     <option selected></option>
-                    <option>mecánica</option>
-                    <option>hidráulica</option>
+                    <option value="mecánica" {{ $vehiculo->tipo_direccion == 'mecánica' ? 'selected' : '' }}>mecánica</option>
+                    <option value="hidráulica" {{ $vehiculo->tipo_direccion == 'hidráulica' ? 'selected' : '' }}>hidráulica</option>
                 </select>
             </div>
             <div class="col-2">
                 <label for="tipo_transmision" class="form-label">
                     Tipo de Transmisión
                 </label>
-                <select id="clase" class="custom-select" id="tipo_transmision" placeholder="" name="tipo_transmision" required>
+                <select id="clase" class="custom-select" id="tipo_transmision" placeholder="" name="tipo_transmision" disabled>
                     <option selected></option>
-                    <option>Transmisión manual</option>
-                    <option>Transmisión automática</option>
-                    <option>Transmisión semiautomática</option>
-                    <option>Transmisión manual automatizada</option>
-                    <option> Transmisión eléctrica de una velocidad</option>
+                    <option value="Transmisión manual" {{ $vehiculo->tipo_transmision == 'Transmisión manual' ? 'selected' : '' }}>Transmisión manual</option>
+                    <option value="Transmisión automática" {{ $vehiculo->tipo_transmision == 'Transmisión automática' ? 'selected' : '' }}>Transmisión automática</option>
+                    <option value="Transmisión semiautomática" {{ $vehiculo->tipo_transmision == 'Transmisión semiautomática' ? 'selected' : '' }}>Transmisión semiautomática</option>
+                    <option value="Transmisión manual automatizada" {{ $vehiculo->tipo_transmision == 'Transmisión manual automatizada' ? 'selected' : '' }}>Transmisión manual automatizada</option>
+                    <option value="Transmisión eléctrica de una velocidad" {{ $vehiculo->tipo_transmision == 'Transmisión eléctrica de una velocidad' ? 'selected' : '' }}>Transmisión eléctrica de una velocidad</option>
                 </select>
             </div>
             <div class="col-2">
                 <label for="numero_velocidades" class="form-label">
                     Numero de velocidades
                 </label>
-                <select id="clase" class="custom-select" id="numero_velocidades" placeholder="" name="numero_velocidades" required>
+                <select id="clase" class="custom-select" id="numero_velocidades" placeholder="" name="numero_velocidades" disabled>
                     <option selected></option>
-                    <option>4 velocidades</option>
-                    <option>5 velocidades</option>
-                    <option>6 velocidades</option>
-                    <option>7 velocidades</option>
-                    <option>8 velocidades</option>
-                    <option>9 velocidades</option>
-                    <option>10 velocidades</option>
-                    <option>11 velocidades</option>
-                    <option>12 velocidades (y más, en algunas transmisiones automáticas de alta gama)</option>
+                    <option value="4 velocidades" {{ $vehiculo->numero_velocidades == '4 velocidades' ? 'selected' : '' }}>4 velocidades</option>
+                    <option value="5 velocidades" {{ $vehiculo->numero_velocidades == '5 velocidades' ? 'selected' : '' }}>5 velocidades</option>
+                    <option value="6 velocidades" {{ $vehiculo->numero_velocidades == '6 velocidades' ? 'selected' : '' }}>6 velocidades</option>
+                    <option value="7 velocidades" {{ $vehiculo->numero_velocidades == '7 velocidades' ? 'selected' : '' }}>7 velocidades</option>
+                    <option value="8 velocidades" {{ $vehiculo->numero_velocidades == '8 velocidades' ? 'selected' : '' }}>8 velocidades</option>
+                    <option value="9 velocidades" {{ $vehiculo->numero_velocidades == '9 velocidades' ? 'selected' : '' }}>9 velocidades</option>
+                    <option value="10 velocidades" {{ $vehiculo->numero_velocidades == '10 velocidades' ? 'selected' : '' }}>10 velocidades</option>
+                    <option value="11 velocidades" {{ $vehiculo->numero_velocidades == '11 velocidades' ? 'selected' : '' }}>11 velocidades</option>
+                    <option value="12 velocidades" {{ $vehiculo->numero_velocidades == '12 velocidades' ? 'selected' : '' }}>12 velocidades (y más, en algunas transmisiones automáticas de alta gama)</option>
                 </select>
             </div>
             <div class="col-2">
                 <label for="tipo_rodamiento" class="form-label">
                     Tipo de rodamiento
                 </label>
-                <select id="clase" class="custom-select" id="tipo_rodamiento" placeholder="" name="tipo_rodamiento" required>
+                <select id="clase" class="custom-select" id="tipo_rodamiento" placeholder="" name="tipo_rodamiento" disabled>
                     <option selected></option>
-                    <option>Rodamientos de rueda</option>
-                    <option>Rodamientos de transmisión</option>
-                    <option>Rodamientos de motor</option>
-                    <option>Rodamientos de compresor de aire acondicionado</option>
-                    <option>Rodamientos de dirección</option>
-                    <option>Rodamientos de bomba de agua.</option>
+                    <option value="Rodamientos de rueda" {{ $vehiculo->tipo_rodamiento == 'Rodamientos de rueda' ? 'selected' : '' }}>Rodamientos de rueda</option>
+                    <option value="Rodamientos de transmisión" {{ $vehiculo->tipo_rodamiento == 'Rodamientos de transmisión' ? 'selected' : '' }}>Rodamientos de transmisión</option>
+                    <option value="Rodamientos de motor" {{ $vehiculo->tipo_rodamiento == 'Rodamientos de motor' ? 'selected' : '' }}>Rodamientos de motor</option>
+                    <option value="Rodamientos de compresor de aire acondicionado" {{ $vehiculo->tipo_rodamiento == 'Rodamientos de compresor de aire acondicionado' ? 'selected' : '' }}>Rodamientos de compresor de aire acondicionado</option>
+                    <option value="Rodamientos de dirección" {{ $vehiculo->tipo_rodamiento == 'Rodamientos de dirección' ? 'selected' : '' }}>Rodamientos de dirección</option>
+                    <option value="Rodamientos de bomba de agua." {{ $vehiculo->tipo_rodamiento == 'Rodamientos de bomba de agua.' ? 'selected' : '' }}>Rodamientos de bomba de agua.</option>
                 </select>
             </div>
             <div class="col-2">
