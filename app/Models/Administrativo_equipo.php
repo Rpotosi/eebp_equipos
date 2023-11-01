@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Distribucion extends Model
+class Administrativo_equipo extends Model
 {
     use HasFactory;
-    protected $table = 'create_equipo_dis';
+    protected $table = 'create_equipo_admin';
     protected $primaryKey = 'id_equipo';
     protected $fillable = [
 
