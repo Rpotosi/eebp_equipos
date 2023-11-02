@@ -297,48 +297,48 @@
                 <label for="suspencion_delantera" class="form-label">
                     Suspención Delantera
                 </label>
-                <select id="clase" class="custom-select" id="suspencion_delantera" placeholder="" name="suspencion_delantera" required>
+                <select id="clase" class="custom-select" id="suspencion_delantera" placeholder="" name="suspencion_delantera" disabled>
                     <option selected></option>
-                    <option>Suspención Rigidas</option>
-                    <option>Suspención Dependientes</option>
+                    <option value="Suspención Rigidas" {{ $vehiculo->suspencion_delantera == 'Suspención Rigidas' ? 'selected' : '' }}>Suspención Rigidas</option>
+                    <option value="Suspención Dependientes" {{ $vehiculo->suspencion_delantera == 'Suspención Dependientes' ? 'selected' : '' }}>Suspención Dependientes</option>
                 </select>
             </div>
             <div class="col-2">
                 <label for="suspension_trasera" class="form-label">
                     Suspención Trasera
                 </label>
-                <select id="clase" class="custom-select" id="suspension_trasera" placeholder="" name="suspension_trasera" required>
+                <select id="clase" class="custom-select" id="suspension_trasera" placeholder="" name="suspension_trasera" disabled>
                     <option selected></option>
-                    <option>Suspención Rigidas</option>
-                    <option>Suspención Dependientes</option>
+                    <option value="Suspención Rigidas" {{ $vehiculo->suspension_trasera == 'Suspención Rigidas' ? 'selected' : '' }}>Suspención Rigidas</option>
+                    <option value="Suspención Dependientes" {{ $vehiculo->suspencion_trasera == 'Suspención Dependientes' ? 'selected' : '' }}>Suspención Dependientes</option>
                 </select>
             </div>
             <div class="col-2">
                 <label for="numero_llantas" class="form-label">
                     Numero LLantas
                 </label>
-                <select id="clase" class="custom-select" id="numero_llantas" placeholder="" name="numero_llantas" required>
+                <select id="clase" class="custom-select" id="numero_llantas" placeholder="" name="numero_llantas" disabled>
                     <option selected></option>
-                    <option>6</option>
-                    <option>5</option>
-                    <option>2</option>
+                    <option value="6" {{ $vehiculo->numero_llantas == '6' ? 'selected' : '' }}>6</option>
+                    <option value="5" {{ $vehiculo->numero_llantas == '5' ? 'selected' : '' }}>5</option>
+                    <option value="2" {{ $vehiculo->numero_llantas == '2' ? 'selected' : '' }}>2</option>
                 </select>
             </div>
             <div class="col-2">
                 <label for="dimension_rines" class="form-label">
                     Dinemensión de rines
                 </label>
-                <select id="clase" class="custom-select" id="dimension_rines" placeholder="" name="dimension_rines" required>
+                <select id="clase" class="custom-select" id="dimension_rines" placeholder="" name="dimension_rines" disabled>
                     <option selected></option>
-                    <option>16 pulgadas</option>
-                    <option>17 pulgadas</option>
-                    <option>18 pulgadas</option>
-                    <option>19 pulgadas</option>
-                    <option>20 pulgadas</option>
-                    <option>21 pulgadas</option>
-                    <option>22 pulgadas</option>
-                    <option>23 pulgadas</option>
-                    <option>24 pulgadas</option>
+                    <option value="16 pulgadas" {{ $vehiculo->dimension_rines == '16 pulgadas' ? 'selected' : '' }}>16 pulgadas</option>
+                    <option value="17 pulgadas" {{ $vehiculo->dimension_rines == '17 pulgadas' ? 'selected' : '' }}>17 pulgadas</option>
+                    <option value="18 pulgadas" {{ $vehiculo->dimension_rines == '18 pulgadas' ? 'selected' : '' }}>18 pulgadas</option>
+                    <option value="19 pulgadas" {{ $vehiculo->dimension_rines == '19 pulgadas' ? 'selected' : '' }}>19 pulgadas</option>
+                    <option value="20 pulgadas" {{ $vehiculo->dimension_rines == '20 pulgadas' ? 'selected' : '' }}>20 pulgadas</option>
+                    <option value="21 pulgadas" {{ $vehiculo->dimension_rines == '21 pulgadas' ? 'selected' : '' }}>21 pulgadas</option>
+                    <option value="22 pulgadas" {{ $vehiculo->dimension_rines == '22 pulgadas' ? 'selected' : '' }}>22 pulgadas</option>
+                    <option value="23 pulgadas" {{ $vehiculo->dimension_rines == '23 pulgadas' ? 'selected' : '' }}>23 pulgadas</option>
+                    <option value="24 pulgadas" {{ $vehiculo->dimension_rines == '24 pulgadas' ? 'selected' : '' }}>24 pulgadas</option>
 
                 </select>
             </div>
@@ -346,17 +346,17 @@
                 <label for="material_rines" class="form-label">
                     Material de rines
                 </label>
-                <select id="clase" class="custom-select" id="material_rines" placeholder="" name="material_rines" required>
+                <select id="clase" class="custom-select" id="material_rines" placeholder="" name="material_rines" disabled>
                     <option selected></option>
-                    <option>Aleación de Aluminio</option>
-                    <option>Acero</option>
-                    <option>Magnesio</option>
-                    <option>Fibra de Carbono</option>
-                    <option>Híbridos o Compuestos</option>
-                    <option>Plástico Reforzado con Fibra (PRF)</option>
-                    <option>Acero Inoxidable</option>
-                    <option>Titanio</option>
-                    <option>Rines Forjados</option>
+                    <option value="Aleación de Aluminio" {{ $vehiculo->material_rines == 'Aleación de Aluminio' ? 'selected' : '' }}>Aleación de Aluminio</option>
+                    <option value="Acero" {{ $vehiculo->material_rines == 'Acero' ? 'selected' : '' }}>Acero</option>
+                    <option value="Magnesio" {{ $vehiculo->material_rines == 'Magnesio' ? 'selected' : '' }}>Magnesio</option>
+                    <option value="Fibra de Carbono" {{ $vehiculo->material_rines == 'Fibra de Carbono' ? 'selected' : '' }}>Fibra de Carbono</option>
+                    <option value="Híbridos o Compuestos" {{ $vehiculo->material_rines == 'Híbridos o Compuestos' ? 'selected' : '' }}>Híbridos o Compuestos</option>
+                    <option value="Plástico Reforzado con Fibra (PRF)" {{ $vehiculo->material_rines == 'Plástico Reforzado con Fibra (PRF)' ? 'selected' : '' }}>Plástico Reforzado con Fibra (PRF)</option>
+                    <option value="Acero Inoxidable" {{ $vehiculo->material_rines == 'Acero Inoxidable' ? 'selected' : '' }}>Acero Inoxidable</option>
+                    <option value="Titanio" {{ $vehiculo->material_rines == 'Titanio' ? 'selected' : '' }}>Titanio</option>
+                    <option value="Rines Forjados" {{ $vehiculo->material_rines == 'Rines Forjados' ? 'selected' : '' }}>Rines Forjados</option>
 
                 </select>
             </div>
@@ -370,22 +370,22 @@
                 <label for="tipo_frenos_delanteros" class="form-label">
                     Tipo de frenos delanteros
                 </label>
-                <select id="clase" class="custom-select" id="tipo_frenos_delanteros" placeholder="" name="tipo_frenos_delanteros" required>
+                <select id="clase" class="custom-select" id="tipo_frenos_delanteros" placeholder="" name="tipo_frenos_delanteros" disabled>
                     <option selected></option>
-                    <option>Disco</option>
-                    <option>Tambor</option>
-                    <option>A.B.S</option>
+                    <option value="Disco" {{ $vehiculo->tipo_frenos_delanteros == 'Disco' ? 'selected' : '' }}>Disco</option>
+                    <option value="Tambor" {{ $vehiculo->tipo_frenos_delanteros == 'Tambor' ? 'selected' : '' }}>Tambor</option>
+                    <option value="A.B.S" {{ $vehiculo->tipo_frenos_delanteros == 'A.B.S' ? 'selected' : '' }}>A.B.S</option>
                 </select>
             </div>
             <div class="col-4">
                 <label for="tipo_frenos_traseros" class="form-label">
                     Tipo de frenos traseros
                 </label>
-                <select id="clase" class="custom-select" id="tipo_frenos_traseros" placeholder="" name="tipo_frenos_traseros" required>
+                <select id="clase" class="custom-select" id="tipo_frenos_traseros" placeholder="" name="tipo_frenos_traseros" disabled>
                     <option selected></option>
-                    <option>Disco</option>
-                    <option>Tambor</option>
-                    <option>A.B.S</option>
+                    <option value="Disco" {{ $vehiculo->tipo_frenos_delanteros == 'Disco' ? 'selected' : '' }}>Disco</option>
+                    <option value="Tambor" {{ $vehiculo->tipo_frenos_delanteros == 'Tambor' ? 'selected' : '' }}>Tambor</option>
+                    <option value="A.B.S" {{ $vehiculo->tipo_frenos_delanteros == 'A.B.S' ? 'selected' : '' }}>A.B.S</option>
                 </select>
             </div>
             <div class="col-12">
@@ -398,28 +398,28 @@
                 <label for="numero_serie" class="form-label">
                     Numero Serie
                 </label>
-                <input type="text" class="form-control" id="numero_serie" placeholder="" name="numero_serie" required/>
+                <input type="text" class="form-control" id="numero_serie" placeholder="" name="numero_serie" value="{{ $vehiculo->numero_serie }}" disabled/>
             </div>
             <div class="col-4">
                 <label for="numero_ventanas" class="form-label">
                     Numero de ventanas
                 </label>
-                <select id="clase" class="custom-select" id="numero_ventanas" placeholder="" name="numero_ventanas" required>
+                <select id="clase" class="custom-select" id="numero_ventanas" placeholder="" name="numero_ventanas" disabled>
                     <option selected></option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>6</option>
-                    <option>N/A</option>
+                    <option value="3" {{ $vehiculo->numero_ventanas == '3' ? 'selected' : '' }}>3</option>
+                    <option value="4" {{ $vehiculo->numero_ventanas == '4' ? 'selected' : '' }}>4</option>
+                    <option value="6" {{ $vehiculo->numero_ventanas == '6' ? 'selected' : '' }}>6</option>
+                    <option value="N/A" {{ $vehiculo->numero_ventanas == 'N/A' ? 'selected' : '' }}>N/A</option>
                 </select>
             </div>
             <div class="col-4">
                 <label for="capacidad_carga" class="form-label">
                     Capacidad de carga | Pasajeros
                 </label>
-                <select id="clase" class="custom-select" id="capacidad_carga" placeholder="" name="capacidad_carga" required>
+                <select id="clase" class="custom-select" id="capacidad_carga" placeholder="" name="capacidad_carga" disabled>
                     <option selected></option>
-                    <option>2</option>
-                    <option>5</option>
+                    <option value="2" {{ $vehiculo->capacidad_carga == '2' ? 'selected' : '' }}>2</option>
+                    <option value="5" {{ $vehiculo->capacidad_carga == '5' ? 'selected' : '' }}>5</option>
                 </select>
             </div>
             <div class="col-12">
@@ -430,41 +430,60 @@
             </div>
             <div class="col-md-4">
                 <div class="dotacion-container">
-                    <h6>Selecione dotacion del vehiculo</h6>
-                    <input type="checkbox" name="dotacion[]" value="llaves">
+                    <h6>Selecione</h6>
+    
+                    @php
+                    $selectedDotacion = explode(',', $vehiculo->dotacion);
+                    @endphp
+    
+    
+                    <input type="checkbox" id="examen_a" name="dotacion[]" value="llaves" {{ in_array('llaves', $selectedDotacion) ? 'checked disabled' : '' }} disabled>
                     <label for="examen_a">Llaves</label><br>
-                    <input type="checkbox" name="dotacion[]" value="destornilladores">
+    
+                    <input type="checkbox" id="examen_b" name="dotacion[]" value="destornilladores" {{ in_array('destornilladores', $selectedDotacion) ? 'checked disabled' : '' }} disabled>
                     <label for="examen_b">Destornilladores</label><br>
-                    <input type="checkbox" name="dotacion[]" value="gato">
+    
+                    <input type="checkbox" id="examen_c" name="dotacion[]" value="gato" {{ in_array('gato', $selectedDotacion) ? 'checked disabled' : '' }} disabled>
                     <label for="examen_c">Gato</label><br>
-                    <input type="checkbox" name="dotacion[]" value="alicates">
-                    <label for="examen_a">Aplicates</label><br>
-                    <input type="checkbox" name="dotacion[]" value="extintor">
-                    <label for="examen_b">Extintor</label><br>
-                    <input type="checkbox" name="edotacion[]" value="tacos">
-                    <label for="examen_c">Tacos</label><br>
-                    <input type="checkbox" name="dotacion[]" value="linterna">
-                    <label for="examen_c">Linterna</label>
+    
+                    <input type="checkbox" id="examen_d" name="dotacion[]" value="alicates" {{ in_array('alicates', $selectedDotacion) ? 'checked disabled' : '' }} disabled>
+                    <label for="examen_d">Alicates</label><br>
+    
+                    <input type="checkbox" id="examen_e" name="dotacion[]" value="extintor" {{ in_array('extintor', $selectedDotacion) ? 'checked disabled' : '' }} disabled>
+                    <label for="examen_e">Extintor</label><br>
+    
+                    <input type="checkbox" id="examen_f" name="dotacion[]" value="tacos" {{ in_array('tacos', $selectedDotacion) ? 'checked disabled' : '' }} disabled>
+                    <label for="examen_f">Tacos</label><br>
+    
+                    <input type="checkbox" id="examen_g" name="dotacion[]" value="linterna" {{ in_array('linterna', $selectedDotacion) ? 'checked disabled' : '' }} disabled>
+                    <label for="examen_g">Linterna</label><br>
+    
+    
                 </div>
-            </div>
+            </div> 
 
             <div class="col-md-4">
-                <div class="equipo-container">
-                    <h6>Selecione Equipos de carretera</h6>
-                    <input type="checkbox" name="equipo_carretera[]" value="conos">
+                <div class="equipo-container" >
+                    <h6>Selecione</h6>
+    
+                    @php
+                    $selectedDotacion = explode(',', $vehiculo->equipo_carretera);
+                    @endphp
+    
+                    <input type="checkbox" name="equipo_carretera[]" value="conos" {{ in_array('conos', $selectedDotacion) ? 'checked disabled' : '' }} disabled>
                     <label for="examen_a">Conos</label><br>
-                    <input type="checkbox" name="equipo_carretera[]" value="pendones_viales">
+                    <input type="checkbox" name="equipo_carretera[]" value="pendones_viales" {{ in_array('pendones_viales', $selectedDotacion) ? 'checked disabled' : '' }} disabled>
                     <label for="examen_b">Pendones viales</label><br>
-                    <input type="checkbox" name="equipo_carretera[]" value="baston_luminoso">
+                    <input type="checkbox" name="equipo_carretera[]" value="baston_luminoso" {{ in_array('baston_luminoso', $selectedDotacion) ? 'checked disabled' : '' }} disabled>
                     <label for="examen_c">Baston Luminoso</label><br>
-                    <input type="checkbox" name="equipo_carretera[]" value="llanta_emergencia">
+                    <input type="checkbox" name="equipo_carretera[]" value="llanta_emergencia" {{ in_array('llanta_emergencia', $selectedDotacion) ? 'checked disabled' : '' }} disabled>
                     <label for="examen_a">Llanta de emergencia</label><br>
-                    <input type="checkbox" name="equipo_carretera[]" value="cruceta">
+                    <input type="checkbox" name="equipo_carretera[]" value="cruceta" {{ in_array('cruceta', $selectedDotacion) ? 'checked disabled' : '' }} disabled>
                     <label for="examen_b">Cruceta</label><br>
-                    <input type="checkbox" name="equipo_carretera[]" value="botiquin">
+                    <input type="checkbox" name="equipo_carretera[]" value="botiquin" {{ in_array('botiquin', $selectedDotacion) ? 'checked disabled' : '' }} disabled>
                     <label for="examen_c">Botiquin</label><br>
                   </div>
-            </div>
+            </div> 
             
             <!--
             <div class="col-12">
