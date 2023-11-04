@@ -325,20 +325,20 @@
                 </select>
             </div>
             <div class="col-2">
-                <label for="dimension_rines" class="form-label">
-                    Dinemensión de rines
+                <label for="imensiones_rines" class="form-label">
+                    Dimensión de rines
                 </label>
-                <select id="clase" class="custom-select" id="dimension_rines" placeholder="" name="dimension_rines" disabled>
+                <select id="clase" class="custom-select" id="dimensiones_rines" placeholder="" name="dimensiones_rines" disabled>
                     <option selected></option>
-                    <option value="16 pulgadas" {{ $vehiculo->dimension_rines == '16 pulgadas' ? 'selected' : '' }}>16 pulgadas</option>
-                    <option value="17 pulgadas" {{ $vehiculo->dimension_rines == '17 pulgadas' ? 'selected' : '' }}>17 pulgadas</option>
-                    <option value="18 pulgadas" {{ $vehiculo->dimension_rines == '18 pulgadas' ? 'selected' : '' }}>18 pulgadas</option>
-                    <option value="19 pulgadas" {{ $vehiculo->dimension_rines == '19 pulgadas' ? 'selected' : '' }}>19 pulgadas</option>
-                    <option value="20 pulgadas" {{ $vehiculo->dimension_rines == '20 pulgadas' ? 'selected' : '' }}>20 pulgadas</option>
-                    <option value="21 pulgadas" {{ $vehiculo->dimension_rines == '21 pulgadas' ? 'selected' : '' }}>21 pulgadas</option>
-                    <option value="22 pulgadas" {{ $vehiculo->dimension_rines == '22 pulgadas' ? 'selected' : '' }}>22 pulgadas</option>
-                    <option value="23 pulgadas" {{ $vehiculo->dimension_rines == '23 pulgadas' ? 'selected' : '' }}>23 pulgadas</option>
-                    <option value="24 pulgadas" {{ $vehiculo->dimension_rines == '24 pulgadas' ? 'selected' : '' }}>24 pulgadas</option>
+                    <option value="16 pulgadas" {{ $vehiculo->dimensiones_rines == '16 pulgadas' ? 'selected' : '' }}>16 pulgadas</option>
+                    <option value="17 pulgadas" {{ $vehiculo->dimensiones_rines == '17 pulgadas' ? 'selected' : '' }}>17 pulgadas</option>
+                    <option value="18 pulgadas" {{ $vehiculo->dimensiones_rines == '18 pulgadas' ? 'selected' : '' }}>18 pulgadas</option>
+                    <option value="19 pulgadas" {{ $vehiculo->dimensiones_rines == '19 pulgadas' ? 'selected' : '' }}>19 pulgadas</option>
+                    <option value="20 pulgadas" {{ $vehiculo->dimensiones_rines == '20 pulgadas' ? 'selected' : '' }}>20 pulgadas</option>
+                    <option value="21 pulgadas" {{ $vehiculo->dimensiones_rines == '21 pulgadas' ? 'selected' : '' }}>21 pulgadas</option>
+                    <option value="22 pulgadas" {{ $vehiculo->dimensiones_rines == '22 pulgadas' ? 'selected' : '' }}>22 pulgadas</option>
+                    <option value="23 pulgadas" {{ $vehiculo->dimensiones_rines == '23 pulgadas' ? 'selected' : '' }}>23 pulgadas</option>
+                    <option value="24 pulgadas" {{ $vehiculo->dimensiones_rines == '24 pulgadas' ? 'selected' : '' }}>24 pulgadas</option>
 
                 </select>
             </div>

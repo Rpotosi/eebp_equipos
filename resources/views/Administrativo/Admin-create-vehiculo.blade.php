@@ -324,10 +324,10 @@
                 </select>
             </div>
             <div class="col-2">
-                <label for="dimension_rines" class="form-label">
-                    Dinemensión de rines
+                <label for="dimensiones_rines" class="form-label">
+                    Dimensión de rines
                 </label>
-                <select id="clase" class="custom-select" id="dimension_rines" placeholder="" name="dimension_rines" required>
+                <select id="clase" class="custom-select" id="dimensiones_rines" placeholder="" name="dimensiones_rines" required>
                     <option selected></option>
                     <option>16 pulgadas</option>
                     <option>17 pulgadas</option>
