@@ -485,7 +485,7 @@
                   </div>
             </div> 
             
-            <!--
+            
             <div class="col-12">
                 <label for="text" class="form-label">
                     <br>
@@ -527,14 +527,23 @@
                 <input type="text" class="form-control" id="responsable" placeholder="" name="responsable" required/>
                
             </div>
-            <div class="col-2" style="text-align: center;">
+            <div class="col-1" style="text-align: center;">
                 <label for="precio" class="form-label">
                     Precio
                 </label>
                 <input type="text" class="form-control" id="precio" placeholder="" name="precio" required/>
               
             </div>
-            --->
+            <div class="col-1" style="text-align: center;">
+                <label for="precio" class="form-label">
+                    Anexos
+                </label><br>
+                <button type="button" id="btnAbrirModal" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                </button>
+              
+            </div>
+            
             <div class="col-12">
             </div>
             <br>
