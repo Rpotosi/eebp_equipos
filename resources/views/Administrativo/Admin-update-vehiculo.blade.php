@@ -75,11 +75,9 @@
         </script>
     @endif
     <div class="form-container">
-        <form id="formulario" action="{{ route('vehiculo.create_vehiculo') }}" method="POST" enctype="multipart/form-data" class="row g-3">
+        <form id="formulario" class="row g-3">
             <!-- esta linea requiere ruta Route::post('guias/create', 'store')->name(('guias.create'));  definida el routes guia-->
             
-            @csrf
-            @method("PATCH")
 
 
             <div class="col-12">
@@ -486,64 +484,71 @@
             </div> 
             
             
+          
+        </form> 
+
+        <form id="formulario" class="row g-3" method="POST" action="{{ route('vehiculo.mantenimiento_vehiculo', ['id_vehiculo' => $vehiculo->id_vehiculo]) }}" >
+            @csrf
+
+            <div class="col-12">
+                <label for="text" class="form-label">
+                    🔹INFORMACIÓN GENERAL:
+                </label>
+            </div>
+
+            <!-- Resto de los campos relacionados a la información del vehículo -->
+
             <div class="col-12">
                 <label for="text" class="form-label">
                     <br>
-                    7.HISTORAIL DE MANTENIMIENTO:
+                    7. HISTORIAL DE MANTENIMIENTO:
                 </label>
             </div>
             <div class="col-2" style="text-align: center;">
                 <label for="fecha_mantenimiento" class="form-label">
                     Fecha mantenimiento
                 </label>
-                <input type="date" class="form-control" id="fecha_mantenimiento" placeholder="" name="fecha_mantenimiento" required/>
-                
+                <input type="date" class="form-control" id="fecha_mantenimiento" name="fecha_mantenimiento" required>
             </div>
             <div class="col-2" style="text-align: center;">
                 <label for="descripcion" class="form-label">
-                    Descripcion
+                    Descripción
                 </label>
-                <input type="text" class="form-control" id="descripcion" placeholder="" name="descripcion" required/>
-                
+                <input type="text" class="form-control" id="descripcion" name="descripcion" required>
             </div>
-            <div class="col-2"style="text-align: center;">
+            <div class="col-2" style="text-align: center;">
                 <label for="averia_dano" class="form-label">
-                    Averia/ Daño
+                    Avería/ Daño
                 </label>
-                <input type="text" class="form-control" id="averia_dano" placeholder="" name="averia_dano" required/>
-               
+                <input type="text" class="form-control" id="averia_dano" name="averia_dano" required>
             </div>
-            <div class="col-2"style="text-align: center;">
+            <div class="col-2" style="text-align: center;">
                 <label for="referencia_repuesto" class="form-label">
-                    Referencia Respuesto
+                    Referencia Repuesto
                 </label>
-                <input type="text" class="form-control" id="referencia_repuesto" placeholder="" name="referencia_repuesto" required/>
-              
+                <input type="text" class="form-control" id="referencia_repuesto" name="referencia_repuesto" required>
             </div>
             <div class="col-2" style="text-align: center;">
                 <label for="responsable" class="form-label">
                     Responsable
                 </label>
-                <input type="text" class="form-control" id="responsable" placeholder="" name="responsable" required/>
-               
+                <input type="text" class="form-control" id="responsable" name="responsable" required>
             </div>
             <div class="col-1" style="text-align: center;">
                 <label for="precio" class="form-label">
                     Precio
                 </label>
-                <input type="text" class="form-control" id="precio" placeholder="" name="precio" required/>
-              
+                <input type="text" class="form-control" id="precio" name="precio" required>
             </div>
             <div class="col-1" style="text-align: center;">
-                <label for="precio" class="form-label">
+                <label for="anexos" class="form-label">
                     Anexos
-                </label><br>
+                </label>
                 <button type="button" id="btnAbrirModal" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <i class="fas fa-cloud-upload-alt"></i>
                 </button>
-              
             </div>
-            
+
             <div class="col-12">
             </div>
             <br>
@@ -551,6 +556,7 @@
                 <button type="submit" class="btn btn-dark" id="guardar-btn">Guardar</button> 
             </div>
         </form>
+    </div>
 
 @stop
 
