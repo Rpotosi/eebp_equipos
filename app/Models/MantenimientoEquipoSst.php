@@ -15,13 +15,13 @@ class MantenimientoEquipoSst extends Model
 
     protected $fillable = [
         'id_equipo_fk',
-        'fecha',
-        'descripción',
-        'tipo_procedimiento',
+        'fecha_mantenimiento',
+        'descripcion',
+        'averia_dano',
+        'referencia_repuesto',
         'responsable',
-        'laboratorio_empresa',
-        'observaciones',
-        'archivo',
+        'precio',
+        'anexos',
     ];
 
     // Define la relación con el equipo SST

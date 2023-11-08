@@ -16,13 +16,13 @@ return new class extends Migration
         Schema::create('create_mantenimiento_equipo_admin', function (Blueprint $table) {
             $table->integer('id', true);
             $table->bigInteger('id_equipo_fk')->nullable()->index('id_equipo_fk');
-            $table->date('fecha')->nullable();
-            $table->text('descripción')->nullable();
-            $table->string('tipo_procedimiento', 100)->nullable();
+            $table->date('fecha_mantenimiento')->nullable();
+            $table->text('descripcion')->nullable();
+            $table->string('averia_dano', 100)->nullable();
+            $table->string('referencia_repuesto', 100)->nullable();
             $table->string('responsable', 100)->nullable();
-            $table->string('laboratorio_empresa', 100)->nullable();
-            $table->text('observaciones')->nullable();
-            $table->string('archivo')->nullable();
+            $table->string('precio', 100)->nullable();
+            $table->string('anexos')->nullable();
         });
     }
 

@@ -11,15 +11,17 @@ class MantenimientoVehiculo extends Model
 
     protected $table = 'create_mantenimiento_vehiculo';
 
+    public $timestamps = false;
+
     protected $fillable = [
         'id_vehiculo_fk',
-        'fecha',
-        'descripción',
-        'tipo_procedimiento',
+        'fecha_mantenimiento',
+        'descripcion',
+        'averia_dano',
+        'referencia_repuesto',
         'responsable',
-        'laboratorio_empresa',
-        'observaciones',
-        'archivo',
+        'precio',
+        'anexos',
     ];
 
     // Define la relación con el modelo de Vehículo

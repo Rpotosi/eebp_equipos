@@ -4,8 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Administrativo extends Model
+class Administrativo_vehiculo extends Model
 {
     use HasFactory;
     protected $table = 'create_vehiculo';
@@ -49,4 +50,9 @@ class Administrativo extends Model
 
 
     ];
+
+    public function mantenimientos(): HasMany
+    {
+        return $this->hasMany(MantenimientoVehiculo::class, 'id_vehiculo_fk', 'id_vehiculo');
+    }
 }
