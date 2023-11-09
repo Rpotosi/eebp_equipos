@@ -226,6 +226,21 @@ class AdministrativoController extends Controller
         return view('Administrativo.Admin-update-vehiculo', compact('vehiculo'));
     }
 
+    public function vehiculos_CV(Request $request, $id_vehiculo)
+    {
+        // Busca la orden correspondiente al id proporcionado
+        $vehiculo = Administrativo_vehiculo::find($id_vehiculo);
+        // Trae todos los registros de la tabla mantenimientoVehiculo
+        $query = MantenimientoVehiculo::query(); 
+
+        // Ejecutamos la consulta y obtenemos los pedidos filtrados
+        $mantenimientos = $query->paginate(3);
+
+        // Devuelve la vista con los datos 
+        return view('Administrativo.Admin-show-CV', compact('vehiculo', 'mantenimientos'));
+
+    }
+
     /**
      * Update the specified resource in storage.
      */

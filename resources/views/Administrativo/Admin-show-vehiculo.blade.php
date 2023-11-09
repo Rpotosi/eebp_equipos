@@ -130,7 +130,7 @@
                         </td>
 
                         <td>
-                            <a href="{{ url('/update-vehiculo')}}">
+                            <a href="{{ route('show-vehiculo-CV_vehiculos_CV', $vehiculo)}}">
                                 <button class="btn btn-warning" onclick="Editar"><i class="fas fa-edit"></i></button>
                             </a>    
                         </td>

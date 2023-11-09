@@ -10,7 +10,7 @@ class MantenimientoVehiculo extends Model
     use HasFactory;
 
     protected $table = 'create_mantenimiento_vehiculo';
-
+    protected $primaryKey = 'id';
     public $timestamps = false;
 
     protected $fillable = [

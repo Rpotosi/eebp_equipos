@@ -10,7 +10,7 @@ class MantenimientoEquipoAdmin extends Model
     use HasFactory;
 
     protected $table = 'create_mantenimiento_equipo_admin';
-
+    protected $primaryKey = 'id';
     protected $fillable = [
         'id_equipo_fk',
         'fecha_mantenimiento',
