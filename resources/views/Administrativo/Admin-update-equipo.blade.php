@@ -508,12 +508,92 @@
                 <label for="fecha_fin" class="form-label">
                     Fecha de Terminación
                 </label>
-                <input type="date" class="form-control" id="fecha_fin" placeholder="" name="fecha_fin" required/>
+                <input type="date" class="form-control" id="fecha_fin" placeholder="" name="fecha_fin" required/><br>
             </div> 
             
             <div class="col-12">
-   
+                <h3 style="text-align: center">Agregar Mantenimientos</h3>
             </div>
+
+
+            <div class="col-2" style="text-align: center;">
+                <label for="fecha_mantenimiento" class="form-label">
+                    Fecha mantenimiento
+                </label>
+                <input type="date" class="form-control" id="fecha_mantenimiento" placeholder="" name="fecha_mantenimiento" required/>
+                
+            </div>
+            <div class="col-2" style="text-align: center;">
+                <label for="descripcion" class="form-label">
+                    Descripcion
+                </label>
+                <input type="text" class="form-control" id="descripcion" placeholder="" name="descripcion" required/>
+                
+            </div>
+            <div class="col-2"style="text-align: center;">
+                <label for="averia_dano" class="form-label">
+                    Averia/ Daño
+                </label>
+                <input type="text" class="form-control" id="averia_dano" placeholder="" name="averia_dano" required/>
+               
+            </div>
+            <div class="col-2"style="text-align: center;">
+                <label for="referencia_repuesto" class="form-label">
+                    Referencia Respuesto
+                </label>
+                <input type="text" class="form-control" id="referencia_repuesto" placeholder="" name="referencia_repuesto" required/>
+              
+            </div>
+            <div class="col-2" style="text-align: center;">
+                <label for="responsable" class="form-label">
+                    Responsable
+                </label>
+                <input type="text" class="form-control" id="responsable" placeholder="" name="responsable" required/>
+               
+            </div>
+            <div class="col-2" style="text-align: center;">
+                <label for="precio" class="form-label">
+                    Precio
+                </label>
+                <input type="text" class="form-control" id="precio" placeholder="" name="precio" required/>
+              
+            </div>
+
+
+            <div class="col-12">
+   
+            </div> <br>
+            <table class="table">
+                <caption>List of users</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                </tbody>
+              </table>
 
             <br>
             <div class="box-footer" style="margin-bottom: 25px;">

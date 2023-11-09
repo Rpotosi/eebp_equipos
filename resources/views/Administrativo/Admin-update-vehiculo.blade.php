@@ -487,17 +487,17 @@
           
         </form> 
 
-        <form id="formulario" class="row g-3" method="POST" action="{{ route('vehiculo.mantenimiento_vehiculo', ['id_vehiculo' => $vehiculo->id_vehiculo]) }}" >
+        <form id="formulario" class="row g-3" method="POST" action="{{ route('vehiculo.mantenimiento_vehiculo', ['id_vehiculo' => $vehiculo->id_vehiculo]) }}" enctype="multipart/form-data">
             @csrf
-
+        
             <div class="col-12">
                 <label for="text" class="form-label">
                     🔹INFORMACIÓN GENERAL:
                 </label>
             </div>
-
+        
             <!-- Resto de los campos relacionados a la información del vehículo -->
-
+        
             <div class="col-12">
                 <label for="text" class="form-label">
                     <br>
@@ -511,7 +511,7 @@
                 <input type="date" class="form-control" id="fecha_mantenimiento" name="fecha_mantenimiento" required>
             </div>
             <div class="col-2" style="text-align: center;">
-                <label for="descripcion" class="form-label">
+                <label for="descripcion" class a="form-label">
                     Descripción
                 </label>
                 <input type="text" class="form-control" id="descripcion" name="descripcion" required>
@@ -539,16 +539,15 @@
                     Precio
                 </label>
                 <input type="text" class="form-control" id="precio" name="precio" required>
-            </div>
-            <div class="col-1" style="text-align: center;">
-                <label for="anexos" class="form-label">
-                    Anexos
+            </div> 
+        
+            <div class="form-group col-md-4">
+                <label for="anexos">
+                    Cargar archivo
                 </label>
-                <button type="button" id="btnAbrirModal" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <i class="fas fa-cloud-upload-alt"></i>
-                </button>
+                <input type="file" name="anexos" class="form-control" id="anexos" required>
             </div>
-
+        
             <div class="col-12">
             </div>
             <br>
@@ -556,6 +555,7 @@
                 <button type="submit" class="btn btn-dark" id="guardar-btn">Guardar</button> 
             </div>
         </form>
+        
     </div>
 
 @stop

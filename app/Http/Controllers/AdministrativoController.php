@@ -10,6 +10,8 @@ use App\Models\MantenimientoVehiculo;
 use App\Models\MantenimientoEquipoAdmin;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Storage;
+
 
 class AdministrativoController extends Controller
 {
@@ -40,12 +42,12 @@ class AdministrativoController extends Controller
             'referencia_repuesto' => 'required|string',
             'responsable' => 'required|string',
             'precio' => 'required|numeric',
-            // Agrega reglas de validación adicionales según tus necesidades
+            'anexos' => 'required|file', // Validación adicional para el archivo adjunto
         ]);
-
+    
         // Obtén el vehículo por su ID
         $vehiculo = Administrativo_vehiculo::findOrFail($id);
-
+    
         // Crea un nuevo mantenimiento
         $mantenimiento = new MantenimientoVehiculo([
             'fecha_mantenimiento' => $request->input('fecha_mantenimiento'),
@@ -56,19 +58,24 @@ class AdministrativoController extends Controller
             'precio' => $request->input('precio'),
             // Completa con otros campos del mantenimiento según tu base de datos
         ]);
-
+    
+        // Lógica para cargar el archivo adjunto
+        $file = $request->file('anexos');
+        $extension = $file->getClientOriginalExtension();
+        $uniqueFileName = uniqid() . '.' . $extension;
+        $path = $file->storeAs('public/mantenimientos/anexos', $uniqueFileName);
+    
+        // Almacena la URL del archivo en la base de datos
+        $url = '/storage/mantenimientos/anexos/' . $uniqueFileName;
+        $mantenimiento->anexos = $url;
+    
         // Asocia el mantenimiento al vehículo
         $vehiculo->mantenimientos()->save($mantenimiento);
-
-        // Sube archivos adjuntos si es necesario
-        if ($request->hasFile('anexos')) {
-            // Procesa y almacena los archivos aquí
-        }
-
-        // Redirecciona o muestra un mensaje de éxito
+    
+        // Redirecciona con una alerta de éxito
         return redirect()->route('show.show', $id)->with('success', 'Mantenimiento agregado exitosamente.');
     }
-
+    
     /**
      * Store a newly created resource in storage.
      */
@@ -115,8 +122,7 @@ class AdministrativoController extends Controller
         $equipo_carretera = $request->input('equipo_carretera');
         // Convertir el arreglo a una cadena separada por comas
         $equipo_carretera = implode(",", $equipo_carretera);
-        $vehiculo->equipo_carretera = $equipo_carretera;
-      
+        $vehiculo->equipo_carretera = $equipo_carretera;     
          
         // Guardar la orden en la base de datos
         $vehiculo->save();    
@@ -181,6 +187,7 @@ class AdministrativoController extends Controller
          $equipo->garantia = $request->garantias;
          $equipo->fecha_inicio = $request->fecha_inicio;
          $equipo->fecha_fin =$request->fecha_fin;
+
 
         $equipo->save();    
         // Muestra un mensaje de éxito en la sesión
