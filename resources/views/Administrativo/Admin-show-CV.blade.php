@@ -17,6 +17,18 @@
             height: 570px; /* Puedes ajustar el tamaño según tus necesidades */
             overflow: auto; /* Agrega una barra de desplazamiento si el contenido es demasiado largo */
         }
+
+                /* Estilos para el botón moderno */
+        .boton-moderno {
+            padding: 10px 20px; /* Ajusta el relleno según tus necesidades */
+            font-size: 16px;   /* Ajusta el tamaño de fuente según tus necesidades */
+            border: none;
+            background-color: #4CAF50; /* Color de fondo del botón */
+            color: white;              /* Color del texto del botón */
+            border-radius: 5px;        /* Radio de borde para esquinas redondeadas */
+            cursor: pointer;
+        }
+
         .dotacion-container {
             margin-top: 5px;
             border: 1px solid #ccc;
@@ -535,8 +547,14 @@
                         </td>
   
                         <td>
-                            {{$mantenimiento->anexos}}
-                        </td> 
+                            @if ($mantenimiento->anexos)
+                                <a href="{{ asset(env('FILE_BASE_URL') . $mantenimiento->anexos) }}">
+                                    <button class="boton-moderno"><i class="fas fa-eye"></i></button>
+                                </a>   
+                            @else
+                                <span class="text-muted">Sin Orden Física</span>
+                            @endif 
+                        </td>
                                                   
                     </tr>                    
                 @endforeach

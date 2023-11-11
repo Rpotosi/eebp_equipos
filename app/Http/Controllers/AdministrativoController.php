@@ -209,7 +209,7 @@ class AdministrativoController extends Controller
         $query = Administrativo_vehiculo::query(); 
 
         // Ejecutamos la consulta y obtenemos los pedidos filtrados
-        $vehiculos = $query->paginate(3);
+        $vehiculos = $query->paginate();
 
         return view ('Administrativo.Admin-show-vehiculo', compact('vehiculos'));
     }
@@ -234,7 +234,7 @@ class AdministrativoController extends Controller
         $query = MantenimientoVehiculo::query(); 
 
         // Ejecutamos la consulta y obtenemos los pedidos filtrados
-        $mantenimientos = $query->paginate(3);
+        $mantenimientos = $query->paginate();
 
         // Devuelve la vista con los datos 
         return view('Administrativo.Admin-show-CV', compact('vehiculo', 'mantenimientos'));
@@ -266,7 +266,7 @@ class AdministrativoController extends Controller
         $query = Distribucion::query();   
 
         // Ejecutamos la consulta y obtenemos los pedidos filtrados
-        $equipos = $query->paginate(3);
+        $equipos = $query->paginate();
 
         return view ('Administrativo.Admin-show-equipo', compact('equipos'));
     }

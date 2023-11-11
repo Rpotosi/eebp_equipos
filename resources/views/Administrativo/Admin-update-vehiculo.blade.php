@@ -545,7 +545,7 @@
                 <label for="anexos">
                     Cargar archivo
                 </label>
-                <input type="file" name="anexos" class="form-control" id="anexos" required>
+                <input type="file" name="anexos" class="form-control" id="anexos">
             </div>
         
             <div class="col-12">
