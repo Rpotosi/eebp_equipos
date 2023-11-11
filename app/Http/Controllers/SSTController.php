@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\SST;
 use App\Models\Administrativo;
+use App\Models\Administrativo_vehiculo;
 use App\Models\Distribucion;
 use Illuminate\Http\Request;
 
@@ -114,7 +115,7 @@ class SSTController extends Controller
     {
         
         // Busca la orden correspondiente al id proporcionado
-        $equipo = Administrativo::find($id_vehiculo);
+        $equipo = SST::find($id_vehiculo);
         // Devuelve la vista con los datos 
         return view('Administrativo.Admin-update-equipo', compact('equipo'));
     }

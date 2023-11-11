@@ -62,7 +62,7 @@
         </a>
         
         
-        <a href="{{route('distribucion_equipo.create_equipo')}}" > <!-- Route define and wep.php--->
+        <a href="{{route('equipo.equipo.create_equipo')}}" > <!-- Route define and wep.php--->
             <div class="card" style="text-align: center;">
                 <i id="icon_crear_orden" class="fas fa-cogs"></i>
                 <br>

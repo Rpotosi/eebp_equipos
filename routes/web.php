@@ -22,8 +22,9 @@ Route::controller(AdministrativoController::class)->group(function(){   //asi se
     Route::get('vehiculo', 'create_vehiculo')->name('vehiculo.create_vehiculo'); // vehiculo= nombre unico para URL || create_vehiculo= nombre del metodo del controlador || vehiculo.create_vehiculo= URL + Nombre del metodo controlador
     Route::post('vehiculo', 'store_vehiculo')->name('vehiculo.create_vehiculo'); 
 
-    Route::get('equipo', 'create_equipo')->name('equipo.create_equipo'); 
-    Route::post('equipo', 'store_equipo')->name('equipo.create_equipo'); 
+    Route::get('equipo', 'create_equipo','create_equipo')->name('equipo.equipo.create_equipo'); 
+    Route::post('equipo', 'store_equipo','store_equipo')->name('equipo.create_equipo'); 
+    Route::post('update-equipo/{id_equipo}', 'agregarMantenimiento_equipo')->name('equipo.mantenimiento_equipo');
     Route::get('show-equipo', 'show_equipo')->name('show-equipo.show_equipo');
     Route::get('update-equipo/{id_equipo}', 'edit_equipo')->name('equipo.edit_equipo');
 

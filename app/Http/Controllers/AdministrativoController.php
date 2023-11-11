@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Administrativo_vehiculo;
 use App\Models\Administrativo_equipo;
-use App\Models\Distribucion;
 use App\Models\MantenimientoVehiculo;
 use App\Models\MantenimientoEquipoAdmin;
 use Illuminate\Http\Request;
@@ -75,6 +74,51 @@ class AdministrativoController extends Controller
         // Redirecciona con una alerta de éxito
         return redirect()->route('show.show', $id)->with('success', 'Mantenimiento agregado exitosamente.');
     }
+
+
+    public function agregarMantenimiento_equipo(Request $request, $id)
+    {
+        // Valida los datos del formulario
+        $request->validate([
+            'fecha_mantenimiento' => 'required|date',
+            'descripcion' => 'required|string',
+            'averia_dano' => 'required|string',
+            'referencia_repuesto' => 'required|string',
+            'responsable' => 'required|string',
+            'precio' => 'required|numeric',
+            'anexos' => 'required|file', // Validación adicional para el archivo adjunto
+        ]);
+    
+        // Obtén el vehículo por su ID
+        $equipo = Administrativo_equipo::findOrFail($id);
+    
+        // Crea un nuevo mantenimiento
+        $mantenimiento = new MantenimientoEquipoAdmin([
+            'fecha_mantenimiento' => $request->input('fecha_mantenimiento'),
+            'descripcion' => $request->input('descripcion'),
+            'averia_dano' => $request->input('averia_dano'),
+            'referencia_repuesto' => $request->input('referencia_repuesto'),
+            'responsable' => $request->input('responsable'),
+            'precio' => $request->input('precio'),
+            // Completa con otros campos del mantenimiento según tu base de datos
+        ]);
+    
+        // Lógica para cargar el archivo adjunto
+        $file = $request->file('anexos');
+        $extension = $file->getClientOriginalExtension();
+        $uniqueFileName = uniqid() . '.' . $extension;
+        $path = $file->storeAs('public/mantenimientos/anexos', $uniqueFileName);
+    
+        // Almacena la URL del archivo en la base de datos
+        $url = '/storage/mantenimientos/anexos/' . $uniqueFileName;
+        $mantenimiento->anexos = $url;
+    
+        // Asocia el mantenimiento al vehículo
+        $equipo->mantenimientos()->save($mantenimiento);
+    
+        // Redirecciona con una alerta de éxito
+        return redirect()->route('show-equipo.show_equipo', $id)->with('success', 'Mantenimiento agregado exitosamente.');
+    }
     
     /**
      * Store a newly created resource in storage.
@@ -143,7 +187,7 @@ class AdministrativoController extends Controller
     public function store_equipo(Request $request)
     {     
         // Crea una nueva instancia del controlador Distribucion
-         $equipo = new Distribucion();
+         $equipo = new Administrativo_equipo();
        
          $equipo->nombre_equipo = $request->nombre_equipo;
          $equipo->ubicacion_equipo = $request->ubicacion_equipo;
@@ -263,7 +307,7 @@ class AdministrativoController extends Controller
     {
 
         // Crea una consulta del modelo Distribucion
-        $query = Distribucion::query();   
+        $query = Administrativo_equipo::query();   
 
         // Ejecutamos la consulta y obtenemos los pedidos filtrados
         $equipos = $query->paginate();
@@ -272,11 +316,12 @@ class AdministrativoController extends Controller
     }
 
 
-    public function edit_equipo($id_vehiculo)
+    public function edit_equipo($id_equipo)
     {
         
         // Busca la orden correspondiente al id proporcionado
-        $equipo = Administrativo_vehiculo::find($id_vehiculo);
+        $equipo = Administrativo_equipo::find($id_equipo);
+        
         // Devuelve la vista con los datos 
         return view('Administrativo.Admin-update-equipo', compact('equipo'));
     }
@@ -287,7 +332,7 @@ class AdministrativoController extends Controller
     public function update_equipo(Request $request, $id_equipo)
     {
         // Busca la orden correspondiente al id proporcionado
-        $equipo = Administrativo_vehiculo::find($id_equipo);
+        $equipo = Administrativo_equipo::find($id_equipo);
 
         // Obtener todos los datos enviados en la solicitud
         $input = $request->all();
@@ -295,7 +340,7 @@ class AdministrativoController extends Controller
         // Actualizar la orden con los nuevos datos proporcionados
         $equipo->update($input);
         // Redireccionar a la vista de la página Consultar Orden Empresa (Metodo index según la ruta del archivo web.php)
-        return redirect('show-vehiculo');
+        return redirect('show-equipo');
     }
 
 
