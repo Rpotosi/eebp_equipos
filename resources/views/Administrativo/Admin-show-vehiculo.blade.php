@@ -27,7 +27,7 @@
     </div>
 
 
-    <h1 class="aling-center" style="text-align:center"> Gestión de Vehiculos8888</h1>    
+    <h1 class="aling-center" style="text-align:center"> Gestión de Vehiculos</h1>    
 
 @stop
 
@@ -79,8 +79,8 @@
                     <th>cilindraje</th>
                     <th>fecha_soat</th>
                     <th>tecnomecanica</th>
-                    <th>Agregar mantenimiento</th>
-                    <th>Ver Hoja de Vida</th>
+                    <th class="text-center">Agregar mantenimiento</th>
+                    <th class="text-center">Ver Hoja de Vida</th>
                   
                 </tr>
             </thead>
@@ -127,17 +127,20 @@
                         </td> 
                     
 
-                        <td>
-                            <a href="{{ route('vehiculo.edit_vehiculo', $vehiculo)}}">
+                        <td class="text-center">
+                            <a href="{{ route('vehiculo.edit_vehiculo', $vehiculo) }}">
                                 <button class="btn btn-warning" onclick="Editar"><i class="fas fa-edit"></i></button>
                             </a>    
                         </td>
 
-                        <td>
-                            <a href="{{ route('show-vehiculo-CV_vehiculos_CV', $vehiculo)}}">
+                        <td class="text-center">
+                            <a href="{{ route('show-vehiculo-CV_vehiculos_CV', $vehiculo) }}">
                                 <button class="btn btn-warning" onclick="Editar"><i class="fas fa-edit"></i></button>
                             </a>    
                         </td>
+
+
+                        
 
                                     
                     </tr>                    
