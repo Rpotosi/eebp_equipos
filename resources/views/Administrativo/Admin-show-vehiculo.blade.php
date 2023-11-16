@@ -149,7 +149,7 @@
         </table>
         <!-- Paginación con enlaces y variables de búsqueda incluidas -->
         {{$vehiculos->appends(['placa' => $buscarpor])->links()}}
-       
+      
 
     </div>    
 @stop

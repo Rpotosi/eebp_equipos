@@ -258,7 +258,7 @@ class AdministrativoController extends Controller
         $query->where('placa', 'like', '%' . $buscarpor . '%');
     
         // Ejecutamos la consulta y obtenemos los pedidos filtrados
-        $vehiculos = $query->paginate(3);
+        $vehiculos = $query->paginate(6);
     
         return view('Administrativo.Admin-show-vehiculo', compact('vehiculos', 'buscarpor', 'estado'));
     }
