@@ -11,6 +11,7 @@ class MantenimientoEquipoAdmin extends Model
 
     protected $table = 'create_mantenimiento_equipo_admin';
     protected $primaryKey = 'id';
+    public $timestamps = false;
     protected $fillable = [
         'id_equipo_fk',
         'fecha_mantenimiento',

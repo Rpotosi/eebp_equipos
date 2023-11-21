@@ -12,8 +12,8 @@ class MantenimientoVehiculo extends Model
     protected $table = 'create_mantenimiento_vehiculo';
     protected $primaryKey = 'id';
     public $timestamps = false;
-
     protected $fillable = [
+
         'id_vehiculo_fk',
         'fecha_mantenimiento',
         'descripcion',

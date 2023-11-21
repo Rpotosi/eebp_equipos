@@ -90,7 +90,7 @@
                 <label for="nombre_equipo" class="form-label">
                     Nombre tecnico del equipo
                 </label>
-                <input type="text" class="form-control" id="nombre_equipo" name="nombre_equipo" >
+                <input type="text" class="form-control" id="nombre_equipo" name="nombre_equipo" value="{{ $equipo ? $equipo->nombre_equipo : '' }}" >
             </div>
 
             <div class="col-md-2">

@@ -4,12 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Administrativo_equipo extends Model
 {
     use HasFactory;
     protected $table = 'create_equipo_admin';
-    protected $primaryKey = 'id_equipo';
+    protected $primaryKey = 'id_equipo';  /*= id_equipo de hasmany al finalizar la class*/
+    public $timestamps = false;
     protected $fillable = [
 
         'nombre_equipo',
@@ -57,4 +59,11 @@ class Administrativo_equipo extends Model
 
 
     ];
+
+    
+    public function mantenimientos(): HasMany
+    {
+        return $this->hasMany(MantenimientoEquipoAdmin::class, 'id_equipo_fk', 'id_equipo');
+    }
+    
 }

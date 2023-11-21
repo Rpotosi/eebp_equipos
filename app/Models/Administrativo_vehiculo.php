@@ -55,4 +55,5 @@ class Administrativo_vehiculo extends Model
     {
         return $this->hasMany(MantenimientoVehiculo::class, 'id_vehiculo_fk', 'id_vehiculo');
     }
+    
 }

@@ -31,6 +31,8 @@ class AdministrativoController extends Controller
         return view("Administrativo.Admin-create-vehiculo");
     }
 
+    
+
     public function agregarMantenimiento(Request $request, $id)
     {
         // Valida los datos del formulario
@@ -308,7 +310,6 @@ class AdministrativoController extends Controller
 
         // Crea una consulta del modelo Distribucion
         $query = Administrativo_equipo::query();   
-
         // Ejecutamos la consulta y obtenemos los pedidos filtrados
         $equipos = $query->paginate();
 
@@ -321,7 +322,6 @@ class AdministrativoController extends Controller
         
         // Busca la orden correspondiente al id proporcionado
         $equipo = Administrativo_equipo::find($id_equipo);
-        
         // Devuelve la vista con los datos 
         return view('Administrativo.Admin-update-equipo', compact('equipo'));
     }
