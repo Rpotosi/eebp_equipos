@@ -78,7 +78,6 @@
         <form id="formulario" class="row g-3">
             <!-- esta linea requiere ruta Route::post definida en routes Route EquiposController-->
             
-            @csrf
 
             <div class="col-12">
                 <label for="text" class="form-label"> <br>
@@ -90,7 +89,11 @@
                 <label for="nombre_equipo" class="form-label">
                     Nombre tecnico del equipo
                 </label>
+<<<<<<< HEAD
                 <input type="text" class="form-control" id="nombre_equipo" name="nombre_equipo" value="{{ $equipo ? $equipo->nombre_equipo : '' }}" >
+=======
+                <input type="text" class="form-control" id="nombre_equipo" name="nombre_equipo" value="{{ $equipo->nombre_equipo }}" >
+>>>>>>> d4af9fe7ba1a73d553cc892be3f4908ab70ee6ef
             </div>
 
             <div class="col-md-2">
@@ -553,81 +556,14 @@
             </div>
             <div class="col-2" style="text-align: center;">
                 <label for="precio" class="form-label">
-                    Precio
+                    Precio 
                 </label>
                 <input type="text" class="form-control" id="precio" placeholder="" name="precio" required/>
               
             </div>
         </form>
 
-        <form id="formulario" class="row g-3" method="POST" action="">
-            @csrf
         
-            <div class="col-12">
-                <label for="text" class="form-label">
-                    🔹INFORMACIÓN GENERAL:
-                </label>
-            </div>
-        
-            <!-- Resto de los campos relacionados a la información del vehículo -->
-        
-            <div class="col-12">
-                <label for="text" class="form-label">
-                    <br>
-                    7. HISTORIAL DE MANTENIMIENTO:
-                </label>
-            </div>
-            <div class="col-2" style="text-align: center;">
-                <label for="fecha_mantenimiento" class="form-label">
-                    Fecha mantenimiento
-                </label>
-                <input type="date" class="form-control" id="fecha_mantenimiento" name="fecha_mantenimiento" required>
-            </div>
-            <div class="col-2" style="text-align: center;">
-                <label for="descripcion" class a="form-label">
-                    Descripción
-                </label>
-                <input type="text" class="form-control" id="descripcion" name="descripcion" required>
-            </div>
-            <div class="col-2" style="text-align: center;">
-                <label for="averia_dano" class="form-label">
-                    Avería/ Daño
-                </label>
-                <input type="text" class="form-control" id="averia_dano" name="averia_dano" required>
-            </div>
-            <div class="col-2" style="text-align: center;">
-                <label for="referencia_repuesto" class="form-label">
-                    Referencia Repuesto
-                </label>
-                <input type="text" class="form-control" id="referencia_repuesto" name="referencia_repuesto" required>
-            </div>
-            <div class="col-2" style="text-align: center;">
-                <label for="responsable" class="form-label">
-                    Responsable
-                </label>
-                <input type="text" class="form-control" id="responsable" name="responsable" required>
-            </div>
-            <div class="col-1" style="text-align: center;">
-                <label for="precio" class="form-label">
-                    Precio
-                </label>
-                <input type="text" class="form-control" id="precio" name="precio" required>
-            </div> 
-        
-            <div class="form-group col-md-4">
-                <label for="anexos">
-                    Cargar archivo
-                </label>
-                <input type="file" name="anexos" class="form-control" id="anexos">
-            </div>
-        
-            <div class="col-12">
-            </div>
-            <br>
-            <div class="box-footer" style="margin-bottom: 25px;">
-                <button type="submit" class="btn btn-dark" id="guardar-btn">Guardar</button> 
-            </div>
-        </form>
 
 @stop
 

@@ -44,12 +44,6 @@ return new class extends Migration
             $table->string('capacidad_carga', 50)->nullable();
             $table->string('dotacion', 50)->nullable();
             $table->string('equipo_carretera')->nullable();
-            $table->date('fecha_mantenimiento')->nullable();
-            $table->string('descripcion')->nullable();
-            $table->string('averia_dano', 50)->nullable();
-            $table->string('referencia_repuesto', 150)->nullable();
-            $table->string('responsable')->nullable();
-            $table->string('precio')->nullable();
             $table->timestamps();
         });
     }

@@ -27,7 +27,7 @@
     </div>
 
 
-    <h1 class="aling-center" style="text-align:center"> Gestión de Vehiculos8888</h1>    
+    <h1 class="aling-center" style="text-align:center"> Gestión de Vehiculos</h1>    
 
 @stop
 
@@ -36,21 +36,25 @@
     <div class="form-group">
         <label for="placa" class="titulo">Búsqueda de Placa:</label>
         <div class="input-group">
-            <input type="search" name="placa" id="placa" class="form-control" style="max-width: 300px;" placeholder="no_placa" value="">
+            <input type="search" name="placa" id="placa" class="form-control" style="max-width: 300px;" placeholder="placa" value="{{$buscarpor ?? ''}}">
             <!-- Espacio entre "Buscar orden" y "Filtrar todo" -->
             <div style="width: 10px;"></div>
             <select name="estado" class="form-control" style="max-width: 150px;">
-          
+                <option value="">Filtrar todo</option>
+                <option value="Atendido" {{ $estado === 'modelo' ? 'selected' : '' }}>Filtro</option>
+                <option value="En_atencion" {{ $estado === 'En_atencion' ? 'selected' : '' }}>Filtro1</option>
+                <option value="pendiente" {{ $estado === 'pendiente' ? 'selected' : '' }}>Filtro2</option>
+                <option value="cancelado" {{ $estado === 'cancelado' ? 'selected' : '' }}>Filtro3</option>
             </select>
     
             <!-- Espacio entre "Filtrar todo" y "Fecha inicio" -->
             <div style="width: 10px;"></div>
             <!-- Campo de fecha de inicio -->
-            <input type="date" name="fecha_inicio" class="form-control" style="max-width: 200px;" value="{{ $fechaInicio ?? '' }}">
+            <input type="date" name="fecha_inicio" class="form-control" style="max-width: 200px;" value="">
             <!-- Espacio entre "Fecha inicio" y "Fecha fin" -->
             <div style="width: 10px;"></div>
             <!-- Campo de fecha de fin -->
-            <input type="date" name="fecha_fin" class="form-control" style="max-width: 200px;" value="{{ $fechaFin ?? '' }}">
+            <input type="date" name="fecha_fin" class="form-control" style="max-width: 200px;" value="">
             <div class="input-group-append">
                 <input type="submit" value="Buscar" class="btn btn-dark" id="buscar-btn" onclick="limpiarPlaceholder()">
             </div>
@@ -75,8 +79,8 @@
                     <th>cilindraje</th>
                     <th>fecha_soat</th>
                     <th>tecnomecanica</th>
-                    <th>Agregar mantenimiento</th>
-                    <th>Ver Hoja de Vida</th>
+                    <th class="text-center">Agregar mantenimiento</th>
+                    <th class="text-center">Ver Hoja de Vida</th>
                   
                 </tr>
             </thead>
@@ -123,17 +127,20 @@
                         </td> 
                     
 
-                        <td>
-                            <a href="{{ route('vehiculo.edit_vehiculo', $vehiculo)}}">
+                        <td class="text-center">
+                            <a href="{{ route('vehiculo.edit_vehiculo', $vehiculo) }}">
                                 <button class="btn btn-warning" onclick="Editar"><i class="fas fa-edit"></i></button>
                             </a>    
                         </td>
 
-                        <td>
-                            <a href="{{ route('show-vehiculo-CV_vehiculos_CV', $vehiculo)}}">
+                        <td class="text-center">
+                            <a href="{{ route('show-vehiculo-CV_vehiculos_CV', $vehiculo) }}">
                                 <button class="btn btn-warning" onclick="Editar"><i class="fas fa-edit"></i></button>
                             </a>    
                         </td>
+
+
+                        
 
                                     
                     </tr>                    
@@ -141,7 +148,8 @@
             </tbody>
         </table>
         <!-- Paginación con enlaces y variables de búsqueda incluidas -->
-       
+        {{$vehiculos->appends(['placa' => $buscarpor])->links()}}
+      
 
     </div>    
 @stop

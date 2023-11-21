@@ -243,26 +243,33 @@ class AdministrativoController extends Controller
         return back();         
     }  
 
-
-
     /**
      * Display the specified resource.
      */
     public function show_vehiculo(Request $request)
     {
+        // Obtenemos el valor de búsqueda por placa
+        $buscarpor = $request->input('placa');
 
-        // Crea una consulta del modelo administrativo
-        $query = Administrativo_vehiculo::query(); 
-
+        $estado = $request->input('estado');
+    
+        // Crea una consulta del modelo Administrativo_vehiculo
+        $query = Administrativo_vehiculo::query();
+            
+        // Agregamos una cláusula where para buscar por placa siempre
+        $query->where('placa', 'like', '%' . $buscarpor . '%');
+    
         // Ejecutamos la consulta y obtenemos los pedidos filtrados
-        $vehiculos = $query->paginate();
-
-        return view ('Administrativo.Admin-show-vehiculo', compact('vehiculos'));
+        $vehiculos = $query->paginate(6);
+    
+        return view('Administrativo.Admin-show-vehiculo', compact('vehiculos', 'buscarpor', 'estado'));
     }
+    
 
     /**
      * Show the form for editing the specified resource.
      */
+
     public function edit_vehiculo($id_vehiculo)
     {
         
@@ -271,6 +278,7 @@ class AdministrativoController extends Controller
         // Devuelve la vista con los datos 
         return view('Administrativo.Admin-update-vehiculo', compact('vehiculo'));
     }
+
 
     public function vehiculos_CV(Request $request, $id_vehiculo)
     {
@@ -317,13 +325,27 @@ class AdministrativoController extends Controller
     }
 
 
-    public function edit_equipo($id_equipo)
+    public function edit_equipo(Request $request, $id_equipo)
     {
         
+<<<<<<< HEAD
         // Busca la orden correspondiente al id proporcionado
         $equipo = Administrativo_equipo::find($id_equipo);
         // Devuelve la vista con los datos 
         return view('Administrativo.Admin-update-equipo', compact('equipo'));
+=======
+        // Encuentra el equipo por ID
+    $equipo = Administrativo_equipo::find($id_equipo);
+
+    // Verifica si el equipo existe
+    if ($equipo) {
+        return view('Administrativo.Admin-show-equipo', compact('equipo'));
+    } else {
+        // Redirecciona o muestra un mensaje de error si el equipo no existe
+        return redirect()->route('show-equipo.show_equipo')
+            ->with('error', 'El equipo no existe');
+    }
+>>>>>>> d4af9fe7ba1a73d553cc892be3f4908ab70ee6ef
     }
 
     /**
