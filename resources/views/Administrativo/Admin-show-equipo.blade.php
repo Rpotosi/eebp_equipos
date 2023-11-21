@@ -124,7 +124,7 @@
                     
 
                         <td>
-                            <a href="{{ url('/update-equipo/{id_equipo}')}}">
+                            <a href="{{ url('/update-equipo/' . $equipo->id_equipo) }}">
                                 <button class="btn btn-warning" onclick="Editar"><i class="fas fa-edit"></i></button>
                             </a>    
                         </td>

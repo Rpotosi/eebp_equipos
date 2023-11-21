@@ -324,14 +324,20 @@ class AdministrativoController extends Controller
     }
 
 
-    public function edit_equipo($id_equipo)
+    public function edit_equipo(Request $request, $id_equipo)
     {
         
-        // Busca la orden correspondiente al id proporcionado
-        $equipo = Administrativo_equipo::find($id_equipo);
-        
-        // Devuelve la vista con los datos 
-        return view('Administrativo.Admin-update-equipo', compact('equipo'));
+        // Encuentra el equipo por ID
+    $equipo = Administrativo_equipo::find($id_equipo);
+
+    // Verifica si el equipo existe
+    if ($equipo) {
+        return view('Administrativo.Admin-show-equipo', compact('equipo'));
+    } else {
+        // Redirecciona o muestra un mensaje de error si el equipo no existe
+        return redirect()->route('show-equipo.show_equipo')
+            ->with('error', 'El equipo no existe');
+    }
     }
 
     /**
