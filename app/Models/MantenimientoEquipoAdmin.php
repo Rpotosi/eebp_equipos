@@ -28,4 +28,5 @@ class MantenimientoEquipoAdmin extends Model
     {
         return $this->belongsTo(EquipoAdmin::class, 'id_equipo_fk', 'id_equipo');
     }
+
 }

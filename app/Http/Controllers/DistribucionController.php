@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Distribucion;
-use App\Models\Administrativo;
 use App\Models\MantenimientoEquipoDis;
 use Illuminate\Http\Request;
 
@@ -176,7 +175,7 @@ class DistribucionController extends Controller
         // Actualizar la orden con los nuevos datos proporcionados
         $equipo->update($input);
         // Redireccionar a la vista de la página Consultar Orden Empresa (Metodo index según la ruta del archivo web.php)
-        return redirect('show-equipo');
+        return redirect('');
     }
 
 

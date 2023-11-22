@@ -17,10 +17,13 @@ Route::controller(AdministrativoController::class)->group(function(){   //asi se
     Route::get('administrativo', 'form')->name('administrativo.form'); 
     Route::get('show-vehiculo', 'show_vehiculo')->name('show.show');
     Route::get('/show-vehiculo-CV{id_vehiculo}', 'vehiculos_CV')->name('show-vehiculo-CV_vehiculos_CV');
-
-    
     Route::get('update-vehiculo/{id_vehiculo}', 'edit_vehiculo')->name('vehiculo.edit_vehiculo');
     Route::post('update-vehiculo/{id_vehiculo}', 'agregarMantenimiento')->name('vehiculo.mantenimiento_vehiculo');
+
+    Route::get('/show-equipo-CV{id_equipo}', 'equipo_CV')->name('show-equipo-CV_equipo_CV');
+
+
+
     Route::get('vehiculo', 'create_vehiculo')->name('vehiculo.create_vehiculo'); // vehiculo= nombre unico para URL || create_vehiculo= nombre del metodo del controlador || vehiculo.create_vehiculo= URL + Nombre del metodo controlador
     Route::post('vehiculo', 'store_vehiculo')->name('vehiculo.create_vehiculo'); 
 

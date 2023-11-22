@@ -1,12 +1,12 @@
 @extends('adminlte::page')
 
-@section('title', 'vehiculos')
+@section('title', 'equipos')
 
 @section('content_header')
 
     <div style="text-align: end;">
         <div style="background-color: #f6c21e; display: inline-block; padding: 5px;">
-            <p style="margin: 0;"><b>Bienvenido: 
+            <p style="margin: 0;"><b>Bienvenido:
         </div>
     </div>
     <style>
@@ -17,18 +17,6 @@
             height: 570px; /* Puedes ajustar el tamaño según tus necesidades */
             overflow: auto; /* Agrega una barra de desplazamiento si el contenido es demasiado largo */
         }
-
-                /* Estilos para el botón moderno */
-        .boton-moderno {
-            padding: 10px 20px; /* Ajusta el relleno según tus necesidades */
-            font-size: 16px;   /* Ajusta el tamaño de fuente según tus necesidades */
-            border: none;
-            background-color: #4CAF50; /* Color de fondo del botón */
-            color: white;              /* Color del texto del botón */
-            border-radius: 5px;        /* Radio de borde para esquinas redondeadas */
-            cursor: pointer;
-        }
-
         .dotacion-container {
             margin-top: 5px;
             border: 1px solid #ccc;
@@ -49,27 +37,27 @@
         }
 
         .form-label{
-            margin-top: 10px;
+            margin-top: 15px;
         }
         
         #formulario{
-            padding: 3%;         
+            padding: 2%;         
         }
 
         .box-footer{
             padding: 8px;
         }
         
-        
         .btn {
             background-color: rgb(87, 156, 41);
             box-shadow: none;
             border-color: rgb(87, 156, 41);
+
         }
- 
+        
 
     </style>
-    <h1 style="text-align: center">Mantenimiento Vehiculos</h1>
+    <h1 style="text-align: center">Nuevo Equipo</h1>
 @stop
 
 @section('content')
@@ -88,416 +76,453 @@
     @endif
     <div class="form-container">
         <form id="formulario" class="row g-3">
-
+            <!-- esta linea requiere ruta Route::post definida en routes Route EquiposController-->
+            
 
             <div class="col-12">
-                <label for="text" class="form-label">
-                    🔹INFORMACION GENERAL:
+                <label for="text" class="form-label"> <br>
+                🔹IDENTIFICACIÓN Y ESPECIFICACIONES DEL EQUIPO
                 </label>
             </div>
 
             <div class="col-md-2">
-                <label for="placa" class="form-label">
-                    Placa
+                <label for="nombre_equipo" class="form-label">
+                    Nombre tecnico del equipo
                 </label>
-                <input type="text" class="form-control" id="placa" name="placa" value="{{ $vehiculo->placa }}" disabled/>
+
+                <input type="text" class="form-control" id="nombre_equipo" name="nombre_equipo" value="{{$equipo->nombre_equipo}}" disabled >
+
             </div>
 
             <div class="col-md-2">
-                <label for="linea" class="form-label">
-                    Linea
+                <label for="ubicacion_equipo" class="form-label">
+                    Ubicación del equipo
                 </label>
-                <select id="linea" class="custom-select" name="linea" disabled>
-                    <option selected></option>
-                    <option value="Hilux" {{ $vehiculo->linea == 'Hilux' ? 'selected' : '' }}>Hilux</option>
-                    <option value="Amarok Trendline" {{ $vehiculo->linea == 'Amarok Trendline' ? 'selected' : '' }}>Amarok Trendline</option>
-                    <option value="Yaris Cross" {{ $vehiculo->linea == 'Yaris Cross' ? 'selected' : '' }}>Yaris Cross</option>
-                    <option value="Discover 125" {{ $vehiculo->linea == 'Discover 125' ? 'selected' : '' }}>Discover 125</option>
-                    <option value="4300" {{ $vehiculo->linea == '4300' ? 'selected' : '' }}>4300</option>
-                    <option value="Gh8jm8a" {{ $vehiculo->linea == 'Gh8jm8a' ? 'selected' : '' }}>Gh8jm8a</option>
-                    <option value="Dxk1021tk9 1.5" {{ $vehiculo->linea == 'Dxk1021tk9 1.5' ? 'selected' : '' }}>Dxk1021tk9 1.5</option>
-                    <option value="Eq1021nf33 1.2" {{ $vehiculo->linea == 'Eq1021nf33 1.2' ? 'selected' : '' }}>Eq1021nf33 1.2</option>
-                    <option value="Xzu710l - Qkfmp3" {{ $vehiculo->linea == 'Xzu710l - Qkfmp3' ? 'selected' : '' }}>Xzu710l - Qkfmp3</option>
+                <select id="ubicacion_equipo" class="custom-select" id="ubicacion_equipo" name="ubicacion_equipo" disabled>
+                    <option selected=""></option>
+                    <option value="Sede PA" {{ $equipo->ubicacion_equipo == 'Sede PA' ? 'selected' : '' }}>Sede PA</option>
+                    <option value="Sede VG" {{ $equipo->ubicacion_equipo == 'Sede VG' ? 'selected' : '' }}>Sede VG</option>
+                    <option value="Sede Caicedo" {{ $equipo->ubicacion_equipo == 'Sede Caicedo' ? 'selected' : '' }}>Sede Caicedo</option>
+                    <option value="Sede la Dorada" {{ $equipo->ubicacion_equipo == 'Sede la Dorada' ? 'selected' : '' }}>Sede la Dorada</option>
+                    <option value="Subestacione PA" {{ $equipo->ubicacion_equipo == 'Subestacione PA' ? 'selected' : '' }}>Subestacione PA</option>
+                    <option value="Subestacion PC" {{ $equipo->ubicacion_equipo == 'Subestacion PC' ? 'selected' : '' }}>Subestacion PC</option>
+                    <option value="Subestacion Yarumo" {{ $equipo->ubicacion_equipo == 'Subestacion Yarumo' ? 'selected' : '' }}>Subestacion Yarumo</option>
+                    <option value="Subestacion la Hormiga" {{ $equipo->ubicacion_equipo == 'Subestacion la Hormiga' ? 'selected' : '' }}>Subestacion la Hormiga</option>
+                    <!-- Agrega más opciones según sea necesario -->
                 </select>
             </div>
 
+         
             <div class="col-md-2">
-                <label for="clase" class="form-label">
-                    Clase
+                <label for="estado" class="form-label">
+                    Estado
                 </label>
-                <select id="clase" class="custom-select" name="clase" disabled>
-                    <option selected></option>
-                    <option value="Camioneta" {{ $vehiculo->clase == 'Camioneta' ? 'selected' : '' }}>Camioneta</option>
-                    <option value="Camion" {{ $vehiculo->clase == 'Camion' ? 'selected' : '' }}>Camion</option>
-                    <option value="Motocicleta" {{ $vehiculo->clase == 'Motocicleta' ? 'selected' : '' }}>Motocicleta</option>
-                    <option value="Grua" {{ $vehiculo->clase == 'Grua' ? 'selected' : '' }}>Grua</option>
+                <select id="estado" class="custom-select" id="estado"  name="estado" disabled>
+                    <option selected=""></option>
+                    <option value="Nuevo" {{ $equipo->estado == 'Nuevo' ? 'selected' : '' }}>Nuevo</option>
+                    <option value="En uso" {{ $equipo->estado == 'En uso' ? 'selected' : '' }}>En uso</option>
+                    <option value="Fuera de servicio" {{ $equipo->estado == 'Fuera de servicio' ? 'selected' : '' }}>Fuera de servicio</option>
+                    <option value="En mantenimiento" {{ $equipo->estado == 'En mantenimiento' ? 'selected' : '' }}>En mantenimiento</option>
+                    <option value="Para disposición final" {{ $equipo->estado == 'Para disposición final' ? 'selected' : '' }}>Para disposición final</option>
+                    <!-- Agrega más opciones según sea necesario -->             
                 </select>
+            
+            </div>
+
+            <div class="col-md-2">
+                <label for="fecha_fabrica" class="form-label">
+                    Fecha de fabrica
+                </label>
+                <input type="date" class="form-control" id="fecha_fabrica" placeholder="" name="fecha_fabrica" value="{{$equipo->fecha_fabrica}}"  disabled/>
             </div>
 
             <div class="col-md-2">
                 <label for="marca" class="form-label">
                     Marca
                 </label>
-                <select id="marca" class="custom-select" name="marca" disabled>
-                    <option selected></option>
-                    <option value="Toyota" {{ $vehiculo->marca == 'Toyota' ? 'selected' : '' }}>Toyota</option>
-                    <option value="DFSK" {{ $vehiculo->marca == 'DFSK' ? 'selected' : '' }}>DFSK</option>
-                    <option value="HINO" {{ $vehiculo->marca == 'HINO' ? 'selected' : '' }}>HINO</option>
-                    <option value="BAJAJ" {{ $vehiculo->marca == 'BAJAJ' ? 'selected' : '' }}>BAJAJ</option>
-                    <option value="INTERNATIONAL" {{ $vehiculo->marca == 'INTERNATIONAL' ? 'selected' : '' }}>INTERNATIONAL</option>
+                <select id="marca" class="custom-select" id="marca" placeholder="" name="marca" disabled>
+                    <option selected=""></option>
+                    <option value="Nuevo uso" {{ $equipo->marca == 'Nuevo uso' ? 'selected' : '' }}>Nuevo uso</option>
+                    <option value="Dimanik" {{ $equipo->marca == 'Dimanik' ? 'selected' : '' }}>Dimanik</option>
+                    <option value="Link tech" {{ $equipo->marca == 'Link tech' ? 'selected' : '' }}>Link tech</option>
+                    <option value="Insafe" {{ $equipo->marca == 'Insafe' ? 'selected' : '' }}>Insafe</option>
+                    <option value="Sosega" {{ $equipo->marca == 'Sosega' ? 'selected' : '' }}>Sosega</option>
+                    <option value="Yoke" {{ $equipo->marca == 'Yoke' ? 'selected' : '' }}>Yoke</option>
+                    <option value="Petzel" {{ $equipo->marca == 'Petzel' ? 'selected' : '' }}>Petzel</option>
+                    <option value="Armadura" {{ $equipo->marca == 'Armadura' ? 'selected' : '' }}>Armadura</option>
+                    <option value="3M" {{ $equipo->marca == '3M' ? 'selected' : '' }}>3M</option>
+                    <option value="Ecolift" {{ $equipo->marca == 'Ecolift' ? 'selected' : '' }}>Ecolift</option>
+                    <option value="Arseg" {{ $equipo->marca == 'Arseg' ? 'selected' : '' }}>Arseg</option>
+                    <option value="Delta Plus" {{ $equipo->marca == 'Delta Plus' ? 'selected' : '' }}>Delta Plus</option>
+                    <option value="Regeltex" {{ $equipo->marca == 'Regeltex' ? 'selected' : '' }}>Regeltex</option>
+                    <option value="Iproteccion" {{ $equipo->marca == 'Iproteccion' ? 'selected' : '' }}>Iproteccion</option>
+                    <option value="Alcovisor" {{ $equipo->marca == 'Alcovisor' ? 'selected' : '' }}>Alcovisor</option>
+                    <option value="DR Meter" {{ $equipo->marca == 'DR Meter' ? 'selected' : '' }}>DR Meter</option>
+                    <option value="Gil" {{ $equipo->marca == 'Gil' ? 'selected' : '' }}>Gil</option>
+                    <option value="GH Voltaje" {{ $equipo->marca == 'GH Voltaje' ? 'selected' : '' }}>GH Voltaje</option>
+                    <!-- Agrega más opciones según sea necesario -->
                 </select>
+            
             </div>
 
-            <div class="col-2">
-                <label for="color" class="form-label">
-                    Color
-                </label>
-                <select id="color" class="custom-select" name="color" disabled>
-                    <option selected></option>
-                    <option value="Blanco" {{ $vehiculo->color == 'Blanco' ? 'selected' : '' }}>Blanco</option>
-                    <option value="Negro" {{ $vehiculo->color == 'Negro' ? 'selected' : '' }}>Negro</option>
-                    <option value="Azul" {{ $vehiculo->color == 'Azul' ? 'selected' : '' }}>Azul</option>
-                </select>
-            </div>
-            <div class="col-2">
-                <label for="chasis" class="form-label">
-                    # Chasis
-                </label>
-                <input type="text" class="form-control" id="chasis" placeholder="" name="chasis" value="{{ $vehiculo->chasis }}" disabled/>
-            </div>
-            <div class="col-2">
-                <label for="motor" class="form-label">
-                    # Motor
-                </label>
-                <input type="text" class="form-control" id="motor" placeholder="" name="motor" value="{{ $vehiculo->motor }}" disabled/>
-            </div>
-            <div class="col-2">
-                <label for="cilindraje" class="form-label">
-                    Cilindraje
-                </label>
-                <select id="cilindraje" class="custom-select" name="cilindraje" disabled>
-                    <option selected></option>
-                    <option value="1600 cc" {{ $vehiculo->cilindraje == '1600 cc' ? 'selected' : '' }}>1600 cc</option>
-                    <option value="1500 cc" {{ $vehiculo->cilindraje == '1500 cc' ? 'selected' : '' }}>1500 cc</option>
-                    <option value="1400 cc" {{ $vehiculo->cilindraje == '1400 cc' ? 'selected' : '' }}>1400 cc</option>
-                    <option value="1200 cc" {{ $vehiculo->cilindraje == '1200 cc' ? 'selected' : '' }}>1200 cc</option>
-                </select>
-            </div>
-            <div class="col-2">
-                <label for="uso_vehiculo" class="form-label">
-                    Uso del vehiculo
-                </label>
-                <select id="uso_vehiculo" class="custom-select" name="uso_vehiculo" disabled>
-                    <option selected></option>
-                    <option value="Particular" {{ $vehiculo->uso_vehiculo == 'Particular' ? 'selected' : '' }}>Particular</option>
-                    <option value="Servicio Publico" {{ $vehiculo->uso_vehiculo == 'Servicio Publico' ? 'selected' : '' }}>Servicio Publico</option>
-                </select>
-            </div>
+            
+
             <div class="col-2">
                 <label for="modelo" class="form-label">
                     Modelo
                 </label>
-                <select id="modelo" class="custom-select" name="modelo" disabled>
-                    <option selected></option>
-                    <option value="2023" {{ $vehiculo->modelo == '2023' ? 'selected' : '' }}>2023</option>
-                    <option value="2022" {{ $vehiculo->modelo == '2022' ? 'selected' : '' }}>2022</option>
-                    <option value="2021" {{ $vehiculo->modelo == '2021' ? 'selected' : '' }}>2021</option>
-                    <option value="2020" {{ $vehiculo->modelo == '2020' ? 'selected' : '' }}>2020</option>
-                    <option value="2019" {{ $vehiculo->modelo == '2019' ? 'selected' : '' }}>2019</option>
-                    <option value="2018" {{ $vehiculo->modelo == '2018' ? 'selected' : '' }}>2018</option>
-                    <option value="2017" {{ $vehiculo->modelo == '2017' ? 'selected' : '' }}>2017</option>
-                    <option value="2016" {{ $vehiculo->modelo == '2016' ? 'selected' : '' }}>2016</option>
-                    <option value="2015" {{ $vehiculo->modelo == '2015' ? 'selected' : '' }}>2015</option>
-                    <option value="2014" {{ $vehiculo->modelo == '2014' ? 'selected' : '' }}>2014</option>
-                    <option value="2013" {{ $vehiculo->modelo == '2013' ? 'selected' : '' }}>2013</option>
-                    <option value="2012" {{ $vehiculo->modelo == '2012' ? 'selected' : '' }}>2012</option>
+                <input type="text" class="form-control" id="modelo" placeholder="" name="modelo" value="{{$equipo->modelo}}" disabled/>
+            </div>
+            <div class="col-2">
+                <label for="no_serie" class="form-label">
+                    No. Serie
+                </label>
+                <input type="text" class="form-control" id="no_serie" placeholder="" name="no_serie" value="{{$equipo->no_serie}}" disabled/>
+            </div>
+            <div class="col-2">
+                <label for="no_lote" class="form-label">
+                    No. Lote
+                </label>
+                <input type="text" class="form-control" id="no_lote" placeholder="" name="no_lote" value="{{$equipo->no_lote}}" disabled/>
+            </div>
+            <div class="col-2">
+                <label for="no_activo" class="form-label">
+                    No. de activo fijo
+                </label>
+                <input type="text" class="form-control" id="no_activo" placeholder="" name="no_activo" value="{{$equipo->no_activo}}" disabled/>
+            </div>
+
+            <div class="col-2">
+                <label for="codigo" class="form-label">
+                    Codigo
+                </label>
+                <input type="text" class="form-control" id="codigo" placeholder="" name="codigo" value="{{$equipo->codigo}}" disabled/>
+            </div>
+
+            <div class="col-2">
+                <label for="fecha_ensayo" class="form-label">
+                    Fecha del ensayo dieléctrico
+                </label>
+                <input type="date" class="form-control" id="fecha_ensayo" placeholder="" name="fecha_ensayo" value="{{$equipo->fecha_ensayo}}" disabled/>
+            </div>
+
+            <div class="col-2" style="text-align: left;">
+                <label for="validez" class="form-label">
+                    Validez
+                </label>
+                <select id="clase" class="custom-select" id="validez" placeholder="" name="validez" disabled>
+                    <option selected=""></option>
+                    <option value="1" {{ $equipo->validez == '1' ? 'selected' : '' }}>1</option>
+                    <option value="2" {{ $equipo->validez == '2' ? 'selected' : '' }}>2</option>
+                    <option value="3" {{ $equipo->validez == '3' ? 'selected' : '' }}>3</option>
+                    <option value="Mayor3" {{ $equipo->validez == 'Mayor3' ? 'selected' : '' }}>Mayor a 3</option>
+                    <!-- Agrega más opciones según sea necesario -->
                 </select>
             </div>
 
-            <div class="col-md-2">
-                <label for="fecha" class="form-label">
-                Fecha SOAT
-                </label>
-                <input type="date" class="form-control" id="fecha" name="fecha" min="{{ \Carbon\Carbon::now()->toDateString() }}" value="{{ $vehiculo->fecha }}" disabled/> 
-            </div>
             
+            <div class="col-2" style="text-align: left;">
+                <label for="fecha_conformidad" class="form-label">
+                    Fecha del certificado de conformidad
+                </label>
+                <input type="date" class="form-control" id="fecha_conformidad" placeholder="" name="fecha_conformidad" value="{{$equipo->fecha_conformidad}}" disabled/>
+                
+            </div>
+
+            <div class="col-2" style="text-align: left;">
+                <label for="fecha_operacion" class="form-label"> <br>
+                    Fecha Inicio de Operación
+                </label>
+                <input type="date" class="form-control" id="fecha_operacion" placeholder="" name="fecha_operacion" value="{{$equipo->fecha_operacion}}" disabled/>
+                
+            </div>
+
             <div class="col-12">
-                <br>
-                <label for="text" class="form-label">
-                    🔹REVISION TECNICOMECANICA FECHA DE VENCIMIENTO:
+                <label for="text" class="form-label"> <br>
+                    🔹RESPONSABLE DEL EQUIPO
                 </label>
             </div>
-            <div class="col-md-4">
-                <label for="fecha_tecnomecanica" class="form-label">
-                Tecnomecanica Fecha
+
+
+            <div class="col-2"style="text-align: left;">
+                <label for="nombre_responsable" class="form-label">
+                    Nombre 
                 </label>
-                <input type="date" class="form-control" id="fecha_tecnomecanica" name="fecha_tecnomecanica" min="{{ \Carbon\Carbon::now()->toDateString() }}" value="{{ $vehiculo->fecha_tecnomecanica }}" disabled/> 
+                <input type="text" class="form-control" id="nombre_responsable" placeholder="" name="nombre_responsable" value="{{$equipo->nombre_responsable}}" disabled/>
+               
             </div>
-            <div class="col-4">
-                <label for="licencia" class="form-label">
-                    Liciencia Transito
+            <div class="col-2"style="text-align: left;">
+                <label for="cargo" class="form-label">
+                    Cargo
                 </label>
-                <input type="text" class="form-control" id="licencia" placeholder="" name="licencia" value="{{ $vehiculo->licencia }}" disabled>
+                <input type="text" class="form-control" id="cargo" placeholder="" name="cargo" value="{{$equipo->cargo}}" disabled/>
+              
+            </div>
+
+            <div class="col-md-2">
+                <label for="lugar_proceso" class="form-label">
+                    Lugar o Proceso
+                </label>
+                <select id="clase" class="custom-select" id="lugar_proceso" placeholder="" name="lugar_proceso" disabled>
+                    <option selected></option>
+                    <option value="Almacén" {{ $equipo->lugar_proceso == 'Almacén' ? 'selected' : '' }}>Almacén</option>
+                    <option value="Bodega" {{ $equipo->lugar_proceso == 'Bodega' ? 'selected' : '' }}>Bodega</option>
+                    <option value="Vehículo PAK175" {{ $equipo->lugar_proceso == 'Vehículo PAK175' ? 'selected' : '' }}>Vehículo PAK175</option>
+                    <option value="PAK176" {{ $equipo->lugar_proceso == 'PAK176' ? 'selected' : '' }}>PAK176</option>
+                    <option value="Vehículo PAK178" {{ $equipo->lugar_proceso == 'Vehículo PAK178' ? 'selected' : '' }}>Vehículo PAK178</option>
+                    <option value="Vehículo PAK 169" {{ $equipo->lugar_proceso == 'Vehículo PAK 169' ? 'selected' : '' }}>Vehículo PAK 169</option>
+                    <option value="Vehículo  PAK167" {{ $equipo->lugar_proceso == 'Vehículo  PAK167' ? 'selected' : '' }}>Vehículo PAK167</option>
+                    <option value="Vehículo LFL640" {{ $equipo->lugar_proceso == 'Vehículo LFL640' ? 'selected' : '' }}>Vehículo LFL640</option>
+                    <option value="Vehículo PAK172" {{ $equipo->lugar_proceso == 'Vehículo PAK172' ? 'selected' : '' }}>Vehículo PAK172</option>
+                    <option value="Vehículo PAK171" {{ $equipo->lugar_proceso == 'Vehículo PAK171' ? 'selected' : '' }}>Vehículo PAK171</option>
+                    <option value="Vehículo PAK170" {{ $equipo->lugar_proceso == 'Vehículo PAK170' ? 'selected' : '' }}>Vehículo PAK170</option>
+                    <option value="Vehículo AVI892" {{ $equipo->lugar_proceso == 'Vehículo AVI892' ? 'selected' : '' }}>Vehículo AVI892</option>
+                    <option value="Vehículo AVA496" {{ $equipo->lugar_proceso == 'Vehículo AVA496' ? 'selected' : '' }}>Vehículo AVA496</option>
+                    <option value="Vehículo JHD10F" {{ $equipo->lugar_proceso == 'Vehículo JHD10F' ? 'selected' : '' }}>Vehículo JHD10F</option>
+                    <option value="cuadrilla 1" {{ $equipo->lugar_proceso == 'cuadrilla 1' ? 'selected' : '' }}>cuadrilla 1</option>
+                    <option value="cuadrilla 2" {{ $equipo->lugar_proceso == 'cuadrilla 2' ? 'selected' : '' }}>cuadrilla 2</option>
+                    <option value="cuadrilla 3" {{ $equipo->lugar_proceso == 'cuadrilla 3' ? 'selected' : '' }}>cuadrilla 3</option>
+                    <option value="cuadrilla 4" {{ $equipo->lugar_proceso == 'cuadrilla 4' ? 'selected' : '' }}>cuadrilla 4</option>
+                    <option value="SST" {{ $equipo->lugar_proceso == 'SST' ? 'selected' : '' }}>SST</option>
+                    <option value="Talento Humano" {{ $equipo->lugar_proceso == 'Talento Humano' ? 'selected' : '' }}>Talento Humano</option>
+                    <option value="Control de Energía" {{ $equipo->lugar_proceso == 'Control de Energía' ? 'selected' : '' }}>Control de Energía</option>
+                    <!-- Agrega más opciones según sea necesario -->
+                  
+                </select>
+            </div>
+
+            <div class="col-2" style="text-align: left;">
+                <label for="fecha_entrega" class="form-label">
+                    Fecha de entrega
+                </label>
+                <input type="date" class="form-control" id="fecha_entrega" placeholder="" name="fecha_entrega" value="{{$equipo->fecha_entrega}}"  disabled/>
+              
+            </div>
+
+            <div class="col-2" style="text-align: left;">
+                <label for="observacion_responsable" class="form-label">
+                    Observaciones
+                </label>
+                <textarea type="text" class="form-control" rows="1" id="observacion_responsable" placeholder="" name="observacion_responsable" readonly>{{$equipo->observacion_responsable}}</textarea>
+
+            </div>
+
+            <div class="col-12">
+                <label for="text" class="form-label"> <br>
+                    🔹DATOS DEL PROVEEDOR
+                </label>
+            </div>
+
+
+            <div class="col-2" style="text-align: left;">
+                <label for="fabricante" class="form-label">
+                    Fabricante
+                </label>
+                <select id="clase" class="custom-select" id="fabricante" placeholder="" name="fabricante" disabled>
+                    <option selected=""></option>
+                    <option value="Sew" {{ $equipo->fabricante == 'Sew' ? 'selected' : '' }}>Sew</option>
+                    <option value="Supersafe" {{ $equipo->fabricante == 'Supersafe' ? 'selected' : '' }}>Supersafe</option>
+                    <option value="WJ Rescates" {{ $equipo->fabricante == 'WJ Rescates' ? 'selected' : '' }}>WJ Rescates</option>
+                    <option value="Dinamik" {{ $equipo->fabricante == 'Dinamik' ? 'selected' : '' }}>Dinamik</option>
+                    <option value="Steelpro" {{ $equipo->fabricante == 'Steelpro' ? 'selected' : '' }}>Steelpro</option>
+                    <option value="Petzel" {{ $equipo->fabricante == 'Petzel' ? 'selected' : '' }}>Petzel</option>
+                    <option value="Alcovisor" {{ $equipo->fabricante == 'Alcovisor' ? 'selected' : '' }}>Alcovisor</option>
+                    <option value="Hastings" {{ $equipo->fabricante == 'Hastings' ? 'selected' : '' }}>Hastings</option>
+                    <option value="Regeltex" {{ $equipo->fabricante == 'Regeltex' ? 'selected' : '' }}>Regeltex</option>
+                    <option value="Super safe" {{ $equipo->fabricante == 'Super safe' ? 'selected' : '' }}>Super safe</option>
+                    <!-- Agrega más opciones según sea necesario -->
+                </select>
+              
+            </div>
+            <div class="col-2" style="text-align: left;">
+                <label for="fecha_adquisicion" class="form-label">
+                    Fecha de adquisición
+                </label>
+                <input type="date" class="form-control" id="fecha_adquisicion" placeholder="" name="fecha_adquisicion" value="{{$equipo->fecha_adquisicoon}}" disabled/>
+              
+            </div>
+            <div class="col-2" style="text-align: left;"> 
+                <label for="nombre_proveedor" class="form-label">
+                    Nombre
+                </label>
+                <input type="text" class="form-control" id="nombre_proveedor" placeholder="" name="nombre_proveedor" value="{{$equipo->nombre_proveedor}}" disabled/>
+              
+            </div>
+
+
+            <div class="col-2" style="text-align: left;"> 
+                <label for="direccion_proveedor" class="form-label">
+                    Dirección 
+                </label>
+                <input type="text" class="form-control" id="direccion_proveedor" placeholder="" name="direccion_proveedor" value="{{ $equipo->direccion_proveedor }}" disabled/>
+              
+            </div>
+            <div class="col-2" style="text-align: left;">
+                <label for="email_proveedor" class="form-label">
+                    E-mail
+                </label>
+                <input type="text" class="form-control" id="email_proveedor" placeholder="" name="email_proveedor" value="{{ $equipo->email_proveedor }}" disabled/>
+              
+            </div>
+            <div class="col-2" style="text-align: left;">
+                <label for="telefono_proveedor" class="form-label">
+                    Telefono
+                </label>
+                <input type="text" class="form-control" id="telefono_proveedor" placeholder="" name="telefono_proveedor" value="{{ $equipo->telefono_proveedor }}" disabled/>
+              
+            </div>
+            <div class="col-1" style="text-align: left;">
+                <label for="catalogo" class="form-label">
+                    Posee catálogo de manejo OP 
+                </label>
+                <select id="clase" class="custom-select" id="catalogo" placeholder="" name="catalogo" disabled>
+                    <option selected=""></option>
+                    <option value="SI" {{ $equipo->catalogo == 'SI' ? 'selected' : '' }}>SI</option>
+                    <option value="SI" {{ $equipo->catalogo == 'NO' ? 'selected' : '' }}>SI</option>
+                </select>
+              
+            </div>
+            <div class="col-2" style="text-align: left;">
+                <label for="mantenimiento_recomendado" class="form-label">
+                    <br>
+                    Mantenimiento recomendado 
+                </label>
+                <select id="clase" class="custom-select" id="mantenimiento_recomendado" placeholder="" name="mantenimiento_recomendado" disabled>
+                    <option selected=""></option>
+                    <option value="Preventivo" {{ $equipo->mantenimiento_recomendado == 'Preventivo' ? 'selected' : '' }}>Preventivo</option>
+                    <option value="Inspección" {{ $equipo->mantenimiento_recomendado == 'Inspección' ? 'selected' : '' }}>Inspección</option>
+                    <option value="Verificación" {{ $equipo->mantenimiento_recomendado == 'Verificación' ? 'selected' : '' }}>Verificación</option>
+                    <option value="Ensayo" {{ $equipo->mantenimiento_recomendado == 'Ensayo' ? 'selected' : '' }}>Ensayo</option>
+                    <option value="Calibración" {{ $equipo->mantenimiento_recomendado == 'Calibración' ? 'selected' : '' }}>Calibración</option>
+                </select>
+              
+            </div>
+           
+            <div class="col-2" style="text-align: left;">
+                <label for="condiciones_operacion" class="form-label"> <br>
+                    Condiciones de operación:
+                </label>
+                <input type="text" class="form-control" id="condiciones_operacion" placeholder="" name="condiciones_operacion" value="{{ $equipo->condiciones_operacion }}" disabled/>
+              
+            </div>
+            <div class="col-2" style="text-align: left;">
+                <label for="observacion_fabricante" class="form-label"> <br>
+                    Observaciones
+                </label>
+                <textarea type="text" class="form-control" rows="1" id="observacion_fabricante" placeholder="" name="observacion_fabricante" disabled>
+                    <?php echo htmlspecialchars($equipo->observacion_fabricante); ?>
+                </textarea>
               
             </div>
 
             <div class="col-12">
-                <br>
-                <label for="text" class="form-label">
-                    🔹DIRECCION - TRASMISIÓN - SUSPENSIÓN:
+                <label for="text" class="form-label"><br>
+                    🔹 CARACTERISTICAS DEL EQUIPO
                 </label>
             </div>
-            <div class="col-md-2">
-                <label for="tipo_direccion" class="form-label">
-                    Tipo Direcionsss
-                </label>
-                <select id="clase" class="custom-select" id="tipo_direccion" placeholder="" name="tipo_direccion" disabled>
-                    <option selected></option>
-                    <option value="mecánica" {{ $vehiculo->tipo_direccion == 'mecánica' ? 'selected' : '' }}>mecánica</option>
-                    <option value="hidráulica" {{ $vehiculo->tipo_direccion == 'hidráulica' ? 'selected' : '' }}>hidráulica</option>
-                </select>
-            </div>
-            <div class="col-2">
-                <label for="tipo_transmision" class="form-label">
-                    Tipo de Transmisión
-                </label>
-                <select id="clase" class="custom-select" id="tipo_transmision" placeholder="" name="tipo_transmision" disabled>
-                    <option selected></option>
-                    <option value="Transmisión manual" {{ $vehiculo->tipo_transmision == 'Transmisión manual' ? 'selected' : '' }}>Transmisión manual</option>
-                    <option value="Transmisión automática" {{ $vehiculo->tipo_transmision == 'Transmisión automática' ? 'selected' : '' }}>Transmisión automática</option>
-                    <option value="Transmisión semiautomática" {{ $vehiculo->tipo_transmision == 'Transmisión semiautomática' ? 'selected' : '' }}>Transmisión semiautomática</option>
-                    <option value="Transmisión manual automatizada" {{ $vehiculo->tipo_transmision == 'Transmisión manual automatizada' ? 'selected' : '' }}>Transmisión manual automatizada</option>
-                    <option value="Transmisión eléctrica de una velocidad" {{ $vehiculo->tipo_transmision == 'Transmisión eléctrica de una velocidad' ? 'selected' : '' }}>Transmisión eléctrica de una velocidad</option>
-                </select>
-            </div>
-            <div class="col-2">
-                <label for="numero_velocidades" class="form-label">
-                    Numero de velocidades
-                </label>
-                <select id="clase" class="custom-select" id="numero_velocidades" placeholder="" name="numero_velocidades" disabled>
-                    <option selected></option>
-                    <option value="4 velocidades" {{ $vehiculo->numero_velocidades == '4 velocidades' ? 'selected' : '' }}>4 velocidades</option>
-                    <option value="5 velocidades" {{ $vehiculo->numero_velocidades == '5 velocidades' ? 'selected' : '' }}>5 velocidades</option>
-                    <option value="6 velocidades" {{ $vehiculo->numero_velocidades == '6 velocidades' ? 'selected' : '' }}>6 velocidades</option>
-                    <option value="7 velocidades" {{ $vehiculo->numero_velocidades == '7 velocidades' ? 'selected' : '' }}>7 velocidades</option>
-                    <option value="8 velocidades" {{ $vehiculo->numero_velocidades == '8 velocidades' ? 'selected' : '' }}>8 velocidades</option>
-                    <option value="9 velocidades" {{ $vehiculo->numero_velocidades == '9 velocidades' ? 'selected' : '' }}>9 velocidades</option>
-                    <option value="10 velocidades" {{ $vehiculo->numero_velocidades == '10 velocidades' ? 'selected' : '' }}>10 velocidades</option>
-                    <option value="11 velocidades" {{ $vehiculo->numero_velocidades == '11 velocidades' ? 'selected' : '' }}>11 velocidades</option>
-                    <option value="12 velocidades" {{ $vehiculo->numero_velocidades == '12 velocidades' ? 'selected' : '' }}>12 velocidades (y más, en algunas transmisiones automáticas de alta gama)</option>
-                </select>
-            </div>
-            <div class="col-2">
-                <label for="tipo_rodamiento" class="form-label">
-                    Tipo de rodamiento
-                </label>
-                <select id="clase" class="custom-select" id="tipo_rodamiento" placeholder="" name="tipo_rodamiento" disabled>
-                    <option selected></option>
-                    <option value="Rodamientos de rueda" {{ $vehiculo->tipo_rodamiento == 'Rodamientos de rueda' ? 'selected' : '' }}>Rodamientos de rueda</option>
-                    <option value="Rodamientos de transmisión" {{ $vehiculo->tipo_rodamiento == 'Rodamientos de transmisión' ? 'selected' : '' }}>Rodamientos de transmisión</option>
-                    <option value="Rodamientos de motor" {{ $vehiculo->tipo_rodamiento == 'Rodamientos de motor' ? 'selected' : '' }}>Rodamientos de motor</option>
-                    <option value="Rodamientos de compresor de aire acondicionado" {{ $vehiculo->tipo_rodamiento == 'Rodamientos de compresor de aire acondicionado' ? 'selected' : '' }}>Rodamientos de compresor de aire acondicionado</option>
-                    <option value="Rodamientos de dirección" {{ $vehiculo->tipo_rodamiento == 'Rodamientos de dirección' ? 'selected' : '' }}>Rodamientos de dirección</option>
-                    <option value="Rodamientos de bomba de agua." {{ $vehiculo->tipo_rodamiento == 'Rodamientos de bomba de agua.' ? 'selected' : '' }}>Rodamientos de bomba de agua.</option>
-                </select>
-            </div>
-            <div class="col-2">
-                <label for="suspencion_delantera" class="form-label">
-                    Suspención Delantera
-                </label>
-                <select id="clase" class="custom-select" id="suspencion_delantera" placeholder="" name="suspencion_delantera" disabled>
-                    <option selected></option>
-                    <option value="Suspención Rigidas" {{ $vehiculo->suspencion_delantera == 'Suspención Rigidas' ? 'selected' : '' }}>Suspención Rigidas</option>
-                    <option value="Suspención Dependientes" {{ $vehiculo->suspencion_delantera == 'Suspención Dependientes' ? 'selected' : '' }}>Suspención Dependientes</option>
-                </select>
-            </div>
-            <div class="col-2">
-                <label for="suspension_trasera" class="form-label">
-                    Suspención Trasera
-                </label>
-                <select id="clase" class="custom-select" id="suspension_trasera" placeholder="" name="suspension_trasera" disabled>
-                    <option selected></option>
-                    <option value="Suspención Rigidas" {{ $vehiculo->suspension_trasera == 'Suspención Rigidas' ? 'selected' : '' }}>Suspención Rigidas</option>
-                    <option value="Suspención Dependientes" {{ $vehiculo->suspencion_trasera == 'Suspención Dependientes' ? 'selected' : '' }}>Suspención Dependientes</option>
-                </select>
-            </div>
-            <div class="col-2">
-                <label for="numero_llantas" class="form-label">
-                    Numero LLantas
-                </label>
-                <select id="clase" class="custom-select" id="numero_llantas" placeholder="" name="numero_llantas" disabled>
-                    <option selected></option>
-                    <option value="6" {{ $vehiculo->numero_llantas == '6' ? 'selected' : '' }}>6</option>
-                    <option value="5" {{ $vehiculo->numero_llantas == '5' ? 'selected' : '' }}>5</option>
-                    <option value="2" {{ $vehiculo->numero_llantas == '2' ? 'selected' : '' }}>2</option>
-                </select>
-            </div>
-            <div class="col-2">
-                <label for="imensiones_rines" class="form-label">
-                    Dimensión de rines
-                </label>
-                <select id="clase" class="custom-select" id="dimensiones_rines" placeholder="" name="dimensiones_rines" disabled>
-                    <option selected></option>
-                    <option value="16 pulgadas" {{ $vehiculo->dimensiones_rines == '16 pulgadas' ? 'selected' : '' }}>16 pulgadas</option>
-                    <option value="17 pulgadas" {{ $vehiculo->dimensiones_rines == '17 pulgadas' ? 'selected' : '' }}>17 pulgadas</option>
-                    <option value="18 pulgadas" {{ $vehiculo->dimensiones_rines == '18 pulgadas' ? 'selected' : '' }}>18 pulgadas</option>
-                    <option value="19 pulgadas" {{ $vehiculo->dimensiones_rines == '19 pulgadas' ? 'selected' : '' }}>19 pulgadas</option>
-                    <option value="20 pulgadas" {{ $vehiculo->dimensiones_rines == '20 pulgadas' ? 'selected' : '' }}>20 pulgadas</option>
-                    <option value="21 pulgadas" {{ $vehiculo->dimensiones_rines == '21 pulgadas' ? 'selected' : '' }}>21 pulgadas</option>
-                    <option value="22 pulgadas" {{ $vehiculo->dimensiones_rines == '22 pulgadas' ? 'selected' : '' }}>22 pulgadas</option>
-                    <option value="23 pulgadas" {{ $vehiculo->dimensiones_rines == '23 pulgadas' ? 'selected' : '' }}>23 pulgadas</option>
-                    <option value="24 pulgadas" {{ $vehiculo->dimensiones_rines == '24 pulgadas' ? 'selected' : '' }}>24 pulgadas</option>
-
-                </select>
-            </div>
-            <div class="col-2">
-                <label for="material_rines" class="form-label">
-                    Material de rines
-                </label>
-                <select id="clase" class="custom-select" id="material_rines" placeholder="" name="material_rines" disabled>
-                    <option selected></option>
-                    <option value="Aleación de Aluminio" {{ $vehiculo->material_rines == 'Aleación de Aluminio' ? 'selected' : '' }}>Aleación de Aluminio</option>
-                    <option value="Acero" {{ $vehiculo->material_rines == 'Acero' ? 'selected' : '' }}>Acero</option>
-                    <option value="Magnesio" {{ $vehiculo->material_rines == 'Magnesio' ? 'selected' : '' }}>Magnesio</option>
-                    <option value="Fibra de Carbono" {{ $vehiculo->material_rines == 'Fibra de Carbono' ? 'selected' : '' }}>Fibra de Carbono</option>
-                    <option value="Híbridos o Compuestos" {{ $vehiculo->material_rines == 'Híbridos o Compuestos' ? 'selected' : '' }}>Híbridos o Compuestos</option>
-                    <option value="Plástico Reforzado con Fibra (PRF)" {{ $vehiculo->material_rines == 'Plástico Reforzado con Fibra (PRF)' ? 'selected' : '' }}>Plástico Reforzado con Fibra (PRF)</option>
-                    <option value="Acero Inoxidable" {{ $vehiculo->material_rines == 'Acero Inoxidable' ? 'selected' : '' }}>Acero Inoxidable</option>
-                    <option value="Titanio" {{ $vehiculo->material_rines == 'Titanio' ? 'selected' : '' }}>Titanio</option>
-                    <option value="Rines Forjados" {{ $vehiculo->material_rines == 'Rines Forjados' ? 'selected' : '' }}>Rines Forjados</option>
-
-                </select>
-            </div>
-            <div class="col-12">
-                <br>
-                <label for="text" class="form-label">
-                    🔹FRENOS:
-                </label>
-            </div>
-            <div class="col-4">
-                <label for="tipo_frenos_delanteros" class="form-label">
-                    Tipo de frenos delanteros
-                </label>
-                <select id="clase" class="custom-select" id="tipo_frenos_delanteros" placeholder="" name="tipo_frenos_delanteros" disabled>
-                    <option selected></option>
-                    <option value="Disco" {{ $vehiculo->tipo_frenos_delanteros == 'Disco' ? 'selected' : '' }}>Disco</option>
-                    <option value="Tambor" {{ $vehiculo->tipo_frenos_delanteros == 'Tambor' ? 'selected' : '' }}>Tambor</option>
-                    <option value="A.B.S" {{ $vehiculo->tipo_frenos_delanteros == 'A.B.S' ? 'selected' : '' }}>A.B.S</option>
-                </select>
-            </div>
-            <div class="col-4">
-                <label for="tipo_frenos_traseros" class="form-label">
-                    Tipo de frenos traseros
-                </label>
-                <select id="clase" class="custom-select" id="tipo_frenos_traseros" placeholder="" name="tipo_frenos_traseros" disabled>
-                    <option selected></option>
-                    <option value="Disco" {{ $vehiculo->tipo_frenos_delanteros == 'Disco' ? 'selected' : '' }}>Disco</option>
-                    <option value="Tambor" {{ $vehiculo->tipo_frenos_delanteros == 'Tambor' ? 'selected' : '' }}>Tambor</option>
-                    <option value="A.B.S" {{ $vehiculo->tipo_frenos_delanteros == 'A.B.S' ? 'selected' : '' }}>A.B.S</option>
-                </select>
-            </div>
-            <div class="col-12">
-                <br>
-                <label for="text" class="form-label">
-                    🔹CARROCERIA:
-                </label>
-            </div>
-            <div class="col-4">
-                <label for="numero_serie" class="form-label">
-                    Numero Serie
-                </label>
-                <input type="text" class="form-control" id="numero_serie" placeholder="" name="numero_serie" value="{{ $vehiculo->numero_serie }}" disabled/>
-            </div>
-            <div class="col-4">
-                <label for="numero_ventanas" class="form-label">
-                    Numero de ventanas
-                </label>
-                <select id="clase" class="custom-select" id="numero_ventanas" placeholder="" name="numero_ventanas" disabled>
-                    <option selected></option>
-                    <option value="3" {{ $vehiculo->numero_ventanas == '3' ? 'selected' : '' }}>3</option>
-                    <option value="4" {{ $vehiculo->numero_ventanas == '4' ? 'selected' : '' }}>4</option>
-                    <option value="6" {{ $vehiculo->numero_ventanas == '6' ? 'selected' : '' }}>6</option>
-                    <option value="N/A" {{ $vehiculo->numero_ventanas == 'N/A' ? 'selected' : '' }}>N/A</option>
-                </select>
-            </div>
-            <div class="col-4">
-                <label for="capacidad_carga" class="form-label">
-                    Capacidad de carga | Pasajeros
-                </label>
-                <select id="clase" class="custom-select" id="capacidad_carga" placeholder="" name="capacidad_carga" disabled>
-                    <option selected></option>
-                    <option value="2" {{ $vehiculo->capacidad_carga == '2' ? 'selected' : '' }}>2</option>
-                    <option value="5" {{ $vehiculo->capacidad_carga == '5' ? 'selected' : '' }}>5</option>
-                </select>
-            </div>
-            <div class="col-12">
-                <br>
-                <label for="text" class="form-label">
-                    🔹DOTACION VEHICULO | EQUIPO DE CARRETERA
-                </label>
-            </div>
-            <div class="col-md-4">
-                <div class="dotacion-container">
-                    <h6>Selecione</h6>
-    
-                    @php
-                    $selectedDotacion = explode(',', $vehiculo->dotacion);
-                    @endphp
-    
-    
-                    <input type="checkbox" id="examen_a" name="dotacion[]" value="llaves" {{ in_array('llaves', $selectedDotacion) ? 'checked disabled' : '' }} disabled>
-                    <label for="examen_a">Llaves</label><br>
-    
-                    <input type="checkbox" id="examen_b" name="dotacion[]" value="destornilladores" {{ in_array('destornilladores', $selectedDotacion) ? 'checked disabled' : '' }} disabled>
-                    <label for="examen_b">Destornilladores</label><br>
-    
-                    <input type="checkbox" id="examen_c" name="dotacion[]" value="gato" {{ in_array('gato', $selectedDotacion) ? 'checked disabled' : '' }} disabled>
-                    <label for="examen_c">Gato</label><br>
-    
-                    <input type="checkbox" id="examen_d" name="dotacion[]" value="alicates" {{ in_array('alicates', $selectedDotacion) ? 'checked disabled' : '' }} disabled>
-                    <label for="examen_d">Alicates</label><br>
-    
-                    <input type="checkbox" id="examen_e" name="dotacion[]" value="extintor" {{ in_array('extintor', $selectedDotacion) ? 'checked disabled' : '' }} disabled>
-                    <label for="examen_e">Extintor</label><br>
-    
-                    <input type="checkbox" id="examen_f" name="dotacion[]" value="tacos" {{ in_array('tacos', $selectedDotacion) ? 'checked disabled' : '' }} disabled>
-                    <label for="examen_f">Tacos</label><br>
-    
-                    <input type="checkbox" id="examen_g" name="dotacion[]" value="linterna" {{ in_array('linterna', $selectedDotacion) ? 'checked disabled' : '' }} disabled>
-                    <label for="examen_g">Linterna</label><br>
-    
-    
-                </div>
-            </div> 
-
-            <div class="col-md-4">
-                <div class="equipo-container" >
-                    <h6>Selecione</h6>
-    
-                    @php
-                    $selectedDotacion = explode(',', $vehiculo->equipo_carretera);
-                    @endphp
-    
-                    <input type="checkbox" name="equipo_carretera[]" value="conos" {{ in_array('conos', $selectedDotacion) ? 'checked disabled' : '' }} disabled>
-                    <label for="examen_a">Conos</label><br>
-                    <input type="checkbox" name="equipo_carretera[]" value="pendones_viales" {{ in_array('pendones_viales', $selectedDotacion) ? 'checked disabled' : '' }} disabled>
-                    <label for="examen_b">Pendones viales</label><br>
-                    <input type="checkbox" name="equipo_carretera[]" value="baston_luminoso" {{ in_array('baston_luminoso', $selectedDotacion) ? 'checked disabled' : '' }} disabled>
-                    <label for="examen_c">Baston Luminoso</label><br>
-                    <input type="checkbox" name="equipo_carretera[]" value="llanta_emergencia" {{ in_array('llanta_emergencia', $selectedDotacion) ? 'checked disabled' : '' }} disabled>
-                    <label for="examen_a">Llanta de emergencia</label><br>
-                    <input type="checkbox" name="equipo_carretera[]" value="cruceta" {{ in_array('cruceta', $selectedDotacion) ? 'checked disabled' : '' }} disabled>
-                    <label for="examen_b">Cruceta</label><br>
-                    <input type="checkbox" name="equipo_carretera[]" value="botiquin" {{ in_array('botiquin', $selectedDotacion) ? 'checked disabled' : '' }} disabled>
-                    <label for="examen_c">Botiquin</label><br>
-                  </div>
-            </div> 
             
+        
+            <div class="col-2" style="text-align: left;">
+                <label for="medicion" class="form-label">
+                    Medición a realizar
+                </label>
+                <input type="text" class="form-control" id="medicion" placeholder="" name="medicion" value="{{ $equipo->medicion }}" disabled/>
+              
+            </div>
+            <div class="col-2" style="text-align: left;">
+                <label for="rango_uso" class="form-label">
+                    Rango de Uso
+                </label>
+                <input type="text" class="form-control" id="rango_uso" placeholder="" name="rango_uso" value="{{ $equipo->rango_uso }}" disabled/>
+              
+            </div>
+            <div class="col-2" style="text-align: left;">
+                <label for="resolucion" class="form-label">
+                    Resolución
+                </label>
+                <input type="text" class="form-control" id="resolucion" placeholder="" name="resolucion" value="{{ $equipo->resolucion }}" disabled/>
+              
+            </div>
             
-          
-        </form> 
+            <div class="col-2" style="text-align: left;">
+                <label for="exactitud" class="form-label">
+                    Exactitud
+                </label>
+                <input type="text" class="form-control" id="exactitud" placeholder="" name="exactitud" value="{{ $equipo->exactitud }}" disabled/>
+              
+            </div>
+            <div class="col-2" style="text-align: left;">
+                <label for="fecha_calibracion" class="form-label">
+                    Frecuencia de Calibración
+                </label>
+                <input type="text" class="form-control" id="fecha_calibracion" placeholder="" name="fecha_calibracion" value="{{ $equipo->fecha_calibracion }}" disabled/>
+              
+            </div>
+            <div class="col-2" style="text-align: left;">
+                <label for="fecha_verificacion" class="form-label">
+                    Frecuencia de Verificación
+                </label>
+                <input type="text" class="form-control" id="fecha_verificacion" placeholder="" name="fecha_verificacion" value="{{ $equipo->fecha_verificacion }}" disabled/>
+              
+            </div>
+            <div class="col-2" style="text-align: left;">
+                <label for="patrones" class="form-label">
+                    Patrones
+                </label>
+                <input type="text" class="form-control" id="patrones" placeholder="" name="patrones" value="{{ $equipo->patrones }}" disabled/>
+              
+            </div>
+            <div class="col-2" style="text-align: left;">
+                <label for="estandares" class="form-label">
+                    Estándares
+                </label>
+                <input type="text" class="form-control" id="estandares" placeholder="" name="estandares" value="{{ $equipo->estandares }}" disabled/>
+              
+            </div>
+            <div class="col-2" style="text-align: left;">
+                <label for="regulaciones" class="form-label">
+                    Regulaciones 
+                </label>
+                <input type="text" class="form-control" id="regulaciones" placeholder="" name="regulaciones" value="{{ $equipo->regulaciones }}" disabled/>
+              
+            </div>
 
-    </div>
+            <div class="col-2" style="text-align: left;">
+                <label for="otras_caracteristicas" class="form-label">
+                    Otras características  
+                </label>
+                <input type="text" class="form-control" id="otras_caracteristicas" placeholder="" name="otras_caracteristicas" value="{{ $equipo->otras_caracteristicas }}" disabled/>
+              
+            </div>
+
+            <div class="col-md-1">
+                <label for="garantia" class="form-label">
+                    Garantía
+                </label>
+                <select id="garantia" class="custom-select" placeholder="" name="garantia" disabled>
+                    <option selected></option>
+                    <option value="SI" {{ $equipo->garantia == 'SI' ? 'selected' : '' }}>SI</option>
+                    <option value="NO" {{ $equipo->garantia == 'NO' ? 'selected' : '' }}>NO</option>
+                    <option value="N/A" {{ $equipo->garantia == 'N/A' ? 'selected' : '' }}>N/A</option>
+                </select>
+            </div>
+         
+            <div class="col-2" style="text-align: left;">
+                <label for="fecha_inicio" class="form-label">
+                    Fecha Inicio
+                </label>
+                <input type="date" class="form-control" id="fecha_inicio" placeholder="" name="fecha_inicio" value="{{ $equipo->fecha_inicio }}" disabled/>
+              
+            </div>
+            <div class="col-2" style="text-align: left;">
+                <label for="fecha_fin" class="form-label">
+                    Fecha de Terminación
+                </label>
+                <input type="date" class="form-control" id="fecha_fin" placeholder="" name="fecha_fin" value="{{ $equipo->fecha_fin }}" disabled/><br>
+            </div> 
+        </form>
+
+
 
     
     <div class="table-responsive" id="tabla">

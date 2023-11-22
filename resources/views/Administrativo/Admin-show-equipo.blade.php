@@ -123,14 +123,14 @@
                         </td> 
                     
 
-                        <td>
-                            <a href="{{ url('/update-equipo/' . $equipo->id_equipo) }}">
+                        <td class="text-center">
+                            <a href="{{ route('equipo.edit_equipo', $equipo) }}">
                                 <button class="btn btn-warning" onclick="Editar"><i class="fas fa-edit"></i></button>
                             </a>    
                         </td>
 
-                        <td>
-                            <a href="{{ url('/update-vehiculo')}}">
+                        <td class="text-center">
+                            <a href="{{ route('show-equipo-CV_equipo_CV', $equipo) }}">
                                 <button class="btn btn-warning" onclick="Editar"><i class="fas fa-edit"></i></button>
                             </a>    
                         </td>

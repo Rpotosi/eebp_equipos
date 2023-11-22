@@ -295,6 +295,22 @@ class AdministrativoController extends Controller
 
     }
 
+
+    public function equipo_CV(Request $request, $id_equipo)
+    {
+        // Busca la orden correspondiente al id proporcionado
+        $equipo = Administrativo_equipo::find($id_equipo);
+        // Trae todos los registros de la tabla mantenimientoVehiculo
+        $query = MantenimientoEquipoAdmin::query(); 
+
+        // Ejecutamos la consulta y obtenemos los pedidos filtrados
+        $mantenimientos = $query->paginate();
+
+        // Devuelve la vista con los datos 
+        return view('Administrativo.Admin-show-CV-equipo', compact('equipo', 'mantenimientos'));
+
+    }
+
     /**
      * Update the specified resource in storage.
      */
