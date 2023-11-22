@@ -117,7 +117,7 @@ class SSTController extends Controller
         // Busca la orden correspondiente al id proporcionado
         $equipo = SST::find($id_vehiculo);
         // Devuelve la vista con los datos 
-        return view('Administrativo.Admin-update-equipo', compact('equipo'));
+        return view('', compact('equipo'));
     }
 
     /**

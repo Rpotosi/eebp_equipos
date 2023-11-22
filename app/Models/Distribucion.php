@@ -4,14 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Distribucion extends Model
 {
     use HasFactory;
-    protected $table = 'create_equipo_dis';
+    protected $table = 'create_equipo';
     protected $primaryKey = 'id_equipo';
     protected $fillable = [
-
         'nombre_equipo',
         'ubicacion_equipo',
         'estado',
@@ -53,8 +53,14 @@ class Distribucion extends Model
         'otras_caracteristicas',
         'garantia',
         'fecha_inicio',
-        'fecha_fin',
-
+        'fecha_fin'    
 
     ];
+
+    public function mantenimientos(): HasMany
+    {
+        return $this->hasMany(MantenimientoVehiculo::class, 'id_vehiculo_fk', 'id_vehiculo');
+    }
+    
 }
+

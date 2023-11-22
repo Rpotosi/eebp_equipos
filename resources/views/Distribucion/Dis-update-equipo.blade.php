@@ -75,7 +75,7 @@
         </script>
     @endif
     <div class="form-container">
-        <form id="formulario" action="{{route('distribucion.create_equipo')}}" method="POST" enctype="multipart/form-data" class="row g-3">
+        <form id="formulario" action="{{route('distribucion_equipo.create_equipo')}}" method="POST" enctype="multipart/form-data" class="row g-3">
             <!-- esta linea requiere ruta Route::post definida en routes Route EquiposController-->
             
             @csrf
@@ -90,7 +90,7 @@
                 <label for="nombre_equipo" class="form-label">
                     Nombre tecnico del equipo
                 </label>
-                <input type="text" class="form-control" id="nombre_equipo" name="nombre_equipo" required/>
+                <input type="text" class="form-control" id="nombre_equipo" name="nombre_equipo" value="{{$equipo->nombre_equipo}}" disabled/>
             </div>
 
             <div class="col-md-2">
