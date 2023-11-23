@@ -260,7 +260,7 @@ class AdministrativoController extends Controller
         $query->where('placa', 'like', '%' . $buscarpor . '%');
     
         // Ejecutamos la consulta y obtenemos los pedidos filtrados
-        $vehiculos = $query->paginate(6);
+        $vehiculos = $query->paginate(8);
     
         return view('Administrativo.Admin-show-vehiculo', compact('vehiculos', 'buscarpor', 'estado'));
     }
@@ -331,13 +331,19 @@ class AdministrativoController extends Controller
 
     public function show_equipo(Request $request)
     {
+        // Obtenemos el valor de búsqueda por nombre equipo
+        $buscarpor = $request->input('nombre_equipo');
 
-        // Crea una consulta del modelo Distribucion
+        // Crea una consulta del modelo 
         $query = Administrativo_equipo::query();   
-        // Ejecutamos la consulta y obtenemos los pedidos filtrados
-        $equipos = $query->paginate();
 
-        return view ('Administrativo.Admin-show-equipo', compact('equipos'));
+        // Agregamos una cláusula where para buscar por placa siempre
+        $query->where('nombre_equipo', 'like', '%' . $buscarpor . '%');
+        
+        // Ejecutamos la consulta y obtenemos los pedidos filtrados
+        $equipos = $query->paginate(8);
+
+        return view ('Administrativo.Admin-show-equipo', compact('equipos', 'buscarpor'));
     }
 
 

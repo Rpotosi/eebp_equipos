@@ -104,7 +104,7 @@ class SSTController extends Controller
         $query = SST::query();   
 
         // Ejecutamos la consulta y obtenemos los pedidos filtrados
-        $equipos = $query->paginate(6);
+        $equipos = $query->paginate(10);
 
         return view ('SST.SST-show', compact('equipos'));
     }
@@ -174,7 +174,7 @@ class SSTController extends Controller
         $query = MantenimientoEquipoSst::query(); 
 
         // Ejecutamos la consulta y obtenemos los pedidos filtrados
-        $mantenimientos = $query->paginate();
+        $mantenimientos = $query->paginate(5);
 
         // Devuelve la vista con los datos 
         return view('SST.SST-show-CV-equipo', compact('equipo', 'mantenimientos'));
