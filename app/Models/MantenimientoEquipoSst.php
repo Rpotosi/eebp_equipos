@@ -10,9 +10,8 @@ class MantenimientoEquipoSst extends Model
     use HasFactory;
 
     protected $table = 'create_mantenimiento_equipo_sst';
-
     protected $primaryKey = 'id';
-
+    public $timestamps = false;
     protected $fillable = [
         'id_equipo_fk',
         'fecha_mantenimiento',

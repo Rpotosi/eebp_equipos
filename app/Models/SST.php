@@ -4,12 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class SST extends Model
 {
     use HasFactory;
     protected $table = 'create_equipo_sst';
     protected $primaryKey = 'id_equipo';
+    public $timestamps = false;
     protected $fillable = [
 
         'nombre_equipo',
@@ -57,4 +59,9 @@ class SST extends Model
 
 
     ];
+    public function mantenimientos(): HasMany
+    {
+        return $this->hasMany(MantenimientoVehiculo::class, 'id_equipo_fk', 'id_equipo');
+    }
+    
 }

@@ -45,14 +45,13 @@ Route::controller(DistribucionController::class)->group(function(){
     Route::get('/show-equipo-dis-CV{id_equipo}', 'equipo_dis_CV')->name('show-equipo-dis-CV_equipo_dis_CV');
 });
 
-/*
 
 Route::controller(SSTController::class)->group(function(){
     Route::get('SST', 'form')->name('SST.form');
     Route::get('equipo_sst','create_equipo')->name('equipo_sst.create_equipo');
     Route::post('equipo_sst', 'store_equipo')->name('equipo_sst.create_equipo');
-    
     Route::get('show-equipo-sst', 'show_equipo')->name('show-equipo-sst.show_equipo');
-    Route::get('update-equipo/{id_equipo}', 'edit_equipo')->name('equipo.edit_equipo');
+    Route::get('update-equipo-sst/{id_equipo}', 'edit_equipo')->name('equipo.edit_equipo');
+    Route::post('update-equipo-sst/{id_equipo}', 'agregarMantenimiento_equipo_sst')->name('equipo.mantenimiento_equipo_sst');
+    Route::get('/show-equipo-sst-CV{id_equipo}', 'equipo_sst_CV')->name('show-equipo-sst-CV_equipo_sst_CV');
 });
-*/

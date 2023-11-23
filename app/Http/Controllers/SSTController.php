@@ -6,6 +6,7 @@ use App\Models\SST;
 use App\Models\Administrativo;
 use App\Models\Administrativo_vehiculo;
 use App\Models\Distribucion;
+use App\Models\MantenimientoEquipoSst;
 use Illuminate\Http\Request;
 
 class SSTController extends Controller
@@ -39,7 +40,7 @@ class SSTController extends Controller
     public function store_equipo(Request $request)
     {     
         // Crea una nueva instancia del controlador Distribucion
-         $equipo = new Distribucion();
+         $equipo = new SST();
        
          $equipo->nombre_equipo = $request->nombre_equipo;
          $equipo->ubicacion_equipo = $request->ubicacion_equipo;
@@ -100,7 +101,7 @@ class SSTController extends Controller
     {
 
         // Crea una consulta del modelo Distribucion
-        $query = Distribucion::query();   
+        $query = SST::query();   
 
         // Ejecutamos la consulta y obtenemos los pedidos filtrados
         $equipos = $query->paginate(6);
@@ -111,14 +112,75 @@ class SSTController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit_equipo($id_vehiculo)
+    public function edit_equipo($id_equipo)
     {
         
         // Busca la orden correspondiente al id proporcionado
-        $equipo = SST::find($id_vehiculo);
+        $equipo = SST::find($id_equipo);
         // Devuelve la vista con los datos 
-        return view('', compact('equipo'));
+        return view('SST.SST-update-equipo', compact('equipo'));
     }
+
+
+    public function agregarMantenimiento_equipo_sst(Request $request, $id)
+    {
+        // Valida los datos del formulario
+        $request->validate([
+            'fecha_mantenimiento' => 'required|date',
+            'descripcion' => 'required|string',
+            'averia_dano' => 'required|string',
+            'referencia_repuesto' => 'required|string',
+            'responsable' => 'required|string',
+            'precio' => 'required|numeric',
+            'anexos' => 'required|file', // Validación adicional para el archivo adjunto
+        ]);
+    
+        // Obtén el vehículo por su ID
+        $equipo = SST::findOrFail($id);
+    
+        // Crea un nuevo mantenimiento
+        $mantenimiento = new MantenimientoEquipoSst([
+            'fecha_mantenimiento' => $request->input('fecha_mantenimiento'),
+            'descripcion' => $request->input('descripcion'),
+            'averia_dano' => $request->input('averia_dano'),
+            'referencia_repuesto' => $request->input('referencia_repuesto'),
+            'responsable' => $request->input('responsable'),
+            'precio' => $request->input('precio'),
+            // Completa con otros campos del mantenimiento según tu base de datos
+        ]);
+    
+        // Lógica para cargar el archivo adjunto
+        $file = $request->file('anexos');
+        $extension = $file->getClientOriginalExtension();
+        $uniqueFileName = uniqid() . '.' . $extension;
+        $path = $file->storeAs('public/mantenimientos/anexos', $uniqueFileName);
+    
+        // Almacena la URL del archivo en la base de datos
+        $url = '/storage/mantenimientos/anexos/' . $uniqueFileName;
+        $mantenimiento->anexos = $url;
+    
+        // Asocia el mantenimiento al vehículo
+        $equipo->mantenimientos()->save($mantenimiento);
+    
+        // Redirecciona con una alerta de éxito
+        return redirect()->route('show-equipo-sst.show_equipo', $id)->with('success', 'Mantenimiento agregado exitosamente.');
+    }
+
+    public function equipo_sst_CV(Request $request, $id_equipo)
+    {
+        // Busca la orden correspondiente al id proporcionado
+        $equipo = SST::find($id_equipo);
+        // Trae todos los registros de la tabla mantenimientoVehiculo
+        $query = MantenimientoEquipoSst::query(); 
+
+        // Ejecutamos la consulta y obtenemos los pedidos filtrados
+        $mantenimientos = $query->paginate();
+
+        // Devuelve la vista con los datos 
+        return view('SST.SST-show-CV-equipo', compact('equipo', 'mantenimientos'));
+
+    }
+
 
     /**
      * Update the specified resource in storage.
