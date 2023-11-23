@@ -131,7 +131,7 @@
 
                         <td class="text-center">
                             <a href="{{ route('show-equipo-dis-CV_equipo_dis_CV', $equipo) }}">
-                                <button class="btn btn-warning" onclick="Editar"><i class="fas fa-edit"></i></button>
+                                <button class="btn btn-warning" onclick="Editar"><i class="fas fa-file"></i></button>
                             </a>    
                         </td>
 

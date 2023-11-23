@@ -16,10 +16,12 @@
         .td-button{
 
             justify-content: center;
-
         }
+
+
     </style>
-  
+
+    
     <div style="text-align: end;">
         <div style="background-color:#f6c21e; display: inline-block; padding: 5px;">
             <p style="margin: 0;"><b>Bienvenido: 
@@ -135,7 +137,7 @@
 
                         <td class="text-center">
                             <a href="{{ route('show-vehiculo-CV_vehiculos_CV', $vehiculo) }}">
-                                <button class="btn btn-warning" onclick="Editar"><i class="fas fa-edit"></i></button>
+                                <button class="btn btn-warning" onclick="Editar"><i class="fas fa-file"></i></button>
                             </a>    
                         </td>
 
