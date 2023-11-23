@@ -94,14 +94,15 @@ class DistribucionController extends Controller
      */
     public function show_equipo(Request $request)
     {
-
+        $buscarpor = $request->input('nombre_equipo');
         // Crea una consulta del modelo Distribucion
         $query = Distribucion::query();   
 
+        $query->where('nombre_equipo', 'like', '%' .$buscarpor . '%');
         // Ejecutamos la consulta y obtenemos los pedidos filtrados
-        $equipos = $query->paginate();
+        $equipos = $query->paginate(8);
 
-        return view ('Distribucion.Dis-show', compact('equipos'));
+        return view ('Distribucion.Dis-show', compact('equipos','buscarpor'));
     }
 
     /**
