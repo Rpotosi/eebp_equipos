@@ -97,8 +97,8 @@
                 <label for="ubicacion_equipo" class="form-label">
                     Ubicación del equipo
                 </label>
-                <select id="clase" class="custom-select" id="ubicacion_equipo" placeholder="" name="ubicacion_equipo" required>
-                    <option selected=""></option>
+                <select id="ubicacion_equipo" class="custom-select" placeholder="" name="ubicacion_equipo" required>
+                    <option selected></option>
                     <option>Sede PA</option>
                     <option>Sede VG</option>
                     <option>Sede Caicedo</option>
@@ -115,8 +115,8 @@
                 <label for="estado" class="form-label">
                     Estado
                 </label>
-                <select id="clase" class="custom-select" id="estado" placeholder="" name="estado" required>
-                    <option selected=""></option>
+                <select id="estado" class="custom-select"placeholder="" name="estado" required>
+                    <option selected></option>
                     <option>Nuevo</option>
                     <option>En uso</option>
                     <option>Fuero de servicio</option>
@@ -138,8 +138,8 @@
                 <label for="marca" class="form-label">
                     Marca
                 </label>
-                <select id="clase" class="custom-select" id="marca" placeholder="" name="marca" required>
-                    <option selected=""></option>
+                <select id="marca" class="custom-select" placeholder="" name="marca" required>
+                    <option selected></option>
                     <option>Nuevo uso</option>
                     <option>Dimanik</option>
                     <option>Link tech</option>
@@ -207,8 +207,8 @@
                 <label for="validez" class="form-label">
                     Validez
                 </label>
-                <select id="clase" class="custom-select" id="validez" placeholder="" name="validez" required>
-                    <option selected=""></option>
+                <select id="validez"  class="custom-select" placeholder="" name="validez" required>
+                    <option selected></option>
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -259,7 +259,7 @@
                 <label for="lugar_proceso" class="form-label">
                     Lugar o Proceso
                 </label>
-                <select id="clase" class="custom-select" id="lugar_proceso" placeholder="" name="lugar_proceso" required>
+                <select id="lugar_proceso" class="custom-select"  placeholder="" name="lugar_proceso" required>
                     <option selected></option>
                     <option>Almacén</option>
                     <option>Bodega</option>
@@ -313,8 +313,8 @@
                 <label for="fabricante" class="form-label">
                     Fabricante
                 </label>
-                <select id="clase" class="custom-select" id="fabricante" placeholder="" name="fabricante" required>
-                    <option selected=""></option>
+                <select id="fabricante" class="custom-select" placeholder="" name="fabricante" required>
+                    <option selected></option>
                     <option>Sew</option>
                     <option>Supersafe</option>
                     <option>WJ Rescates</option>
@@ -379,8 +379,8 @@
                     <br>
                     Mantenimiento recomendado 
                 </label>
-                <select id="clase" class="custom-select" id="mantenimiento_recomendado" placeholder="" name="mantenimiento_recomendado" required>
-                    <option selected=""></option>
+                <select id="mantenimiento_recomendado" class="custom-select"  placeholder="" name="mantenimiento_recomendado" required>
+                    <option selected></option>
                     <option value="">Preventivo</option>
                     <option value="">Inspección</option>
                     <option value="">Verificación</option>
@@ -489,7 +489,7 @@
                 <label for="garantia" class="form-label">
                     Garantía
                 </label>
-                <select id="clase" class="custom-select" id="garantia" placeholder="" name="garantia" required>
+                <select id="garantia" class="custom-select"  placeholder="" name="garantia" required>
                     <option selected></option>
                     <option>SI</option>
                     <option>NO</option>

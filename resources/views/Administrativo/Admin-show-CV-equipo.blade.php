@@ -382,6 +382,7 @@
                 </select>
               
             </div>
+            
             <div class="col-2" style="text-align: left;">
                 <label for="mantenimiento_recomendado" class="form-label">
                     <br>

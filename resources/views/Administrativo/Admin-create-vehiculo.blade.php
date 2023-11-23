@@ -464,57 +464,6 @@
                     <label for="examen_c">Botiquin</label><br>
                   </div>
             </div>
-            
-            <!--
-            <div class="col-12">
-                <label for="text" class="form-label">
-                    <br>
-                    7.HISTORAIL DE MANTENIMIENTO:
-                </label>
-            </div>
-            <div class="col-2" style="text-align: center;">
-                <label for="fecha_mantenimiento" class="form-label">
-                    Fecha mantenimiento
-                </label>
-                <input type="date" class="form-control" id="fecha_mantenimiento" placeholder="" name="fecha_mantenimiento" required/>
-                
-            </div>
-            <div class="col-2" style="text-align: center;">
-                <label for="descripcion" class="form-label">
-                    Descripcion
-                </label>
-                <input type="text" class="form-control" id="descripcion" placeholder="" name="descripcion" required/>
-                
-            </div>
-            <div class="col-2"style="text-align: center;">
-                <label for="averia_dano" class="form-label">
-                    Averia/ Daño
-                </label>
-                <input type="text" class="form-control" id="averia_dano" placeholder="" name="averia_dano" required/>
-               
-            </div>
-            <div class="col-2"style="text-align: center;">
-                <label for="referencia_repuesto" class="form-label">
-                    Referencia Respuesto
-                </label>
-                <input type="text" class="form-control" id="referencia_repuesto" placeholder="" name="referencia_repuesto" required/>
-              
-            </div>
-            <div class="col-2" style="text-align: center;">
-                <label for="responsable" class="form-label">
-                    Responsable
-                </label>
-                <input type="text" class="form-control" id="responsable" placeholder="" name="responsable" required/>
-               
-            </div>
-            <div class="col-2" style="text-align: center;">
-                <label for="precio" class="form-label">
-                    Precio
-                </label>
-                <input type="text" class="form-control" id="precio" placeholder="" name="precio" required/>
-              
-            </div>
-            --->
             <div class="col-12">
             </div>
             <br>
