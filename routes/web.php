@@ -42,6 +42,7 @@ Route::controller(DistribucionController::class)->group(function(){
     Route::get('show-equipo-dis', 'show_equipo')->name('distribucion.show_equipo');
     Route::get('update-equipo-dis/{id_equipo}', 'edit_equipo')->name('distribucion.edit_equipo');
     Route::post('update-equipo-dis/{id_equipo}', 'agregarMantenimiento_equipo_dis')->name('equipo.mantenimiento_equipo_dis');
+    Route::get('/show-equipo-dis-CV{id_equipo}', 'equipo_dis_CV')->name('show-equipo-dis-CV.equipo_dis_CV');
 });
 
 /*

@@ -187,4 +187,19 @@ class DistribucionController extends Controller
         // Redirecciona con una alerta de éxito
         return redirect()->route('distribucion.show_equipo', $id)->with('success', 'Mantenimiento agregado exitosamente.');
     }
+
+    public function equipo_dis_CV(Request $request, $id_equipo)
+    {
+        // Busca la orden correspondiente al id proporcionado
+        $equipo = Distribucion::find($id_equipo);
+        // Trae todos los registros de la tabla mantenimientoVehiculo
+        $query = MantenimientoEquipoDis::query(); 
+
+        // Ejecutamos la consulta y obtenemos los pedidos filtrados
+        $mantenimientos = $query->paginate();
+
+        // Devuelve la vista con los datos 
+        return view('Distribucion.Dis-show-CV-equipo', compact('equipo', 'mantenimientos'));
+
+    }
 }
