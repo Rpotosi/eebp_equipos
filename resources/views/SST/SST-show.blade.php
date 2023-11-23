@@ -34,9 +34,9 @@
 @section('content')
 <form class="buscar">
     <div class="form-group">
-        <label for="placa" class="titulo">Búsqueda de Placa:</label>
+        <label for="nombre_equipo" class="titulo">Búsqueda de nombre_equipo:</label>
         <div class="input-group">
-            <input type="search" name="placa" id="placa" class="form-control" style="max-width: 300px;" placeholder="no_placa" value="">
+            <input type="search" name="nombre_equipo" id="nombre_equipo" class="form-control" style="max-width: 300px;" placeholder="no_nombre_equipo" value="">
             <!-- Espacio entre "Buscar orden" y "Filtrar todo" -->
             <div style="width: 10px;"></div>
             <select name="estado" class="form-control" style="max-width: 150px;">
@@ -141,6 +141,7 @@
             </tbody>
         </table>
         <!-- Paginación con enlaces y variables de búsqueda incluidas -->
+        {{$equipos->appends(['nombre_equipo' => $buscarpor])->links()}}
        
 
     </div>    

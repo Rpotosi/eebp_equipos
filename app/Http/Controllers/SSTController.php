@@ -98,15 +98,19 @@ class SSTController extends Controller
      * Display the specified resource.
      */
     public function show_equipo(Request $request)
-    {
-
-        // Crea una consulta del modelo Distribucion
+    {   
+        // Obtenemos el valor de búsqueda por nombre_equipo
+        $buscarpor = $request->input('nombre_equipo');
+        // Crea una consulta del modelo SST
         $query = SST::query();   
 
-        // Ejecutamos la consulta y obtenemos los pedidos filtrados
-        $equipos = $query->paginate(10);
+        // Agregamos una cláusula where para buscar nombre_equipo
+        $query->where('nombre_equipo', 'like', '%' . $buscarpor . '%');
 
-        return view ('SST.SST-show', compact('equipos'));
+        // Ejecutamos la consulta y obtenemos los pedidos filtrados
+        $equipos = $query->paginate(8);
+
+        return view ('SST.SST-show', compact('equipos', 'buscarpor'));
     }
 
     /**
