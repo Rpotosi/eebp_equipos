@@ -19,14 +19,10 @@ Route::controller(AdministrativoController::class)->group(function(){   //asi se
     Route::get('/show-vehiculo-CV{id_vehiculo}', 'vehiculos_CV')->name('show-vehiculo-CV_vehiculos_CV');
     Route::get('update-vehiculo/{id_vehiculo}', 'edit_vehiculo')->name('vehiculo.edit_vehiculo');
     Route::post('update-vehiculo/{id_vehiculo}', 'agregarMantenimiento')->name('vehiculo.mantenimiento_vehiculo');
-
-    Route::get('/show-equipo-CV{id_equipo}', 'equipo_CV')->name('show-equipo-CV_equipo_CV');
-
-
-
     Route::get('vehiculo', 'create_vehiculo')->name('vehiculo.create_vehiculo'); // vehiculo= nombre unico para URL || create_vehiculo= nombre del metodo del controlador || vehiculo.create_vehiculo= URL + Nombre del metodo controlador
     Route::post('vehiculo', 'store_vehiculo')->name('vehiculo.create_vehiculo'); 
 
+    Route::get('/show-equipo-CV{id_equipo}', 'equipo_CV')->name('show-equipo-CV_equipo_CV');
     Route::get('equipo', 'create_equipo','create_equipo')->name('equipo.equipo.create_equipo'); 
     Route::post('equipo', 'store_equipo','store_equipo')->name('equipo.create_equipo'); 
     Route::post('update-equipo/{id_equipo}', 'agregarMantenimiento_equipo')->name('equipo.mantenimiento_equipo');
@@ -38,16 +34,17 @@ Route::controller(AdministrativoController::class)->group(function(){   //asi se
 });
 
 
-/*
+
 Route::controller(DistribucionController::class)->group(function(){
     Route::get('distribucion', 'form')->name('SST.form');
     Route::get('distribucion_equipo','create_equipo')->name('distribucion.create_equipo');
     Route::post('distribucion_equipo', 'store_equipo')->name('distribucion.create_equipo');
     Route::get('show-equipo-dis', 'show_equipo')->name('distribucion.show_equipo');
     Route::get('update-equipo-dis/{id_equipo}', 'edit_equipo')->name('distribucion.edit_equipo');
+    Route::post('update-equipo-dis/{id_equipo}', 'agregarMantenimiento_equipo_dis')->name('equipo.mantenimiento_equipo_dis');
 });
 
-
+/*
 
 Route::controller(SSTController::class)->group(function(){
     Route::get('SST', 'form')->name('SST.form');

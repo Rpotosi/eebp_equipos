@@ -13,38 +13,52 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('create_vehiculo', function (Blueprint $table) {
-            $table->bigInteger('id_vehiculo', true);
-            $table->date('fecha')->nullable();
-            $table->string('placa', 50)->nullable();
-            $table->string('linea', 50)->nullable();
-            $table->string('clase', 50)->nullable();
+        Schema::create('create_equipo_dis', function (Blueprint $table) {
+            $table->bigInteger('id_equipo', true);
+            $table->string('nombre_equipo')->nullable();
+            $table->string('ubicacion_equipo')->nullable();
+            $table->string('estado', 50);
+            $table->date('fecha_fabrica');
             $table->string('marca', 50)->nullable();
-            $table->string('color', 50)->nullable();
-            $table->string('chasis', 50)->nullable();
-            $table->string('motor', 50)->nullable();
-            $table->string('cilindraje', 50)->nullable();
-            $table->string('uso_vehiculo', 50)->nullable();
             $table->string('modelo', 50)->nullable();
-            $table->date('fecha_tecnomecanica');
-            $table->string('licencia', 50)->nullable();
-            $table->string('tipo_direccion', 50)->nullable();
-            $table->string('tipo_transmision', 150)->nullable();
-            $table->string('numero_velocidades')->nullable();
-            $table->string('tipo_rodamiento')->nullable();
-            $table->string('suspencion_delantera', 150)->nullable();
-            $table->string('suspension_trasera', 150)->nullable();
-            $table->string('numero_llantas', 150)->nullable();
-            $table->string('dimensiones_rines', 150)->nullable();
-            $table->string('material_rines', 150)->nullable();
-            $table->string('tipo_frenos_delanteros', 50)->nullable();
-            $table->string('tipo_frenos_traseros', 50)->nullable();
-            $table->string('numero_serie', 50)->nullable();
-            $table->string('numero_ventanas', 50)->nullable();
-            $table->string('capacidad_carga', 50)->nullable();
-            $table->string('dotacion', 50)->nullable();
-            $table->string('equipo_carretera')->nullable();
+            $table->string('no_serie', 50)->nullable();
+            $table->string('no_lote', 50)->nullable();
+            $table->string('no_activo', 50)->nullable();
+            $table->string('codigo', 50)->nullable();
+            $table->date('fecha_ensayo')->nullable();
+            $table->string('validez', 50)->nullable();
+            $table->date('fecha_conformidad');
+            $table->date('fecha_operacion');
+            $table->string('nombre_responsable', 50);
+            $table->string('cargo', 50)->nullable();
+            $table->string('lugar_proceso', 50);
+            $table->date('fecha_entrega');
+            $table->string('observacion_responsable');
+            $table->string('fabricante', 50);
+            $table->date('fecha_adquisicion')->nullable();
+            $table->string('nombre_proveedor', 50)->nullable();
+            $table->string('direccion_proveedor', 50)->nullable();
+            $table->string('email_proveedor', 50)->nullable();
+            $table->string('telefono_proveedor', 50)->nullable();
+            $table->string('catalogo', 50)->nullable();
+            $table->string('mantenimiento_recomendado', 50)->nullable();
+            $table->string('condiciones_operacion', 50)->nullable();
+            $table->string('observacion_fabricante', 50)->nullable();
+            $table->string('medicion', 150)->nullable();
+            $table->string('rango_uso')->nullable();
+            $table->string('resolucion', 150)->nullable();
+            $table->string('exactitud', 150)->nullable();
+            $table->string('fecha_calibracion', 150)->nullable();
+            $table->string('fecha_verificacion', 150)->nullable();
+            $table->string('patrones', 150)->nullable();
+            $table->string('estandares', 150)->nullable();
+            $table->string('regulaciones', 150)->nullable();
+            $table->string('otras_caracteristicas', 150)->nullable();
+            $table->string('garantia', 50)->nullable();
+            $table->string('fecha_inicio');
+            $table->string('fecha_fin');
             $table->timestamps();
+     
         });
     }
 

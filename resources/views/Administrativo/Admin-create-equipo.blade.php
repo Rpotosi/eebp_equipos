@@ -489,7 +489,7 @@
                 <label for="garantia" class="form-label">
                     Garantía
                 </label>
-                <select id="clase" class="custom-select" id="garantia" placeholder="" name="garantia" required>
+                <select id="garantia" class="custom-select" name="garantia" required>
                     <option selected></option>
                     <option>SI</option>
                     <option>NO</option>

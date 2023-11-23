@@ -99,53 +99,9 @@ class DistribucionController extends Controller
         $query = Distribucion::query();   
 
         // Ejecutamos la consulta y obtenemos los pedidos filtrados
-        $equipos = $query->paginate(6);
+        $equipos = $query->paginate();
 
         return view ('Distribucion.Dis-show', compact('equipos'));
-    }
-
-    public function agregarMantenimiento_equipo(Request $request, $id)
-    {
-        // Valida los datos del formulario
-        $request->validate([
-            'fecha_mantenimiento' => 'required|date',
-            'descripcion' => 'required|string',
-            'averia_dano' => 'required|string',
-            'referencia_repuesto' => 'required|string',
-            'responsable' => 'required|string',
-            'precio' => 'required|numeric',
-            'anexos' => 'required|file', // Validación adicional para el archivo adjunto
-        ]);
-    
-        // Obtén el vehículo por su ID
-        $equipo = MantenimientoEquipoDis::findOrFail($id);
-    
-        // Crea un nuevo mantenimiento
-        $mantenimiento = new MantenimientoEquipoDis([
-            'fecha_mantenimiento' => $request->input('fecha_mantenimiento'),
-            'descripcion' => $request->input('descripcion'),
-            'averia_dano' => $request->input('averia_dano'),
-            'referencia_repuesto' => $request->input('referencia_repuesto'),
-            'responsable' => $request->input('responsable'),
-            'precio' => $request->input('precio'),
-            // Completa con otros campos del mantenimiento según tu base de datos
-        ]);
-    
-        // Lógica para cargar el archivo adjunto
-        $file = $request->file('anexos');
-        $extension = $file->getClientOriginalExtension();
-        $uniqueFileName = uniqid() . '.' . $extension;
-        $path = $file->storeAs('public/mantenimientos/anexos', $uniqueFileName);
-    
-        // Almacena la URL del archivo en la base de datos
-        $url = '/storage/mantenimientos/anexos/' . $uniqueFileName;
-        $mantenimiento->anexos = $url;
-    
-        // Asocia el mantenimiento al vehículo
-        $equipo->mantenimientos()->save($mantenimiento);
-    
-        // Redirecciona con una alerta de éxito
-        return redirect()->route('show-equipo-dis.show_equipo', $id)->with('success', 'Mantenimiento agregado exitosamente.');
     }
 
     /**
@@ -185,5 +141,50 @@ class DistribucionController extends Controller
     public function destroy(Distribucion $distribucion)
     {
         //
+    }
+
+
+    public function agregarMantenimiento_equipo_dis(Request $request, $id)
+    {
+        // Valida los datos del formulario
+        $request->validate([
+            'fecha_mantenimiento' => 'required|date',
+            'descripcion' => 'required|string',
+            'averia_dano' => 'required|string',
+            'referencia_repuesto' => 'required|string',
+            'responsable' => 'required|string',
+            'precio' => 'required|numeric',
+            'anexos' => 'required|file', // Validación adicional para el archivo adjunto
+        ]);
+    
+        // Obtén el vehículo por su ID
+        $equipo = Distribucion::findOrFail($id);
+    
+        // Crea un nuevo mantenimiento
+        $mantenimiento = new MantenimientoEquipoDis([
+            'fecha_mantenimiento' => $request->input('fecha_mantenimiento'),
+            'descripcion' => $request->input('descripcion'),
+            'averia_dano' => $request->input('averia_dano'),
+            'referencia_repuesto' => $request->input('referencia_repuesto'),
+            'responsable' => $request->input('responsable'),
+            'precio' => $request->input('precio'),
+            // Completa con otros campos del mantenimiento según tu base de datos
+        ]);
+    
+        // Lógica para cargar el archivo adjunto
+        $file = $request->file('anexos');
+        $extension = $file->getClientOriginalExtension();
+        $uniqueFileName = uniqid() . '.' . $extension;
+        $path = $file->storeAs('public/mantenimientos/anexos', $uniqueFileName);
+    
+        // Almacena la URL del archivo en la base de datos
+        $url = '/storage/mantenimientos/anexos/' . $uniqueFileName;
+        $mantenimiento->anexos = $url;
+    
+        // Asocia el mantenimiento al vehículo
+        $equipo->mantenimientos()->save($mantenimiento);
+    
+        // Redirecciona con una alerta de éxito
+        return redirect()->route('distribucion.show_equipo', $id)->with('success', 'Mantenimiento agregado exitosamente.');
     }
 }

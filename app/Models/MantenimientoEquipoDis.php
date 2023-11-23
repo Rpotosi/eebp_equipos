@@ -10,9 +10,8 @@ class MantenimientoEquipoDis extends Model
     use HasFactory;
 
     protected $table = 'create_mantenimiento_equipo_dis';
-
     protected $primaryKey = 'id';
-
+    public $timestamps = false;
     protected $fillable = [
         'id_equipo_fk',
         'fecha_mantenimiento',

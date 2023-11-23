@@ -9,8 +9,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Distribucion extends Model
 {
     use HasFactory;
-    protected $table = 'create_equipo';
+    protected $table = 'create_equipo_dis';
     protected $primaryKey = 'id_equipo';
+    public $timestamps = false;
     protected $fillable = [
         'nombre_equipo',
         'ubicacion_equipo',
@@ -59,7 +60,7 @@ class Distribucion extends Model
 
     public function mantenimientos(): HasMany
     {
-        return $this->hasMany(MantenimientoVehiculo::class, 'id_vehiculo_fk', 'id_vehiculo');
+        return $this->hasMany(MantenimientoVehiculo::class, 'id_equipo_fk', 'id_equipo');
     }
     
 }
