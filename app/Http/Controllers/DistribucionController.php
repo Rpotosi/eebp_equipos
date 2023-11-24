@@ -8,9 +8,8 @@ use Illuminate\Http\Request;
 
 class DistribucionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    /** INICIA LOS METODOS PARA EQUIPOS DISTRIBUCION **/
+
     public function index()
     {
         //
@@ -25,6 +24,7 @@ class DistribucionController extends Controller
     /**
      * Show the form for creating a new resource.
      */
+
     public function create_equipo()
     {
         return view("Distribucion.Dis-create-equipo");
@@ -37,7 +37,6 @@ class DistribucionController extends Controller
     {     
         // Crea una nueva instancia del controlador Distribucion
          $equipo = new Distribucion();
-       
          $equipo->nombre_equipo = $request->nombre_equipo;
          $equipo->ubicacion_equipo = $request->ubicacion_equipo;
          $equipo->estado = $request->estado;
@@ -82,7 +81,7 @@ class DistribucionController extends Controller
          $equipo->fecha_fin =$request->fecha_fin;
 
          $equipo->save();    
-        // Muestra un mensaje de éxito en la sesión
+        // Muestra un mensaje de éxito en la sesión si el equipo se guardò en la baase de datos
          session()->flash('success', 'Equipo creado exitosamente ⚙️ ');
 
         // Redirecciona a la página anterior
@@ -94,12 +93,14 @@ class DistribucionController extends Controller
      */
     public function show_equipo(Request $request)
     {
+        //busca el equipo por nombre_equipo
         $buscarpor = $request->input('nombre_equipo');
         // Crea una consulta del modelo Distribucion
         $query = Distribucion::query();   
 
         $query->where('nombre_equipo', 'like', '%' .$buscarpor . '%');
         // Ejecutamos la consulta y obtenemos los pedidos filtrados
+
         $equipos = $query->paginate(8);
 
         return view ('Distribucion.Dis-show', compact('equipos','buscarpor'));
@@ -111,8 +112,9 @@ class DistribucionController extends Controller
     public function edit_equipo($id_equipo)
     {
         
-        // Busca la orden correspondiente al id proporcionado
+        // Busca el equipo correspondiente al id proporcionado
         $equipo = Distribucion::find($id_equipo);
+        
         // Devuelve la vista con los datos 
         return view('Distribucion.Dis-update-equipo', compact('equipo'));
     }
@@ -123,18 +125,17 @@ class DistribucionController extends Controller
      */
     public function update_equipo(Request $request, $id_equipo)
     {
-        // Busca la orden correspondiente al id proporcionado
+        // Busca el equipo correspondiente al id proporcionado
         $equipo = Distribucion::find($id_equipo);
 
         // Obtener todos los datos enviados en la solicitud
         $input = $request->all();
 
-        // Actualizar la orden con los nuevos datos proporcionados
+        // Actualizar el equipo con los nuevos datos proporcionados
         $equipo->update($input);
-        // Redireccionar a la vista de la página Consultar Orden Empresa (Metodo index según la ruta del archivo web.php)
+        // Redireccionar a la vista de equipo
         return redirect('');
     }
-
 
     /**
      * Remove the specified resource from storage.
@@ -143,7 +144,6 @@ class DistribucionController extends Controller
     {
         //
     }
-
 
     public function agregarMantenimiento_equipo_dis(Request $request, $id)
     {
@@ -191,7 +191,7 @@ class DistribucionController extends Controller
 
     public function equipo_dis_CV(Request $request, $id_equipo)
     {
-        // Busca la orden correspondiente al id proporcionado
+        // Busca el equipo correspondiente al id proporcionado
         $equipo = Distribucion::find($id_equipo);
         // Trae todos los registros de la tabla mantenimientoVehiculo
         $query = MantenimientoEquipoDis::query(); 
