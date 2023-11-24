@@ -16,10 +16,16 @@ class User extends Authenticatable
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
+     * 
+     * 
      */
+    protected $table = 'users';
+    protected $primaryKey = 'id';
+
     protected $fillable = [
         'name',
         'email',
+        'username',
         'password',
     ];
 
@@ -42,4 +48,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function setPasswordAttribute($value){
+        $this->attributes['password']= bcrypt($value);
+    }
 }

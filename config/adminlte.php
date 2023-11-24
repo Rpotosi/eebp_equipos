@@ -310,9 +310,10 @@ return [
 
         [
             'text'       => 'Home',
+            'url'        => 'home/show',
             'icon' => 'fas fa-fw fa-home',
-            'icon_color' => 'black',
-            'url'        => 'home',
+            'icon_color' => 'white',
+            
         ],
        
         ['header' => 'Hojas de Vida Equipos'],
