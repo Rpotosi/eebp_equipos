@@ -16,7 +16,6 @@ class AdministrativoController extends Controller
 {
     /** INICIA LOS METODOS PARA VEHICULOS ADMINISTRATIVOS **/
 
-    // este memtodo es el resultado para visualizar los botones de modulo administrativo
     public function form()
     {
         // Pasar el usuario a la vista 
@@ -97,7 +96,7 @@ class AdministrativoController extends Controller
         // Obtenemos el valor de búsqueda por placa
         $buscarpor = $request->input('placa');
 
-       // $estado = $request->input('estado');
+       $estado = $request->input('estado');
     
         // Crea una consulta del modelo Administrativo_vehiculo
         $query = Administrativo_vehiculo::query();
