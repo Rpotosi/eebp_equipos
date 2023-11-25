@@ -5,6 +5,8 @@ use App\Http\Controllers\AdministrativoController;
 use App\Http\Controllers\SSTController;
 use App\Http\Controllers\DistribucionController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Requests\RegisterRequest;
 
 
 
@@ -14,6 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::controller(LoginController::class)->group(function(){   //asi se define un grupo de rutas para login para el controlador login
     Route::get('/', 'show')->name('login'); // la ruta get es para mostrar la vista de login
     Route::post('/', 'login')->name('login');// la ruta post es para acceder al metodo del controlador para autenticarse
+});
+
+
+Route::controller(RegisterController::class)->group(function(){   //asi se define un grupo de rutas para login para el controlador login
+    Route::get('/register', 'show')->name('register'); // la ruta get es para mostrar la vista de login
+    Route::post('/register', 'register_create')->name('register.register_create'); // la ruta get es para mostrar la vista de login
+   
 });
 
 Route::controller(HomeController::class)->group(function(){   //asi se define un grupo de rutas para login para el controlador Home
