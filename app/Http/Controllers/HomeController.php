@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function show() // Se deja vacio porque no recibe datos
     {
-        return view('home.home');
+        return view('Home.home');
     }
 
 

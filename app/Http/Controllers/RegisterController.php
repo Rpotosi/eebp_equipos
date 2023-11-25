@@ -15,5 +15,7 @@ class RegisterController extends Controller
     public function register_create(RegisterRequest $request) {
         
         $user = User::create($request->validated());
+
+        return redirect('/')->with('success', 'Cuenta creada exitosamente');
     }
 }
