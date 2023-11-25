@@ -5,6 +5,7 @@ use App\Http\Controllers\AdministrativoController;
 use App\Http\Controllers\SSTController;
 use App\Http\Controllers\DistribucionController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Requests\RegisterRequest;
 
@@ -16,6 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::controller(LoginController::class)->group(function(){   //asi se define un grupo de rutas para login para el controlador login
     Route::get('/', 'show')->name('login'); // la ruta get es para mostrar la vista de login
     Route::post('/', 'login')->name('login');// la ruta post es para acceder al metodo del controlador para autenticarse
+});
+
+Route::controller(LogoutController::class)->group(function(){   //asi se define un grupo de rutas para login para el controlador login
+    Route::get('/logout', 'logout')->name('logout');// la ruta post es para acceder al metodo del controlador para autenticarse
 });
 
 

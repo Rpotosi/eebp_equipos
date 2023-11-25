@@ -377,8 +377,9 @@ return [
  
         [
             'text'       => 'Cerrar Sesión',
+            'url'        => '/logout',
             'icon_color' => 'cyan',
-            'url'        => '#',
+            
         ],
     ],
 
