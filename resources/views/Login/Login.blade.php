@@ -73,7 +73,7 @@
                                             title: 'Error',
                                             text: "{{session('error')}}",
                                             confirmButtonText: 'Aceptar',
-                                            confirmButtonColor: '#1590F',
+                                            confirmButtonColor: '#0D4F7F',
                                             confirmButtonTextColor: '#fff', 
                                         });
                                     </script>
