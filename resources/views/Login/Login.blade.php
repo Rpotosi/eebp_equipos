@@ -61,7 +61,7 @@
                          -->
                         </div>
             
-                        <a href="home/show">
+                        <a href="home">
                             <button type="submit" class="btn btn-secondary" > 
                                 Ingresar
                                 @if(session()->has('error'))  <!-- Inio : codigo alerta para validad con el controlador LoginController-->

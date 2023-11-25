@@ -124,7 +124,7 @@
                     
 
                         <td class="text-center">
-                            <a href="{{ route('distribucion.edit_equipo', $equipo) }}">
+                            <a href="{{ route('administrativo.edit_equipo', $equipo) }}">
                                 <button class="btn btn-warning" onclick="Editar"><i class="fas fa-edit"></i></button>
                             </a>    
                         </td>

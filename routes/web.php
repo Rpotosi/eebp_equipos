@@ -34,13 +34,9 @@ Route::controller(AdministrativoController::class)->group(function(){   //asi se
     Route::post('equipo', 'store_equipo','store_equipo')->name('equipo.create_equipo'); 
     Route::post('update-equipo/{id_equipo}', 'agregarMantenimiento_equipo')->name('equipo.mantenimiento_equipo');
     Route::get('show-equipo', 'show_equipo')->name('show-equipo.show_equipo');
-    Route::get('update-equipo/{id_equipo}', 'edit_equipo')->name('equipo.edit_equipo');
-
-
-   
+    Route::get('update-equipo/{id_equipo}', 'edit_equipo')->name('administrativo.edit_equipo');
+  
 });
-
-
 
 Route::controller(DistribucionController::class)->group(function(){
     Route::get('distribucion', 'form')->name('SST.form');
