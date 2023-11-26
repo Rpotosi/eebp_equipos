@@ -310,7 +310,7 @@ return [
 
         [
             'text'       => 'Home',
-            'url'        => 'home/show',
+            'url'        => 'home',
             'icon' => 'fas fa-fw fa-home',
             'icon_color' => 'white',
             
@@ -322,10 +322,12 @@ return [
         [
             'text'    => 'Administrativo',
             'icon'    => 'fas fa-fw fa-share',
+            'icon_color' => 'white',
             'submenu' => [
                 [
                     'text' => 'Create',
                     'url'  => 'administrativo',
+                    
                 ],
                                [
                     'text' => 'Consultar Vehículo',
@@ -345,6 +347,7 @@ return [
         [
             'text'    => 'Distribución',
             'icon'    => 'fas fa-fw fa-share',
+            'icon_color' => 'white',
             'submenu' => [
                 [
                     'text' => 'Create',
@@ -362,6 +365,7 @@ return [
         [
             'text'    => 'SST',
             'icon'    => 'fas fa-fw fa-share',
+            'icon_color' => 'white',
             'submenu' => [
                 [
                     'text' => 'Create',
