@@ -19,27 +19,27 @@ class UserSeeder extends Seeder
             'email'=>'sistemas@eebpsa.com.co',
             'username'=>'Sistemas',
             'password'=>'eebp2024*'
-        ])->assignRole('Sistemas');
+        ])->assignRole('sistemas');
 
         //Usuario SST
         User::create([
             'email'=>'sst@eebpsa.com.co',
             'username'=>'Profesional SST',
             'password'=>'eebp2024*'
-        ])->assignRole('SST');
+        ])->assignRole('sst');
 
         //Usuario Distribucion
         User::create([
             'email'=>'operaciones@eebpsa.com.co',
             'username'=>'Analista Operaciones',
             'password'=>'eebp2024*'
-        ])->assignRole('Distribucion');
+        ])->assignRole('distribucion');
 
         //Usuario Jefe administrativo
         User::create([
             'email'=>'administrativo@eebpsa.com.co',
             'username'=>'Jefe Administrativo',
             'password'=>'eebp2024*'
-        ])->assignRole('Administrativo');
+        ])->assignRole('administrativo');
     }
 }
