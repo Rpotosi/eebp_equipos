@@ -24,14 +24,14 @@ class UserSeeder extends Seeder
         //Usuario SST
         User::create([
             'email'=>'sst@eebpsa.com.co',
-            'username'=>'Profesional SST',
+            'username'=>'sst@eebpsa.com.co',
             'password'=>'eebp2024*'
         ])->assignRole('sst');
 
         //Usuario Distribucion
         User::create([
             'email'=>'operaciones@eebpsa.com.co',
-            'username'=>'Analista Operaciones',
+            'username'=>'operaciones@eebpsa.com.co',
             'password'=>'eebp2024*'
         ])->assignRole('distribucion');
 
