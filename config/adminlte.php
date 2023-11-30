@@ -328,17 +328,17 @@ return [
             'submenu' => [
                 [
                     'text' => 'Create',
-                    'url'  => 'show-form',
+                    'url'  => 'admin-show-form',
                     
                 ],
                                [
                     'text' => 'Consultar Vehículo',
-                    'url'  => 'show-vehiculo',
+                    'url'  => 'admin-show-vehiculo',
                     
                 ],
                                [
                     'text' => 'Consultar Equipo',
-                    'url'  => 'show-equipo',
+                    'url'  => 'admin-show-equipo',
                     
                 ],
             ],
@@ -354,11 +354,11 @@ return [
             'submenu' => [
                 [
                     'text' => 'Create',
-                    'url'  => 'distribucion',
+                    'url'  => 'dis-show-form',
                 ],
                                [
                     'text' => 'Consultar',
-                    'url'  => 'show-equipo-dis',
+                    'url'  => 'dis-show-equipo',
                 ],
             ],
         ],

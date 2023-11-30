@@ -10,20 +10,41 @@ class DistribucionController extends Controller
 {
     /** INICIA LOS METODOS PARA EQUIPOS DISTRIBUCION **/
 
-    public function index()
-    {
-        //
-    }
-
-    public function form()
+    public function show_form()
     {
         // Pasar el usuario a la vista 
         return view('Distribucion.Dis-create-form');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    public function show_equipo(Request $request)
+    {
+        //busca el equipo por nombre_equipo
+        $buscarpor = $request->input('nombre_equipo');
+        // Crea una consulta del modelo Distribucion
+        $query = Distribucion::query();   
+
+        $query->where('nombre_equipo', 'like', '%' .$buscarpor . '%');
+        // Ejecutamos la consulta y obtenemos los pedidos filtrados
+
+        $equipos = $query->paginate(8);
+
+        return view ('Distribucion.Dis-show', compact('equipos','buscarpor'));
+    }
+
+    public function show_equipo_CV(Request $request, $id_equipo)
+    {
+        // Busca el equipo correspondiente al id proporcionado
+        $equipo = Distribucion::find($id_equipo);
+        // Trae todos los registros de la tabla mantenimientoVehiculo
+        $query = MantenimientoEquipoDis::query(); 
+
+        // Ejecutamos la consulta y obtenemos los pedidos filtrados
+        $mantenimientos = $query->paginate();
+
+        // Devuelve la vista con los datos 
+        return view('Distribucion.Dis-show-CV-equipo', compact('equipo', 'mantenimientos'));
+
+    }
 
     public function create_equipo()
     {
@@ -88,28 +109,12 @@ class DistribucionController extends Controller
          return back();         
     }  
 
-    /**
-     * Display the specified resource.
-     */
-    public function show_equipo(Request $request)
-    {
-        //busca el equipo por nombre_equipo
-        $buscarpor = $request->input('nombre_equipo');
-        // Crea una consulta del modelo Distribucion
-        $query = Distribucion::query();   
-
-        $query->where('nombre_equipo', 'like', '%' .$buscarpor . '%');
-        // Ejecutamos la consulta y obtenemos los pedidos filtrados
-
-        $equipos = $query->paginate(8);
-
-        return view ('Distribucion.Dis-show', compact('equipos','buscarpor'));
-    }
+    
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit_equipo($id_equipo)
+    public function create_mantenimiento_equipo($id_equipo)
     {
         
         // Busca el equipo correspondiente al id proporcionado
@@ -120,32 +125,7 @@ class DistribucionController extends Controller
     }
 
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update_equipo(Request $request, $id_equipo)
-    {
-        // Busca el equipo correspondiente al id proporcionado
-        $equipo = Distribucion::find($id_equipo);
-
-        // Obtener todos los datos enviados en la solicitud
-        $input = $request->all();
-
-        // Actualizar el equipo con los nuevos datos proporcionados
-        $equipo->update($input);
-        // Redireccionar a la vista de equipo
-        return redirect('');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Distribucion $distribucion)
-    {
-        //
-    }
-
-    public function agregarMantenimiento_equipo_dis(Request $request, $id)
+    public function store_mantenimiento_equipo(Request $request, $id)
     {
         // Valida los datos del formulario
         $request->validate([
@@ -189,18 +169,5 @@ class DistribucionController extends Controller
         return redirect()->route('distribucion.show_equipo', $id)->with('success', 'Mantenimiento agregado exitosamente.');
     }
 
-    public function equipo_dis_CV(Request $request, $id_equipo)
-    {
-        // Busca el equipo correspondiente al id proporcionado
-        $equipo = Distribucion::find($id_equipo);
-        // Trae todos los registros de la tabla mantenimientoVehiculo
-        $query = MantenimientoEquipoDis::query(); 
-
-        // Ejecutamos la consulta y obtenemos los pedidos filtrados
-        $mantenimientos = $query->paginate();
-
-        // Devuelve la vista con los datos 
-        return view('Distribucion.Dis-show-CV-equipo', compact('equipo', 'mantenimientos'));
-
-    }
+    
 }

@@ -35,30 +35,31 @@ Route::controller(HomeController::class)->group(function(){   //asi se define un
 });
 
 Route::controller(AdministrativoController::class)->group(function(){   //asi se define un grupo de rutas para login para el controlador Home
-    Route::get('show-form', 'show_form')->name('administrativo.show_form'); 
-    Route::get('show-vehiculo', 'show_vehiculo')->name('administrativo.show_vehiculo');
-    Route::get('show-vehiculo-CV/{id_vehiculo}', 'show_vehiculos_CV')->name('administrativo.show_vehiculos_CV');    
-    Route::get('create-vehiculo', 'create_vehiculo')->name('administrativo.create_vehiculo'); // vehiculo= nombre unico para URL || create_vehiculo= nombre del metodo del controlador || vehiculo.create_vehiculo= URL + Nombre del metodo controlador
-    Route::post('create-vehiculo', 'store_vehiculo')->name('administrativo.store_vehiculo'); 
-    Route::get('create-mantenimiento-vehiculo/{id_vehiculo}', 'create_mantenimiento_vehiculo')->name('administrativo.create_mantenimiento_vehiculo');
-    Route::post('create-mantenimiento-vehiculo/{id_vehiculo}', 'store_mantenimiento_vehiculo')->name('administrativo.store_mantenimiento_vehiculo');
+    Route::get('admin-show-form', 'show_form')->name('administrativo.show_form'); 
+    Route::get('admin-show-vehiculo', 'show_vehiculo')->name('administrativo.show_vehiculo');
+    Route::get('admin-show-vehiculo-CV/{id_vehiculo}', 'show_vehiculos_CV')->name('administrativo.show_vehiculos_CV');    
+    Route::get('admin-create-vehiculo', 'create_vehiculo')->name('administrativo.create_vehiculo'); // vehiculo= nombre unico para URL || create_vehiculo= nombre del metodo del controlador || vehiculo.create_vehiculo= URL + Nombre del metodo controlador
+    Route::post('admin-create-vehiculo', 'store_vehiculo')->name('administrativo.store_vehiculo'); 
+    Route::get('admin-create-mantenimiento-vehiculo/{id_vehiculo}', 'create_mantenimiento_vehiculo')->name('administrativo.create_mantenimiento_vehiculo');
+    Route::post('admin-create-mantenimiento-vehiculo/{id_vehiculo}', 'store_mantenimiento_vehiculo')->name('administrativo.store_mantenimiento_vehiculo');
 
-    Route::get('show-equipo', 'show_equipo')->name('administrativo.show_equipo');
-    Route::get('show-equipo-CV/{id_equipo}', 'show_equipo_CV')->name('administrativo.show_equipo_CV');
-    Route::get('create-equipo', 'create_equipo')->name('administrativo.create_equipo');
-    Route::post('create-equipo', 'store_equipo')->name('administrativo.store_equipo');
-    Route::get('create-mantenimiento-equipo/{id_equipo}', 'create_mantenimiento_equipo')->name('administrativo.create_mantenimiento_equipo');
-    Route::post('create-mantenimiento-equipo/{id_equipo}', 'store_mantenimiento_equipo')->name('administrativo.store_mantenimiento_equipo');   
+    Route::get('admin-show-equipo', 'show_equipo')->name('administrativo.show_equipo');
+    Route::get('admin-show-equipo-CV/{id_equipo}', 'show_equipo_CV')->name('administrativo.show_equipo_CV');
+    Route::get('admin-create-equipo', 'create_equipo')->name('administrativo.create_equipo');
+    Route::post('admin-create-equipo', 'store_equipo')->name('administrativo.store_equipo');
+    Route::get('admin-create-mantenimiento-equipo/{id_equipo}', 'create_mantenimiento_equipo')->name('administrativo.create_mantenimiento_equipo');
+    Route::post('admin-create-mantenimiento-equipo/{id_equipo}', 'store_mantenimiento_equipo')->name('administrativo.store_mantenimiento_equipo');   
 });
 
 Route::controller(DistribucionController::class)->group(function(){
-    Route::get('distribucion', 'form')->name('SST.form');
-    Route::get('distribucion_equipo','create_equipo')->name('distribucion.create_equipo');
-    Route::post('distribucion_equipo', 'store_equipo')->name('distribucion.create_equipo');
-    Route::get('show-equipo-dis', 'show_equipo')->name('distribucion.show_equipo');
-    Route::get('update-equipo-dis/{id_equipo}', 'edit_equipo')->name('distribucion.edit_equipo');
-    Route::post('update-equipo-dis/{id_equipo}', 'agregarMantenimiento_equipo_dis')->name('equipo.mantenimiento_equipo_dis');
-    Route::get('show-equipo-dis-CV/{id_equipo}', 'equipo_dis_CV')->name('show-equipo-dis-CV_equipo_dis_CV');
+    Route::get('dis-show-form', 'show_form')->name('distribucion.show_form');
+    Route::get('dis-show-equipo', 'show_equipo')->name('distribucion.show_equipo');
+    Route::get('dis-show-equipo-CV/{id_equipo}', 'show_equipo_CV')->name('distribucion.show_equipo_CV');
+    Route::get('dis-create-equipo','create_equipo')->name('distribucion.create_equipo');
+    Route::post('dis-create-equipo', 'store_equipo')->name('distribucion.store_equipo');
+    Route::get('dis-create-mantenimiento-equipo/{id_equipo}', 'create_mantenimiento_equipo')->name('distribucion.create_mantenimiento_equipo');
+    Route::post('dis-create-mantenimiento-equipo/{id_equipo}', 'store_mantenimiento_equipo')->name('distribucion.store_mantenimiento_equipo');
+    
 });
 
 

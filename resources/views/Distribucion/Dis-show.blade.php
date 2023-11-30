@@ -124,13 +124,13 @@
                     
 
                         <td class="text-center">
-                            <a href="{{ route('distribucion.edit_equipo', $equipo) }}">
+                            <a href="{{ route('distribucion.create_mantenimiento_equipo', $equipo) }}">
                                 <button class="btn btn-warning" onclick="Editar"><i class="fas fa-edit"></i></button>
                             </a>    
                         </td>
 
                         <td class="text-center">
-                            <a href="{{ route('show-equipo-dis-CV_equipo_dis_CV', $equipo) }}">
+                            <a href="{{ route('distribucion.show_equipo_CV', $equipo) }}">
                                 <button class="btn btn-warning" onclick="Editar"><i class="fas fa-file"></i></button>
                             </a>    
                         </td>
