@@ -323,6 +323,7 @@ return [
             'text'    => 'Administrativo',
             'icon'    => 'fas fa-fw fa-share',
             'icon_color' => 'white',
+            'can' => 'show.show.administrativo',
             'submenu' => [
                 [
                     'text' => 'Create',

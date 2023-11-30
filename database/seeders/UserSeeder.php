@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
          //Usuario Administrador_Sistemas
          User::create([
             'email'=>'sistemas@eebpsa.com.co',
-            'username'=>'Sistemas',
+            'username'=>'sistemas@eebpsa.com.co',
             'password'=>'eebp2024*'
         ])->assignRole('sistemas');
 
@@ -38,7 +38,7 @@ class UserSeeder extends Seeder
         //Usuario Jefe administrativo
         User::create([
             'email'=>'administrativo@eebpsa.com.co',
-            'username'=>'Jefe Administrativo',
+            'username'=>'administrativo@eebpsa.com.co',
             'password'=>'eebp2024*'
         ])->assignRole('administrativo');
     }
