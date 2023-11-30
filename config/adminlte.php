@@ -323,11 +323,12 @@ return [
             'text'    => 'Administrativo',
             'icon'    => 'fas fa-fw fa-share',
             'icon_color' => 'white',
-            'can' => 'show.show.administrativo',
+            'can' => 'menu-admin',
+
             'submenu' => [
                 [
                     'text' => 'Create',
-                    'url'  => 'administrativo',
+                    'url'  => 'show-form',
                     
                 ],
                                [
@@ -349,6 +350,7 @@ return [
             'text'    => 'Distribución',
             'icon'    => 'fas fa-fw fa-share',
             'icon_color' => 'white',
+            'can' => 'menu-dis',
             'submenu' => [
                 [
                     'text' => 'Create',
@@ -367,6 +369,7 @@ return [
             'text'    => 'SST',
             'icon'    => 'fas fa-fw fa-share',
             'icon_color' => 'white',
+            'can' => 'menu-sst',
             'submenu' => [
                 [
                     'text' => 'Create',

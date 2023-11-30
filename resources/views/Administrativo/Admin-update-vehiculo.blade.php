@@ -487,7 +487,7 @@
           
         </form> 
 
-        <form id="formulario" class="row g-3" method="POST" action="{{ route('vehiculo.mantenimiento_vehiculo', ['id_vehiculo' => $vehiculo->id_vehiculo]) }}" enctype="multipart/form-data">
+        <form id="formulario" class="row g-3" method="POST" action="{{ route('administrativo.store_mantenimiento_vehiculo', ['id_vehiculo' => $vehiculo->id_vehiculo]) }}" enctype="multipart/form-data">
             @csrf
         
             <div class="col-12">

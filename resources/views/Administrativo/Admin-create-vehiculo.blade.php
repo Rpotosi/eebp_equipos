@@ -75,7 +75,7 @@
         </script>
     @endif
     <div class="form-container">
-        <form id="formulario" action="{{ route('vehiculo.create_vehiculo') }}" method="POST" enctype="multipart/form-data" class="row g-3">
+        <form id="formulario" action="{{ route('administrativo.store_vehiculo') }}" method="POST" enctype="multipart/form-data" class="row g-3">
             <!-- esta linea requiere ruta Route::post('guias/create', 'store')->name(('guias.create'));  definida el routes guia-->
             
             @csrf

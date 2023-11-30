@@ -16,10 +16,44 @@ class AdministrativoController extends Controller
 {
     /** INICIA LOS METODOS PARA VEHICULOS ADMINISTRATIVOS **/
 
-    public function form()
+    public function show_form()
     {
         // Pasar el usuario a la vista 
         return view('Administrativo.Admin-create-form');
+    }
+
+    public function show_vehiculo(Request $request)
+    {
+        // Obtenemos el valor de búsqueda por placa
+        $buscarpor = $request->input('placa');
+
+       $estado = $request->input('estado');
+    
+        // Crea una consulta del modelo Administrativo_vehiculo
+        $query = Administrativo_vehiculo::query();
+            
+        // Agregamos una cláusula where para buscar por placa siempre
+        $query->where('placa', 'like', '%' . $buscarpor . '%');
+    
+        // Ejecutamos la consulta y obtenemos los pedidos filtrados hasta 8 registros
+        $vehiculos = $query->paginate(8);
+    
+        return view('Administrativo.Admin-show-vehiculo', compact('vehiculos', 'buscarpor', 'estado'));
+    }
+
+    public function show_vehiculos_CV(Request $request, $id_vehiculo)
+    {
+        // Busca el vehiculo correspondiente al id proporcionado
+        $vehiculo = Administrativo_vehiculo::find($id_vehiculo);
+        // Trae todos los registros de la tabla mantenimientoVehiculo
+        $query = MantenimientoVehiculo::query(); 
+
+        // Ejecutamos la consulta y obtenemos los pedidos filtrados
+        $mantenimientos = $query->paginate();
+
+        // Devuelve la vista con los datos 
+        return view('Administrativo.Admin-show-CV', compact('vehiculo', 'mantenimientos'));
+
     }
 
     /**
@@ -89,29 +123,9 @@ class AdministrativoController extends Controller
 
         // Redirecciona a la página anterior
         return back();         
-    } 
-    
-    public function show_vehiculo(Request $request)
-    {
-        // Obtenemos el valor de búsqueda por placa
-        $buscarpor = $request->input('placa');
-
-       $estado = $request->input('estado');
-    
-        // Crea una consulta del modelo Administrativo_vehiculo
-        $query = Administrativo_vehiculo::query();
-            
-        // Agregamos una cláusula where para buscar por placa siempre
-        $query->where('placa', 'like', '%' . $buscarpor . '%');
-    
-        // Ejecutamos la consulta y obtenemos los pedidos filtrados hasta 8 registros
-        $vehiculos = $query->paginate(8);
-    
-        return view('Administrativo.Admin-show-vehiculo', compact('vehiculos', 'buscarpor', 'estado'));
     }
 
-
-    public function edit_vehiculo($id_vehiculo)
+    public function create_mantenimiento_vehiculo($id_vehiculo)
     {
         // Busca la vehiculo correspondiente al id proporcionado
         $vehiculo = Administrativo_vehiculo::find($id_vehiculo);
@@ -120,26 +134,7 @@ class AdministrativoController extends Controller
         return view('Administrativo.Admin-update-vehiculo', compact('vehiculo'));
     }
 
-
-     //Update the specified resource in storage.
-     
-    public function update(Request $request, $id_vehiculo)
-    {
-        // Busca la vehiculo correspondiente al id proporcionado
-        $vehiculo = Administrativo_vehiculo::find($id_vehiculo);
-
-        // Obtener todos los datos enviados en la solicitud
-        $input = $request->all();
-
-        // Actualizar la vehiculo con los nuevos datos proporcionados
-        $vehiculo->update($input);
-        // Redireccionar a la vista de la página de shoe vehiculo
-        
-        return redirect('show-vehiculo');
-    }
-
-
-    public function agregarMantenimiento(Request $request, $id)
+    public function store_mantenimiento_vehiculo(Request $request, $id)
     {
         // Valida los datos del formulario
         $request->validate([
@@ -180,24 +175,41 @@ class AdministrativoController extends Controller
         $vehiculo->mantenimientos()->save($mantenimiento);
     
         // Redirecciona con una alerta de éxito
-        return redirect()->route('show.show', $id)->with('success', 'Mantenimiento agregado exitosamente.');
+        return redirect()->route('administrativo.show_vehiculo', $id)->with('success', 'Mantenimiento agregado exitosamente.');
     }
 
-
-    public function vehiculos_CV(Request $request, $id_vehiculo)
+    public function show_equipo(Request $request)
     {
-        // Busca el vehiculo correspondiente al id proporcionado
-        $vehiculo = Administrativo_vehiculo::find($id_vehiculo);
+        // Obtenemos el valor de búsqueda por nombre equipo
+        $buscarpor = $request->input('nombre_equipo');
+
+        // Crea una consulta del modelo 
+        $query = Administrativo_equipo::query();   
+
+        // Agregamos una cláusula where para buscar por placa siempre
+        $query->where('nombre_equipo', 'like', '%' . $buscarpor . '%');
+        
+        // Ejecutamos la consulta y obtenemos los pedidos filtrados
+        $equipos = $query->paginate(8);
+
+        return view ('Administrativo.Admin-show-equipo', compact('equipos', 'buscarpor'));
+    }
+
+    public function show_equipo_CV(Request $request, $id_equipo)
+    {
+        // Busca la equipo correspondiente al id proporcionado
+        $equipo = Administrativo_equipo::find($id_equipo);
         // Trae todos los registros de la tabla mantenimientoVehiculo
-        $query = MantenimientoVehiculo::query(); 
+        $query = MantenimientoEquipoAdmin::query(); 
 
         // Ejecutamos la consulta y obtenemos los pedidos filtrados
         $mantenimientos = $query->paginate();
 
         // Devuelve la vista con los datos 
-        return view('Administrativo.Admin-show-CV', compact('vehiculo', 'mantenimientos'));
+        return view('Administrativo.Admin-show-CV-equipo', compact('equipo', 'mantenimientos'));
 
     }
+    
 
     /** INICIO DE LOS METODOS DE EQUIPOS ADMINISTRATIVOS **/
 
@@ -264,24 +276,9 @@ class AdministrativoController extends Controller
         return back();         
     }  
 
-    public function show_equipo(Request $request)
-    {
-        // Obtenemos el valor de búsqueda por nombre equipo
-        $buscarpor = $request->input('nombre_equipo');
+    
 
-        // Crea una consulta del modelo 
-        $query = Administrativo_equipo::query();   
-
-        // Agregamos una cláusula where para buscar por placa siempre
-        $query->where('nombre_equipo', 'like', '%' . $buscarpor . '%');
-        
-        // Ejecutamos la consulta y obtenemos los pedidos filtrados
-        $equipos = $query->paginate(8);
-
-        return view ('Administrativo.Admin-show-equipo', compact('equipos', 'buscarpor'));
-    }
-
-    public function edit_equipo(Request $request, $id_equipo)
+    public function create_mantenimiento_equipo(Request $request, $id_equipo)
     {
         
         // Busca el equipo correspondiente al id proporcionado
@@ -289,92 +286,53 @@ class AdministrativoController extends Controller
         // Devuelve la vista con los datos 
 
         return view('Administrativo.Admin-update-equipo', compact('equipo'));
-       
 
+    } 
+        
+    public function store_mantenimiento_equipo(Request $request, $id)
+    {
+        // Valida los datos del formulario
+        $request->validate([
+            'fecha_mantenimiento' => 'required|date',
+            'descripcion' => 'required|string',
+            'averia_dano' => 'required|string',
+            'referencia_repuesto' => 'required|string',
+            'responsable' => 'required|string',
+            'precio' => 'required|numeric',
+            'anexos' => 'required|file', // Validación adicional para el archivo adjunto
+        ]);
+    
+        // Obtén el vehículo por su ID del modelo administrativo_equipo
+        $equipo = Administrativo_equipo::findOrFail($id);
+    
+        // Crea un nuevo mantenimiento
+        $mantenimiento = new MantenimientoEquipoAdmin([
+            'fecha_mantenimiento' => $request->input('fecha_mantenimiento'),
+            'descripcion' => $request->input('descripcion'),
+            'averia_dano' => $request->input('averia_dano'),
+            'referencia_repuesto' => $request->input('referencia_repuesto'),
+            'responsable' => $request->input('responsable'),
+            'precio' => $request->input('precio'),
+            // Completa con otros campos del mantenimiento según tu base de datos
+        ]);
+    
+        // Lógica para cargar el archivo adjunto
+        $file = $request->file('anexos');
+        $extension = $file->getClientOriginalExtension();
+        $uniqueFileName = uniqid() . '.' . $extension;
+        $path = $file->storeAs('public/mantenimientos/anexos', $uniqueFileName);
+    
+        // Almacena la URL del archivo en la base de datos en la carpeta storage
+        $url = '/storage/mantenimientos/anexos/' . $uniqueFileName;
+        $mantenimiento->anexos = $url;
+    
+        // Asocia el mantenimiento al vehículo
+        $equipo->mantenimientos()->save($mantenimiento);
+    
+        // Redirecciona con una alerta de éxito despues de ejecutarse la ruta 
+        return redirect()->route('administrativo.show_equipo', $id)->with('success', 'Mantenimiento agregado exitosamente.');
     }
 
     
-    //Update the specified resource in storage.
-     
-    public function update_equipo(Request $request, $id_equipo)
-    {
-        // Busca el equipo correspondiente al id proporcionado
-        $equipo = Administrativo_equipo::find($id_equipo);
 
-        // Obtener todos los datos enviados en la solicitud
-        $input = $request->all();
-
-        // Actualizar el equuipo con los nuevos datos proporcionados
-        $equipo->update($input);
-        // Redireccionar a la vista de la página show equipo
-        return redirect('show-equipo');
-    }
-
-    
-     public function agregarMantenimiento_equipo(Request $request, $id)
-     {
-         // Valida los datos del formulario
-         $request->validate([
-             'fecha_mantenimiento' => 'required|date',
-             'descripcion' => 'required|string',
-             'averia_dano' => 'required|string',
-             'referencia_repuesto' => 'required|string',
-             'responsable' => 'required|string',
-             'precio' => 'required|numeric',
-             'anexos' => 'required|file', // Validación adicional para el archivo adjunto
-         ]);
-     
-         // Obtén el vehículo por su ID del modelo administrativo_equipo
-         $equipo = Administrativo_equipo::findOrFail($id);
-     
-         // Crea un nuevo mantenimiento
-         $mantenimiento = new MantenimientoEquipoAdmin([
-             'fecha_mantenimiento' => $request->input('fecha_mantenimiento'),
-             'descripcion' => $request->input('descripcion'),
-             'averia_dano' => $request->input('averia_dano'),
-             'referencia_repuesto' => $request->input('referencia_repuesto'),
-             'responsable' => $request->input('responsable'),
-             'precio' => $request->input('precio'),
-             // Completa con otros campos del mantenimiento según tu base de datos
-         ]);
-     
-         // Lógica para cargar el archivo adjunto
-         $file = $request->file('anexos');
-         $extension = $file->getClientOriginalExtension();
-         $uniqueFileName = uniqid() . '.' . $extension;
-         $path = $file->storeAs('public/mantenimientos/anexos', $uniqueFileName);
-     
-         // Almacena la URL del archivo en la base de datos en la carpeta storage
-         $url = '/storage/mantenimientos/anexos/' . $uniqueFileName;
-         $mantenimiento->anexos = $url;
-     
-         // Asocia el mantenimiento al vehículo
-         $equipo->mantenimientos()->save($mantenimiento);
-     
-         // Redirecciona con una alerta de éxito despues de ejecutarse la ruta 
-         return redirect()->route('show-equipo.show_equipo', $id)->with('success', 'Mantenimiento agregado exitosamente.');
-     }
-
-    public function equipo_CV(Request $request, $id_equipo)
-    {
-        // Busca la equipo correspondiente al id proporcionado
-        $equipo = Administrativo_equipo::find($id_equipo);
-        // Trae todos los registros de la tabla mantenimientoVehiculo
-        $query = MantenimientoEquipoAdmin::query(); 
-
-        // Ejecutamos la consulta y obtenemos los pedidos filtrados
-        $mantenimientos = $query->paginate();
-
-        // Devuelve la vista con los datos 
-        return view('Administrativo.Admin-show-CV-equipo', compact('equipo', 'mantenimientos'));
-
-    }
-
-    /*
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Administrativo_vehiculo $administrativo)
-    {
-        //
-    }
 }

@@ -130,13 +130,13 @@
                     
 
                         <td class="text-center">
-                            <a href="{{ route('vehiculo.edit_vehiculo', $vehiculo) }}">
+                            <a href="{{ route('administrativo.create_mantenimiento_vehiculo', $vehiculo) }}">
                                 <button class="btn btn-warning" onclick="Editar"><i class="fas fa-edit"></i></button>
                             </a>    
                         </td>
 
                         <td class="text-center">
-                            <a href="{{ route('show-vehiculo-CV_vehiculos_CV', $vehiculo) }}">
+                            <a href="{{ route('administrativo.show_vehiculos_CV', $vehiculo) }}">
                                 <button class="btn btn-warning" onclick="Editar"><i class="fas fa-file"></i></button>
                             </a>    
                         </td>

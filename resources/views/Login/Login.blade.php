@@ -52,7 +52,7 @@
         
                         <div class="d-flex justify-content-between align-items-center"></div>
                         <div class="registro">    
-                            <a href="{{route('register')}}">Registrarse</a>
+                            <a href="{{route('register.show')}}">Registrarse</a>
                         </div>
             
                         <a href="home">

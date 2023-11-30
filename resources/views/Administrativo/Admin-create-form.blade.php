@@ -49,7 +49,7 @@
 
 @section('content')
     <div class="container">
-        <a href="{{route('vehiculo.create_vehiculo')}}" > <!-- Route define and wep.php--->
+        <a href="{{route('administrativo.create_vehiculo')}}" > <!-- Route define and wep.php--->
             <div class="card"style="text-align: center;">
                 <i id="icon_crear_orden" class="fas fa-shipping-fast"></i>
                 <br>
@@ -62,7 +62,7 @@
         </a>
         
         
-        <a href="{{route('equipo.equipo.create_equipo')}}" > <!-- Route define and wep.php--->
+        <a href="{{route('administrativo.create_equipo')}}" > <!-- Route define and wep.php--->
             <div class="card" style="text-align: center;">
                 <i id="icon_crear_orden" class="fas fa-cogs"></i>
                 <br>

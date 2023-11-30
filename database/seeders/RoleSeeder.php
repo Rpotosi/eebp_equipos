@@ -21,6 +21,13 @@ class RoleSeeder extends Seeder
         $role4 = Role::create(['name' => 'sistemas']);
 
 
+        Permission::create(['name' => 'menu-admin'])->syncRoles([$role1, $role4]);
+        Permission::create(['name' => 'menu-sst'])->syncRoles([$role2, $role4]);
+        Permission::create(['name' => 'menu-dis'])->syncRoles([$role3, $role4]);
+        
+
+
+        /*
         Permission::create(['name' => 'home.show'])->syncRoles([$role1,$role2,$role3,$role4]);
       
         Permission::create(['name' => 'administrativo.form.administrativo'])->syncRoles([$role1]);
@@ -37,7 +44,7 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'equipo.mantenimiento_equipo.administrativo'])->syncRoles([$role1]);
         Permission::create(['name' => 'show-equipo.show_equipo.administrativo'])->syncRoles([$role1]);
         Permission::create(['name' => 'administrativo.edit_equipo.administrativo'])->syncRoles([$role1]);
-
+        */
 
     }
 }
