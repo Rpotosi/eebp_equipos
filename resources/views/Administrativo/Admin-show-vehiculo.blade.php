@@ -23,7 +23,7 @@
         .table-responsive{
             zoom: 80%;
         }
-
+     
 
     </style>
 

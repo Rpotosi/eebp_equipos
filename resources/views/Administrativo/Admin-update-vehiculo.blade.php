@@ -11,7 +11,7 @@
     </div>
     <style>
         .form-container {
-            margin-top: 5px;
+            margin-top: 1px;
             border: 1px solid #ccc;
             padding: 1px;
             height: 570px; /* Puedes ajustar el tamaño según tus necesidades */
@@ -42,7 +42,8 @@
         }
         
         #formulario{
-            padding: 3%;         
+            padding: 2%;
+            zoom: 80%;         
         }
 
         .box-footer{
@@ -55,8 +56,8 @@
             box-shadow: none;
             border-color: rgb(87, 156, 41);
         }
- 
 
+       
     </style>
     <h1 style="text-align: center">Mantenimiento Vehiculos</h1>
 @stop
@@ -535,7 +536,7 @@
                 </label>
                 <input type="text" class="form-control" id="responsable" name="responsable" required>
             </div>
-            <div class="col-1" style="text-align: center;">
+            <div class="col-2" style="text-align: center;">
                 <label for="precio" class="form-label">
                     Precio
                 </label>

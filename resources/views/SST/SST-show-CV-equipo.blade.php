@@ -11,7 +11,7 @@
     </div>
     <style>
         .form-container {
-            margin-top: 5px;
+            margin-top: 1px;
             border: 1px solid #ccc;
             padding: 1px;
             height: 570px; /* Puedes ajustar el tamaño según tus necesidades */
@@ -43,6 +43,9 @@
         #formulario{
             padding: 2%;     
             zoom: 80%;    
+        }
+        #tabla{
+            zoom: 80%;
         }
 
         .box-footer{
