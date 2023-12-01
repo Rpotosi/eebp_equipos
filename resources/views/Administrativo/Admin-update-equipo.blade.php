@@ -41,7 +41,8 @@
         }
         
         #formulario{
-            padding: 2%;         
+            padding: 2%;
+            zoom: 80%;
         }
 
         .box-footer{
@@ -52,6 +53,7 @@
             background-color: rgb(87, 156, 41);
             box-shadow: none;
             border-color: rgb(87, 156, 41);
+           
 
         }
         

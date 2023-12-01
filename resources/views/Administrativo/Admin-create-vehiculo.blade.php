@@ -41,7 +41,8 @@
         }
         
         #formulario{
-            padding: 3%;         
+            padding: 3%; 
+            zoom: 80%;         
         }
 
         .box-footer{

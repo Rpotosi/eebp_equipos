@@ -38,6 +38,7 @@
 
         .form-label{
             margin-top: 10px;
+            zoom: 80%;
         }
         
         #formulario{

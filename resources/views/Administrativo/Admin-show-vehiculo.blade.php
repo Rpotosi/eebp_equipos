@@ -17,6 +17,12 @@
 
             justify-content: center;
         }
+        .form-group {
+            zoom: 80%;
+        }
+        .table-responsive{
+            zoom: 80%;
+        }
 
 
     </style>
