@@ -24,11 +24,13 @@ return new class extends Migration
             $table->string('no_serie', 50)->nullable();
             $table->string('no_lote', 50)->nullable();
             $table->string('no_activo', 50)->nullable();
+            $table->string('iua_creg', 50)->nullable();
             $table->string('codigo', 50)->nullable();
             $table->date('fecha_ensayo')->nullable();
             $table->string('validez', 50)->nullable();
             $table->date('fecha_conformidad');
             $table->date('fecha_operacion');
+            $table->string('propiedad', 50)->nullable();
             $table->string('nombre_responsable', 50)->nullable();
             $table->string('cargo', 50)->nullable();
             $table->string('lugar_proceso', 50)->nullable();
@@ -57,6 +59,10 @@ return new class extends Migration
             $table->string('garantia', 50)->nullable();
             $table->string('fecha_inicio');
             $table->string('fecha_fin');
+            $table->string('protecciones', 100)->nullable();
+            $table->string('nucleo_1', 50)->nullable();
+            $table->string('nucleo_2', 50)->nullable();
+            $table->string('nucleo_3', 50)->nullable();
             $table->timestamps();
      
         });

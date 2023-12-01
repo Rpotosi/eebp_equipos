@@ -11,10 +11,10 @@
     </div>
     <style>
         .form-container {
-            margin-top: 5px;
+            margin-top: 1px;
             border: 1px solid #ccc;
             padding: 1px;
-            height: 570px; /* Puedes ajustar el tamaño según tus necesidades */
+            height: 760px; /* Puedes ajustar el tamaño según tus necesidades */
             overflow: auto; /* Agrega una barra de desplazamiento si el contenido es demasiado largo */
         }
         .dotacion-container {
@@ -24,7 +24,7 @@
             height: 200px; /* Puedes ajustar el tamaño según tus necesidades */
             overflow: auto; /* Agrega una barra de desplazamiento si el contenido es demasiado largo */
         }
-        .equipo-container {
+        .protecciones {
             margin-top: 5px;
             border: 1px solid #ccc;
             padding: 5px;
@@ -41,7 +41,8 @@
         }
         
         #formulario{
-            padding: 2%;         
+            padding: 2%;  
+
         }
 
         .box-footer{
@@ -190,6 +191,13 @@
             </div>
 
             <div class="col-2">
+                <label for="iua_creg" class="form-label">
+                    IUA_CREG
+                </label>
+                <input type="text" class="form-control" id="iua_creg" placeholder="" name="iua_creg" required/>
+            </div>
+
+            <div class="col-2">
                 <label for="codigo" class="form-label">
                     Codigo
                 </label>
@@ -232,6 +240,14 @@
                 <input type="date" class="form-control" id="fecha_operacion" placeholder="" name="fecha_operacion" required/>
                 
             </div>
+            <div class="col-2" style="text-align: left;">
+                <label for="propiedad" class="form-label"> <br>
+                    Propiedad
+                </label>
+                <input type="date" class="form-control" id="propiedad" placeholder="" name="propiedad" required/>
+                
+            </div>
+            
 
             <div class="col-12">
                 <label for="text" class="form-label"> <br>
@@ -510,6 +526,82 @@
                 </label>
                 <input type="date" class="form-control" id="fecha_fin" placeholder="" name="fecha_fin" required/>
             </div> 
+
+            <div class="col-12">
+                <label for="text" class="form-label"> <br>
+                    🔹CARACTERISTICAS DE TRANSFORMADORES DE INSTRUMENTACIÓN (PUNTOS DE MEDIDA Y PROTECCION)
+                </label>
+                <br>
+                <br>
+            </div>
+                 
+            <div class="col-md-6">
+                <div class="protecciones">
+                    <h6>Selecione</h6>
+                    <input type="checkbox" name="protecciones]" value="conos">
+                    <label for="examen_a">Potencia Nominal</label><br>
+                    <input type="checkbox" name="protecciones]" value="pendones_viales">
+                    <label for="examen_b">Voltaje aislamiento Nominal (Vn)</label><br>
+                    <input type="checkbox" name="protecciones]" value="baston_luminoso">
+                    <label for="examen_c">Frecuencia Nominal (fn)</label><br>
+                    <input type="checkbox" name="protecciones]" value="llanta_emergencia">
+                    <label for="examen_a">Voltaje máximo Soportable (Urw)</label><br>
+                    <input type="checkbox" name="protecciones]" value="cruceta">
+                    <label for="examen_b">Voltaje Impulso Soportable (Uw / BIL)</label><br>
+                    <input type="checkbox" name="protecciones]" value="botiquin">
+                    <label for="examen_c">Corriente Primaria Nominal (In)</label><br>
+                    <input type="checkbox" name="protecciones]" value="conos">
+                    <label for="examen_a">Voltaje Primario Nominal (In)</label><br>
+
+
+                    <input type="checkbox" name="protecciones]" value="pendones_viales">
+                    <label for="examen_b">Capacitancia Total</label><br>
+                    <input type="checkbox" name="protecciones]" value="baston_luminoso">
+                    <label for="examen_c">Capacitancia primaria:  C1</label><br>
+                    <input type="checkbox" name="protecciones]" value="llanta_emergencia">
+                    <label for="examen_a">Capacitancia secundaria:  C2</label><br>
+                    <input type="checkbox" name="protecciones]" value="cruceta">
+                    <label for="examen_b">Norma de Fabricación</label><br>
+                    <input type="checkbox" name="protecciones]" value="botiquin">
+                    <label for="examen_c">Medio Aislante</label><br>
+                  </div>
+            </div>
+
+            <div class="col-2" style="text-align: left;">
+                <label for="nucleo_1" class="form-label">
+                    Posee catálogo de manejo OP 
+                </label>
+                <select id="clase" class="custom-select" id="nucleo_1" placeholder="" name="nucleo_1" required>
+                    <option selected=""></option>
+                    <option>Relación</option>
+                    <option>Presición</option>
+                </select>
+              
+            </div>
+            <div class="col-2" style="text-align: left;">
+                <label for="nucleo_2" class="form-label">
+                    Posee catálogo de manejo OP 
+                </label>
+                <select id="clase" class="custom-select" id="nucleo_2" placeholder="" name="nucleo_2" required>
+                    <option selected=""></option>
+                    <option>Relación</option>
+                    <option>Presición</option>
+                </select>
+              
+            </div>
+            <div class="col-2
+            
+            " style="text-align: left;">
+                <label for="nucleo_3" class="form-label">
+                    Posee catálogo de manejo OP 
+                </label>
+                <select id="clase" class="custom-select" id="nucleo_3" placeholder="" name="nucleo_3" required>
+                    <option selected=""></option>
+                    <option>Relación</option>
+                    <option>Presición</option>
+                </select>
+              
+            </div>
             
             <div class="col-12">
    
