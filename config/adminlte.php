@@ -373,11 +373,11 @@ return [
             'submenu' => [
                 [
                     'text' => 'Create',
-                    'url'  => 'SST',
+                    'url'  => 'sst-show-form',
                 ],
                                [
                     'text' => 'Consultar',
-                    'url'  => 'show-equipo-sst',
+                    'url'  => 'sst-show-equipo',
                 ],
                
             ],

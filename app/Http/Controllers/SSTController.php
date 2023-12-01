@@ -11,24 +11,43 @@ use Illuminate\Http\Request;
 
 class SSTController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
-
-    public function form()
+    
+    public function show_form()
     {
         // Pasar el usuario a la vista 
         return view('SST.SST-create-form');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    public function show_equipo(Request $request)
+    {   
+        // Obtenemos el valor de búsqueda por nombre_equipo
+        $buscarpor = $request->input('nombre_equipo');
+        // Crea una consulta del modelo SST
+        $query = SST::query();   
+
+        // Agregamos una cláusula where para buscar nombre_equipo
+        $query->where('nombre_equipo', 'like', '%' . $buscarpor . '%');
+
+        // Ejecutamos la consulta y obtenemos los pedidos filtrados
+        $equipos = $query->paginate(8);
+
+        return view ('SST.SST-show', compact('equipos', 'buscarpor'));
+    }
+
+    public function show_equipo_CV(Request $request, $id_equipo)
+    {
+        // Busca la orden correspondiente al id proporcionado
+        $equipo = SST::find($id_equipo);
+        // Trae todos los registros de la tabla mantenimientoVehiculo
+        $query = MantenimientoEquipoSst::query(); 
+
+        // Ejecutamos la consulta y obtenemos los pedidos filtrados
+        $mantenimientos = $query->paginate(5);
+
+        // Devuelve la vista con los datos 
+        return view('SST.SST-show-CV-equipo', compact('equipo', 'mantenimientos'));
+    }
+
     public function create_equipo()
     {
         return view("SST.SST-create-equipo");
@@ -93,40 +112,15 @@ class SSTController extends Controller
         return back();         
     }  
 
-
-    /**
-     * Display the specified resource.
-     */
-    public function show_equipo(Request $request)
-    {   
-        // Obtenemos el valor de búsqueda por nombre_equipo
-        $buscarpor = $request->input('nombre_equipo');
-        // Crea una consulta del modelo SST
-        $query = SST::query();   
-
-        // Agregamos una cláusula where para buscar nombre_equipo
-        $query->where('nombre_equipo', 'like', '%' . $buscarpor . '%');
-
-        // Ejecutamos la consulta y obtenemos los pedidos filtrados
-        $equipos = $query->paginate(8);
-
-        return view ('SST.SST-show', compact('equipos', 'buscarpor'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit_equipo($id_equipo)
+    public function create_mantenimiento_equipo($id_equipo)
     {
-        
         // Busca la orden correspondiente al id proporcionado
         $equipo = SST::find($id_equipo);
         // Devuelve la vista con los datos 
         return view('SST.SST-update-equipo', compact('equipo'));
     }
 
-
-    public function agregarMantenimiento_equipo_sst(Request $request, $id)
+    public function store_mantenimiento_equipo(Request $request, $id)
     {
         // Valida los datos del formulario
         $request->validate([
@@ -167,38 +161,6 @@ class SSTController extends Controller
         $equipo->mantenimientos()->save($mantenimiento);
     
         // Redirecciona con una alerta de éxito
-        return redirect()->route('show-equipo-sst.show_equipo', $id)->with('success', 'Mantenimiento agregado exitosamente.');
-    }
-
-    public function equipo_sst_CV(Request $request, $id_equipo)
-    {
-        // Busca la orden correspondiente al id proporcionado
-        $equipo = SST::find($id_equipo);
-        // Trae todos los registros de la tabla mantenimientoVehiculo
-        $query = MantenimientoEquipoSst::query(); 
-
-        // Ejecutamos la consulta y obtenemos los pedidos filtrados
-        $mantenimientos = $query->paginate(5);
-
-        // Devuelve la vista con los datos 
-        return view('SST.SST-show-CV-equipo', compact('equipo', 'mantenimientos'));
-
-    }
-
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, SST $sST)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(SST $sST)
-    {
-        //
+        return redirect()->route('sst.show_equipo', $id)->with('success', 'Mantenimiento agregado exitosamente.');
     }
 }

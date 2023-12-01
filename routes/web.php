@@ -27,7 +27,6 @@ Route::controller(LogoutController::class)->group(function(){   //asi se define 
 Route::controller(RegisterController::class)->group(function(){   //asi se define un grupo de rutas para login para el controlador login
     Route::get('/register', 'show')->name('register.show'); // la ruta get es para mostrar la vista de login
     Route::post('/register', 'register_create')->name('register.register_create'); // la ruta get es para mostrar la vista de login
-   
 });
 
 Route::controller(HomeController::class)->group(function(){   //asi se define un grupo de rutas para login para el controlador Home
@@ -59,16 +58,14 @@ Route::controller(DistribucionController::class)->group(function(){
     Route::post('dis-create-equipo', 'store_equipo')->name('distribucion.store_equipo');
     Route::get('dis-create-mantenimiento-equipo/{id_equipo}', 'create_mantenimiento_equipo')->name('distribucion.create_mantenimiento_equipo');
     Route::post('dis-create-mantenimiento-equipo/{id_equipo}', 'store_mantenimiento_equipo')->name('distribucion.store_mantenimiento_equipo');
-    
 });
 
-
 Route::controller(SSTController::class)->group(function(){
-    Route::get('SST', 'form')->name('SST.form');
-    Route::get('equipo_sst','create_equipo')->name('equipo_sst.create_equipo');
-    Route::post('equipo_sst', 'store_equipo')->name('equipo_sst.create_equipo');
-    Route::get('show-equipo-sst', 'show_equipo')->name('show-equipo-sst.show_equipo');
-    Route::get('update-equipo-sst/{id_equipo}', 'edit_equipo')->name('equipo.edit_equipo');
-    Route::post('update-equipo-sst/{id_equipo}', 'agregarMantenimiento_equipo_sst')->name('equipo.mantenimiento_equipo_sst');
-    Route::get('show-equipo-sst-CV/{id_equipo}', 'equipo_sst_CV')->name('show-equipo-sst-CV_equipo_sst_CV');
+    Route::get('sst-show-form', 'show_form')->name('sst.show_form');
+    Route::get('sst-show-equipo', 'show_equipo')->name('sst.show_equipo');
+    Route::get('sst-show-equipo-CV/{id_equipo}', 'show_equipo_CV')->name('sst.show_equipo_CV');
+    Route::get('sst-create-equipo','create_equipo')->name('sst.create_equipo');
+    Route::post('sst-create-equipo', 'store_equipo')->name('sst.store_equipo');    
+    Route::get('sst-create-mantenimiento-equipo/{id_equipo}', 'create_mantenimiento_equipo')->name('sst.create_mantenimiento_equipo');
+    Route::post('sst-create-mantenimiento-equipo/{id_equipo}', 'store_mantenimiento_equipo')->name('sst.store_mantenimiento_equipo');
 });

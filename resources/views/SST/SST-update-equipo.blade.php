@@ -522,7 +522,7 @@
             </div> 
         </form>
 
-            <form id="formulario" class="row g-3" method="POST" action="{{ route('equipo.mantenimiento_equipo_sst', ['id_equipo' => $equipo->id_equipo]) }}" enctype="multipart/form-data">
+            <form id="formulario" class="row g-3" method="POST" action="{{ route('sst.store_mantenimiento_equipo', ['id_equipo' => $equipo->id_equipo]) }}" enctype="multipart/form-data">
                 @csrf
             
                 <div class="col-12">

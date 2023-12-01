@@ -76,7 +76,7 @@
     @endif
 
     <div class="form-container">
-        <form id="formulario" action="{{route('equipo_sst.create_equipo')}}" method="POST" enctype="multipart/form-data" class="row g-3">
+        <form id="formulario" action="{{route('sst.store_equipo')}}" method="POST" enctype="multipart/form-data" class="row g-3">
             <!-- esta linea requiere ruta Route::post definida en routes Route EquiposController-->
             
             @csrf
