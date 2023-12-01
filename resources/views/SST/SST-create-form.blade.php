@@ -24,6 +24,7 @@
             margin: 50px;
             box-shadow: 16px 14px 20px #0000008c;
             border-radius: 100%;
+            zoom: 80%;
         }
         .card:hover{
             background-color:   #d7d9df;
