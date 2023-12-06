@@ -13,26 +13,38 @@ use App\Http\Requests\RegisterRequest;
 
 use Illuminate\Support\Facades\Route;
 
+/*
+Route::middleware(['auth'])->group(function () {   // esta linea es para proteger las rutas
+}); 
+*/
 
 Route::controller(LoginController::class)->group(function(){   //asi se define un grupo de rutas para login para el controlador login
     Route::get('/', 'show')->name('login'); // la ruta get es para mostrar la vista de login
     Route::post('/', 'login')->name('login');// la ruta post es para acceder al metodo del controlador para autenticarse
 });
 
+
+
 Route::controller(LogoutController::class)->group(function(){   //asi se define un grupo de rutas para login para el controlador login
     Route::get('/logout', 'logout')->name('logout.logout');// la ruta post es para acceder al metodo del controlador para autenticarse
 });
 
 
+Route::middleware(['auth'])->group(function () {
 Route::controller(RegisterController::class)->group(function(){   //asi se define un grupo de rutas para login para el controlador login
     Route::get('/register', 'show')->name('register.show'); // la ruta get es para mostrar la vista de login
     Route::post('/register', 'register_create')->name('register.register_create'); // la ruta get es para mostrar la vista de login
 });
+});
 
+
+Route::middleware(['auth'])->group(function () {
 Route::controller(HomeController::class)->group(function(){   //asi se define un grupo de rutas para login para el controlador Home
     Route::get('home', 'show')->name('home.show'); // la ruta get es para mostrar la vista de home, el primer home unico para la URL y show es el metodo del controller, name(home.show) es el home vista y show del metodo del controller
 });
+});
 
+Route::middleware(['auth'])->group(function () {
 Route::controller(AdministrativoController::class)->group(function(){   //asi se define un grupo de rutas para login para el controlador Home
     Route::get('admin-show-form', 'show_form')->name('administrativo.show_form'); 
     Route::get('admin-show-vehiculo', 'show_vehiculo')->name('administrativo.show_vehiculo');
@@ -49,7 +61,10 @@ Route::controller(AdministrativoController::class)->group(function(){   //asi se
     Route::get('admin-create-mantenimiento-equipo/{id_equipo}', 'create_mantenimiento_equipo')->name('administrativo.create_mantenimiento_equipo');
     Route::post('admin-create-mantenimiento-equipo/{id_equipo}', 'store_mantenimiento_equipo')->name('administrativo.store_mantenimiento_equipo');   
 });
+});
 
+
+Route::middleware(['auth'])->group(function () {
 Route::controller(DistribucionController::class)->group(function(){
     Route::get('dis-show-form', 'show_form')->name('distribucion.show_form');
     Route::get('dis-show-equipo', 'show_equipo')->name('distribucion.show_equipo');
@@ -59,7 +74,10 @@ Route::controller(DistribucionController::class)->group(function(){
     Route::get('dis-create-mantenimiento-equipo/{id_equipo}', 'create_mantenimiento_equipo')->name('distribucion.create_mantenimiento_equipo');
     Route::post('dis-create-mantenimiento-equipo/{id_equipo}', 'store_mantenimiento_equipo')->name('distribucion.store_mantenimiento_equipo');
 });
+});
 
+
+Route::middleware(['auth'])->group(function () {
 Route::controller(SSTController::class)->group(function(){
     Route::get('sst-show-form', 'show_form')->name('sst.show_form');
     Route::get('sst-show-equipo', 'show_equipo')->name('sst.show_equipo');
@@ -68,4 +86,5 @@ Route::controller(SSTController::class)->group(function(){
     Route::post('sst-create-equipo', 'store_equipo')->name('sst.store_equipo');    
     Route::get('sst-create-mantenimiento-equipo/{id_equipo}', 'create_mantenimiento_equipo')->name('sst.create_mantenimiento_equipo');
     Route::post('sst-create-mantenimiento-equipo/{id_equipo}', 'store_mantenimiento_equipo')->name('sst.store_mantenimiento_equipo');
+});
 });
