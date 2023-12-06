@@ -2,30 +2,45 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Models\User;
 use App\Models\Administrativo_vehiculo;
 use App\Models\Administrativo_equipo;
 use App\Models\MantenimientoVehiculo;
 use App\Models\MantenimientoEquipoAdmin;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 use Illuminate\Support\Facades\Storage;
 
 
 class AdministrativoController extends Controller
 {
+
+    private function getCurrentUser()
+    {
+        // Busca y devuelve el objeto de usuario correspondiente al id del usuario actualmente autenticado
+        return User::find(Auth::user()->id);
+    }
+    
     /** INICIA LOS METODOS PARA VEHICULOS ADMINISTRATIVOS **/
 
     public function show_form()
     {
+         // Obtiene el usuario actual, y lo guarda en la variable $user
+         $user = $this->getCurrentUser();
+        
         // Pasar el usuario a la vista 
-        return view('Administrativo.Admin-create-form');
+        return view('Administrativo.Admin-create-form', compact('user'));
     }
 
     public function show_vehiculo(Request $request)
-    {
+
+    {   // Obtiene el usuario actual, y lo guarda en la variable $user
+        $user = $this->getCurrentUser();
+        
         // Obtenemos el valor de búsqueda por placa
-        $buscarpor = $request->input('placa');
+       $buscarpor = $request->input('placa');
 
        $estado = $request->input('estado');
     
@@ -38,11 +53,14 @@ class AdministrativoController extends Controller
         // Ejecutamos la consulta y obtenemos los pedidos filtrados hasta 8 registros
         $vehiculos = $query->paginate(8);
     
-        return view('Administrativo.Admin-show-vehiculo', compact('vehiculos', 'buscarpor', 'estado'));
+        return view('Administrativo.Admin-show-vehiculo', compact('vehiculos', 'buscarpor', 'estado', 'user'));
     }
 
     public function show_vehiculos_CV(Request $request, $id_vehiculo)
-    {
+    {   
+         // Obtiene el usuario actual, y lo guarda en la variable $user
+         $user = $this->getCurrentUser();
+        
         // Busca el vehiculo correspondiente al id proporcionado
         $vehiculo = Administrativo_vehiculo::find($id_vehiculo);
         // Trae todos los registros de la tabla mantenimientoVehiculo
@@ -52,7 +70,7 @@ class AdministrativoController extends Controller
         $mantenimientos = $query->paginate();
 
         // Devuelve la vista con los datos 
-        return view('Administrativo.Admin-show-CV', compact('vehiculo', 'mantenimientos'));
+        return view('Administrativo.Admin-show-CV', compact('vehiculo', 'mantenimientos', 'user'));
 
     }
 
@@ -61,7 +79,11 @@ class AdministrativoController extends Controller
      */
     public function create_vehiculo()
     {
-        return view("Administrativo.Admin-create-vehiculo");
+        
+         // Obtiene el usuario actual, y lo guarda en la variable $user
+         $user = $this->getCurrentUser();
+        
+        return view("Administrativo.Admin-create-vehiculo", compact('user'));
     }
 
      /**
@@ -127,11 +149,14 @@ class AdministrativoController extends Controller
 
     public function create_mantenimiento_vehiculo($id_vehiculo)
     {
+         // Obtiene el usuario actual, y lo guarda en la variable $user
+         $user = $this->getCurrentUser();
+        
         // Busca la vehiculo correspondiente al id proporcionado
         $vehiculo = Administrativo_vehiculo::find($id_vehiculo);
 
         // Devuelve la vista con los datos quemados "hoja de vida"
-        return view('Administrativo.Admin-update-vehiculo', compact('vehiculo'));
+        return view('Administrativo.Admin-update-vehiculo', compact('vehiculo','user'));
     }
 
     public function store_mantenimiento_vehiculo(Request $request, $id)
@@ -179,7 +204,10 @@ class AdministrativoController extends Controller
     }
 
     public function show_equipo(Request $request)
-    {
+    { 
+         // Obtiene el usuario actual, y lo guarda en la variable $user
+         $user = $this->getCurrentUser();
+        
         // Obtenemos el valor de búsqueda por nombre equipo
         $buscarpor = $request->input('nombre_equipo');
 
@@ -192,11 +220,15 @@ class AdministrativoController extends Controller
         // Ejecutamos la consulta y obtenemos los pedidos filtrados
         $equipos = $query->paginate(8);
 
-        return view ('Administrativo.Admin-show-equipo', compact('equipos', 'buscarpor'));
+        return view ('Administrativo.Admin-show-equipo', compact('equipos', 'buscarpor', 'user'));
     }
 
     public function show_equipo_CV(Request $request, $id_equipo)
     {
+
+         // Obtiene el usuario actual, y lo guarda en la variable $user
+         $user = $this->getCurrentUser();
+        
         // Busca la equipo correspondiente al id proporcionado
         $equipo = Administrativo_equipo::find($id_equipo);
         // Trae todos los registros de la tabla mantenimientoVehiculo
@@ -206,7 +238,7 @@ class AdministrativoController extends Controller
         $mantenimientos = $query->paginate();
 
         // Devuelve la vista con los datos 
-        return view('Administrativo.Admin-show-CV-equipo', compact('equipo', 'mantenimientos'));
+        return view('Administrativo.Admin-show-CV-equipo', compact('equipo', 'mantenimientos', 'user'));
 
     }
     
@@ -214,8 +246,13 @@ class AdministrativoController extends Controller
     /** INICIO DE LOS METODOS DE EQUIPOS ADMINISTRATIVOS **/
 
     public function create_equipo()
+
     {
-        return view("Administrativo.Admin-create-equipo");
+
+         // Obtiene el usuario actual, y lo guarda en la variable $user
+         $user = $this->getCurrentUser();
+        
+        return view("Administrativo.Admin-create-equipo", compact('user'));
     }
 
 
@@ -280,17 +317,21 @@ class AdministrativoController extends Controller
 
     public function create_mantenimiento_equipo(Request $request, $id_equipo)
     {
+
+         // Obtiene el usuario actual, y lo guarda en la variable $user
+         $user = $this->getCurrentUser();
         
         // Busca el equipo correspondiente al id proporcionado
         $equipo = Administrativo_equipo::find($id_equipo);
         // Devuelve la vista con los datos 
 
-        return view('Administrativo.Admin-update-equipo', compact('equipo'));
+        return view('Administrativo.Admin-update-equipo', compact('equipo', 'user'));
 
     } 
         
     public function store_mantenimiento_equipo(Request $request, $id)
     {
+
         // Valida los datos del formulario
         $request->validate([
             'fecha_mantenimiento' => 'required|date',

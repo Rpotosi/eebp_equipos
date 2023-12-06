@@ -4,11 +4,12 @@
 
 @section('content_header')
 
-    <div style="text-align: end;">
-        <div style="background-color: #f6c21e; display: inline-block; padding: 5px;">
-            <p style="margin: 0;"><b>Bienvenido:
-        </div>
+<div style="text-align: end;">
+    <div style="background-color:#f6c21e; display: inline-block; padding: 5px;">
+        <p style="margin: 0;"><b>Bienvenido: </b>{{ $user->username }}</p>
     </div>
+</div>
+
     <style>
         .form-container {
             margin-top: 1px;

@@ -1,9 +1,17 @@
 @extends('adminlte::page')
 
+
 @section('title', 'Dashboard')
 
+
 @section('content_header')
-    <h1>Dashboard</h1>
+
+        <div style="text-align: end;">
+            <div style="background-color:#f6c21e; display: inline-block; padding: 5px;">
+                <p style="margin: 0;"><b>Bienvenido: </b>{{ $user->username }}</p>
+            </div>
+        </div> 
+    <h1>SGE</h1>
 @stop
 
 @section('content')
