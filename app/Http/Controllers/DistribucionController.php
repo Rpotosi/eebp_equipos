@@ -3,21 +3,36 @@
 namespace App\Http\Controllers;
 
 use App\Models\Distribucion;
+use App\Models\User;
 use App\Models\MantenimientoEquipoDis;
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Auth;
+
 
 class DistribucionController extends Controller
 {
     /** INICIA LOS METODOS PARA EQUIPOS DISTRIBUCION **/
 
+
+    private function getCurrentUser()
+    {
+        // Busca y devuelve el objeto de usuario correspondiente al id del usuario actualmente autenticado
+        return User::find(Auth::user()->id);
+    }
+    
+
     public function show_form()
     {
+         // Obtiene el usuario actual, y lo guarda en la variable $user
+         $user = $this->getCurrentUser();
         // Pasar el usuario a la vista 
-        return view('Distribucion.Dis-create-form');
+        return view('Distribucion.Dis-create-form',compact('user'));
     }
 
     public function show_equipo(Request $request)
     {
+        $user = $this->getCurrentUser();
         //busca el equipo por nombre_equipo
         $buscarpor = $request->input('nombre_equipo');
         // Crea una consulta del modelo Distribucion
@@ -28,11 +43,13 @@ class DistribucionController extends Controller
 
         $equipos = $query->paginate(8);
 
-        return view ('Distribucion.Dis-show', compact('equipos','buscarpor'));
+        return view ('Distribucion.Dis-show', compact('equipos','buscarpor','user'));
     }
 
     public function show_equipo_CV(Request $request, $id_equipo)
     {
+         // Obtiene el usuario actual, y lo guarda en la variable $user
+         $user = $this->getCurrentUser();
         // Busca el equipo correspondiente al id proporcionado
         $equipo = Distribucion::find($id_equipo);
         // Trae todos los registros de la tabla mantenimientoVehiculo
@@ -42,13 +59,16 @@ class DistribucionController extends Controller
         $mantenimientos = $query->paginate();
 
         // Devuelve la vista con los datos 
-        return view('Distribucion.Dis-show-CV-equipo', compact('equipo', 'mantenimientos'));
+        return view('Distribucion.Dis-show-CV-equipo', compact('equipo', 'mantenimientos', 'user'));
 
     }
 
     public function create_equipo()
     {
-        return view("Distribucion.Dis-create-equipo");
+         // Obtiene el usuario actual, y lo guarda en la variable $user
+         $user = $this->getCurrentUser();
+         
+        return view("Distribucion.Dis-create-equipo", compact('user'));
     }
 
     /**
@@ -116,17 +136,20 @@ class DistribucionController extends Controller
      */
     public function create_mantenimiento_equipo($id_equipo)
     {
+         // Obtiene el usuario actual, y lo guarda en la variable $user
+         $user = $this->getCurrentUser();
         
         // Busca el equipo correspondiente al id proporcionado
         $equipo = Distribucion::find($id_equipo);
         
         // Devuelve la vista con los datos 
-        return view('Distribucion.Dis-update-equipo', compact('equipo'));
+        return view('Distribucion.Dis-update-equipo', compact('equipo','user'));
     }
 
 
     public function store_mantenimiento_equipo(Request $request, $id)
     {
+
         // Valida los datos del formulario
         $request->validate([
             'fecha_mantenimiento' => 'required|date',
