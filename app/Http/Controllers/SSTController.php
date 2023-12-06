@@ -3,23 +3,35 @@
 namespace App\Http\Controllers;
 
 use App\Models\SST;
+use App\Models\User;
 use App\Models\Administrativo;
 use App\Models\Administrativo_vehiculo;
 use App\Models\Distribucion;
 use App\Models\MantenimientoEquipoSst;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class SSTController extends Controller
 {
+
+    private function getCurrentUser()
+    {
+        // Busca y devuelve el objeto de usuario correspondiente al id del usuario actualmente autenticado
+        return User::find(Auth::user()->id);
+    }
     
     public function show_form()
     {
+        // Obtiene el usuario actual, y lo guarda en la variable $user
+        $user = $this->getCurrentUser();
         // Pasar el usuario a la vista 
-        return view('SST.SST-create-form');
+        return view('SST.SST-create-form', compact('user'));
     }
 
     public function show_equipo(Request $request)
     {   
+        // Obtiene el usuario actual, y lo guarda en la variable $user
+        $user = $this->getCurrentUser();
         // Obtenemos el valor de búsqueda por nombre_equipo
         $buscarpor = $request->input('nombre_equipo');
         // Crea una consulta del modelo SST
@@ -31,11 +43,13 @@ class SSTController extends Controller
         // Ejecutamos la consulta y obtenemos los pedidos filtrados
         $equipos = $query->paginate(8);
 
-        return view ('SST.SST-show', compact('equipos', 'buscarpor'));
+        return view ('SST.SST-show', compact('equipos', 'buscarpor','user'));
     }
 
     public function show_equipo_CV(Request $request, $id_equipo)
     {
+        // Obtiene el usuario actual, y lo guarda en la variable $user
+        $user = $this->getCurrentUser();
         // Busca la orden correspondiente al id proporcionado
         $equipo = SST::find($id_equipo);
         // Trae todos los registros de la tabla mantenimientoVehiculo
@@ -45,12 +59,14 @@ class SSTController extends Controller
         $mantenimientos = $query->paginate(5);
 
         // Devuelve la vista con los datos 
-        return view('SST.SST-show-CV-equipo', compact('equipo', 'mantenimientos'));
+        return view('SST.SST-show-CV-equipo', compact('equipo', 'mantenimientos','user'));
     }
 
     public function create_equipo()
     {
-        return view("SST.SST-create-equipo");
+        // Obtiene el usuario actual, y lo guarda en la variable $user
+        $user = $this->getCurrentUser();
+        return view("SST.SST-create-equipo",compact('user'));
     }
 
     /**
@@ -114,10 +130,12 @@ class SSTController extends Controller
 
     public function create_mantenimiento_equipo($id_equipo)
     {
+        // Obtiene el usuario actual, y lo guarda en la variable $user
+        $user = $this->getCurrentUser();
         // Busca la orden correspondiente al id proporcionado
         $equipo = SST::find($id_equipo);
         // Devuelve la vista con los datos 
-        return view('SST.SST-update-equipo', compact('equipo'));
+        return view('SST.SST-update-equipo', compact('equipo','user'));
     }
 
     public function store_mantenimiento_equipo(Request $request, $id)

@@ -3,6 +3,11 @@
 @section('title', 'home')
 
 @section('content_header')
+<div style="text-align: end;">
+    <div style="background-color: #08b94e ; display: inline-block; padding: 5px;">
+        <p style="margin: 0;"><b>Bienvenido: </b>{{ $user->username }}</p>
+    </div>
+</div>
     
     <style>
         /* Estilos para el contenedor principal */
@@ -38,12 +43,6 @@
 
 
     </style>
-
-    <div class="container-fluid">  <div style="text-align: end;">
-        <div style="background-color: #e8edf8; display: inline-block; padding: 5px;">
-            <p style="margin: 0;"><b>Bienvenido: </b></p>
-        </div>
-    </div>
 
     <h1 style="text-align: center" font family="inherit">SGE</h1>
 @stop
