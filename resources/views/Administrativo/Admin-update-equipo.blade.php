@@ -77,6 +77,7 @@
             alert("{{ session('error') }}");
         </script>
     @endif
+    
     <div class="form-container">
         <form id="formulario" class="row g-3">
             <!-- esta linea requiere ruta Route::post definida en routes Route EquiposController-->

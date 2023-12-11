@@ -179,6 +179,6 @@ class SSTController extends Controller
         $equipo->mantenimientos()->save($mantenimiento);
     
         // Redirecciona con una alerta de éxito
-        return redirect()->route('sst.show_equipo', $id)->with('success', 'Mantenimiento agregado exitosamente.');
+        return redirect()->route('sst.create_mantenimiento_equipo', $id)->with('success', 'Mantenimiento agregado exitosamente. ☑️ ');
     }
 }

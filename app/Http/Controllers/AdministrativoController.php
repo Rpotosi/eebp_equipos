@@ -376,7 +376,7 @@ class AdministrativoController extends Controller
         $equipo->mantenimientos()->save($mantenimiento);
     
         // Redirecciona con una alerta de éxito despues de ejecutarse la ruta 
-        return redirect()->route('administrativo.show_equipo', $id)->with('success', 'Mantenimiento agregado exitosamente.');
+        return redirect()->route('administrativo.create_mantenimiento_equipo', $id)->with('success', 'Mantenimiento agregado exitosamente.');
     }
 
     
