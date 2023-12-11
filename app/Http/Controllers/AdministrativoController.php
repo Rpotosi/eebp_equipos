@@ -200,7 +200,12 @@ class AdministrativoController extends Controller
         $vehiculo->mantenimientos()->save($mantenimiento);
     
         // Redirecciona con una alerta de éxito
-        return redirect()->route('administrativo.show_vehiculo', $id)->with('success', 'Mantenimiento agregado exitosamente.');
+       // session()->flash('success', 'Vehiculo creado exitosamente 🚗');
+
+        return redirect()->route('administrativo.create_mantenimiento_vehiculo', $id)->with('success', 'Mantenimiento agregado exitosamente.');
+      
+        // Redirecciona a la página anterior   
+       // return back();    
     }
 
     public function show_equipo(Request $request)

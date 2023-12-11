@@ -4,7 +4,23 @@
 
 @section('content_header')
 
-   
+@endsection
+  
+@section('content')
+    <!-- Resto de tu contenido de la vista -->
+
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    @if(session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
+
 
 <div style="text-align: end;">
     <div style="background-color: #08b94e; display: inline-block; padding: 5px;">
@@ -63,23 +79,8 @@
        
     </style>
     <h1 style="text-align: center">Mantenimiento Vehiculos</h1>
-@stop
-
-@section('content')
-
-    <!--Start Alertas utilizadas en el mensaje de Orden creada exitosamente -->
-    @if (session('success'))
-        <script>
-            alert("{{ session('success') }}");
-        </script>
-    @endif
-
-    @if (session('error'))
-        <script>
-            alert("{{ session('error') }}");
-        </script>
-    @endif
-    <div class="form-container">
+   
+ <div class="form-container">
         <form id="formulario" class="row g-3">
             <!-- esta linea requiere ruta Route::post('guias/create', 'store')->name(('guias.create'));  definida el routes guia-->
             
@@ -563,7 +564,7 @@
         
     </div>
 
-@stop
+    @endsection
 
 @section('js')
 
