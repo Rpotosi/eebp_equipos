@@ -235,21 +235,21 @@
             
             <div class="col-2" style="text-align: left;">
                 <label for="fecha_conformidad" class="form-label">
-                    Fecha del certificado de conformidad
+                    Fecha certificado de conformidad
                 </label>
                 <input type="date" class="form-control" id="fecha_conformidad" placeholder="" name="fecha_conformidad" required/>
                 
             </div>
 
             <div class="col-2" style="text-align: left;">
-                <label for="fecha_operacion" class="form-label"> <br>
+                <label for="fecha_operacion" class="form-label">
                     Fecha Inicio de Operación
                 </label>
                 <input type="date" class="form-control" id="fecha_operacion" placeholder="" name="fecha_operacion" required/>
                 
             </div>
             <div class="col-2" style="text-align: left;">
-                <label for="propiedad" class="form-label"> <br>
+                <label for="propiedad" class="form-label">
                     Propiedad
                 </label>
                 <input type="text" class="form-control" id="propiedad" placeholder="" name="propiedad" required/>
