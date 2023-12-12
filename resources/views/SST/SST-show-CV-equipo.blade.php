@@ -547,10 +547,10 @@
                     <th>Id</th>
                     <th>Fecha</th>
                     <th>Descripción</th>
-                    <th>Averia / Daño</th>
-                    <th>Referencia / Repuesto</th>
-                    <th>Responsable</th>  
-                    <th>Precio</th>
+                    <th>Tipo Procedimiento</th>
+                    <th>Responsable</th>
+                    <th>Laboratorio Empresa</th>  
+                    <th>Observaciones</th>
                     <th>Anexos</th>                
                 </tr>
             </thead>
@@ -560,9 +560,10 @@
 
                     <tr>
 
-                        <td>
+                    <td>
                             {{$mantenimiento->id}}
                         </td>
+
                         <td>
                             {{$mantenimiento->fecha_mantenimiento}}
                         </td>
@@ -572,19 +573,21 @@
                         </td>
 
                         <td>
-                            {{$mantenimiento->averia_dano}}
+                            {{$mantenimiento->tipo_procedimiento}}
                         </td>
                 
-                        <td>
-                            {{$mantenimiento->referencia_repuesto}}
-                        </td>
                         <td>
                             {{$mantenimiento->responsable}}
                         </td>
+
+                        <td>
+                            {{$mantenimiento->laboratorio_empresa}}
+                        </td>
                 
                         <td>
-                            {{$mantenimiento->precio}}
+                            {{$mantenimiento->observaciones}}
                         </td>
+  
   
                         <td>
                             @if ($mantenimiento->anexos)

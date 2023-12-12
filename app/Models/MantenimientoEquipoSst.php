@@ -16,16 +16,16 @@ class MantenimientoEquipoSst extends Model
         'id_equipo_fk',
         'fecha_mantenimiento',
         'descripcion',
-        'averia_dano',
-        'referencia_repuesto',
+        'tipo_procedimiento',
         'responsable',
-        'precio',
+        'laboratorio_empresa',
+        'observaciones',
         'anexos',
     ];
 
     // Define la relación con el equipo SST
     public function equipoSst()
     {
-        return $this->belongsTo(EquipoSst::class, 'id_equipo_fk', 'id_equipo');
+        return $this->belongsTo(MantenimientoEquipoSst::class, 'id_equipo_fk', 'id_equipo');
     }
 }

@@ -544,44 +544,58 @@
                 </div>
                 <div class="col-2" style="text-align: center;">
                     <label for="fecha_mantenimiento" class="form-label">
-                        Fecha mantenimiento
+                        Fecha
                     </label>
                     <input type="date" class="form-control" id="fecha_mantenimiento" name="fecha_mantenimiento" required>
+
                 </div>
+            
                 <div class="col-2" style="text-align: center;">
-                    <label for="descripcion" class a="form-label">
-                        Descripción
-                    </label>
-                    <input type="text" class="form-control" id="descripcion" name="descripcion" required>
+                        <label for="descripcion" class="form-label">
+                            Descripción
+                        </label>
+                        <input type="text" class="form-control" id="descripcion" name="descripcion" required>
                 </div>
-                <div class="col-2" style="text-align: center;">
-                    <label for="averia_dano" class="form-label">
-                        Avería/ Daño
-                    </label>
-                    <input type="text" class="form-control" id="averia_dano" name="averia_dano" required>
-                </div>
-                <div class="col-2" style="text-align: center;">
-                    <label for="referencia_repuesto" class="form-label">
-                        Referencia Repuesto
-                    </label>
-                    <input type="text" class="form-control" id="referencia_repuesto" name="referencia_repuesto" required>
-                </div>
+
+             <div class="col-md-2">
+                <label for="tipo_procedimiento" class="form-label">
+                    Tipo de Procedimiento
+                </label>
+                <select id="tipo_procedimiento" class="custom-select" placeholder="" name="tipo_procedimiento" required>
+                    <option selected></option>
+                    <option>Mantenimiento</option>
+                    <option>Calibración</option>
+                    <option>Verificación</option>
+                    <option>Inspección</option>
+                    <option>Ensayo</option>
+                </select>
+               </div>
+
                 <div class="col-2" style="text-align: center;">
                     <label for="responsable" class="form-label">
-                        Responsable
+                     responsable
                     </label>
                     <input type="text" class="form-control" id="responsable" name="responsable" required>
                 </div>
-                <div class="col-1" style="text-align: center;">
-                    <label for="precio" class="form-label">
-                        Precio
+
+                <div class="col-2" style="text-align: center;">
+                    <label for="laboratorio_empresa" class="form-label">
+                    laboratorio_empresa
                     </label>
-                    <input type="text" class="form-control" id="precio" name="precio" required>
-                </div> 
-            
-                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" id="laboratorio_empresa" name="laboratorio_empresa" required>
+                </div>
+
+                <div class="col-2" style="text-align: left;">
+                    <label for="observaciones" class="form-label">
+                        Observaciones
+                    </label>
+                    <textarea type="text" class="form-control" rows="1" id="observaciones" placeholder="" name="observaciones"></textarea>
+                
+                </div>
+                
+                <div class="form-group col-md-3">
                     <label for="anexos">
-                        Cargar archivo
+                     Cargar archivo
                     </label>
                     <input type="file" name="anexos" class="form-control" id="anexos">
                 </div>
@@ -589,6 +603,7 @@
                 <div class="col-12">
                 </div>
                 <br>
+
                 <div class="box-footer" style="margin-bottom: 25px;">
                     <button type="submit" class="btn btn-dark" id="guardar-btn">Guardar</button> 
                 </div>

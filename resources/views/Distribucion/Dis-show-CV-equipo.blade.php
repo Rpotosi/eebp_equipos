@@ -546,7 +546,7 @@
                     <th>Id</th>
                     <th>Fecha</th>
                     <th>Descripción</th>
-                    <th>Tipo Mantenimiento</th>
+                    <th>Tipo Procedimiento</th>
                     <th>Responsable</th>
                     <th>Laboratorio Empresa</th>  
                     <th>Observaciones</th>
@@ -573,7 +573,7 @@
                         </td>
 
                         <td>
-                            {{$mantenimiento->tipo_mantenimiento}}
+                            {{$mantenimiento->tipo_procedimiento}}
                         </td>
                 
                         <td>
