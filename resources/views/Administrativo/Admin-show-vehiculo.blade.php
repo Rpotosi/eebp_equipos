@@ -12,9 +12,9 @@
 
     <style>
         .btn {
-            background-color: rgb(87, 156, 41);
+            background-color: rgb(11, 109, 187);
             box-shadow: none;
-            border-color: rgb(87, 156, 41);
+            border-color: rgb(11, 109, 187);
 
         }
 
@@ -75,17 +75,17 @@
             <thead class="thead-light">
                 <tr>
                     <th>Id</th>
-                    <th>placa_vehiculo</th>
-                    <th>marca</th>
-                    <th>motor</th>
+                    <th>Placa|vehiculo</th>
+                    <th>Marca</th>
+                    <th>Motor</th>
                     <th>Chasis</th>
-                    <th>modelo</th>
-                    <th>color</th>
-                    <th>cilindraje</th>
-                    <th>fecha_soat</th>
-                    <th>tecnomecanica</th>
-                    <th class="text-center">Agregar mantenimiento</th>
-                    <th class="text-center">Ver Hoja de Vida</th>
+                    <th>Modelo</th>
+                    <th>Color</th>
+                    <th>Cilindraje</th>
+                    <th>Fecha|soat</th>
+                    <th>Tecnomecanica</th>
+                    <th class="text-center">Mantenimiento ➕</th>
+                    <th class="text-center">Hoja de Vida </th>
                   
                 </tr>
             </thead>
@@ -134,13 +134,13 @@
 
                         <td class="text-center">
                             <a href="{{ route('administrativo.create_mantenimiento_vehiculo', $vehiculo) }}">
-                                <button class="btn btn-warning" onclick="Editar"><i class="fas fa-edit"></i></button>
+                                <button class="btn btn-success" onclick="Editar"><i class="fas fa-edit"></i></button>
                             </a>    
                         </td>
 
                         <td class="text-center">
                             <a href="{{ route('administrativo.show_vehiculos_CV', $vehiculo) }}">
-                                <button class="btn btn-warning" onclick="Editar"><i class="fas fa-file"></i></button>
+                                <button class="btn btn-success" onclick="Editar"><i class="fas fa-file"></i></button>
                             </a>    
                         </td>
 

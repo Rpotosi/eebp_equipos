@@ -12,10 +12,10 @@
 </div>
 
     <style>
-        .btn {
-            background-color: rgb(87, 156, 41);
+         .btn {
+            background-color: rgb(11, 109, 187);
             box-shadow: none;
-            border-color: rgb(87, 156, 41);
+            border-color: rgb(11, 109, 187);
 
         }
 
@@ -131,13 +131,13 @@
 
                         <td class="text-center">
                             <a href="{{ route('administrativo.create_mantenimiento_equipo', $equipo) }}">
-                                <button class="btn btn-warning" onclick="Editar"><i class="fas fa-edit"></i></button>
+                                <button class="btn btn-success" onclick="Editar"><i class="fas fa-edit"></i></button>
                             </a>    
                         </td>
 
                         <td class="text-center">
                             <a href="{{ route('administrativo.show_equipo_CV', $equipo) }}">
-                                <button class="btn btn-warning" onclick="Editar"><i class="fas fa-file"></i></button>
+                                <button class="btn btn-success" onclick="Editar"><i class="fas fa-file"></i></button>
                             </a>    
                         </td>
                 

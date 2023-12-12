@@ -27,6 +27,6 @@ class MantenimientoVehiculo extends Model
     // Define la relación con el modelo de Vehículo
     public function vehiculo()
     {
-        return $this->belongsTo(Vehiculo::class, 'id_vehiculo_fk', 'id_vehiculo');
+        return $this->belongsTo(MantenimientoVehiculo::class, 'id_vehiculo_fk', 'id_vehiculo');
     }
 }
