@@ -544,46 +544,56 @@
                         7. HISTORIAL DE MANTENIMIENTO:
                     </label>
                 </div>
+                
                 <div class="col-2" style="text-align: center;">
                     <label for="fecha_mantenimiento" class="form-label">
-                        Fecha mantenimiento
+                        Fecha
                     </label>
                     <input type="date" class="form-control" id="fecha_mantenimiento" name="fecha_mantenimiento" required>
-                </div>
+                </div> 
+
                 <div class="col-2" style="text-align: center;">
                     <label for="descripcion" class a="form-label">
                         Descripción
                     </label>
                     <input type="text" class="form-control" id="descripcion" name="descripcion" required>
                 </div>
-                <div class="col-2" style="text-align: center;">
-                    <label for="averia_dano" class="form-label">
-                        Avería/ Daño
-                    </label>
-                    <input type="text" class="form-control" id="averia_dano" name="averia_dano" required>
-                </div>
-                <div class="col-2" style="text-align: center;">
-                    <label for="referencia_repuesto" class="form-label">
-                        Referencia Repuesto
-                    </label>
-                    <input type="text" class="form-control" id="referencia_repuesto" name="referencia_repuesto" required>
-                </div>
+                <div class="col-md-2">
+                <label for="tipo_mantenimiento" class="form-label">
+                    Tipo_mantenimiento
+                </label>
+                <select id="tipo_mantenimiento" class="custom-select" placeholder="" name="tipo_mantenimiento" required>
+                    <option selected></option>
+                    <option>M</option>
+                    <option>C</option>
+                    <option>V</option>
+                    <option>I</option>
+                </select>
+            </div>
+
                 <div class="col-2" style="text-align: center;">
                     <label for="responsable" class="form-label">
-                        Responsable
+                     responsable
                     </label>
                     <input type="text" class="form-control" id="responsable" name="responsable" required>
                 </div>
-                <div class="col-1" style="text-align: center;">
-                    <label for="precio" class="form-label">
-                        Precio
+                <div class="col-2" style="text-align: center;">
+                    <label for="laboratorio_empresa" class="form-label">
+                    laboratorio_empresa
                     </label>
-                    <input type="text" class="form-control" id="precio" name="precio" required>
+                    <input type="text" class="form-control" id="laboratorio_empresa" name="laboratorio_empresa" required>
+                </div>
+
+                <div class="col-2" style="text-align: center;">
+                    <label for="observaciones" class="form-label">
+                    observaciones
+                    </label>
+                    <input type="text" class="form-control" id="observaciones" name="observaciones" required>
                 </div> 
             
                 <div class="form-group col-md-4">
                     <label for="anexos">
-                        Cargar archivo
+                     Cargar archivo
                     </label>
                     <input type="file" name="anexos" class="form-control" id="anexos">
                 </div>

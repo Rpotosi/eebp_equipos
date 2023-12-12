@@ -16,10 +16,10 @@ class MantenimientoEquipoAdmin extends Model
         'id_equipo_fk',
         'fecha_mantenimiento',
         'descripcion',
-        'averia_dano',
-        'referencia_repuesto',
+        'tipo_mantenimiento',
         'responsable',
-        'precio',
+        'laboratorio_empresa',
+        'observaciones',
         'anexos',
     ];
 

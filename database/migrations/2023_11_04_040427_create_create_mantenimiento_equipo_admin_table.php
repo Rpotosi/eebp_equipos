@@ -18,10 +18,10 @@ return new class extends Migration
             $table->bigInteger('id_equipo_fk')->nullable()->index('id_equipo_fk');
             $table->date('fecha_mantenimiento')->nullable();
             $table->text('descripcion')->nullable();
-            $table->string('averia_dano', 100)->nullable();
-            $table->string('referencia_repuesto', 100)->nullable();
+            $table->string('tipo_mantenimiento', 100)->nullable();
             $table->string('responsable', 100)->nullable();
-            $table->string('precio', 100)->nullable();
+            $table->string('laboratorio_empresa', 100)->nullable();
+            $table->string('observaciones', 100)->nullable();
             $table->string('anexos')->nullable();
         });
     }
