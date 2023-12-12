@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('tipo_procedimiento', 100)->nullable();
             $table->string('responsable', 100)->nullable();
             $table->string('laboratorio_empresa', 100)->nullable();
-            $table->string('observaciones', 100)->nullable();
+            $table->string('observaciones', 255)->nullable();
             $table->string('anexos')->nullable();
         });
     }
