@@ -154,10 +154,10 @@ class DistribucionController extends Controller
         $request->validate([
             'fecha_mantenimiento' => 'required|date',
             'descripcion' => 'required|string',
-            'averia_dano' => 'required|string',
-            'referencia_repuesto' => 'required|string',
+            'tipo_procedimiento' => 'required|string',
             'responsable' => 'required|string',
-            'precio' => 'required|numeric',
+            'laboratorio_empresa' => 'required|string',
+            'observaciones' => 'required|string',
             'anexos' => 'required|file', // Validación adicional para el archivo adjunto
         ]);
     
@@ -168,10 +168,10 @@ class DistribucionController extends Controller
         $mantenimiento = new MantenimientoEquipoDis([
             'fecha_mantenimiento' => $request->input('fecha_mantenimiento'),
             'descripcion' => $request->input('descripcion'),
-            'averia_dano' => $request->input('averia_dano'),
-            'referencia_repuesto' => $request->input('referencia_repuesto'),
+            'tipo_procedimiento' => $request->input('tipo_procedimiento'),
             'responsable' => $request->input('responsable'),
-            'precio' => $request->input('precio'),
+            'laboratorio_empresa' => $request->input('laboratorio_empresa'),
+            'observaciones' => $request->input('observaciones'),
             // Completa con otros campos del mantenimiento según tu base de datos
         ]);
     

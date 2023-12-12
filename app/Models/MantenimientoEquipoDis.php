@@ -16,16 +16,16 @@ class MantenimientoEquipoDis extends Model
         'id_equipo_fk',
         'fecha_mantenimiento',
         'descripcion',
-        'averia_dano',
-        'referencia_repuesto',
+        'tipo_procedimiento',
         'responsable',
-        'precio',
+        'laboratorio_empresa',
+        'observaciones',
         'anexos',
     ];
 
     // Define la relación con el equipo de distribución
     public function equipoDis()
     {
-        return $this->belongsTo(EquipoDis::class, 'id_equipo_fk', 'id_equipo');
+        return $this->belongsTo(MantenimientoEquipoDis::class, 'id_equipo_fk', 'id_equipo');
     }
 }
