@@ -59,7 +59,14 @@
         
 
     </style>
-    <h1 style="text-align: center">Nuevo Equipo</h1>
+
+    <div style="text-align: center;">
+        <div style="background-color: white; display: inline-block; padding: 12px;">
+            <p style="margin: 0;"> 🔹Nuevo Equipo🔹</p>
+        </div>
+    </div>
+
+
 @stop
 
 @section('content')
@@ -245,7 +252,7 @@
                 <label for="propiedad" class="form-label"> <br>
                     Propiedad
                 </label>
-                <input type="date" class="form-control" id="propiedad" placeholder="" name="propiedad" required/>
+                <input type="text" class="form-control" id="propiedad" placeholder="" name="propiedad" required/>
                 
             </div>
             

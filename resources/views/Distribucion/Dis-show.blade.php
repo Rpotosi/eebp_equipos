@@ -12,10 +12,10 @@
 
 
     <style>
-        .btn {
-            background-color: rgb(87, 156, 41);
+         .btn {
+            background-color: rgb(11, 109, 187);
             box-shadow: none;
-            border-color: rgb(87, 156, 41);
+            border-color: rgb(11, 109, 187);
 
         }
 
@@ -33,7 +33,11 @@
         }
     </style>
   
-    <h1 class="aling-center" style="text-align:center"> Gestión de Equipos</h1>    
+  <div style="text-align: center;">
+    <div style="background-color: white; display: inline-block; padding: 12px;">
+        <p style="margin: 0;"> 🔹Gestión De Equipos 🔹</p>
+    </div>
+</div>     
 
 @stop
 
@@ -71,18 +75,18 @@
         <table class="table table-hover table-condensed table-bordered mt-5">
             <thead class="thead-light">
                 <tr>
-                    <th>Id_equipo</th>
-                    <th>nombre_equipo</th>
-                    <th>marca</th>
-                    <th>modelo</th>
-                    <th>no_activo</th>
-                    <th>codigo</th>
-                    <th>lugar_proceso</th>
-                    <th>fecha_entrega</th>
-                    <th>nombre_responsable</th>
-                    <th>cargo</th>
-                    <th>Agregar mantenimiento</th>
-                    <th>Ver Hoja de Vida</th>
+                <th>Id_equipo</th>
+                    <th>Nombre Equipo</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>No_activo</th>
+                    <th>Codigo</th>
+                    <th>Lugar|Proceso</th>
+                    <th>Fecha|Entrega</th>
+                    <th>Nombre_Responsable</th>
+                    <th>Cargo</th>
+                    <th>Mantenimiento ➕</th>
+                    <th>Hoja de Vida</th>
                   
                 </tr>
             </thead>
@@ -131,13 +135,13 @@
 
                         <td class="text-center">
                             <a href="{{ route('distribucion.create_mantenimiento_equipo', $equipo) }}">
-                                <button class="btn btn-warning" onclick="Editar"><i class="fas fa-edit"></i></button>
+                                <button class="btn btn-success" onclick="Editar"><i class="fas fa-edit"></i></button>
                             </a>    
                         </td>
 
                         <td class="text-center">
                             <a href="{{ route('distribucion.show_equipo_CV', $equipo) }}">
-                                <button class="btn btn-warning" onclick="Editar"><i class="fas fa-file"></i></button>
+                                <button class="btn btn-success" onclick="Editar"><i class="fas fa-file"></i></button>
                             </a>    
                         </td>
 
