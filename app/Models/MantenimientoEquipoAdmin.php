@@ -16,7 +16,7 @@ class MantenimientoEquipoAdmin extends Model
         'id_equipo_fk',
         'fecha_mantenimiento',
         'descripcion',
-        'tipo_mantenimiento',
+        'tipo_procedimiento',
         'responsable',
         'laboratorio_empresa',
         'observaciones',

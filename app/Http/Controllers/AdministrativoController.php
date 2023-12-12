@@ -341,7 +341,7 @@ class AdministrativoController extends Controller
         $request->validate([
             'fecha_mantenimiento' => 'required|date',
             'descripcion' => 'required|string',
-            'tipo_mantenimiento' => 'required|string',
+            'tipo_procedimiento' => 'required|string',
             'responsable' => 'required|string',
             'laboratorio_empresa' => 'required|string',
             'observaciones' => 'required|string',
@@ -355,7 +355,7 @@ class AdministrativoController extends Controller
         $mantenimiento = new MantenimientoEquipoAdmin([
             'fecha_mantenimiento' => $request->input('fecha_mantenimiento'),
             'descripcion' => $request->input('descripcion'),
-            'tipo_mantenimiento' => $request->input('tipo_mantenimiento'),
+            'tipo_procedimiento' => $request->input('tipo_procedimiento'),
             'responsable' => $request->input('responsable'),
             'laboratorio_empresa' => $request->input('laboratorio_empresa'),
             'observaciones' => $request->input('observaciones'),

@@ -526,7 +526,7 @@
             </div> 
         </form>
 
-            <form id="formulario" class="row g-3" method="POST" action="{{ route('administrativo.store_mantenimiento_equipo', ['id_equipo' => $equipo->id_equipo]) }}" enctype="multipart/form-data">
+        <form id="formulario" class="row g-3" method="POST" action="{{ route('administrativo.store_mantenimiento_equipo', ['id_equipo' => $equipo->id_equipo]) }}" enctype="multipart/form-data">
                 @csrf
             
                 <div class="col-12">
@@ -550,26 +550,29 @@
                         Fecha
                     </label>
                     <input type="date" class="form-control" id="fecha_mantenimiento" name="fecha_mantenimiento" required>
-                </div> 
 
-                <div class="col-2" style="text-align: center;">
-                    <label for="descripcion" class a="form-label">
-                        Descripción
-                    </label>
-                    <input type="text" class="form-control" id="descripcion" name="descripcion" required>
                 </div>
-                <div class="col-md-2">
-                <label for="tipo_mantenimiento" class="form-label">
-                    Tipo_mantenimiento
+            
+                <div class="col-2" style="text-align: center;">
+                        <label for="descripcion" class="form-label">
+                            Descripción
+                        </label>
+                        <input type="text" class="form-control" id="descripcion" name="descripcion" required>
+                </div>
+
+             <div class="col-md-2">
+                <label for="tipo_procedimiento" class="form-label">
+                    Tipo de Procedimiento
                 </label>
-                <select id="tipo_mantenimiento" class="custom-select" placeholder="" name="tipo_mantenimiento" required>
+                <select id="tipo_procedimiento" class="custom-select" placeholder="" name="tipo_procedimiento" required>
                     <option selected></option>
-                    <option>M</option>
-                    <option>C</option>
-                    <option>V</option>
-                    <option>I</option>
+                    <option>Mantenimiento</option>
+                    <option>Calibración</option>
+                    <option>Verificación</option>
+                    <option>Inspección</option>
+                    <option>Ensayo</option>
                 </select>
-            </div>
+               </div>
 
                 <div class="col-2" style="text-align: center;">
                     <label for="responsable" class="form-label">
@@ -584,14 +587,15 @@
                     <input type="text" class="form-control" id="laboratorio_empresa" name="laboratorio_empresa" required>
                 </div>
 
-                <div class="col-2" style="text-align: center;">
+                <div class="col-2" style="text-align: left;">
                     <label for="observaciones" class="form-label">
-                    observaciones
+                        Observaciones
                     </label>
-                    <input type="text" class="form-control" id="observaciones" name="observaciones" required>
-                </div> 
-            
-                <div class="form-group col-md-4">
+                    <textarea type="text" class="form-control" rows="1" id="observaciones" placeholder="" name="observaciones"></textarea>
+                
+                </div>
+                
+                <div class="form-group col-md-3">
                     <label for="anexos">
                      Cargar archivo
                     </label>
