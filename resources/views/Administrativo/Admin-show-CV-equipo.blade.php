@@ -554,10 +554,10 @@
                     <th>Id</th>
                     <th>Fecha</th>
                     <th>Descripción</th>
-                    <th>Averia / Daño</th>
-                    <th>Referencia / Repuesto</th>
-                    <th>Responsable</th>  
-                    <th>Precio</th>
+                    <th>Tipo Mantenimiento</th>
+                    <th>Responsable</th>
+                    <th>Laboratorio Empresa</th>  
+                    <th>Observaciones</th>
                     <th>Anexos</th>                
                 </tr>
             </thead>
@@ -579,18 +579,18 @@
                         </td>
 
                         <td>
-                            {{$mantenimiento->averia_dano}}
+                            {{$mantenimiento->tipo_mantenimiento}}
                         </td>
                 
-                        <td>
-                            {{$mantenimiento->referencia_repuesto}}
-                        </td>
                         <td>
                             {{$mantenimiento->responsable}}
                         </td>
+                        <td>
+                            {{$mantenimiento->laboratorio_empresa}}
+                        </td>
                 
                         <td>
-                            {{$mantenimiento->precio}}
+                            {{$mantenimiento->observaciones}}
                         </td>
   
                         <td>

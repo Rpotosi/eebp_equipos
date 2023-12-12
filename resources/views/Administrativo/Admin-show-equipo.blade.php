@@ -137,11 +137,10 @@
 
                         <td class="text-center">
                             <a href="{{ route('administrativo.show_equipo_CV', $equipo) }}">
-                                <button class="btn btn-warning" onclick="Editar"><i class="fas fa-edit"></i></button>
+                                <button class="btn btn-warning" onclick="Editar"><i class="fas fa-file"></i></button>
                             </a>    
                         </td>
-
-                                    
+                
                     </tr>                    
                 @endforeach
             </tbody>

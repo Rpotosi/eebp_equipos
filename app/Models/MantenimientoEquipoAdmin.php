@@ -26,7 +26,7 @@ class MantenimientoEquipoAdmin extends Model
     // Define la relación con el modelo de EquipoAdmin
     public function equipoAdmin()
     {
-        return $this->belongsTo(EquipoAdmin::class, 'id_equipo_fk', 'id_equipo');
+        return $this->belongsTo(MantenimientoEquipoAdmin::class, 'id_equipo_fk', 'id_equipo');
     }
 
 }
