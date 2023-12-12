@@ -33,7 +33,11 @@
         }
     </style>
 
-    <h1 class="aling-center" style="text-align:center"> Gestión de Equipos</h1>    
+<div style="text-align: center;">
+    <div style="background-color: white; display: inline-block; padding: 12px;">
+        <p style="margin: 0;"> 🔹Gestión De Equipos 🔹</p>
+    </div>
+</div>   
 
 @stop
 
@@ -72,17 +76,17 @@
             <thead class="thead-light">
                 <tr>
                     <th>Id_equipo</th>
-                    <th>nombre_equipo</th>
-                    <th>marca</th>
-                    <th>modelo</th>
-                    <th>no_activo</th>
-                    <th>codigo</th>
-                    <th>lugar_proceso</th>
-                    <th>fecha_entrega</th>
-                    <th>nombre_responsable</th>
-                    <th>cargo</th>
-                    <th>Agregar mantenimiento</th>
-                    <th>Ver Hoja de Vida</th>
+                    <th>Nombre Equipo</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>No_activo</th>
+                    <th>Codigo</th>
+                    <th>Lugar|Proceso</th>
+                    <th>Fecha|Entrega</th>
+                    <th>Nombre_Responsable</th>
+                    <th>Cargo</th>
+                    <th>Mantenimiento ➕</th>
+                    <th>Hoja de Vida</th>
                   
                 </tr>
             </thead>

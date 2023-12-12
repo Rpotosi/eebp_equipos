@@ -32,7 +32,11 @@
 
     </style>
 
-    <h1 class="aling-center" style="text-align:center"> Gestión de Vehiculos</h1>    
+<div style="text-align: center;">
+    <div style="background-color: white; display: inline-block; padding: 12px;">
+        <p style="margin: 0;"> 🔹Gestión De Vehiculos 🔹</p>
+    </div>
+</div>   
 
 @stop
 

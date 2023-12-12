@@ -59,7 +59,11 @@
  
 
     </style>
-    <h1 style="text-align: center">New Vehiculos</h1>
+    <div style="text-align: center;">
+        <div style="background-color: white; display: inline-block; padding: 12px;">
+            <p style="margin: 0;"> 🔹Nuevo Vehiculo🔹</p>
+        </div>
+    </div>
 @stop
 
 @section('content')

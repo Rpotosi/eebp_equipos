@@ -78,7 +78,11 @@
 
        
     </style>
-    <h1 style="text-align: center">Mantenimiento Vehiculos</h1>
+    <div style="text-align: center;">
+        <div style="background-color: white; display: inline-block; padding: 12px;">
+            <p style="margin: 0;"> 🔹Agregando Mantenimientos🔹</p>
+        </div>
+    </div>
    
  <div class="form-container">
         <form id="formulario" class="row g-3">

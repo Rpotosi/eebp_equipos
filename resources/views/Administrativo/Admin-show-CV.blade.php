@@ -74,7 +74,13 @@
  
 
     </style>
-    <h1 style="text-align: center">Mantenimiento Vehiculos</h1>
+    <div style="text-align: center;">
+        <div style="background-color: white; display: inline-block; padding: 12px;">
+            <p style="margin: 0;"> 🔹Historial Mantenimientos🔹</p>
+        </div>
+    </div>
+
+
 @stop
 
 @section('content')
@@ -512,8 +518,8 @@
                     <th>Id</th>
                     <th>Fecha</th>
                     <th>Descripción</th>
-                    <th>Averia / Daño</th>
-                    <th>Referencia / Repuesto</th>
+                    <th>Averia|Daño</th>
+                    <th>Referencia|Repuesto</th>
                     <th>Responsable</th>  
                     <th>Precio</th>
                     <th>Anexos</th>                
