@@ -72,7 +72,13 @@
         
 
     </style>
-    <h1 style="text-align: center">Nuevo Equipo</h1>
+    <div style="text-align: center;">
+        <div style="background-color: white; display: inline-block; padding: 12px;">
+            <p style="margin: 0;"> 🔹Historial Mantenimientos🔹</p>
+        </div>
+    </div>
+
+
 @stop
 
 @section('content')
