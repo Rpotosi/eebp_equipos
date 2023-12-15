@@ -62,6 +62,7 @@
         }
 
 
+
     </style>
     <div style="text-align: center;">
         <div style="background-color: white; display: inline-block; padding: 12px;">
@@ -93,7 +94,7 @@
             @csrf
 
             <div class="col-12">
-                <label for="text" class="form-label"> <br>
+                <label for="text" class="form-label">
                 🔹IDENTIFICACIÓN Y ESPECIFICACIONES DEL EQUIPO
                 </label>
             </div>
@@ -228,9 +229,7 @@
                     <option>Mayor | 3</option>
                 </select>
             </div>
-
-
-            <div class="col-2" style="text-align: left;">
+            <div class="col-3" style="text-align: left;">
                 <label for="fecha_conformidad" class="form-label">
                     Fecha del certificado de conformidad
                 </label>
@@ -239,7 +238,7 @@
             </div>
 
             <div class="col-2" style="text-align: left;">
-                <label for="fecha_operacion" class="form-label"> <br>
+                <label for="fecha_operacion" class="form-label">
                     Fecha Inicio de Operación
                 </label>
                 <input type="date" class="form-control" id="fecha_operacion" placeholder="" name="fecha_operacion" required/>
@@ -247,7 +246,7 @@
             </div>
 
             <div class="col-12">
-                <label for="text" class="form-label"> <br>
+                <label for="text" class="form-label">
                     🔹RESPONSABLE DEL EQUIPO
                 </label>
             </div>
@@ -316,7 +315,7 @@
             </div>
 
             <div class="col-12">
-                <label for="text" class="form-label"> <br>
+                <label for="text" class="form-label">
                     🔹DATOS DEL PROVEEDOR
                 </label>
             </div>
@@ -396,7 +395,6 @@
             </div>
             <div class="col-2" style="text-align: left;">
                 <label for="mantenimiento_recomendado" class="form-label">
-                    <br>
                     Mantenimiento recomendado
                 </label>
                 <select id="clase" class="custom-select" id="mantenimiento_recomendado" placeholder="" name="mantenimiento_recomendado" required>
@@ -411,14 +409,14 @@
             </div>
 
             <div class="col-2" style="text-align: left;">
-                <label for="condiciones_operacion" class="form-label"> <br>
+                <label for="condiciones_operacion" class="form-label">
                     Condiciones de operación:
                 </label>
                 <input type="text" class="form-control" id="condiciones_operacion" placeholder="" name="condiciones_operacion" required/>
 
             </div>
             <div class="col-2" style="text-align: left;">
-                <label for="observacion_fabricante" class="form-label"> <br>
+                <label for="observacion_fabricante" class="form-label">
                     Observaciones
                 </label>
                 <textarea type="text" class="form-control" rows="1" id="observacion_fabricante" placeholder="" name="observacion_fabricante"></textarea>
@@ -426,7 +424,7 @@
             </div>
 
             <div class="col-12">
-                <label for="text" class="form-label"><br>
+                <label for="text" class="form-label">
                     🔹 CARACTERISTICAS DEL EQUIPO
                 </label>
             </div>
@@ -535,7 +533,7 @@
 
             </div>
 
-            <br>
+
             <div class="box-footer" style="margin-bottom: 25px;">
                 <button type="submit" class="btn btn-primary" id="guardar-btn">Guardar</button>
             </div>
