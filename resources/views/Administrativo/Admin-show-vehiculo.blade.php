@@ -1,14 +1,19 @@
 @extends('adminlte::page')
 
-@section('title', 'vehiculo')
+@section('title', 'Consultar Vehiculo Admin')
 
 @section('content_header')
+
+@section('css')
+    <link rel="icon" href="{{ asset('img/icon.jpg') }}">
+@stop
 
 <div style="text-align: end;">
     <div style="background-color: #08b94e; display: inline-block; padding: 5px;">
         <p style="margin: 0;"><b>Bienvenido: </b>{{ $user->username }}</p>
     </div>
 </div>
+
 
     <style>
         .btn {
@@ -28,7 +33,7 @@
         .table-responsive{
             zoom: 80%;
         }
-     
+
 
     </style>
 
@@ -36,7 +41,7 @@
     <div style="background-color: white; display: inline-block; padding: 12px;">
         <p style="margin: 0;"> 🔹Gestión De Vehiculos 🔹</p>
     </div>
-</div>   
+</div>
 
 @stop
 
@@ -55,7 +60,7 @@
                 <option value="pendiente" {{ $estado === 'pendiente' ? 'selected' : '' }}>Filtro2</option>
                 <option value="cancelado" {{ $estado === 'cancelado' ? 'selected' : '' }}>Filtro3</option>
             </select>
-    
+
             <!-- Espacio entre "Filtrar todo" y "Fecha inicio" -->
             <div style="width: 10px;"></div>
             <!-- Campo de fecha de inicio -->
@@ -90,7 +95,7 @@
                     <th>Tecnomecanica</th>
                     <th class="text-center">Mantenimiento ➕</th>
                     <th class="text-center">Hoja de Vida </th>
-                  
+
                 </tr>
             </thead>
             <tbody>
@@ -105,7 +110,7 @@
                         <td>
                             {{$vehiculo->placa}}
                         </td>
-                
+
                         <td>
                             {{$vehiculo->marca}}
                         </td>
@@ -113,56 +118,56 @@
                         <td>
                             {{$vehiculo->motor}}
                         </td>
-                
+
                         <td>
                             {{$vehiculo->chasis}}
                         </td>
                         <td>
                             {{$vehiculo->modelo}}
                         </td>
-                
+
                         <td>
                             {{$vehiculo->color}}
                         </td>
 
                         <td>
                             {{$vehiculo->cilindraje}}
-                        </td>     
+                        </td>
                         <td>
                             {{$vehiculo->fecha}}
-                        </td> 
+                        </td>
                         <td>
                             {{$vehiculo->fecha_tecnomecanica}}
-                        </td> 
-                    
+                        </td>
+
 
                         <td class="text-center">
                             <a href="{{ route('administrativo.create_mantenimiento_vehiculo', $vehiculo) }}">
                                 <button class="btn btn-success" onclick="Editar"><i class="fas fa-edit"></i></button>
-                            </a>    
+                            </a>
                         </td>
 
                         <td class="text-center">
                             <a href="{{ route('administrativo.show_vehiculos_CV', $vehiculo) }}">
                                 <button class="btn btn-success" onclick="Editar"><i class="fas fa-file"></i></button>
-                            </a>    
+                            </a>
                         </td>
 
 
-                        
 
-                                    
-                    </tr>                    
+
+
+                    </tr>
                 @endforeach
             </tbody>
         </table>
         <!-- Paginación con enlaces y variables de búsqueda incluidas -->
         {{$vehiculos->appends(['placa' => $buscarpor])->links()}}
-      
 
-    </div>    
+
+    </div>
 @stop
 
 @section('js')
-   
+
 @stop

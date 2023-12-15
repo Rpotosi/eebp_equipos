@@ -35,6 +35,7 @@ return new class extends Migration
             $table->date('fecha_entrega');
             $table->string('observacion_responsable',100)->nullable();
             $table->string('fabricante', 50)->nullable();
+            $table->string('proveedor', 50)->nullable();
             $table->date('fecha_adquisicion');
             $table->string('nombre_proveedor', 50)->nullable();
             $table->string('direccion_proveedor', 50)->nullable();

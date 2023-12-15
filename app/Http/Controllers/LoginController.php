@@ -36,15 +36,15 @@ class LoginController extends Controller
         if(!Auth::validate($credentials)){
             // Mostrar una alerta de error si las credenciales no son válidas
             session()->flash('error','Usuario o contraseña incorrectos.');
-            return redirect()->to('/');
+            return redirect()->to('/login');
         }
-    
+
         // Recuperar y almacenar el usuario basado en las credenciales
         $user = Auth::getProvider()->retrieveByCredentials($credentials);
-    
+
         // Iniciar sesión con el usuario autenticado
         Auth::login($user);
-    
+
         // Retorna el método autenticate
         return $this->authenticate($request, $user);
     }

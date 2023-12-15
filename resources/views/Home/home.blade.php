@@ -6,11 +6,13 @@
 
 @section('content_header')
 
+
+
         <div style="text-align: end;">
             <div style="background-color: #08b94e; display: inline-block; padding: 5px;">
                 <p style="margin: 0;"><b>Bienvenido: </b>{{ $user->username }}</p>
             </div>
-        </div> 
+        </div>
     <h1>SGE</h1>
 @stop
 
@@ -20,8 +22,9 @@
 
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
+    <link rel="icon" href="{{ asset('img/icon.jpg') }}">
 @stop
 
 @section('js')
- 
+
 @stop

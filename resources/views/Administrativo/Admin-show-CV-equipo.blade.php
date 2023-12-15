@@ -1,14 +1,19 @@
 @extends('adminlte::page')
 
-@section('title', 'equipos')
+@section('title', 'HV Equipo Admin')
 
 @section('content_header')
+
+@section('css')
+    <link rel="icon" href="{{ asset('img/icon.jpg') }}">
+@stop
 
 <div style="text-align: end;">
     <div style="background-color: #08b94e; display: inline-block; padding: 5px;">
         <p style="margin: 0;"><b>Bienvenido: </b>{{ $user->username }}</p>
     </div>
 </div>
+<link rel="icon" href="{{ asset('img/icon.jpg') }}">
 
     <style>
         .form-container {
@@ -52,10 +57,10 @@
         .form-label{
             margin-top: 15px;
         }
-        
+
         #formulario{
-            padding: 2%;  
-            zoom: 80%;        
+            padding: 2%;
+            zoom: 80%;
         }
 
         .table-responsive{
@@ -68,14 +73,14 @@
         .box-footer{
             padding: 8px;
         }
-        
+
         .btn {
             background-color: rgb(87, 156, 41);
             box-shadow: none;
             border-color: rgb(87, 156, 41);
 
         }
-        
+
 
     </style>
     <div style="text-align: center;">
@@ -102,7 +107,7 @@
     <div class="form-container">
         <form id="formulario" class="row g-3">
             <!-- esta linea requiere ruta Route::post definida en routes Route EquiposController-->
-            
+
 
             <div class="col-12">
                 <label for="text" class="form-label"> <br>
@@ -137,7 +142,7 @@
                 </select>
             </div>
 
-         
+
             <div class="col-md-2">
                 <label for="estado" class="form-label">
                     Estado
@@ -149,9 +154,9 @@
                     <option value="Fuera de servicio" {{ $equipo->estado == 'Fuera de servicio' ? 'selected' : '' }}>Fuera de servicio</option>
                     <option value="En mantenimiento" {{ $equipo->estado == 'En mantenimiento' ? 'selected' : '' }}>En mantenimiento</option>
                     <option value="Para disposición final" {{ $equipo->estado == 'Para disposición final' ? 'selected' : '' }}>Para disposición final</option>
-                    <!-- Agrega más opciones según sea necesario -->             
+                    <!-- Agrega más opciones según sea necesario -->
                 </select>
-            
+
             </div>
 
             <div class="col-md-2">
@@ -187,10 +192,10 @@
                     <option value="GH Voltaje" {{ $equipo->marca == 'GH Voltaje' ? 'selected' : '' }}>GH Voltaje</option>
                     <!-- Agrega más opciones según sea necesario -->
                 </select>
-            
+
             </div>
 
-            
+
 
             <div class="col-2">
                 <label for="modelo" class="form-label">
@@ -245,13 +250,13 @@
                 </select>
             </div>
 
-            
+
             <div class="col-2" style="text-align: left;">
                 <label for="fecha_conformidad" class="form-label">
                     Fecha del certificado de conformidad
                 </label>
                 <input type="date" class="form-control" id="fecha_conformidad" placeholder="" name="fecha_conformidad" value="{{$equipo->fecha_conformidad}}" disabled/>
-                
+
             </div>
 
             <div class="col-2" style="text-align: left;">
@@ -259,7 +264,7 @@
                     Fecha Inicio de Operación
                 </label>
                 <input type="date" class="form-control" id="fecha_operacion" placeholder="" name="fecha_operacion" value="{{$equipo->fecha_operacion}}" disabled/>
-                
+
             </div>
 
             <div class="col-12">
@@ -271,17 +276,17 @@
 
             <div class="col-2"style="text-align: left;">
                 <label for="nombre_responsable" class="form-label">
-                    Nombre 
+                    Nombre
                 </label>
                 <input type="text" class="form-control" id="nombre_responsable" placeholder="" name="nombre_responsable" value="{{$equipo->nombre_responsable}}" disabled/>
-               
+
             </div>
             <div class="col-2"style="text-align: left;">
                 <label for="cargo" class="form-label">
                     Cargo
                 </label>
                 <input type="text" class="form-control" id="cargo" placeholder="" name="cargo" value="{{$equipo->cargo}}" disabled/>
-              
+
             </div>
 
             <div class="col-md-2">
@@ -312,7 +317,7 @@
                     <option value="Talento Humano" {{ $equipo->lugar_proceso == 'Talento Humano' ? 'selected' : '' }}>Talento Humano</option>
                     <option value="Control de Energía" {{ $equipo->lugar_proceso == 'Control de Energía' ? 'selected' : '' }}>Control de Energía</option>
                     <!-- Agrega más opciones según sea necesario -->
-                  
+
                 </select>
             </div>
 
@@ -321,7 +326,7 @@
                     Fecha de entrega
                 </label>
                 <input type="date" class="form-control" id="fecha_entrega" placeholder="" name="fecha_entrega" value="{{$equipo->fecha_entrega}}"  disabled/>
-              
+
             </div>
 
             <div class="col-2" style="text-align: left;">
@@ -357,61 +362,61 @@
                     <option value="Super safe" {{ $equipo->fabricante == 'Super safe' ? 'selected' : '' }}>Super safe</option>
                     <!-- Agrega más opciones según sea necesario -->
                 </select>
-              
+
             </div>
             <div class="col-2" style="text-align: left;">
                 <label for="fecha_adquisicion" class="form-label">
                     Fecha de adquisición
                 </label>
                 <input type="date" class="form-control" id="fecha_adquisicion" placeholder="" name="fecha_adquisicion" value="{{$equipo->fecha_adquisicoon}}" disabled/>
-              
+
             </div>
-            <div class="col-2" style="text-align: left;"> 
+            <div class="col-2" style="text-align: left;">
                 <label for="nombre_proveedor" class="form-label">
                     Nombre
                 </label>
                 <input type="text" class="form-control" id="nombre_proveedor" placeholder="" name="nombre_proveedor" value="{{$equipo->nombre_proveedor}}" disabled/>
-              
+
             </div>
 
 
-            <div class="col-2" style="text-align: left;"> 
+            <div class="col-2" style="text-align: left;">
                 <label for="direccion_proveedor" class="form-label">
-                    Dirección 
+                    Dirección
                 </label>
                 <input type="text" class="form-control" id="direccion_proveedor" placeholder="" name="direccion_proveedor" value="{{ $equipo->direccion_proveedor }}" disabled/>
-              
+
             </div>
             <div class="col-2" style="text-align: left;">
                 <label for="email_proveedor" class="form-label">
                     E-mail
                 </label>
                 <input type="text" class="form-control" id="email_proveedor" placeholder="" name="email_proveedor" value="{{ $equipo->email_proveedor }}" disabled/>
-              
+
             </div>
             <div class="col-2" style="text-align: left;">
                 <label for="telefono_proveedor" class="form-label">
                     Telefono
                 </label>
                 <input type="text" class="form-control" id="telefono_proveedor" placeholder="" name="telefono_proveedor" value="{{ $equipo->telefono_proveedor }}" disabled/>
-              
+
             </div>
             <div class="col-1" style="text-align: left;">
                 <label for="catalogo" class="form-label">
-                    Posee catálogo de manejo OP 
+                    Posee catálogo de manejo OP
                 </label>
                 <select id="clase" class="custom-select" id="catalogo" placeholder="" name="catalogo" disabled>
                     <option selected=""></option>
                     <option value="SI" {{ $equipo->catalogo == 'SI' ? 'selected' : '' }}>SI</option>
                     <option value="SI" {{ $equipo->catalogo == 'NO' ? 'selected' : '' }}>SI</option>
                 </select>
-              
+
             </div>
-            
+
             <div class="col-2" style="text-align: left;">
                 <label for="mantenimiento_recomendado" class="form-label">
                     <br>
-                    Mantenimiento recomendado 
+                    Mantenimiento recomendado
                 </label>
                 <select id="clase" class="custom-select" id="mantenimiento_recomendado" placeholder="" name="mantenimiento_recomendado" disabled>
                     <option selected=""></option>
@@ -421,15 +426,15 @@
                     <option value="Ensayo" {{ $equipo->mantenimiento_recomendado == 'Ensayo' ? 'selected' : '' }}>Ensayo</option>
                     <option value="Calibración" {{ $equipo->mantenimiento_recomendado == 'Calibración' ? 'selected' : '' }}>Calibración</option>
                 </select>
-              
+
             </div>
-           
+
             <div class="col-2" style="text-align: left;">
                 <label for="condiciones_operacion" class="form-label"> <br>
                     Condiciones de operación:
                 </label>
                 <input type="text" class="form-control" id="condiciones_operacion" placeholder="" name="condiciones_operacion" value="{{ $equipo->condiciones_operacion }}" disabled/>
-              
+
             </div>
             <div class="col-2" style="text-align: left;">
                 <label for="observacion_fabricante" class="form-label"> <br>
@@ -438,7 +443,7 @@
                 <textarea type="text" class="form-control" rows="1" id="observacion_fabricante" placeholder="" name="observacion_fabricante" disabled>
                     <?php echo htmlspecialchars($equipo->observacion_fabricante); ?>
                 </textarea>
-              
+
             </div>
 
             <div class="col-12">
@@ -446,79 +451,79 @@
                     🔹 CARACTERISTICAS DEL EQUIPO
                 </label>
             </div>
-            
-        
+
+
             <div class="col-2" style="text-align: left;">
                 <label for="medicion" class="form-label">
                     Medición a realizar
                 </label>
                 <input type="text" class="form-control" id="medicion" placeholder="" name="medicion" value="{{ $equipo->medicion }}" disabled/>
-              
+
             </div>
             <div class="col-2" style="text-align: left;">
                 <label for="rango_uso" class="form-label">
                     Rango de Uso
                 </label>
                 <input type="text" class="form-control" id="rango_uso" placeholder="" name="rango_uso" value="{{ $equipo->rango_uso }}" disabled/>
-              
+
             </div>
             <div class="col-2" style="text-align: left;">
                 <label for="resolucion" class="form-label">
                     Resolución
                 </label>
                 <input type="text" class="form-control" id="resolucion" placeholder="" name="resolucion" value="{{ $equipo->resolucion }}" disabled/>
-              
+
             </div>
-            
+
             <div class="col-2" style="text-align: left;">
                 <label for="exactitud" class="form-label">
                     Exactitud
                 </label>
                 <input type="text" class="form-control" id="exactitud" placeholder="" name="exactitud" value="{{ $equipo->exactitud }}" disabled/>
-              
+
             </div>
             <div class="col-2" style="text-align: left;">
                 <label for="fecha_calibracion" class="form-label">
                     Frecuencia de Calibración
                 </label>
                 <input type="text" class="form-control" id="fecha_calibracion" placeholder="" name="fecha_calibracion" value="{{ $equipo->fecha_calibracion }}" disabled/>
-              
+
             </div>
             <div class="col-2" style="text-align: left;">
                 <label for="fecha_verificacion" class="form-label">
                     Frecuencia de Verificación
                 </label>
                 <input type="text" class="form-control" id="fecha_verificacion" placeholder="" name="fecha_verificacion" value="{{ $equipo->fecha_verificacion }}" disabled/>
-              
+
             </div>
             <div class="col-2" style="text-align: left;">
                 <label for="patrones" class="form-label">
                     Patrones
                 </label>
                 <input type="text" class="form-control" id="patrones" placeholder="" name="patrones" value="{{ $equipo->patrones }}" disabled/>
-              
+
             </div>
             <div class="col-2" style="text-align: left;">
                 <label for="estandares" class="form-label">
                     Estándares
                 </label>
                 <input type="text" class="form-control" id="estandares" placeholder="" name="estandares" value="{{ $equipo->estandares }}" disabled/>
-              
+
             </div>
             <div class="col-2" style="text-align: left;">
                 <label for="regulaciones" class="form-label">
-                    Regulaciones 
+                    Regulaciones
                 </label>
                 <input type="text" class="form-control" id="regulaciones" placeholder="" name="regulaciones" value="{{ $equipo->regulaciones }}" disabled/>
-              
+
             </div>
 
             <div class="col-2" style="text-align: left;">
                 <label for="otras_caracteristicas" class="form-label">
-                    Otras características  
+                    Otras características
                 </label>
                 <input type="text" class="form-control" id="otras_caracteristicas" placeholder="" name="otras_caracteristicas" value="{{ $equipo->otras_caracteristicas }}" disabled/>
-              
+
             </div>
 
             <div class="col-md-1">
@@ -532,25 +537,25 @@
                     <option value="N/A" {{ $equipo->garantia == 'N/A' ? 'selected' : '' }}>N/A</option>
                 </select>
             </div>
-         
+
             <div class="col-2" style="text-align: left;">
                 <label for="fecha_inicio" class="form-label">
                     Fecha Inicio
                 </label>
                 <input type="date" class="form-control" id="fecha_inicio" placeholder="" name="fecha_inicio" value="{{ $equipo->fecha_inicio }}" disabled/>
-              
+
             </div>
             <div class="col-2" style="text-align: left;">
                 <label for="fecha_fin" class="form-label">
                     Fecha de Terminación
                 </label>
                 <input type="date" class="form-control" id="fecha_fin" placeholder="" name="fecha_fin" value="{{ $equipo->fecha_fin }}" disabled/><br>
-            </div> 
+            </div>
         </form>
 
 
 
-    
+
     <div class="table-responsive" id="tabla">
         <table class="table table-hover table-condensed table-bordered mt-5">
             <thead class="thead-light">
@@ -560,9 +565,9 @@
                     <th>Descripción</th>
                     <th>Tipo Procedimiento</th>
                     <th>Responsable</th>
-                    <th>Laboratorio Empresa</th>  
+                    <th>Laboratorio Empresa</th>
                     <th>Observaciones</th>
-                    <th>Anexos</th>                
+                    <th>Anexos</th>
                 </tr>
             </thead>
             <tbody>
@@ -577,7 +582,7 @@
                         <td>
                             {{$mantenimiento->fecha_mantenimiento}}
                         </td>
-                
+
                         <td>
                             {{$mantenimiento->descripcion }}
                         </td>
@@ -585,29 +590,29 @@
                         <td>
                             {{$mantenimiento->tipo_procedimiento}}
                         </td>
-                
+
                         <td>
                             {{$mantenimiento->responsable}}
                         </td>
                         <td>
                             {{$mantenimiento->laboratorio_empresa}}
                         </td>
-                
+
                         <td>
                             {{$mantenimiento->observaciones}}
                         </td>
-  
+
                         <td>
                             @if ($mantenimiento->anexos)
                                 <a href="{{ asset(env('FILE_BASE_URL') . $mantenimiento->anexos) }}">
                                     <button class="boton-moderno"><i class="fas fa-eye"></i></button>
-                                </a>   
+                                </a>
                             @else
                                 <span class="text-muted">Sin Orden Física</span>
-                            @endif 
+                            @endif
                         </td>
-                                                  
-                    </tr>                    
+
+                    </tr>
                 @endforeach
             </tbody>
         </table>

@@ -1,8 +1,12 @@
 @extends('adminlte::page')
 
-@section('title', 'equipos')
+@section('title', 'Mantenimiento Equipos Admin')
 
 @section('content_header')
+
+@section('css')
+    <link rel="icon" href="{{ asset('img/icon.jpg') }}">
+@stop
 
 <div style="text-align: end;">
     <div style="background-color: #08b94e; display: inline-block; padding: 5px;">

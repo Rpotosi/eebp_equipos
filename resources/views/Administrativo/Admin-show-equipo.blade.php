@@ -1,8 +1,12 @@
 @extends('adminlte::page')
 
-@section('title', 'equipo')
+@section('title', 'Consultar Equipos Admin')
 
 @section('content_header')
+
+@section('css')
+    <link rel="icon" href="{{ asset('img/icon.jpg') }}">
+@stop
 
 
 <div style="text-align: end;">
@@ -10,6 +14,7 @@
         <p style="margin: 0;"><b>Bienvenido: </b>{{ $user->username }}</p>
     </div>
 </div>
+
 
     <style>
          .btn {
@@ -37,7 +42,7 @@
     <div style="background-color: white; display: inline-block; padding: 12px;">
         <p style="margin: 0;"> 🔹Gestión De Equipos 🔹</p>
     </div>
-</div>   
+</div>
 
 @stop
 
@@ -50,9 +55,9 @@
             <!-- Espacio entre "Buscar orden" y "Filtrar todo" -->
             <div style="width: 10px;"></div>
             <select name="estado" class="form-control" style="max-width: 150px;">
-          
+
             </select>
-    
+
             <!-- Espacio entre "Filtrar todo" y "Fecha inicio" -->
             <div style="width: 10px;"></div>
             <!-- Campo de fecha de inicio -->
@@ -87,7 +92,7 @@
                     <th>Cargo</th>
                     <th>Mantenimiento ➕</th>
                     <th>Hoja de Vida</th>
-                  
+
                 </tr>
             </thead>
             <tbody>
@@ -102,7 +107,7 @@
                         <td>
                             {{$equipo->nombre_equipo}}
                         </td>
-                
+
                         <td>
                             {{$equipo->marca}}
                         </td>
@@ -110,52 +115,52 @@
                         <td>
                             {{$equipo->modelo}}
                         </td>
-                
+
                         <td>
                             {{$equipo->no_activo}}
                         </td>
                         <td>
                             {{$equipo->codigo}}
                         </td>
-                
+
                         <td>
                             {{$equipo->lugar_proceso}}
                         </td>
 
                         <td>
                             {{$equipo->fecha_entrega}}
-                        </td>     
+                        </td>
                         <td>
                             {{$equipo->nombre_responsable}}
-                        </td> 
+                        </td>
                         <td>
                             {{$equipo->cargo}}
-                        </td> 
-                    
+                        </td>
+
 
                         <td class="text-center">
                             <a href="{{ route('administrativo.create_mantenimiento_equipo', $equipo) }}">
                                 <button class="btn btn-success" onclick="Editar"><i class="fas fa-edit"></i></button>
-                            </a>    
+                            </a>
                         </td>
 
                         <td class="text-center">
                             <a href="{{ route('administrativo.show_equipo_CV', $equipo) }}">
                                 <button class="btn btn-success" onclick="Editar"><i class="fas fa-file"></i></button>
-                            </a>    
+                            </a>
                         </td>
-                
-                    </tr>                    
+
+                    </tr>
                 @endforeach
             </tbody>
         </table>
              <!-- Paginación con enlaces y variables de búsqueda incluidas -->
              {{$equipos->appends(['nombre_equipo' => $buscarpor])->links()}}
-       
 
-    </div>    
+
+    </div>
 @stop
 
 @section('js')
-   
+
 @stop

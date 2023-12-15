@@ -1,14 +1,19 @@
 @extends('adminlte::page')
 
-@section('title', 'ordenes')
+@section('title', 'Crear Vehiculos')
 
 @section('content_header')
+
+@section('css')
+    <link rel="icon" href="{{ asset('img/icon.jpg') }}">
+@stop
 
 <div style="text-align: end;">
     <div style="background-color: #08b94e; display: inline-block; padding: 5px;">
         <p style="margin: 0;"><b>Bienvenido: </b>{{ $user->username }}</p>
     </div>
 </div>
+
 
     <style>
         .form-container {
@@ -40,23 +45,23 @@
         .form-label{
             margin-top: 10px;
         }
-        
+
         #formulario{
-            padding: 2%; 
-            zoom: 80%;         
+            padding: 2%;
+            zoom: 80%;
         }
 
         .box-footer{
             padding: 8px;
         }
-        
-        
+
+
         .btn {
             background-color: rgb(87, 156, 41);
             box-shadow: none;
             border-color: rgb(87, 156, 41);
         }
- 
+
 
     </style>
     <div style="text-align: center;">
@@ -83,7 +88,7 @@
     <div class="form-container">
         <form id="formulario" action="{{ route('administrativo.store_vehiculo') }}" method="POST" enctype="multipart/form-data" class="row g-3">
             <!-- esta linea requiere ruta Route::post('guias/create', 'store')->name(('guias.create'));  definida el routes guia-->
-            
+
             @csrf
 
 
@@ -215,9 +220,9 @@
                 <label for="fecha" class="form-label">
                 Fecha SOAT
                 </label>
-                <input type="date" class="form-control" id="fecha" name="fecha" min="{{ \Carbon\Carbon::now()->toDateString() }}" required/> 
+                <input type="date" class="form-control" id="fecha" name="fecha" min="{{ \Carbon\Carbon::now()->toDateString() }}" required/>
             </div>
-            
+
             <div class="col-12">
                 <br>
                 <label for="text" class="form-label">
@@ -228,14 +233,14 @@
                 <label for="fecha_tecnomecanica" class="form-label">
                 Tecnomecanica Fecha
                 </label>
-                <input type="date" class="form-control" id="fecha_tecnomecanica" name="fecha_tecnomecanica" min="{{ \Carbon\Carbon::now()->toDateString() }}" required/> 
+                <input type="date" class="form-control" id="fecha_tecnomecanica" name="fecha_tecnomecanica" min="{{ \Carbon\Carbon::now()->toDateString() }}" required/>
             </div>
             <div class="col-4">
                 <label for="licencia" class="form-label">
                     Liciencia Transito
                 </label>
                 <input type="text" class="form-control" id="licencia" placeholder="" name="licencia" required>
-              
+
             </div>
 
             <div class="col-12">
@@ -474,7 +479,7 @@
             </div>
             <br>
             <div class="box-footer" style="margin-bottom: 25px;">
-                <button type="submit" class="btn btn-dark" id="guardar-btn">Guardar</button> 
+                <button type="submit" class="btn btn-dark" id="guardar-btn">Guardar</button>
             </div>
         </form>
 

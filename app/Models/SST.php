@@ -34,6 +34,7 @@ class SST extends Model
         'fecha_entrega',
         'observacion_responsable',
         'fabricante',
+        'proveedor',
         'fecha_adquisicion',
         'nombre_proveedor',
         'direccion_proveedor',
@@ -63,5 +64,5 @@ class SST extends Model
     {
         return $this->hasMany(MantenimientoVehiculo::class, 'id_equipo_fk', 'id_equipo');
     }
-    
+
 }

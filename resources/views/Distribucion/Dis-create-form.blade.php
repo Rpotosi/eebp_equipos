@@ -1,15 +1,19 @@
 @extends('adminlte::page')
 
-@section('title', 'home')
+@section('title', 'Modulo Distribución')
 
 @section('content_header')
+
+@section('css')
+    <link rel="icon" href="{{ asset('img/icon.jpg') }}">
+@stop
 
 <div style="text-align: end;">
     <div style="background-color: #08b94e; display: inline-block; padding: 5px;">
         <p style="margin: 0;"><b>Bievenido:</b>{{ $user->username }}</p>
     </div>
 </div>
-    
+
     <style>
         /* Estilos para el contenedor principal */
         .container {
@@ -51,9 +55,9 @@
 
 @section('content')
     <div class="container">
-       
-        
-        
+
+
+
         <a href="{{route('distribucion.create_equipo')}}" > <!-- Route define and wep.php--->
             <div class="card" style="text-align: center;">
                 <i id="icon_crear_orden" class="fas fa-cogs"></i>
@@ -66,7 +70,7 @@
             </div>
         </a>
 
-        
+
     </div>
 @stop
 

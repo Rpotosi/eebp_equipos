@@ -1,14 +1,20 @@
 @extends('adminlte::page')
 
-@section('title', 'equipos')
+@section('title', 'Crear Equipos')
 
 @section('content_header')
+
+@section('css')
+
+    <link rel="icon" href="{{ asset('img/icon.jpg') }}">
+@stop
 
 <div style="text-align: end;">
     <div style="background-color: #08b94e; display: inline-block; padding: 5px;">
         <p style="margin: 0;"><b>Bievenido:</b>{{ $user->username }}</p>
     </div>
 </div>
+
 
     <style>
         .form-container {
@@ -40,23 +46,23 @@
         .form-label{
             margin-top: 15px;
         }
-        
+
         #formulario{
-            padding: 2%;   
-            zoom: 80%;       
+            padding: 2%;
+            zoom: 80%;
         }
 
         .box-footer{
             padding: 8px;
         }
-        
+
         .btn {
             background-color: rgb(87, 156, 41);
             box-shadow: none;
             border-color: rgb(87, 156, 41);
 
         }
-        
+
 
     </style>
     <div style="text-align: center;">
@@ -83,7 +89,7 @@
     <div class="form-container">
         <form id="formulario" action="{{route('administrativo.store_equipo')}}" method="POST" enctype="multipart/form-data" class="row g-3">
             <!-- esta linea requiere ruta Route::post definida en routes Route EquiposController-->
-            
+
             @csrf
 
             <div class="col-12">
@@ -116,7 +122,7 @@
                 </select>
             </div>
 
-         
+
             <div class="col-md-2">
                 <label for="estado" class="form-label">
                     Estado
@@ -128,9 +134,9 @@
                     <option>Fuero de servicio</option>
                     <option>En mantenimiento</option>
                     <option>Para disposición final</option>
-                    
+
                 </select>
-            
+
             </div>
 
             <div class="col-md-2">
@@ -165,10 +171,10 @@
                     <option>Gil</option>
                     <option>GH Voltaje</option>
                 </select>
-            
+
             </div>
 
-            
+
 
             <div class="col-2">
                 <label for="modelo" class="form-label">
@@ -222,13 +228,13 @@
                 </select>
             </div>
 
-            
+
             <div class="col-2" style="text-align: left;">
                 <label for="fecha_conformidad" class="form-label">
                     Fecha del certificado de conformidad
                 </label>
                 <input type="date" class="form-control" id="fecha_conformidad" placeholder="" name="fecha_conformidad" required/>
-                
+
             </div>
 
             <div class="col-2" style="text-align: left;">
@@ -236,7 +242,7 @@
                     Fecha Inicio de Operación
                 </label>
                 <input type="date" class="form-control" id="fecha_operacion" placeholder="" name="fecha_operacion" required/>
-                
+
             </div>
 
             <div class="col-12">
@@ -248,17 +254,17 @@
 
             <div class="col-2"style="text-align: left;">
                 <label for="nombre_responsable" class="form-label">
-                    Nombre 
+                    Nombre
                 </label>
                 <input type="text" class="form-control" id="nombre_responsable" placeholder="" name="nombre_responsable" required/>
-               
+
             </div>
             <div class="col-2"style="text-align: left;">
                 <label for="cargo" class="form-label">
                     Cargo
                 </label>
                 <input type="text" class="form-control" id="cargo" placeholder="" name="cargo" required/>
-              
+
             </div>
 
             <div class="col-md-2">
@@ -288,7 +294,7 @@
                     <option>SST</option>
                     <option>Talento Humano</option>
                     <option>Control de Energía</option>
-                  
+
                 </select>
             </div>
 
@@ -297,7 +303,7 @@
                     Fecha de entrega
                 </label>
                 <input type="date" class="form-control" id="fecha_entrega" placeholder="" name="fecha_entrega" required/>
-              
+
             </div>
 
             <div class="col-2" style="text-align: left;">
@@ -305,7 +311,7 @@
                     Observaciones
                 </label>
                 <textarea type="text" class="form-control" rows="1" id="observacion_responsable" placeholder="" name="observacion_responsable"></textarea>
-              
+
             </div>
 
             <div class="col-12">
@@ -332,58 +338,58 @@
                     <option>Regeltex</option>
                     <option>Super safe</option>
                 </select>
-              
+
             </div>
             <div class="col-2" style="text-align: left;">
                 <label for="fecha_adquisicion" class="form-label">
                     Fecha de adquisición
                 </label>
                 <input type="date" class="form-control" id="fecha_adquisicion" placeholder="" name="fecha_adquisicion" required/>
-              
+
             </div>
-            <div class="col-2" style="text-align: left;"> 
+            <div class="col-2" style="text-align: left;">
                 <label for="nombre_proveedor" class="form-label">
                     Nombre
                 </label>
                 <input type="text" class="form-control" id="nombre_proveedor" placeholder="" name="nombre_proveedor" required/>
-              
+
             </div>
-            <div class="col-2" style="text-align: left;"> 
+            <div class="col-2" style="text-align: left;">
                 <label for="direccion_proveedor" class="form-label">
                     Dirección
                 </label>
                 <input type="text" class="form-control" id="direccion_proveedor" placeholder="" name="direccion_proveedor" required/>
-              
+
             </div>
             <div class="col-2" style="text-align: left;">
                 <label for="email_proveedor" class="form-label">
                     E-mail
                 </label>
                 <input type="text" class="form-control" id="email_proveedor" placeholder="" name="email_proveedor" required/>
-              
+
             </div>
             <div class="col-2" style="text-align: left;">
                 <label for="telefono_proveedor" class="form-label">
                     Telefono
                 </label>
                 <input type="text" class="form-control" id="telefono_proveedor" placeholder="" name="telefono_proveedor" required/>
-              
+
             </div>
             <div class="col-1" style="text-align: left;">
                 <label for="catalogo" class="form-label">
-                    Posee catálogo de manejo OP 
+                    Posee catálogo de manejo OP
                 </label>
                 <select id="clase" class="custom-select" id="catalogo" placeholder="" name="catalogo" required>
                     <option selected=""></option>
                     <option>SI</option>
                     <option>NO</option>
                 </select>
-              
+
             </div>
             <div class="col-2" style="text-align: left;">
                 <label for="mantenimiento_recomendado" class="form-label">
                     <br>
-                    Mantenimiento recomendado 
+                    Mantenimiento recomendado
                 </label>
                 <select id="clase" class="custom-select" id="mantenimiento_recomendado" placeholder="" name="mantenimiento_recomendado" required>
                     <option selected=""></option>
@@ -393,22 +399,22 @@
                     <option value="">Ensayo</option>
                     <option value="">Calibración</option>
                 </select>
-              
+
             </div>
-           
+
             <div class="col-2" style="text-align: left;">
                 <label for="condiciones_operacion" class="form-label"> <br>
                     Condiciones de operación:
                 </label>
                 <input type="text" class="form-control" id="condiciones_operacion" placeholder="" name="condiciones_operacion" required/>
-              
+
             </div>
             <div class="col-2" style="text-align: left;">
                 <label for="observacion_fabricante" class="form-label"> <br>
                     Observaciones
                 </label>
                 <textarea type="text" class="form-control" rows="1" id="observacion_fabricante" placeholder="" name="observacion_fabricante"></textarea>
-              
+
             </div>
 
             <div class="col-12">
@@ -416,79 +422,79 @@
                     🔹 CARACTERISTICAS DEL EQUIPO
                 </label>
             </div>
-            
-        
+
+
             <div class="col-2" style="text-align: left;">
                 <label for="medicion" class="form-label">
                     Medición a realizar
                 </label>
                 <input type="text" class="form-control" id="medicion" placeholder="" name="medicion" required/>
-              
+
             </div>
             <div class="col-2" style="text-align: left;">
                 <label for="rango_uso" class="form-label">
                     Rango de Uso
                 </label>
                 <input type="text" class="form-control" id="rango_uso" placeholder="" name="rango_uso" required/>
-              
+
             </div>
             <div class="col-2" style="text-align: left;">
                 <label for="resolucion" class="form-label">
                     Resolución
                 </label>
                 <input type="text" class="form-control" id="resolucion" placeholder="" name="resolucion" required/>
-              
+
             </div>
-            
+
             <div class="col-2" style="text-align: left;">
                 <label for="exactitud" class="form-label">
                     Exactitud
                 </label>
                 <input type="text" class="form-control" id="exactitud" placeholder="" name="exactitud" required/>
-              
+
             </div>
             <div class="col-2" style="text-align: left;">
                 <label for="fecha_calibracion" class="form-label">
                     Frecuencia de Calibración
                 </label>
                 <input type="text" class="form-control" id="fecha_calibracion" placeholder="" name="fecha_calibracion" required/>
-              
+
             </div>
             <div class="col-2" style="text-align: left;">
                 <label for="fecha_verificacion" class="form-label">
                     Frecuencia de Verificación
                 </label>
                 <input type="text" class="form-control" id="fecha_verificacion" placeholder="" name="fecha_verificacion" required/>
-              
+
             </div>
             <div class="col-2" style="text-align: left;">
                 <label for="patrones" class="form-label">
                     Patrones
                 </label>
                 <input type="text" class="form-control" id="patrones" placeholder="" name="patrones" required/>
-              
+
             </div>
             <div class="col-2" style="text-align: left;">
                 <label for="estandares" class="form-label">
                     Estándares
                 </label>
                 <input type="text" class="form-control" id="estandares" placeholder="" name="estandares" required/>
-              
+
             </div>
             <div class="col-2" style="text-align: left;">
                 <label for="regulaciones" class="form-label">
-                    Regulaciones 
+                    Regulaciones
                 </label>
                 <input type="text" class="form-control" id="regulaciones" placeholder="" name="regulaciones" required/>
-              
+
             </div>
 
             <div class="col-2" style="text-align: left;">
                 <label for="otras_caracteristicas" class="form-label">
-                    Otras características  
+                    Otras características
                 </label>
                 <input type="text" class="form-control" id="otras_caracteristicas" placeholder="" name="otras_caracteristicas" required/>
-              
+
             </div>
 
             <div class="col-md-1">
@@ -502,28 +508,28 @@
                     <option>N/A</option>
                 </select>
             </div>
-         
+
             <div class="col-2" style="text-align: left;">
                 <label for="fecha_inicio" class="form-label">
                     Fecha Inicio
                 </label>
                 <input type="date" class="form-control" id="fecha_inicio" placeholder="" name="fecha_inicio" required/>
-              
+
             </div>
             <div class="col-2" style="text-align: left;">
                 <label for="fecha_fin" class="form-label">
                     Fecha de Terminación
                 </label>
                 <input type="date" class="form-control" id="fecha_fin" placeholder="" name="fecha_fin" required/>
-            </div> 
-            
+            </div>
+
             <div class="col-12">
-   
+
             </div>
 
             <br>
             <div class="box-footer" style="margin-bottom: 25px;">
-                <button type="submit" class="btn btn-primary" id="guardar-btn">Guardar</button> 
+                <button type="submit" class="btn btn-primary" id="guardar-btn">Guardar</button>
             </div>
         </form>
 

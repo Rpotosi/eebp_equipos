@@ -37,7 +37,7 @@
                     <img src="{{ asset('img/aplicativo.png') }}" class="img-fluid" alt="Sample image">
                 </div>
                 <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                    <form action="http://localhost/projects/eebp_equipos/public/" method="POST">
+                    <form action="/login" method="POST">
 
                         @csrf <!-- este es un complemento de laravel por seguridad--->
 

@@ -19,23 +19,23 @@ class SSTController extends Controller
         // Busca y devuelve el objeto de usuario correspondiente al id del usuario actualmente autenticado
         return User::find(Auth::user()->id);
     }
-    
+
     public function show_form()
     {
         // Obtiene el usuario actual, y lo guarda en la variable $user
         $user = $this->getCurrentUser();
-        // Pasar el usuario a la vista 
+        // Pasar el usuario a la vista
         return view('SST.SST-create-form', compact('user'));
     }
 
     public function show_equipo(Request $request)
-    {   
+    {
         // Obtiene el usuario actual, y lo guarda en la variable $user
         $user = $this->getCurrentUser();
         // Obtenemos el valor de búsqueda por nombre_equipo
         $buscarpor = $request->input('nombre_equipo');
         // Crea una consulta del modelo SST
-        $query = SST::query();   
+        $query = SST::query();
 
         // Agregamos una cláusula where para buscar nombre_equipo
         $query->where('nombre_equipo', 'like', '%' . $buscarpor . '%');
@@ -53,12 +53,12 @@ class SSTController extends Controller
         // Busca la orden correspondiente al id proporcionado
         $equipo = SST::find($id_equipo);
         // Trae todos los registros de la tabla mantenimientoVehiculo
-        $query = MantenimientoEquipoSst::query(); 
+        $query = MantenimientoEquipoSst::query();
 
         // Ejecutamos la consulta y obtenemos los pedidos filtrados
         $mantenimientos = $query->paginate(5);
 
-        // Devuelve la vista con los datos 
+        // Devuelve la vista con los datos
         return view('SST.SST-show-CV-equipo', compact('equipo', 'mantenimientos','user'));
     }
 
@@ -73,10 +73,10 @@ class SSTController extends Controller
      * Store a newly created resource in storage.
      */
     public function store_equipo(Request $request)
-    {     
+    {
         // Crea una nueva instancia del controlador Distribucion
          $equipo = new SST();
-       
+
          $equipo->nombre_equipo = $request->nombre_equipo;
          $equipo->ubicacion_equipo = $request->ubicacion_equipo;
          $equipo->estado = $request->estado;
@@ -97,6 +97,7 @@ class SSTController extends Controller
          $equipo->fecha_entrega= $request->fecha_entrega;
          $equipo->observacion_responsable= $request->observacion_responsable;
          $equipo->fabricante = $request->fabricante;
+         $equipo->proveedor = $request->proveedor;
          $equipo->fecha_adquisicion = $request->fecha_adquisicion;
          $equipo->nombre_proveedor= $request->nombre_proveedor;
          $equipo->direccion_proveedor = $request->direccion_proveedor;
@@ -120,13 +121,13 @@ class SSTController extends Controller
          $equipo->fecha_inicio = $request->fecha_inicio;
          $equipo->fecha_fin =$request->fecha_fin;
 
-        $equipo->save();    
+        $equipo->save();
         // Muestra un mensaje de éxito en la sesión
         session()->flash('success', 'Equipo creado exitosamente ⚙️ ');
 
         // Redirecciona a la página anterior
-        return back();         
-    }  
+        return back();
+    }
 
     public function create_mantenimiento_equipo($id_equipo)
     {
@@ -134,7 +135,7 @@ class SSTController extends Controller
         $user = $this->getCurrentUser();
         // Busca la orden correspondiente al id proporcionado
         $equipo = SST::find($id_equipo);
-        // Devuelve la vista con los datos 
+        // Devuelve la vista con los datos
         return view('SST.SST-update-equipo', compact('equipo','user'));
     }
 
@@ -150,10 +151,10 @@ class SSTController extends Controller
             'observaciones' => 'required|string',
             'anexos' => 'required|file', // Validación adicional para el archivo adjunto
         ]);
-    
+
         // Obtén el vehículo por su ID
         $equipo = SST::findOrFail($id);
-    
+
         // Crea un nuevo mantenimiento
         $mantenimiento = new MantenimientoEquipoSst([
             'fecha_mantenimiento' => $request->input('fecha_mantenimiento'),
@@ -164,20 +165,20 @@ class SSTController extends Controller
             'observaciones' => $request->input('observaciones'),
             // Completa con otros campos del mantenimiento según tu base de datos
         ]);
-    
+
         // Lógica para cargar el archivo adjunto
         $file = $request->file('anexos');
         $extension = $file->getClientOriginalExtension();
         $uniqueFileName = uniqid() . '.' . $extension;
         $path = $file->storeAs('public/mantenimientos/anexos', $uniqueFileName);
-    
+
         // Almacena la URL del archivo en la base de datos
         $url = '/storage/mantenimientos/anexos/' . $uniqueFileName;
         $mantenimiento->anexos = $url;
-    
+
         // Asocia el mantenimiento al vehículo
         $equipo->mantenimientos()->save($mantenimiento);
-    
+
         // Redirecciona con una alerta de éxito
         return redirect()->route('sst.create_mantenimiento_equipo', $id)->with('success', 'Mantenimiento agregado exitosamente. ☑️ ');
     }

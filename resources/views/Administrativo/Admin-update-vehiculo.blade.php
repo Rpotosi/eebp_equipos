@@ -1,11 +1,11 @@
 @extends('adminlte::page')
 
-@section('title', 'vehiculos')
+@section('title', 'Mantenimien Vehiculos')
 
 @section('content_header')
 
 @endsection
-  
+
 @section('content')
     <!-- Resto de tu contenido de la vista -->
 
@@ -21,12 +21,17 @@
         </div>
     @endif
 
+    @section('css')
+    <link rel="icon" href="{{ asset('img/icon.jpg') }}">
+    @stop
+
 
 <div style="text-align: end;">
     <div style="background-color: #08b94e; display: inline-block; padding: 5px;">
         <p style="margin: 0;"><b>Bienvenido: </b>{{ $user->username }}</p>
     </div>
 </div>
+<link rel="icon" href="{{ asset('img/icon.jpg') }}">
 
     <style>
         .form-container {
@@ -59,35 +64,35 @@
             margin-top: 10px;
             zoom: 80%;
         }
-        
+
         #formulario{
             padding: 2%;
-            zoom: 80%;         
+            zoom: 80%;
         }
 
         .box-footer{
             padding: 8px;
         }
-        
-        
+
+
         .btn {
             background-color: rgb(87, 156, 41);
             box-shadow: none;
             border-color: rgb(87, 156, 41);
         }
 
-       
+
     </style>
     <div style="text-align: center;">
         <div style="background-color: white; display: inline-block; padding: 12px;">
             <p style="margin: 0;"> 🔹Agregando Mantenimientos🔹</p>
         </div>
     </div>
-   
+
  <div class="form-container">
         <form id="formulario" class="row g-3">
             <!-- esta linea requiere ruta Route::post('guias/create', 'store')->name(('guias.create'));  definida el routes guia-->
-            
+
 
 
             <div class="col-12">
@@ -218,9 +223,9 @@
                 <label for="fecha" class="form-label">
                 Fecha SOAT
                 </label>
-                <input type="date" class="form-control" id="fecha" name="fecha" min="{{ \Carbon\Carbon::now()->toDateString() }}" value="{{ $vehiculo->fecha }}" disabled/> 
+                <input type="date" class="form-control" id="fecha" name="fecha" min="{{ \Carbon\Carbon::now()->toDateString() }}" value="{{ $vehiculo->fecha }}" disabled/>
             </div>
-            
+
             <div class="col-12">
                 <br>
                 <label for="text" class="form-label">
@@ -231,14 +236,14 @@
                 <label for="fecha_tecnomecanica" class="form-label">
                 Tecnomecanica Fecha
                 </label>
-                <input type="date" class="form-control" id="fecha_tecnomecanica" name="fecha_tecnomecanica" min="{{ \Carbon\Carbon::now()->toDateString() }}" value="{{ $vehiculo->fecha_tecnomecanica }}" disabled/> 
+                <input type="date" class="form-control" id="fecha_tecnomecanica" name="fecha_tecnomecanica" min="{{ \Carbon\Carbon::now()->toDateString() }}" value="{{ $vehiculo->fecha_tecnomecanica }}" disabled/>
             </div>
             <div class="col-4">
                 <label for="licencia" class="form-label">
                     Liciencia Transito
                 </label>
                 <input type="text" class="form-control" id="licencia" placeholder="" name="licencia" value="{{ $vehiculo->licencia }}" disabled>
-              
+
             </div>
 
             <div class="col-12">
@@ -439,45 +444,45 @@
             <div class="col-md-4">
                 <div class="dotacion-container">
                     <h6>Selecione</h6>
-    
+
                     @php
                     $selectedDotacion = explode(',', $vehiculo->dotacion);
                     @endphp
-    
-    
+
+
                     <input type="checkbox" id="examen_a" name="dotacion[]" value="llaves" {{ in_array('llaves', $selectedDotacion) ? 'checked disabled' : '' }} disabled>
                     <label for="examen_a">Llaves</label><br>
-    
+
                     <input type="checkbox" id="examen_b" name="dotacion[]" value="destornilladores" {{ in_array('destornilladores', $selectedDotacion) ? 'checked disabled' : '' }} disabled>
                     <label for="examen_b">Destornilladores</label><br>
-    
+
                     <input type="checkbox" id="examen_c" name="dotacion[]" value="gato" {{ in_array('gato', $selectedDotacion) ? 'checked disabled' : '' }} disabled>
                     <label for="examen_c">Gato</label><br>
-    
+
                     <input type="checkbox" id="examen_d" name="dotacion[]" value="alicates" {{ in_array('alicates', $selectedDotacion) ? 'checked disabled' : '' }} disabled>
                     <label for="examen_d">Alicates</label><br>
-    
+
                     <input type="checkbox" id="examen_e" name="dotacion[]" value="extintor" {{ in_array('extintor', $selectedDotacion) ? 'checked disabled' : '' }} disabled>
                     <label for="examen_e">Extintor</label><br>
-    
+
                     <input type="checkbox" id="examen_f" name="dotacion[]" value="tacos" {{ in_array('tacos', $selectedDotacion) ? 'checked disabled' : '' }} disabled>
                     <label for="examen_f">Tacos</label><br>
-    
+
                     <input type="checkbox" id="examen_g" name="dotacion[]" value="linterna" {{ in_array('linterna', $selectedDotacion) ? 'checked disabled' : '' }} disabled>
                     <label for="examen_g">Linterna</label><br>
-    
-    
+
+
                 </div>
-            </div> 
+            </div>
 
             <div class="col-md-4">
                 <div class="equipo-container" >
                     <h6>Selecione</h6>
-    
+
                     @php
                     $selectedDotacion = explode(',', $vehiculo->equipo_carretera);
                     @endphp
-    
+
                     <input type="checkbox" name="equipo_carretera[]" value="conos" {{ in_array('conos', $selectedDotacion) ? 'checked disabled' : '' }} disabled>
                     <label for="examen_a">Conos</label><br>
                     <input type="checkbox" name="equipo_carretera[]" value="pendones_viales" {{ in_array('pendones_viales', $selectedDotacion) ? 'checked disabled' : '' }} disabled>
@@ -491,23 +496,23 @@
                     <input type="checkbox" name="equipo_carretera[]" value="botiquin" {{ in_array('botiquin', $selectedDotacion) ? 'checked disabled' : '' }} disabled>
                     <label for="examen_c">Botiquin</label><br>
                   </div>
-            </div> 
-            
-            
-          
-        </form> 
+            </div>
+
+
+
+        </form>
 
         <form id="formulario" class="row g-3" method="POST" action="{{ route('administrativo.store_mantenimiento_vehiculo', ['id_vehiculo' => $vehiculo->id_vehiculo]) }}" enctype="multipart/form-data">
             @csrf
-        
+
             <div class="col-12">
                 <label for="text" class="form-label">
                     🔹INFORMACIÓN GENERAL:
                 </label>
             </div>
-        
+
             <!-- Resto de los campos relacionados a la información del vehículo -->
-        
+
             <div class="col-12">
                 <label for="text" class="form-label">
                     <br>
@@ -549,23 +554,23 @@
                     Precio
                 </label>
                 <input type="text" class="form-control" id="precio" name="precio" required>
-            </div> 
-        
+            </div>
+
             <div class="form-group col-md-4">
                 <label for="anexos">
                     Cargar archivo
                 </label>
                 <input type="file" name="anexos" class="form-control" id="anexos">
             </div>
-        
+
             <div class="col-12">
             </div>
             <br>
             <div class="box-footer" style="margin-bottom: 25px;">
-                <button type="submit" class="btn btn-dark" id="guardar-btn">Guardar</button> 
+                <button type="submit" class="btn btn-dark" id="guardar-btn">Guardar</button>
             </div>
         </form>
-        
+
     </div>
 
     @endsection
