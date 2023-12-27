@@ -42,8 +42,8 @@ return new class extends Migration
             $table->string('numero_serie', 50)->nullable();
             $table->string('numero_ventanas', 50)->nullable();
             $table->string('capacidad_carga', 50)->nullable();
-            $table->string('dotacion', 50)->nullable();
-            $table->string('equipo_carretera')->nullable();
+            $table->string('dotacion', 255)->nullable();
+            $table->string('equipo_carretera',255)->nullable();
             $table->timestamps();
         });
     }
