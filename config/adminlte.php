@@ -112,7 +112,7 @@ return [
             'path' => 'vendor/adminlte/dist/img/transformito.png',  // Transformito
             'alt' => 'AdminLTE Preloader Image',
             'effect' => 'animation__shake',
-            'width' => 60,   
+            'width' => 60,
             'height' => 60,
         ],
     ],
@@ -192,7 +192,7 @@ return [
     'classes_content_wrapper' => '',
     'classes_content_header' => '',
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-dark-secondary elevation-4',  // opción para cambiar el color de menu izquierdo dashboard 
+    'classes_sidebar' => 'sidebar-dark-secondary elevation-4',  // opción para cambiar el color de menu izquierdo dashboard
     'classes_sidebar_nav' => '',
     'classes_topnav' => 'navbar-white navbar-light',
     'classes_topnav_nav' => 'navbar-expand',
@@ -301,7 +301,7 @@ return [
         ],
 
         // Sidebar items:
-     
+
         [
             'text' => 'blog',
             'url'  => 'admin/blog',
@@ -313,12 +313,12 @@ return [
             'url'        => 'home',
             'icon' => 'fas fa-fw fa-home',
             'icon_color' => 'white',
-            
+
         ],
-       
+
         ['header' => 'Hojas de Vida Equipos'],
-      
-      
+
+
         [
             'text'    => 'Administrativo',
             'icon'    => 'fas fa-fw fa-share',
@@ -329,17 +329,22 @@ return [
                 [
                     'text' => 'Create',
                     'url'  => 'admin-show-form',
-                    
+
                 ],
                                [
                     'text' => 'Consultar Vehículo',
                     'url'  => 'admin-show-vehiculo',
-                    
+
                 ],
                                [
                     'text' => 'Consultar Equipo',
                     'url'  => 'admin-show-equipo',
-                    
+
+                ],
+                [
+                    'text' => 'Cronograma',
+                    'url'  => 'admin-create-cronograma',
+
                 ],
             ],
         ],
@@ -379,15 +384,15 @@ return [
                     'text' => 'Consultar',
                     'url'  => 'sst-show-equipo',
                 ],
-               
+
             ],
         ],
- 
+
         [
             'text'       => 'Cerrar Sesión',
             'url'        => '/logout',
             'icon_color' => 'cyan',
-            
+
         ],
     ],
 

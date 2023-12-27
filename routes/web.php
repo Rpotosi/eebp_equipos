@@ -60,6 +60,8 @@ Route::controller(AdministrativoController::class)->group(function(){   //asi se
     Route::post('admin-create-equipo', 'store_equipo')->name('administrativo.store_equipo');
     Route::get('admin-create-mantenimiento-equipo/{id_equipo}', 'create_mantenimiento_equipo')->name('administrativo.create_mantenimiento_equipo');
     Route::post('admin-create-mantenimiento-equipo/{id_equipo}', 'store_mantenimiento_equipo')->name('administrativo.store_mantenimiento_equipo');
+
+    Route::get('admin-create-cronograma', 'create_cronograma') -> name('create-cronograma');
 });
 });
 

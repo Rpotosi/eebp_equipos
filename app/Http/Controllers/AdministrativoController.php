@@ -22,15 +22,15 @@ class AdministrativoController extends Controller
         // Busca y devuelve el objeto de usuario correspondiente al id del usuario actualmente autenticado
         return User::find(Auth::user()->id);
     }
-    
+
     /** INICIA LOS METODOS PARA VEHICULOS ADMINISTRATIVOS **/
 
     public function show_form()
     {
          // Obtiene el usuario actual, y lo guarda en la variable $user
          $user = $this->getCurrentUser();
-        
-        // Pasar el usuario a la vista 
+
+        // Pasar el usuario a la vista
         return view('Administrativo.Admin-create-form', compact('user'));
     }
 
@@ -38,38 +38,38 @@ class AdministrativoController extends Controller
 
     {   // Obtiene el usuario actual, y lo guarda en la variable $user
         $user = $this->getCurrentUser();
-        
+
         // Obtenemos el valor de búsqueda por placa
        $buscarpor = $request->input('placa');
 
        $estado = $request->input('estado');
-    
+
         // Crea una consulta del modelo Administrativo_vehiculo
         $query = Administrativo_vehiculo::query();
-            
+
         // Agregamos una cláusula where para buscar por placa siempre
         $query->where('placa', 'like', '%' . $buscarpor . '%');
-    
+
         // Ejecutamos la consulta y obtenemos los pedidos filtrados hasta 8 registros
         $vehiculos = $query->paginate(8);
-    
+
         return view('Administrativo.Admin-show-vehiculo', compact('vehiculos', 'buscarpor', 'estado', 'user'));
     }
 
     public function show_vehiculos_CV(Request $request, $id_vehiculo)
-    {   
+    {
          // Obtiene el usuario actual, y lo guarda en la variable $user
          $user = $this->getCurrentUser();
-        
+
         // Busca el vehiculo correspondiente al id proporcionado
         $vehiculo = Administrativo_vehiculo::find($id_vehiculo);
         // Trae todos los registros de la tabla mantenimientoVehiculo
-        $query = MantenimientoVehiculo::query(); 
+        $query = MantenimientoVehiculo::query();
 
         // Ejecutamos la consulta y obtenemos los pedidos filtrados
         $mantenimientos = $query->paginate();
 
-        // Devuelve la vista con los datos 
+        // Devuelve la vista con los datos
         return view('Administrativo.Admin-show-CV', compact('vehiculo', 'mantenimientos', 'user'));
 
     }
@@ -79,10 +79,10 @@ class AdministrativoController extends Controller
      */
     public function create_vehiculo()
     {
-        
+
          // Obtiene el usuario actual, y lo guarda en la variable $user
          $user = $this->getCurrentUser();
-        
+
         return view("Administrativo.Admin-create-vehiculo", compact('user'));
     }
 
@@ -90,7 +90,7 @@ class AdministrativoController extends Controller
      * Store a newly created resource in storage.
      */
     public function store_vehiculo(Request $request)
-    {     
+    {
         // Crea una nueva instancia del modelo Administrativo_Vehiculo
         $vehiculo = new Administrativo_vehiculo();
 
@@ -135,23 +135,23 @@ class AdministrativoController extends Controller
 
         // Convertir el arreglo a una cadena separada por comas
         $equipo_carretera = implode(",", $equipo_carretera);
-        $vehiculo->equipo_carretera = $equipo_carretera;     
-         
+        $vehiculo->equipo_carretera = $equipo_carretera;
+
         // Guardar Vehiculo en la base de datos
-        $vehiculo->save();    
+        $vehiculo->save();
 
         // Muestra un mensaje de éxito en la sesión si el vehiculo se guardó con exito
         session()->flash('success', 'Vehiculo creado exitosamente 🚗');
 
         // Redirecciona a la página anterior
-        return back();         
+        return back();
     }
 
     public function create_mantenimiento_vehiculo($id_vehiculo)
     {
          // Obtiene el usuario actual, y lo guarda en la variable $user
          $user = $this->getCurrentUser();
-        
+
         // Busca la vehiculo correspondiente al id proporcionado
         $vehiculo = Administrativo_vehiculo::find($id_vehiculo);
 
@@ -171,10 +171,10 @@ class AdministrativoController extends Controller
             'precio' => 'required|numeric',
             'anexos' => 'required|file', // Validación adicional para el archivo adjunto
         ]);
-    
+
         // Obtén el vehículo por su ID
         $vehiculo = Administrativo_vehiculo::findOrFail($id);
-    
+
         // Crea un nuevo mantenimiento
         $mantenimiento = new MantenimientoVehiculo([
             'fecha_mantenimiento' => $request->input('fecha_mantenimiento'),
@@ -185,43 +185,43 @@ class AdministrativoController extends Controller
             'precio' => $request->input('precio'),
             // Completa con otros campos del mantenimiento según tu base de datos
         ]);
-    
+
         // Lógica para cargar el archivo adjunto
         $file = $request->file('anexos');
         $extension = $file->getClientOriginalExtension();
         $uniqueFileName = uniqid() . '.' . $extension;
         $path = $file->storeAs('public/mantenimientos/anexos', $uniqueFileName);
-    
+
         // Almacena la URL del archivo en la base de datos
         $url = '/storage/mantenimientos/anexos/' . $uniqueFileName;
         $mantenimiento->anexos = $url;
-    
+
         // Asocia el mantenimiento al vehículo
         $vehiculo->mantenimientos()->save($mantenimiento);
-    
+
         // Redirecciona con una alerta de éxito
        // session()->flash('success', 'Vehiculo creado exitosamente 🚗');
 
         return redirect()->route('administrativo.create_mantenimiento_vehiculo', $id)->with('success', 'Mantenimiento agregado exitosamente.');
-      
-        // Redirecciona a la página anterior   
-       // return back();    
+
+        // Redirecciona a la página anterior
+       // return back();
     }
 
     public function show_equipo(Request $request)
-    { 
+    {
          // Obtiene el usuario actual, y lo guarda en la variable $user
          $user = $this->getCurrentUser();
-        
+
         // Obtenemos el valor de búsqueda por nombre equipo
         $buscarpor = $request->input('nombre_equipo');
 
-        // Crea una consulta del modelo 
-        $query = Administrativo_equipo::query();   
+        // Crea una consulta del modelo
+        $query = Administrativo_equipo::query();
 
         // Agregamos una cláusula where para buscar por placa siempre
         $query->where('nombre_equipo', 'like', '%' . $buscarpor . '%');
-        
+
         // Ejecutamos la consulta y obtenemos los pedidos filtrados
         $equipos = $query->paginate(8);
 
@@ -233,20 +233,20 @@ class AdministrativoController extends Controller
 
          // Obtiene el usuario actual, y lo guarda en la variable $user
          $user = $this->getCurrentUser();
-        
+
         // Busca la equipo correspondiente al id proporcionado
         $equipo = Administrativo_equipo::find($id_equipo);
         // Trae todos los registros de la tabla mantenimientoVehiculo
-        $query = MantenimientoEquipoAdmin::query(); 
+        $query = MantenimientoEquipoAdmin::query();
 
         // Ejecutamos la consulta y obtenemos los pedidos filtrados
         $mantenimientos = $query->paginate();
 
-        // Devuelve la vista con los datos 
+        // Devuelve la vista con los datos
         return view('Administrativo.Admin-show-CV-equipo', compact('equipo', 'mantenimientos', 'user'));
 
     }
-    
+
 
     /** INICIO DE LOS METODOS DE EQUIPOS ADMINISTRATIVOS **/
 
@@ -256,16 +256,16 @@ class AdministrativoController extends Controller
 
          // Obtiene el usuario actual, y lo guarda en la variable $user
          $user = $this->getCurrentUser();
-        
+
         return view("Administrativo.Admin-create-equipo", compact('user'));
     }
 
 
     public function store_equipo(Request $request)
-    {     
+    {
         // Crea una nueva instancia del controlador Administrativo_equipo
          $equipo = new Administrativo_equipo();
-       
+
          $equipo->nombre_equipo = $request->nombre_equipo;
          $equipo->ubicacion_equipo = $request->ubicacion_equipo;
          $equipo->estado = $request->estado;
@@ -310,30 +310,30 @@ class AdministrativoController extends Controller
          $equipo->fecha_fin =$request->fecha_fin;
 
 
-        $equipo->save();    
+        $equipo->save();
         // Muestra un mensaje de éxito en la sesión si el equipo se guardò en la base de datos
         session()->flash('success', 'Equipo creado exitosamente ⚙️ ');
 
         // Redirecciona a la página anterior
-        return back();         
-    }  
+        return back();
+    }
 
-    
+
 
     public function create_mantenimiento_equipo(Request $request, $id_equipo)
     {
 
          // Obtiene el usuario actual, y lo guarda en la variable $user
          $user = $this->getCurrentUser();
-        
+
         // Busca el equipo correspondiente al id proporcionado
         $equipo = Administrativo_equipo::find($id_equipo);
-        // Devuelve la vista con los datos 
+        // Devuelve la vista con los datos
 
         return view('Administrativo.Admin-update-equipo', compact('equipo', 'user'));
 
-    } 
-        
+    }
+
     public function store_mantenimiento_equipo(Request $request, $id)
     {
 
@@ -347,10 +347,10 @@ class AdministrativoController extends Controller
             'observaciones' => 'required|string',
             'anexos' => 'required|file', // Validación adicional para el archivo adjunto
         ]);
-    
+
         // Obtén el vehículo por su ID del modelo administrativo_equipo
         $equipo = Administrativo_equipo::findOrFail($id);
-    
+
         // Crea un nuevo mantenimiento
         $mantenimiento = new MantenimientoEquipoAdmin([
             'fecha_mantenimiento' => $request->input('fecha_mantenimiento'),
@@ -361,24 +361,35 @@ class AdministrativoController extends Controller
             'observaciones' => $request->input('observaciones'),
             // Completa con otros campos del mantenimiento según tu base de datos
         ]);
-    
+
         // Lógica para cargar el archivo adjunto
         $file = $request->file('anexos');
         $extension = $file->getClientOriginalExtension();
         $uniqueFileName = uniqid() . '.' . $extension;
         $path = $file->storeAs('public/mantenimientos/anexos', $uniqueFileName);
-    
+
         // Almacena la URL del archivo en la base de datos en la carpeta storage
         $url = '/storage/mantenimientos/anexos/' . $uniqueFileName;
         $mantenimiento->anexos = $url;
-    
+
         // Asocia el mantenimiento al vehículo
         $equipo->mantenimientos()->save($mantenimiento);
-    
-        // Redirecciona con una alerta de éxito despues de ejecutarse la ruta 
+
+        // Redirecciona con una alerta de éxito despues de ejecutarse la ruta
         return redirect()->route('administrativo.create_mantenimiento_equipo', $id)->with('success', 'Mantenimiento agregado exitosamente.');
     }
 
-    
+
+        public function create_cronograma(Request $request)
+        {
+
+                  // Obtiene el usuario actual, y lo guarda en la variable $user
+                 $user = $this->getCurrentUser();
+
+                return view('Administrativo.Admin-create-cronograma', compact('user'));
+
+        }
+
+
 
 }
