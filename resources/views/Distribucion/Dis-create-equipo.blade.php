@@ -260,6 +260,13 @@
 
             </div>
 
+            <div class="col-2">
+                <label for="img_dis" class="form-label">
+                    Cargar Imagén
+                </label>
+                <input type="file" name="img_dis" id="img_dis" required>
+            </div>
+
 
             <div class="col-12">
                 <label for="text" class="form-label"> <br>

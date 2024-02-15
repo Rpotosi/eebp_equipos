@@ -31,6 +31,7 @@ return new class extends Migration
             $table->date('fecha_conformidad');
             $table->date('fecha_operacion');
             $table->string('propiedad', 50)->nullable();
+            $table->string('img_dis',255)->nullable();
             $table->string('nombre_responsable', 50)->nullable();
             $table->string('cargo', 50)->nullable();
             $table->string('lugar_proceso', 50)->nullable();

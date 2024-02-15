@@ -54,7 +54,8 @@ class Distribucion extends Model
         'otras_caracteristicas',
         'garantia',
         'fecha_inicio',
-        'fecha_fin'    
+        'fecha_fin',
+        'img_dis',    
 
     ];
 

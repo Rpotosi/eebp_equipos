@@ -121,6 +121,17 @@ class DistribucionController extends Controller
          $equipo->fecha_inicio = $request->fecha_inicio;
          $equipo->fecha_fin =$request->fecha_fin;
 
+         
+        // Lógica para cargar la img adjunta
+        $file = $request->file('img_dis');
+        $extension = $file->getClientOriginalExtension();
+        $uniqueFileName = uniqid() . '.' . $extension;
+        $path = $file->storeAs('public/equipo_dis/img', $uniqueFileName);
+
+        // Almacena la imagén en la base de datos
+        $url = '/storage/equipo_dis/img/' . $uniqueFileName;
+        $equipo->img_dis = $url; 
+
          $equipo->save();    
         // Muestra un mensaje de éxito en la sesión si el equipo se guardò en la baase de datos
          session()->flash('success', 'Equipo creado exitosamente ⚙️ ');

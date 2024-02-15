@@ -108,6 +108,10 @@
                 </label>
             </div>
 
+            <div class="col-2" style="with:30px">
+                 <img src="{{ asset($equipo->img_dis) }}" style=" with: 30px; height: 100px;" >  <!--- esta esla ruta definida en el controlador --->
+            </div>
+
             <div class="col-md-2">
                 <label for="nombre_equipo" class="form-label">
                     Nombre tecnico del equipo
@@ -246,15 +250,15 @@
 
             <div class="col-2" style="text-align: left;">
                 <label for="fecha_conformidad" class="form-label">
-                    Fecha del certificado de conformidad
+                    Fecha de conformidad
                 </label>
                 <input type="date" class="form-control" id="fecha_conformidad" placeholder="" name="fecha_conformidad" value="{{$equipo->fecha_conformidad}}" disabled/>
 
             </div>
 
             <div class="col-2" style="text-align: left;">
-                <label for="fecha_operacion" class="form-label"> <br>
-                    Fecha Inicio de Operación
+                <label for="fecha_operacion" class="form-label">
+                    Fecha Inicio Operación
                 </label>
                 <input type="date" class="form-control" id="fecha_operacion" placeholder="" name="fecha_operacion" value="{{$equipo->fecha_operacion}}" disabled/>
 
