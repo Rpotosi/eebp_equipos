@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Storage;
 class AdministrativoController extends Controller
 {
 
+    
     private function getCurrentUser()
     {
         // Busca y devuelve el objeto de usuario correspondiente al id del usuario actualmente autenticado
@@ -136,6 +137,16 @@ class AdministrativoController extends Controller
         // Convertir el arreglo a una cadena separada por comas
         $equipo_carretera = implode(",", $equipo_carretera);
         $vehiculo->equipo_carretera = $equipo_carretera;
+
+        // Lógica para cargar la img adjunta
+        $file = $request->file('img');
+        $extension = $file->getClientOriginalExtension();
+        $uniqueFileName = uniqid() . '.' . $extension;
+        $path = $file->storeAs('public/img/img', $uniqueFileName);
+
+        // Almacena la URL del archivo en la base de datos
+        $url = '/storage/img/img/' . $uniqueFileName;
+        $vehiculo->img = $url;
 
         // Guardar Vehiculo en la base de datos
         $vehiculo->save();

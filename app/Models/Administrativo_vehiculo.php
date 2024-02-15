@@ -41,12 +41,15 @@ class Administrativo_vehiculo extends Model
         'capacidad_carga',
         'dotacion',
         'equipo_carretera',
+        
         'fecha_mantenimiento',
         'descripcion',
         'averia_dano',
         'referencia_repuesto',
         'responsable',
         'precio',     
+
+        'img',
 
 
     ];

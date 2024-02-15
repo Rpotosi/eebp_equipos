@@ -222,6 +222,14 @@
                 </label>
                 <input type="date" class="form-control" id="fecha" name="fecha" min="{{ \Carbon\Carbon::now()->toDateString() }}" required/>
             </div>
+            <br>
+
+            <div class="form-group col-md-2">
+                <label for="img">
+                    Cargar Imagén
+                </label>
+                <input type="file" name="img" class="form-control" id="img">
+            </div>
 
             <div class="col-12">
                 <br>

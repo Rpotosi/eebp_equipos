@@ -44,6 +44,7 @@ return new class extends Migration
             $table->string('capacidad_carga', 50)->nullable();
             $table->string('dotacion', 255)->nullable();
             $table->string('equipo_carretera',255)->nullable();
+            $table->string('img',255)->nullable();
             $table->timestamps();
         });
     }
