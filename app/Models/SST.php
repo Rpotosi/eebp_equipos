@@ -28,6 +28,7 @@ class SST extends Model
         'validez',
         'fecha_conformidad',
         'fecha_operacion',
+        'img_sst',
         'nombre_responsable',
         'cargo',
         'lugar_proceso',

@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string('validez', 50)->nullable();
             $table->date('fecha_conformidad');
             $table->date('fecha_operacion');
+            $table->string('img_sst',255)->nullable();
             $table->string('nombre_responsable', 50)->nullable();
             $table->string('cargo', 50)->nullable();
             $table->string('lugar_proceso', 50)->nullable();

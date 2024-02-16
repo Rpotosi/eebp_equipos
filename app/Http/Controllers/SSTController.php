@@ -121,6 +121,16 @@ class SSTController extends Controller
          $equipo->fecha_inicio = $request->fecha_inicio;
          $equipo->fecha_fin =$request->fecha_fin;
 
+          // Lógica para cargar la img adjunta
+        $file = $request->file('img_sst');
+        $extension = $file->getClientOriginalExtension();
+        $uniqueFileName = uniqid() . '.' . $extension;
+        $path = $file->storeAs('public/equipo_sst/img', $uniqueFileName);
+
+        // Almacena la imagén en la base de datos
+        $url = '/storage/equipo_sst/img/' . $uniqueFileName;
+        $equipo->img_sst = $url;
+
         $equipo->save();
         // Muestra un mensaje de éxito en la sesión
         session()->flash('success', 'Equipo creado exitosamente ⚙️ ');
