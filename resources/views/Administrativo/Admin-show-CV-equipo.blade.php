@@ -115,6 +115,11 @@
                 </label>
             </div>
 
+            <div class="col-2" style="with:30px">
+                 <img src="{{ asset($equipo->img) }}" style=" with: 30px; height: 100px;" >  <!--- esta esla ruta definida en el controlador --->
+            </div>
+
+
             <div class="col-md-2">
                 <label for="nombre_equipo" class="form-label">
                     Nombre tecnico del equipo

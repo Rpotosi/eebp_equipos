@@ -320,6 +320,16 @@ class AdministrativoController extends Controller
          $equipo->fecha_inicio = $request->fecha_inicio;
          $equipo->fecha_fin =$request->fecha_fin;
 
+           // Lógica para cargar la img adjunta
+        $file = $request->file('img');
+        $extension = $file->getClientOriginalExtension();
+        $uniqueFileName = uniqid() . '.' . $extension;
+        $path = $file->storeAs('public/equipo_admin/img', $uniqueFileName);
+
+        // Almacena la imagén en la base de datos
+        $url = '/storage/equipo_admin/img/' . $uniqueFileName;
+        $equipo->img = $url; 
+
 
         $equipo->save();
         // Muestra un mensaje de éxito en la sesión si el equipo se guardò en la base de datos

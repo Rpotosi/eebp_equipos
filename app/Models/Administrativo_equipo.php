@@ -28,6 +28,9 @@ class Administrativo_equipo extends Model
         'validez',
         'fecha_conformidad',
         'fecha_operacion',
+
+        'img',
+
         'nombre_responsable',
         'cargo',
         'lugar_proceso',

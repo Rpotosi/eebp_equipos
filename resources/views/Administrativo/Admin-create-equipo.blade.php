@@ -245,6 +245,13 @@
 
             </div>
 
+            <div class="form-group col-md-2">
+                <label for="img">
+                    Cargar Imagén
+                </label>
+                <input type="file" name="img" class="form-control" id="img">
+            </div>
+
             <div class="col-12">
                 <label for="text" class="form-label"> <br>
                     🔹RESPONSABLE DEL EQUIPO
