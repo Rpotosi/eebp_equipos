@@ -142,10 +142,10 @@ class AdministrativoController extends Controller
         $file = $request->file('img');
         $extension = $file->getClientOriginalExtension();
         $uniqueFileName = uniqid() . '.' . $extension;
-        $path = $file->storeAs('public/img/img', $uniqueFileName);
+        $path = $file->storeAs('public/vehiculo_admin/img', $uniqueFileName);
 
         // Almacena la imagén en la base de datos
-        $url = '/storage/img/img/' . $uniqueFileName;
+        $url = '/storage/vehiculo_admin/img/' . $uniqueFileName;
         $vehiculo->img = $url; 
 
         // Guardar Vehiculo en la base de datos
