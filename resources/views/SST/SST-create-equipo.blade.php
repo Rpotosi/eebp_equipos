@@ -111,15 +111,15 @@
                     Ubicación del equipo
                 </label>
                 <select id="clase" class="custom-select" id="ubicacion_equipo" placeholder="" name="ubicacion_equipo" required>
-                    <option selected=""></option>
-                    <option>Sede PA</option>
-                    <option>Sede VG</option>
-                    <option>Sede Caicedo</option>
-                    <option>Sede la Dorada</option>
-                    <option>Subestacione PA</option>
-                    <option>Subestacion PC</option>
-                    <option>Subestacion Yarumo</option>
-                    <option>Subestacion la Hormiga</option>
+                    <option selected></option>
+                    <option value="Sede PA">Sede PA</option>
+                    <option value="Sede VG">Sede VG</option>
+                    <option value="Sede Caicedo">Sede Caicedo</option>
+                    <option value="Sede la Dorada">Sede la Dorada</option>
+                    <option value="Subestacione PA">Subestacione PA</option>
+                    <option value="Subestacion PC">Subestacion PC</option>
+                    <option value="Subestacion Yarumo">Subestacion Yarumo</option>
+                    <option value="Subestacion la Hormiga">Subestacion la Hormiga</option>
                 </select>
             </div>
 
@@ -129,12 +129,12 @@
                     Estado
                 </label>
                 <select id="clase" class="custom-select" id="estado" placeholder="" name="estado" required>
-                    <option selected=""></option>
-                    <option>Nuevo</option>
-                    <option>En uso</option>
-                    <option>Fuero de servicio</option>
-                    <option>En mantenimiento</option>
-                    <option>Para disposición final</option>
+                    <option selected></option>
+                    <option value="Nuevo">Nuevo</option>
+                    <option value="En uso">En uso</option>
+                    <option value="Fuero de servicio">Fuero de servicio</option>
+                    <option value="En mantenimiento">En mantenimiento</option>
+                    <option value="Para disposición final">Para disposición final</option>
 
                 </select>
 
@@ -152,26 +152,26 @@
                     Marca
                 </label>
                 <select id="clase" class="custom-select" id="marca" placeholder="" name="marca" required>
-                    <option selected=""></option>
-                    <option>Nuevo uso</option>
-                    <option>Dimanik</option>
-                    <option>Link tech</option>
-                    <option>Insafe</option>
-                    <option>Sosega</option>
-                    <option>Yoke</option>
-                    <option>Petzel</option>
-                    <option>Armadura</option>
-                    <option>3M</option>
-                    <option>Ecolift</option>
-                    <option>Arseg</option>
-                    <option>Delta Plus</option>
-                    <option>Regeltex</option>
-                    <option>Iproteccion</option>
-                    <option>Alcovisor</option>
-                    <option>DR Meter</option>
-                    <option>Gil</option>
-                    <option>GH Voltaje</option>
-                    <option>Orbit</option>
+                <option selected></option>
+                <option value="Nuevo uso">Nuevo uso</option>
+                <option value="Dimanik">Dimanik</option>
+                <option value="Link tech">Link tech</option>
+                <option value="Insafe">Insafe</option>
+                <option value="Sosega">Sosega</option>
+                <option value="Yoke">Yoke</option>
+                <option value="Petzel">Petzel</option>
+                <option value="Armadura">Armadura</option>
+                <option value="3M">3M</option>
+                <option value="Ecolift">Ecolift</option>
+                <option value="Arseg">Arseg</option>
+                <option value="Delta Plus">Delta Plus</option>
+                <option value="Regeltex">Regeltex</option>
+                <option value="Iproteccion">Iproteccion</option>
+                <option value="Alcovisor">Alcovisor</option>
+                <option value="DR Meter">DR Meter</option>
+                <option value="Gil">Gil</option>
+                <option value="GH Voltaje">GH Voltaje</option>
+                <option value="Orbit">Orbit</option>
                 </select>
 
             </div>
@@ -223,10 +223,10 @@
                 </label>
                 <select id="clase" class="custom-select" id="validez" placeholder="" name="validez" required>
                     <option selected=""></option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>Mayor | 3</option>
+                    <option value="1">1</option>
+                    <option alue="2" >2</option>
+                    <option value="3" >3</option>
+                    <option value="Mayor | 3" >Mayor | 3</option>
                 </select>
             </div>
             <div class="col-3" style="text-align: left;">
@@ -282,27 +282,27 @@
                 </label>
                 <select id="clase" class="custom-select" id="lugar_proceso" placeholder="" name="lugar_proceso" required>
                     <option selected></option>
-                    <option>Almacén</option>
-                    <option>Bodega</option>
-                    <option>Vehículo PAK175</option>
-                    <option>PAK176</option>
-                    <option>Vehículo PAK178</option>
-                    <option>Vehículo PAK 169</option>
-                    <option>Vehículo  PAK167</option>
-                    <option>Vehículo LFL640 </option>
-                    <option>Vehículo PAK172</option>
-                    <option>Vehículo PAK171</option>
-                    <option>Vehículo PAK170</option>
-                    <option>Vehículo AVI892</option>
-                    <option>Vehículo AVA496</option>
-                    <option>Vehículo JHD10F</option>
-                    <option>cuadrilla 1</option>
-                    <option>cuadrilla 2</option>
-                    <option>cuadrilla 3</option>
-                    <option>cuadrilla 4</option>
-                    <option>SST</option>
-                    <option>Talento Humano</option>
-                    <option>Control de Energía</option>
+                    <option value="Almacén">Almacén</option>
+                    <option value="Bodega">Bodega</option>
+                    <option value="Vehículo PAK175">Vehículo PAK175</option>
+                    <option value="PAK176">PAK176</option>
+                    <option value="Vehículo PAK178">Vehículo PAK178</option>
+                    <option value="Vehículo PAK 169">Vehículo PAK 169</option>
+                    <option value="Vehículo  PAK167">Vehículo  PAK167</option>
+                    <option value="Vehículo LFL640 ">Vehículo LFL640 </option>
+                    <option value="Vehículo PAK172">Vehículo PAK172</option>
+                    <option value="Vehículo PAK171">Vehículo PAK171</option>
+                    <option value="Vehículo PAK170">Vehículo PAK170</option>
+                    <option value="Vehículo AVI892">Vehículo AVI892</option>
+                    <option value="Vehículo AVA496">Vehículo AVA496</option>
+                    <option value="Vehículo JHD10F">Vehículo JHD10F</option>
+                    <option value="cuadrilla 1">cuadrilla 1</option>
+                    <option value="cuadrilla 2">cuadrilla 2</option>
+                    <option value="cuadrilla 3">cuadrilla 3</option>
+                    <option value="cuadrilla 4">cuadrilla 4</option>
+                    <option value="SST">SST</option>
+                    <option value="Talento Humano">Talento Humano</option>
+                    <option value="Control de Energía">Control de Energía</option>
 
                 </select>
             </div>
@@ -336,16 +336,16 @@
                 </label>
                 <select id="clase" class="custom-select" id="fabricante" placeholder="" name="fabricante" required>
                     <option selected=""></option>
-                    <option>Sew</option>
-                    <option>Supersafe</option>
-                    <option>WJ Rescates</option>
-                    <option>Dinamik</option>
-                    <option>Steelpro</option>
-                    <option>Petzel</option>
-                    <option>Alcovisor</option>
-                    <option>Hastings</option>
-                    <option>Regeltex</option>
-                    <option>Super safe</option>
+                    <option value="Sew">Sew</option>
+                    <option value="Supersafe">Supersafe</option>
+                    <option value="WJ Rescates">WJ Rescates</option>
+                    <option value="Dinamik">Dinamik</option>
+                    <option value="Steelpro">Steelpro</option>
+                    <option value="Petzel">Petzel</option>
+                    <option value="Alcovisor">Alcovisor</option>
+                    <option value="Hastings">Hastings</option>
+                    <option value="Regeltex">Regeltex</option>
+                    <option value="Super safe">Super safe</option>
                 </select>
 
             </div>
@@ -408,11 +408,11 @@
                 </label>
                 <select id="clase" class="custom-select" id="mantenimiento_recomendado" placeholder="" name="mantenimiento_recomendado" required>
                     <option selected=""></option>
-                    <option value="">Preventivo</option>
-                    <option value="">Inspección</option>
-                    <option value="">Verificación</option>
-                    <option value="">Ensayo</option>
-                    <option value="">Calibración</option>
+                    <option value="Preventivo">Preventivo</option>
+                    <option value="Inspección">Inspección</option>
+                    <option value="Verificación">Verificación</option>
+                    <option value="Ensayo">Ensayo</option>
+                    <option value="Calibración">Calibración</option>
                 </select>
 
             </div>
@@ -518,9 +518,9 @@
                 </label>
                 <select id="clase" class="custom-select" id="garantia" placeholder="" name="garantia" required>
                     <option selected></option>
-                    <option>SI</option>
-                    <option>NO</option>
-                    <option>N/A</option>
+                    <option value="SI">SI</option>
+                    <option value="NO" >NO</option>
+                    <option value="N/A" >N/A</option>
                 </select>
             </div>
 
