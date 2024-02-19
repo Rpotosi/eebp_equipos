@@ -235,7 +235,6 @@
                 </label>
                 <input type="date" class="form-control" id="fecha_fin" name="fecha_fin" min="{{ \Carbon\Carbon::now()->toDateString() }}" value="{{ $vehiculo->fecha_fin }}" disabled/>
             </div>
-
             <div class="col-12">
                 <br>
                 <label for="text" class="form-label">

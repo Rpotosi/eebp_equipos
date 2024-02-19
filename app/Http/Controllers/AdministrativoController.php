@@ -328,7 +328,7 @@ class AdministrativoController extends Controller
          $equipo->estandares=$request->estandares;
          $equipo->regulaciones=$request->regulaciones;
          $equipo->otras_caracteristicas = $request->otras_caracteristicas;
-         $equipo->garantia = $request->garantias;
+         $equipo->garantia = $request->garantia;
          $equipo->fecha_inicio = $request->fecha_inicio;
          $equipo->fecha_fin =$request->fecha_fin;
 

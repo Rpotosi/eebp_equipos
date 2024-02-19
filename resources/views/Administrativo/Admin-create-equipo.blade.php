@@ -127,16 +127,14 @@
                 <label for="estado" class="form-label">
                     Estado
                 </label>
-                <select id="clase" class="custom-select" id="estado" placeholder="" name="estado" required>
+                <select id="estado" class="custom-select" name="estado" required>
                     <option selected=""></option>
-                    <option>Nuevo</option>
-                    <option>En uso</option>
-                    <option>Fuero de servicio</option>
-                    <option>En mantenimiento</option>
-                    <option>Para disposición final</option>
-
+                    <option value="Nuevo">Nuevo</option>
+                    <option value="En uso">En uso</option>
+                    <option value="Fuero de servicio">Fuero de servicio</option>
+                    <option value="En mantenimiento">En mantenimiento</option>
+                    <option value="Para disposición final">Para disposición final</option>
                 </select>
-
             </div>
 
             <div class="col-md-2">
@@ -244,8 +242,8 @@
                 <input type="date" class="form-control" id="fecha_operacion" placeholder="" name="fecha_operacion" required/>
 
             </div>
-
-            <div class="form-group col-md-2">
+            
+            <div class="form-group col-md-2"><br>
                 <label for="img">
                     Cargar Imagén
                 </label>
@@ -278,30 +276,29 @@
                 <label for="lugar_proceso" class="form-label">
                     Lugar o Proceso
                 </label>
-                <select id="clase" class="custom-select" id="lugar_proceso" placeholder="" name="lugar_proceso" required>
+                <select id="lugar_proceso" class="custom-select" name="lugar_proceso" required>
                     <option selected></option>
-                    <option>Almacén</option>
-                    <option>Bodega</option>
-                    <option>Vehículo PAK175</option>
-                    <option>PAK176</option>
-                    <option>Vehículo PAK178</option>
-                    <option>Vehículo PAK 169</option>
-                    <option>Vehículo  PAK167</option>
-                    <option>Vehículo LFL640 </option>
-                    <option>Vehículo PAK172</option>
-                    <option>Vehículo PAK171</option>
-                    <option>Vehículo PAK170</option>
-                    <option>Vehículo AVI892</option>
-                    <option>Vehículo AVA496</option>
-                    <option>Vehículo JHD10F</option>
-                    <option>cuadrilla 1</option>
-                    <option>cuadrilla 2</option>
-                    <option>cuadrilla 3</option>
-                    <option>cuadrilla 4</option>
-                    <option>SST</option>
-                    <option>Talento Humano</option>
-                    <option>Control de Energía</option>
-
+                    <option value="Almacén">Almacén</option>
+                    <option value="Bodega">Bodega</option>
+                    <option value="Vehículo PAK175">Vehículo PAK175</option>
+                    <option value="PAK176">PAK176</option>
+                    <option value="Vehículo PAK178">Vehículo PAK178</option>
+                    <option value="Vehículo PAK 169">Vehículo PAK 169</option>
+                    <option value="Vehículo PAK167">Vehículo PAK167</option>
+                    <option value="Vehículo LFL640">Vehículo LFL640</option>
+                    <option value="Vehículo PAK172">Vehículo PAK172</option>
+                    <option value="Vehículo PAK171">Vehículo PAK171</option>
+                    <option value="Vehículo PAK170">Vehículo PAK170</option>
+                    <option value="Vehículo AVI892">Vehículo AVI892</option>
+                    <option value="Vehículo AVA496">Vehículo AVA496</option>
+                    <option value="Vehículo JHD10F">Vehículo JHD10F</option>
+                    <option value="cuadrilla 1">cuadrilla 1</option>
+                    <option value="cuadrilla 2">cuadrilla 2</option>
+                    <option value="cuadrilla 3">cuadrilla 3</option>
+                    <option value="cuadrilla 4">cuadrilla 4</option>
+                    <option value="SST">SST</option>
+                    <option value="Talento Humano">Talento Humano</option>
+                    <option value="Control de Energía">Control de Energía</option>
                 </select>
             </div>
 

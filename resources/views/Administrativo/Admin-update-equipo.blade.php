@@ -280,7 +280,7 @@
                 <label for="lugar_proceso" class="form-label">
                     Lugar o Proceso
                 </label>
-                <select id="clase" class="custom-select" id="lugar_proceso" placeholder="" name="lugar_proceso" disabled>
+                <select class="custom-select" id="lugar_proceso" name="lugar_proceso" disabled>
                     <option selected></option>
                     <option value="Almacén" {{ $equipo->lugar_proceso == 'Almacén' ? 'selected' : '' }}>Almacén</option>
                     <option value="Bodega" {{ $equipo->lugar_proceso == 'Bodega' ? 'selected' : '' }}>Bodega</option>
@@ -516,7 +516,7 @@
                 <label for="garantia" class="form-label">
                     Garantía
                 </label>
-                <select id="garantia" class="custom-select" placeholder="" name="garantia" disabled>
+                <select id="garantia" class="custom-select"name="garantia" disabled>
                     <option selected></option>
                     <option value="SI" {{ $equipo->garantia == 'SI' ? 'selected' : '' }}>SI</option>
                     <option value="NO" {{ $equipo->garantia == 'NO' ? 'selected' : '' }}>NO</option>
