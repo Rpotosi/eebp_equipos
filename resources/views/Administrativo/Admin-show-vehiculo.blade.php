@@ -92,6 +92,7 @@
                     <th>Color</th>
                     <th>Cilindraje</th>
                     <th>Fecha|soat</th>
+                    <th>Renovación</th>
                     <th>Tecnomecanica</th>
                     <th class="text-center">Mantenimiento ➕</th>
                     <th class="text-center">Hoja de Vida </th>
@@ -134,7 +135,10 @@
                             {{$vehiculo->cilindraje}}
                         </td>
                         <td>
-                            {{$vehiculo->fecha}}
+                            {{$vehiculo->fecha_soat}}
+                        </td>
+                        <td>
+                            {{$vehiculo->fecha_fin}}
                         </td>
                         <td>
                             {{$vehiculo->fecha_tecnomecanica}}

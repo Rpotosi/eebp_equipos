@@ -225,9 +225,15 @@
 
             <div class="col-md-2">
                 <label for="fecha" class="form-label">
-                Fecha SOAT
+                Fecha Incio SOAT
                 </label>
                 <input type="date" class="form-control" id="fecha" name="fecha" min="{{ \Carbon\Carbon::now()->toDateString() }}" value="{{ $vehiculo->fecha }}" disabled/>
+            </div>
+            <div class="col-md-2">
+                <label for="fecha_fin" class="form-label">
+                Fecha fin SOAT
+                </label>
+                <input type="date" class="form-control" id="fecha_fin" name="fecha_fin" min="{{ \Carbon\Carbon::now()->toDateString() }}" value="{{ $vehiculo->fecha_fin }}" disabled/>
             </div>
 
             <div class="col-12">
@@ -327,7 +333,7 @@
                 <select id="clase" class="custom-select" id="suspension_trasera" placeholder="" name="suspension_trasera" disabled>
                     <option selected></option>
                     <option value="Suspención Rigidas" {{ $vehiculo->suspension_trasera == 'Suspención Rigidas' ? 'selected' : '' }}>Suspención Rigidas</option>
-                    <option value="Suspención Dependientes" {{ $vehiculo->suspencion_trasera == 'Suspención Dependientes' ? 'selected' : '' }}>Suspención Dependientes</option>
+                    <option value="Suspención Dependientes" {{ $vehiculo->suspension_trasera == 'Suspención Dependientes' ? 'selected' : '' }}>Suspención Dependientes</option>
                 </select>
             </div>
             <div class="col-2">

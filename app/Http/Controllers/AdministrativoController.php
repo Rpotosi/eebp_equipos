@@ -10,6 +10,10 @@ use App\Models\MantenimientoEquipoAdmin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\NotificacionSoat;
+
 
 use Illuminate\Support\Facades\Storage;
 
@@ -106,7 +110,8 @@ class AdministrativoController extends Controller
         $vehiculo->cilindraje = $request->cilindraje;
         $vehiculo->uso_vehiculo = $request->uso_vehiculo;
         $vehiculo->modelo =$request->modelo;
-        $vehiculo->fecha = $request->fecha;
+        $vehiculo->fecha_soat = $request->fecha_soat;
+        $vehiculo->fecha_fin = $request->fecha_fin;
         $vehiculo->fecha_tecnomecanica =$request->fecha_tecnomecanica;
         $vehiculo->licencia =$request->licencia;
         $vehiculo->tipo_direccion =$request->tipo_direccion;
@@ -147,6 +152,13 @@ class AdministrativoController extends Controller
         // Almacena la imagén en la base de datos
         $url = '/storage/vehiculo_admin/img/' . $uniqueFileName;
         $vehiculo->img = $url; 
+/*
+        $fecha_fin = $request->input('fecha_soat');
+        $emailDelUsuario = 'rpotosi2021@gmail.com';
+
+        $this->notificarFechaFinalSoat($fechaInicial, $emailDelUsuario);
+*/        
+    
 
         // Guardar Vehiculo en la base de datos
         $vehiculo->save();

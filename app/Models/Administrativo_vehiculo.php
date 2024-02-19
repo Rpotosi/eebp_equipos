@@ -12,7 +12,6 @@ class Administrativo_vehiculo extends Model
     protected $table = 'create_vehiculo';
     protected $primaryKey = 'id_vehiculo';
     protected $fillable = [
-        'fecha',
         'placa',
         'linea',
         'clase',
@@ -23,6 +22,8 @@ class Administrativo_vehiculo extends Model
         'cilindraje',
         'uso_vehiculo',
         'modelo',
+        'fecha_soat',
+        'fecha_fin',
         'fecha_tecnomecanica',
         'licencia',
         'tipo_direccion',

@@ -217,11 +217,19 @@
             </div>
 
             <div class="col-md-2">
-                <label for="fecha" class="form-label">
+                <label for="fecha_soat" class="form-label">
                 Fecha SOAT
                 </label>
-                <input type="date" class="form-control" id="fecha" name="fecha" min="{{ \Carbon\Carbon::now()->toDateString() }}" required/>
+                <input type="date" class="form-control" id="fecha_soat" name="fecha_soat" min="{{ \Carbon\Carbon::now()->toDateString() }}" required/>
             </div>
+           
+            <div class="col-md-2">
+                <label for="fecha_fin" class="form-label">
+                Fecha Vecimiento SOAT
+                </label>
+                <input type="date" class="form-control" id="fecha_fin" name="fecha_fin" min="{{ \Carbon\Carbon::now()->toDateString() }}" required/>
+            </div>
+
             <br>
 
             <div class="form-group col-md-2">

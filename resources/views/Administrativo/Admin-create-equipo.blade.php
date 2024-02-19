@@ -398,15 +398,14 @@
                     <br>
                     Mantenimiento recomendado
                 </label>
-                <select id="clase" class="custom-select" id="mantenimiento_recomendado" placeholder="" name="mantenimiento_recomendado" required>
+                <select id="mantenimiento_recomendado" class="custom-select" name="mantenimiento_recomendado" required>
                     <option selected=""></option>
-                    <option value="">Preventivo</option>
-                    <option value="">Inspección</option>
-                    <option value="">Verificación</option>
-                    <option value="">Ensayo</option>
-                    <option value="">Calibración</option>
+                    <option value="Preventivo">Preventivo</option>
+                    <option value="Inspección">Inspección</option>
+                    <option value="Verificación">Verificación</option>
+                    <option value="Ensayo">Ensayo</option>
+                    <option value="Calibración">Calibración</option>
                 </select>
-
             </div>
 
             <div class="col-2" style="text-align: left;">
@@ -510,9 +509,9 @@
                 </label>
                 <select id="garantia" class="custom-select" name="garantia" required>
                     <option selected></option>
-                    <option>SI</option>
-                    <option>NO</option>
-                    <option>N/A</option>
+                    <option value="SI">SI</option>
+                    <option value="NO">NO</option>
+                    <option value="N/A">N/A</option>
                 </select>
             </div>
 

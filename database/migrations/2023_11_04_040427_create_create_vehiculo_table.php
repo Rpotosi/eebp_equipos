@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('create_vehiculo', function (Blueprint $table) {
             $table->bigInteger('id_vehiculo', true);
-            $table->date('fecha')->nullable();
             $table->string('placa', 50)->nullable();
             $table->string('linea', 50)->nullable();
             $table->string('clase', 50)->nullable();
@@ -26,6 +25,8 @@ return new class extends Migration
             $table->string('cilindraje', 50)->nullable();
             $table->string('uso_vehiculo', 50)->nullable();
             $table->string('modelo', 50)->nullable();
+            $table->date('fecha_soat')->nullable();
+            $table->date('fecha_fin')->nullable();
             $table->date('fecha_tecnomecanica');
             $table->string('licencia', 50)->nullable();
             $table->string('tipo_direccion', 50)->nullable();
