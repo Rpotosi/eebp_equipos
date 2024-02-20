@@ -143,15 +143,16 @@ class AdministrativoController extends Controller
         $equipo_carretera = implode(",", $equipo_carretera);
         $vehiculo->equipo_carretera = $equipo_carretera;
 
-        // Lógica para cargar la img adjunta
-        $file = $request->file('img');
-        $extension = $file->getClientOriginalExtension();
-        $uniqueFileName = uniqid() . '.' . $extension;
-        $path = $file->storeAs('public/vehiculo_admin/img', $uniqueFileName);
-
-        // Almacena la imagén en la base de datos
-        $url = '/storage/vehiculo_admin/img/' . $uniqueFileName;
-        $vehiculo->img = $url; 
+       // Obtiene el archivo de la solicitud HTTP
+            $file = $request->file('img');
+            // Obtiene el nombre original del archivo
+            $originalFileName = $file->getClientOriginalName();
+            // Almacena el archivo en el directorio 'public/vehiculo_admin/img' con su nombre original
+            $path = $file->storeAs('public/vehiculo_admin/img', $originalFileName);
+            // Construye la URL de la imagen
+            $url = '/storage/vehiculo_admin/img/' . $originalFileName;
+            // Asigna la URL de la imagen al objeto $vehiculo
+            $vehiculo->img = $url;
 /*
         $fecha_fin = $request->input('fecha_soat');
         $emailDelUsuario = 'rpotosi2021@gmail.com';
