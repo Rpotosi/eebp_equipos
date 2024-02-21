@@ -333,15 +333,17 @@ class AdministrativoController extends Controller
          $equipo->fecha_inicio = $request->fecha_inicio;
          $equipo->fecha_fin =$request->fecha_fin;
 
-           // Lógica para cargar la img adjunta
-        $file = $request->file('img');
-        $extension = $file->getClientOriginalExtension();
-        $uniqueFileName = uniqid() . '.' . $extension;
-        $path = $file->storeAs('public/equipo_admin/img', $uniqueFileName);
 
-        // Almacena la imagén en la base de datos
-        $url = '/storage/equipo_admin/img/' . $uniqueFileName;
-        $equipo->img = $url; 
+         $file = $request->file('img');
+         // Obtiene el nombre original del archivo
+         $originalFileName = $file->getClientOriginalName();
+         // Almacena el archivo en el directorio 'public/vehiculo_admin/img' con su nombre original
+         $path = $file->storeAs('public/equipo_admin/img', $originalFileName);
+         // Construye la URL de la imagen
+         $url = '/storage/equipo_admin/img/' . $originalFileName;
+         // Asigna la URL de la imagen al objeto $vehiculo
+         $equipo->img = $url; 
+
 
 
         $equipo->save();
@@ -398,12 +400,13 @@ class AdministrativoController extends Controller
 
         // Lógica para cargar el archivo adjunto
         $file = $request->file('anexos');
-        $extension = $file->getClientOriginalExtension();
-        $uniqueFileName = uniqid() . '.' . $extension;
-        $path = $file->storeAs('public/mantenimientos/anexos', $uniqueFileName);
+
+        $originalFileName = $file->getClientOriginalName();
+     
+        $path = $file->storeAs('public/mantenimientos/anexos', $originalFileName);
 
         // Almacena la URL del archivo en la base de datos en la carpeta storage
-        $url = '/storage/mantenimientos/anexos/' . $uniqueFileName;
+        $url = '/storage/mantenimientos/anexos/' . $originalFileName;
         $mantenimiento->anexos = $url;
 
         // Asocia el mantenimiento al vehículo
