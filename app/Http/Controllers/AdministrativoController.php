@@ -143,7 +143,7 @@ class AdministrativoController extends Controller
         $equipo_carretera = implode(",", $equipo_carretera);
         $vehiculo->equipo_carretera = $equipo_carretera;
 
-       // Obtiene el archivo de la solicitud HTTP
+             // Obtiene el archivo de la solicitud HTTP
             $file = $request->file('img');
             // Obtiene el nombre original del archivo
             $originalFileName = $file->getClientOriginalName();
@@ -210,26 +210,28 @@ class AdministrativoController extends Controller
             // Completa con otros campos del mantenimiento según tu base de datos
         ]);
 
-        // Lógica para cargar el archivo adjunto
-        $file = $request->file('anexos');
-        $extension = $file->getClientOriginalExtension();
-        $uniqueFileName = uniqid() . '.' . $extension;
-        $path = $file->storeAs('public/mantenimientos/anexos', $uniqueFileName);
 
-        // Almacena la URL del archivo en la base de datos
-        $url = '/storage/mantenimientos/anexos/' . $uniqueFileName;
+       // Obtiene el archivo 'anexos' de la solicitud HTTP
+        $file = $request->file('anexos');
+
+        // Obtiene el nombre original del archivo
+        $originalFileName = $file->getClientOriginalName();
+
+        // Almacena el archivo en el directorio 'public/mantenimientos/anexos' con su nombre original
+        $path = $file->storeAs('public/mantenimientos/anexos', $originalFileName);
+
+        // Construye la URL del archivo
+        $url = '/storage/mantenimientos/anexos/' . $originalFileName;
+
+        // Asigna la URL del archivo al objeto $mantenimiento
         $mantenimiento->anexos = $url;
 
-        // Asocia el mantenimiento al vehículo
+        // Asocia el objeto $mantenimiento con el objeto $vehiculo y lo guarda en la base de datos
         $vehiculo->mantenimientos()->save($mantenimiento);
 
-        // Redirecciona con una alerta de éxito
-       // session()->flash('success', 'Vehiculo creado exitosamente 🚗');
-
+        // Redirecciona con una alerta de éxito despues de ejecutarse la ruta        
         return redirect()->route('administrativo.create_mantenimiento_vehiculo', $id)->with('success', 'Mantenimiento agregado exitosamente.');
-
-        // Redirecciona a la página anterior
-       // return back();
+        
     }
 
     public function show_equipo(Request $request)
