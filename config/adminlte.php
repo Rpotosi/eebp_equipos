@@ -288,7 +288,7 @@ return [
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Menu-Configuration
     |
     */
-
+ 
     'menu' => [
         // Navbar items:
         [
@@ -316,18 +316,18 @@ return [
 
         ],
 
-        ['header' => 'Hojas de Vida Equipos'],
+        ['header' => 'Hoja de Vida | Equipos & Vehiculos'],
 
 
         [
             'text'    => 'Administrativo',
-            'icon'    => 'fas fa-fw fa-share',
+            'icon'    => 'fas fa-tasks',
             'icon_color' => 'white',
             'can' => 'menu-admin',
 
             'submenu' => [
                 [
-                    'text' => 'Create',
+                    'text' => 'Crear',
                     'url'  => 'admin-show-form',
 
                 ],
@@ -353,16 +353,16 @@ return [
 
         [
             'text'    => 'Distribución',
-            'icon'    => 'fas fa-fw fa-share',
+            'icon'    => 'fas fa-hard-hat',
             'icon_color' => 'white',
             'can' => 'menu-dis',
             'submenu' => [
                 [
-                    'text' => 'Create',
+                    'text' => 'Crear Equipo',
                     'url'  => 'dis-show-form',
                 ],
                                [
-                    'text' => 'Consultar',
+                    'text' => 'Consultar Equipo',
                     'url'  => 'dis-show-equipo',
                 ],
             ],
@@ -372,28 +372,47 @@ return [
 
         [
             'text'    => 'SST',
-            'icon'    => 'fas fa-fw fa-share',
+            'icon'    => 'fas fa-user-shield',
             'icon_color' => 'white',
             'can' => 'menu-sst',
             'submenu' => [
                 [
-                    'text' => 'Create',
+                    'text' => 'Crear Equipo',
                     'url'  => 'sst-show-form',
                 ],
                                [
-                    'text' => 'Consultar',
+                    'text' => 'Consultar Equipo',
                     'url'  => 'sst-show-equipo',
                 ],
 
             ],
-        ],
+         ],
 
         [
-            'text'       => 'Cerrar Sesión',
-            'url'        => '/logout',
-            'icon_color' => 'cyan',
-
+            'text'        => 'Cerrar Sesión',
+            'url'         => '/logout',
+            'icon'        => 'fas fa-power-off',  // Icono de apagado
+            'icon_color'  => 'red',  // Icono de color blanco
+            'classes'     => 'bg-dark',  // Fondo oscuro
         ],
+
+    
+
+        ['header' => ''],
+        ['header' => ''],
+        ['header' => ''],
+        ['header' => ''],
+        ['header' => ''],
+        
+        [
+            'text' => 'Developer | Richard Potosi',
+            'icon' => 'fas fa-laptop-code',  // Agrega el icono que desees aquí
+            'url'  => '#',  // Puedes cambiar esto a la URL que desees
+            'icon_color' => 'white',
+        ],
+       
+           
+        
     ],
 
     /*
@@ -549,4 +568,6 @@ return [
     */
 
     'livewire' => false,
+
+    
 ];
