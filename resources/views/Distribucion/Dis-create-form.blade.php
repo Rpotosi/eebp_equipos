@@ -55,7 +55,7 @@
 
 @section('content')
 <div class="container">
-    <a href="{{route('distribucion.create_equipo')}}">
+    <a href="{{route('distribucion.create_equipo_interruptor')}}">
         <div class="card" style="text-align: center;">
             <i id="icon_crear_orden" class="fas fa-toggle-on"></i> <!-- Interruptor -->
             <br>
@@ -63,7 +63,7 @@
         </div>
     </a>
 
-    <a href="{{route('distribucion.create_equipo')}}">
+    <a href="{{route('distribucion.create_equipo_interruptor')}}">
         <div class="card" style="text-align: center;">
             <i id="icon_crear_orden" class="fas fa-exchange-alt"></i> <!-- Seccionador -->
             <br>
@@ -71,7 +71,7 @@
         </div>
     </a>
 
-    <a href="{{route('distribucion.create_equipo')}}">
+    <a href="{{route('distribucion.create_equipo_interruptor')}}">
         <div class="card" style="text-align: center;">
             <i id="icon_crear_orden" class="fas fa-bolt"></i> <!-- Pararrayos -->
             <br>
@@ -81,27 +81,28 @@
 </div>
 
 <div class="container">
-    <a href="{{route('distribucion.create_equipo')}}">
+    <a href="{{route('distribucion.create_equipo_interruptor')}}">
         <div class="card" style="text-align: center;">
             <i id="icon_crear_orden" class="fas fa-plug"></i> <!-- Trafo CT -->
             <br>
             <h5><b>Trafo CT</b></h5>
         </div>
     </a>
-    <a href="{{route('distribucion.create_equipo')}}">
+    <a href="{{route('distribucion.create_equipo_interruptor')}}">
         <div class="card" style="text-align: center;">
             <i id="icon_crear_orden" class="fas fa-plug"></i> <!-- Trafo PT -->
             <br>
             <h5><b>Trafo PT</b></h5>
         </div>
     </a>
-    <a href="{{route('distribucion.create_equipo')}}">
+    <a href="{{route('distribucion.create_equipo_interruptor')}}">
         <div class="card" style="text-align: center;">
             <i id="icon_crear_orden" class="fas fa-plug"></i> <!-- Trafo Potencia -->
             <br>
             <h5><b>Trafo Potencia</b></h5>
         </div>
     </a>
+    
 </div>
 
 

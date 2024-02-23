@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Distribucion;
+use App\Models\Distribucion_interruptor;
 use App\Models\User;
-use App\Models\MantenimientoEquipoDis;
+use App\Models\MantenimientoEquipoDis_interruptor;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
@@ -30,20 +30,20 @@ class DistribucionController extends Controller
         return view('Distribucion.Dis-create-form',compact('user'));
     }
 
-    public function show_equipo(Request $request)
+    public function show_equipo_interruptor(Request $request)
     {
         $user = $this->getCurrentUser();
         //busca el equipo por nombre_equipo
         $buscarpor = $request->input('nombre_equipo');
         // Crea una consulta del modelo Distribucion
-        $query = Distribucion::query();   
+        $query = Distribucion_interruptor::query();   
 
         $query->where('nombre_equipo', 'like', '%' .$buscarpor . '%');
         // Ejecutamos la consulta y obtenemos los pedidos filtrados
 
         $equipos = $query->paginate(8);
 
-        return view ('Distribucion.Dis-show', compact('equipos','buscarpor','user'));
+        return view ('Distribucion.Dis-show_equipo_interruptor', compact('equipos','buscarpor','user'));
     }
 
     public function show_equipo_CV(Request $request, $id_equipo)
@@ -51,114 +51,108 @@ class DistribucionController extends Controller
          // Obtiene el usuario actual, y lo guarda en la variable $user
          $user = $this->getCurrentUser();
         // Busca el equipo correspondiente al id proporcionado
-        $equipo = Distribucion::find($id_equipo);
-        // Trae todos los registros de la tabla mantenimientoVehiculo
-        $query = MantenimientoEquipoDis::query(); 
+        $equipo = Distribucion::findOrFail($id_equipo);
 
-        // Ejecutamos la consulta y obtenemos los pedidos filtrados
-        $mantenimientos = $query->paginate();
-
+        $mantenimientos = $equipo->mantenimientos()->paginate(5);
+      
         // Devuelve la vista con los datos 
         return view('Distribucion.Dis-show-CV-equipo', compact('equipo', 'mantenimientos', 'user'));
 
     }
 
-    public function create_equipo()
+    public function create_equipo_interruptor()
     {
          // Obtiene el usuario actual, y lo guarda en la variable $user
          $user = $this->getCurrentUser();
          
-        return view("Distribucion.Dis-create-equipo", compact('user'));
+        return view("Distribucion.Dis-create-equipo_interruptor", compact('user'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store_equipo(Request $request)
-    {     
-        // Crea una nueva instancia del controlador Distribucion
-         $equipo = new Distribucion();
-         $equipo->nombre_equipo = $request->nombre_equipo;
-         $equipo->ubicacion_equipo = $request->ubicacion_equipo;
-         $equipo->estado = $request->estado;
-         $equipo->fecha_fabrica = $request->fecha_fabrica;
-         $equipo->marca = $request->marca;
-         $equipo->modelo = $request->modelo;
-         $equipo->no_serie = $request->no_serie;
-         $equipo->no_lote = $request->no_lote;
-         $equipo->no_activo = $request->no_activo;
-         $equipo->codigo =$request->codigo;
-         $equipo->fecha_ensayo = $request->fecha_ensayo;
-         $equipo->validez= $request->validez ;
-         $equipo->fecha_conformidad= $request->fecha_conformidad;
-         $equipo->fecha_operacion= $request->fecha_operacion;
-         $equipo->nombre_responsable =$request->nombre_responsable;
-         $equipo->cargo= $request->cargo;
-         $equipo->lugar_proceso= $request->lugar_proceso;
-         $equipo->fecha_entrega= $request->fecha_entrega;
-         $equipo->observacion_responsable= $request->observacion_responsable;
-         $equipo->fabricante = $request->fabricante;
-         $equipo->fecha_adquisicion = $request->fecha_adquisicion;
-         $equipo->nombre_proveedor= $request->nombre_proveedor;
-         $equipo->direccion_proveedor = $request->direccion_proveedor;
-         $equipo->email_proveedor = $request->email_proveedor;
-         $equipo->telefono_proveedor = $request->telefono_proveedor;
-         $equipo->catalogo = $request->catalogo;
-         $equipo->mantenimiento_recomendado = $request->mantenimiento_recomendado;
-         $equipo->condiciones_operacion = $request->condiciones_operacion;
-         $equipo->observacion_fabricante = $request->observacion_fabricante;
-         $equipo->medicion = $request->medicion;
-         $equipo->rango_uso = $request->rango_uso;
-         $equipo->resolucion = $request->resolucion;
-         $equipo->exactitud = $request->exactitud;
-         $equipo->fecha_calibracion= $request->fecha_calibracion;
-         $equipo->fecha_verificacion= $request->fecha_verificacion;
-         $equipo->patrones=$request->patrones;
-         $equipo->estandares=$request->estandares;
-         $equipo->regulaciones=$request->regulaciones;
-         $equipo->otras_caracteristicas = $request->otras_caracteristicas;
-         $equipo->garantia = $request->garantias;
-         $equipo->fecha_inicio = $request->fecha_inicio;
-         $equipo->fecha_fin =$request->fecha_fin;
 
-         
+     public function store_equipo_interruptor(Request $request)
+    {
+        // Crea una nueva instancia del controlador Distribucion
+        $equipo = new Distribucion_interruptor();
+        $equipo->nombre_interruptor = $request->nombre_interruptor;
+        $equipo->area = $request->area;
+        $equipo->subestacion = $request->subestacion;
+        $equipo->nivel_tension = $request->nivel_tension;
+        $equipo->bahia = $request->bahia;
+        $equipo->iua = $request->iua;
+        $equipo->fabricante = $request->fabricante;
+        $equipo->costo_adquisicion = $request->costo_adquisicion;
+        $equipo->fecha_puesta_servicio = $request->fecha_puesta_servicio;
+        $equipo->fecha_fabricacion = $request->fecha_fabricacion;
+        $equipo->pais_origen = $request->pais_origen;
+        $equipo->nombre_equipo = $request->nombre_equipo;
+        $equipo->modelo_fabricacion = $request->modelo_fabricacion;
+        $equipo->nro_serie_fabricacion = $request->nro_serie_fabricacion;
+        $equipo->voltage_aislamiento_nominal = $request->voltage_aislamiento_nominal;
+        $equipo->frecuencia_nominal = $request->frecuencia_nominal;
+        $equipo->voltage_frequencia_indutrial = $request->voltage_frequencia_indutrial;
+        $equipo->voltage_impulso = $request->voltage_impulso;
+        $equipo->corrientes_nominal = $request->corrientes_nominal;
+        $equipo->corriente_termica = $request->corriente_termica;
+        $equipo->corriente_dinamica = $request->corriente_dinamica;
+        $equipo->corriente_nominal_cierre = $request->corriente_nominal_cierre;
+        $equipo->medio_extincion = $request->medio_extincion;
+        $equipo->año_fabricacion = $request->año_fabricacion;
+        $equipo->forma_cierre_desconexion = $request->forma_cierre_desconexion;
+        $equipo->factor_primer_polo = $request->factor_primer_polo;
+        $equipo->secuencia_nominal_maniobra = $request->secuencia_nominal_maniobra;
+        $equipo->presion = $request->presion;
+        $equipo->acondicionamiento = $request->acondicionamiento;
+        $equipo->acondicionamiento_fabricante = $request->acondicionamiento_fabricante;
+        $equipo->acondicionamiento_serie = $request->acondicionamiento_serie;
+        $equipo->peso_cantidad_carga = $request->peso_cantidad_carga;
+        $equipo->c_auxiliares_mando = $request->c_auxiliares_mando;
+        $equipo->c_auxiliares_acondicionamiento = $request->c_auxiliares_acondicionamiento;
+        $equipo->c_auxiliares_calefaccion = $request->c_auxiliares_calefaccion;
+        $equipo->altura_instalacion = $request->altura_instalacion;
+        $equipo->clase_temperatura = $request->clase_temperatura;
+        $equipo->normas_fabricacion = $request->normas_fabricacion;
+        $equipo->nro_ref_catalogo = $request->nro_ref_catalogo;
+
         // Lógica para cargar la img adjunta
-        $file = $request->file('img_dis');
-        $extension = $file->getClientOriginalExtension();
-        $uniqueFileName = uniqid() . '.' . $extension;
-        $path = $file->storeAs('public/equipo_dis/img', $uniqueFileName);
+        $file = $request->file('img_interruptor');
+
+        $originalFileName = $file->getClientOriginalName();
+  
+        $path = $file->storeAs('public/equipo_dis_interruptor/img', $originalFileName);
 
         // Almacena la imagén en la base de datos
-        $url = '/storage/equipo_dis/img/' . $uniqueFileName;
-        $equipo->img_dis = $url; 
+        $url = '/storage/equipo_dis_interruptor/img/' . $originalFileName;
+        $equipo->img_interruptor = $url;
 
-         $equipo->save();    
+        $equipo->save();
         // Muestra un mensaje de éxito en la sesión si el equipo se guardò en la baase de datos
-         session()->flash('success', 'Equipo creado exitosamente ⚙️ ');
+        session()->flash('success', 'Equipo creado exitosamente ⚙️ ');
 
         // Redirecciona a la página anterior
-         return back();         
-    }  
-
-    
+        return back();
+    }
+        
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function create_mantenimiento_equipo($id_equipo)
+    public function create_mantenimiento_equipo_interruptor($id_equipo)
     {
          // Obtiene el usuario actual, y lo guarda en la variable $user
          $user = $this->getCurrentUser();
         
         // Busca el equipo correspondiente al id proporcionado
-        $equipo = Distribucion::find($id_equipo);
+        $equipo = Distribucion_interruptor::find($id_equipo);
         
         // Devuelve la vista con los datos 
-        return view('Distribucion.Dis-update-equipo', compact('equipo','user'));
+        return view('Distribucion.Dis-update-equipo_interruptor', compact('equipo','user'));
     }
 
 
-    public function store_mantenimiento_equipo(Request $request, $id)
+    public function store_mantenimiento_equipo_interruptor(Request $request, $id)
     {
 
         // Valida los datos del formulario
@@ -173,10 +167,10 @@ class DistribucionController extends Controller
         ]);
     
         // Obtén el vehículo por su ID
-        $equipo = Distribucion::findOrFail($id);
+        $equipo = Distribucion_interruptor::findOrFail($id);
     
         // Crea un nuevo mantenimiento
-        $mantenimiento = new MantenimientoEquipoDis([
+        $mantenimiento = new MantenimientoEquipoDis_interruptor([
             'fecha_mantenimiento' => $request->input('fecha_mantenimiento'),
             'descripcion' => $request->input('descripcion'),
             'tipo_procedimiento' => $request->input('tipo_procedimiento'),
@@ -188,19 +182,18 @@ class DistribucionController extends Controller
     
         // Lógica para cargar el archivo adjunto
         $file = $request->file('anexos');
-        $extension = $file->getClientOriginalExtension();
-        $uniqueFileName = uniqid() . '.' . $extension;
-        $path = $file->storeAs('public/mantenimientos/anexos', $uniqueFileName);
+        $originalFileName = $file->getClientOriginalName();
+        $path = $file->storeAs('public/mantenimientos_dis_interruptor/anexos', $originalFileName);
     
         // Almacena la URL del archivo en la base de datos
-        $url = '/storage/mantenimientos/anexos/' . $uniqueFileName;
+        $url = '/storage/mantenimientos_dis_interruptor/anexos' . $originalFileName;
         $mantenimiento->anexos = $url;
     
-        // Asocia el mantenimiento al vehículo
+        // Asocia el mantenimiento al equipo
         $equipo->mantenimientos()->save($mantenimiento);
     
         // Redirecciona con una alerta de éxito
-        return redirect()->route('distribucion.create_mantenimiento_equipo', $id)->with('success', 'Mantenimiento agregado exitosamente.☑️');
+        return redirect()->route('distribucion.create_mantenimiento_equipo_interruptor', $id)->with('success', 'Mantenimiento agregado exitosamente.☑️');
     }
 
     

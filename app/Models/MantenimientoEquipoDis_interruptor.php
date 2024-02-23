@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class MantenimientoEquipoDis extends Model
+class MantenimientoEquipoDis_interruptor extends Model
 {
     use HasFactory;
 
@@ -26,6 +26,6 @@ class MantenimientoEquipoDis extends Model
     // Define la relación con el equipo de distribución
     public function equipoDis()
     {
-        return $this->belongsTo(MantenimientoEquipoDis::class, 'id_equipo_fk', 'id_equipo');
+        return $this->belongsTo(MantenimientoEquipoDis_interruptor::class, 'id_equipo_fk', 'id_equipo');
     }
 }

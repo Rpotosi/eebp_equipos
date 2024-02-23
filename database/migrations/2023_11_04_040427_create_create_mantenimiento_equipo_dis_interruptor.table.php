@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('create_mantenimiento_equipo_dis', function (Blueprint $table) {
+        Schema::create('create_mantenimiento_equipo_dis_interruptor', function (Blueprint $table) {
             $table->integer('id', true);
             $table->bigInteger('id_equipo_fk')->nullable()->index('id_equipo_fk');
             $table->date('fecha_mantenimiento')->nullable();
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('create_mantenimiento_equipo_dis');
+        Schema::dropIfExists('create_mantenimiento_equipo_dis_interruptor');
     }
 };

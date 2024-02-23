@@ -56,6 +56,7 @@
 @stop
 
 @section('content')
+
     <div class="container">
         <a href="{{route('administrativo.create_vehiculo')}}" > <!-- Route define and wep.php--->
             <div class="card"style="text-align: center;">
@@ -84,7 +85,7 @@
 
 
     </div>
-@stop
+    
 
 @section('js')
     <!--código js si es requerido-->

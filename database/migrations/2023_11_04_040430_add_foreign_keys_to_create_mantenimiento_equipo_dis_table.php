@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('create_mantenimiento_equipo_dis', function (Blueprint $table) {
-            $table->foreign(['id_equipo_fk'], 'create_mantenimiento_equipo_dis_ibfk_1')->references(['id_equipo'])->on('create_equipo_dis');
+        Schema::table('create_mantenimiento_equipo_dis_interruptor', function (Blueprint $table) {
+            $table->foreign(['id_equipo_fk'], 'create_mantenimiento_equipo_dis_interruptor_ibfk_1')->references(['id_equipo'])->on('create_equipo_dis_interruptor');
         });
     }
 
@@ -25,8 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('create_mantenimiento_equipo_dis', function (Blueprint $table) {
-            $table->dropForeign('create_mantenimiento_equipo_dis_ibfk_1');
+        Schema::table('create_mantenimiento_equipo_dis_interruptor', function (Blueprint $table) {
+            $table->dropForeign('create_mantenimiento_equipo_dis_interrruptor_ibfk_1');
         });
     }
 };

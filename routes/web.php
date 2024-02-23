@@ -69,10 +69,13 @@ Route::controller(AdministrativoController::class)->group(function(){   //asi se
 Route::middleware(['auth'])->group(function () {
 Route::controller(DistribucionController::class)->group(function(){
     Route::get('dis-show-form', 'show_form')->name('distribucion.show_form');
-    Route::get('dis-show-equipo', 'show_equipo')->name('distribucion.show_equipo');
+
+    Route::get('dis-show-equipo', 'show_equipo_interruptor')->name('distribucion.show_equipo_interruptor');
     Route::get('dis-show-equipo-CV/{id_equipo}', 'show_equipo_CV')->name('distribucion.show_equipo_CV');
-    Route::get('dis-create-equipo','create_equipo')->name('distribucion.create_equipo');
-    Route::post('dis-create-equipo', 'store_equipo')->name('distribucion.store_equipo');
+
+    Route::get('dis-create-equipo_interruptor','create_equipo_interruptor')->name('distribucion.create_equipo_interruptor');
+    Route::post('dis-create-equipo_interruptor', 'store_equipo_interruptor')->name('distribucion.store_equipo_interruptor');
+
     Route::get('dis-create-mantenimiento-equipo/{id_equipo}', 'create_mantenimiento_equipo')->name('distribucion.create_mantenimiento_equipo');
     Route::post('dis-create-mantenimiento-equipo/{id_equipo}', 'store_mantenimiento_equipo')->name('distribucion.store_mantenimiento_equipo');
 });
