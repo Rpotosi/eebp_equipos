@@ -123,12 +123,13 @@ class SSTController extends Controller
 
           // Lógica para cargar la img adjunta
         $file = $request->file('img_sst');
-        $extension = $file->getClientOriginalExtension();
-        $uniqueFileName = uniqid() . '.' . $extension;
-        $path = $file->storeAs('public/equipo_sst/img', $uniqueFileName);
+        
+        $originalFileName = $file->getClientOriginalName();
+
+        $path = $file->storeAs('public/equipo_sst/img', $originalFileName);
 
         // Almacena la imagén en la base de datos
-        $url = '/storage/equipo_sst/img/' . $uniqueFileName;
+        $url = '/storage/equipo_sst/img/' . $originalFileName;
         $equipo->img_sst = $url;
 
         $equipo->save();
@@ -178,12 +179,13 @@ class SSTController extends Controller
 
         // Lógica para cargar el archivo adjunto
         $file = $request->file('anexos');
-        $extension = $file->getClientOriginalExtension();
-        $uniqueFileName = uniqid() . '.' . $extension;
-        $path = $file->storeAs('public/mantenimientos_equipo_sst/anexos', $uniqueFileName);
+
+        $originalFileName = $file->getClientOriginalName();
+    
+        $path = $file->storeAs('public/mantenimientos_equipo_sst/anexos', $originalFileName);
 
         // Almacena la URL del archivo en la base de datos
-        $url = '/storage/mantenimientos_equipo_sst/anexos/' . $uniqueFileName;
+        $url = '/storage/mantenimientos_equipo_sst/anexos/' . $originalFileName;
         $mantenimiento->anexos = $url;
 
         // Asocia el mantenimiento al vehículo
