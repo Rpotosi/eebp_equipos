@@ -63,20 +63,17 @@ class AdministrativoController extends Controller
 
     public function show_vehiculos_CV(Request $request, $id_vehiculo)
     {
-         // Obtiene el usuario actual, y lo guarda en la variable $user
-         $user = $this->getCurrentUser();
+        // Obtiene el usuario actual, y lo guarda en la variable $user
+        $user = $this->getCurrentUser();
 
         // Busca el vehiculo correspondiente al id proporcionado
-        $vehiculo = Administrativo_vehiculo::find($id_vehiculo);
-        // Trae todos los registros de la tabla mantenimientoVehiculo
-        $query = MantenimientoVehiculo::query();
+        $vehiculo = Administrativo_vehiculo::findOrFail($id_vehiculo);
 
-        // Ejecutamos la consulta y obtenemos los pedidos filtrados
-        $mantenimientos = $query->paginate();
+        // Obtiene los mantenimientos que pertenecen al vehículo
+        $mantenimientos = $vehiculo->mantenimientos()->paginate();
 
         // Devuelve la vista con los datos
         return view('Administrativo.Admin-show-CV', compact('vehiculo', 'mantenimientos', 'user'));
-
     }
 
     /**
@@ -130,11 +127,11 @@ class AdministrativoController extends Controller
         $vehiculo->capacidad_carga = $request->capacidad_carga;
 
          // Recuperar los valores seleccionados de las casillas de verificación como un arreglo
-         $dotacion = $request->input('dotacion');
+        $dotacion = $request->input('dotacion');
 
          // Convertir el arreglo a una cadena separada por comas
-         $dotacion = implode(",", $dotacion);
-         $vehiculo->dotacion = $dotacion;
+        $dotacion = implode(",", $dotacion);
+        $vehiculo->dotacion = $dotacion;
 
         // Recuperar los valores seleccionados de las casillas de verificación como un arreglo
         $equipo_carretera = $request->input('equipo_carretera');
@@ -144,15 +141,15 @@ class AdministrativoController extends Controller
         $vehiculo->equipo_carretera = $equipo_carretera;
 
              // Obtiene el archivo de la solicitud HTTP
-            $file = $request->file('img');
+        $file = $request->file('img');
             // Obtiene el nombre original del archivo
-            $originalFileName = $file->getClientOriginalName();
+        $originalFileName = $file->getClientOriginalName();
             // Almacena el archivo en el directorio 'public/vehiculo_admin/img' con su nombre original
-            $path = $file->storeAs('public/vehiculo_admin/img', $originalFileName);
+        $path = $file->storeAs('public/vehiculo_admin/img', $originalFileName);
             // Construye la URL de la imagen
-            $url = '/storage/vehiculo_admin/img/' . $originalFileName;
+        $url = '/storage/vehiculo_admin/img/' . $originalFileName;
             // Asigna la URL de la imagen al objeto $vehiculo
-            $vehiculo->img = $url;
+        $vehiculo->img = $url;
 /*
         $fecha_fin = $request->input('fecha_soat');
         $emailDelUsuario = 'rpotosi2021@gmail.com';
@@ -172,16 +169,19 @@ class AdministrativoController extends Controller
     }
 
     public function create_mantenimiento_vehiculo($id_vehiculo)
-    {
-         // Obtiene el usuario actual, y lo guarda en la variable $user
-         $user = $this->getCurrentUser();
+{
+    // Obtiene el usuario actual, y lo guarda en la variable $user
+    $user = $this->getCurrentUser();
 
-        // Busca la vehiculo correspondiente al id proporcionado
-        $vehiculo = Administrativo_vehiculo::find($id_vehiculo);
+    // Busca el vehículo correspondiente al id proporcionado
+    $vehiculo = Administrativo_vehiculo::findOrFail($id_vehiculo);
 
-        // Devuelve la vista con los datos quemados "hoja de vida"
-        return view('Administrativo.Admin-update-vehiculo', compact('vehiculo','user'));
-    }
+    // Obtiene los mantenimientos que pertenecen al vehículo
+    $mantenimientos = $vehiculo->mantenimientos;
+
+    // Devuelve la vista con los datos quemados "hoja de vida"
+    return view('Administrativo.Admin-update-vehiculo', compact('vehiculo', 'mantenimientos', 'user'));
+}
 
     public function store_mantenimiento_vehiculo(Request $request, $id)
     {
@@ -207,9 +207,9 @@ class AdministrativoController extends Controller
             'referencia_repuesto' => $request->input('referencia_repuesto'),
             'responsable' => $request->input('responsable'),
             'precio' => $request->input('precio'),
-            // Completa con otros campos del mantenimiento según tu base de datos
+            'anexos' => $request->file('anexos'),
+             // Completa con otros campos del mantenimiento según tu base de datos
         ]);
-
 
        // Obtiene el archivo 'anexos' de la solicitud HTTP
         $file = $request->file('anexos');
