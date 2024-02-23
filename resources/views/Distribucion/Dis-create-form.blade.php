@@ -20,7 +20,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 60vh;
+            height: 33vh;
         }
 
         /* Estilos para las tarjetas */
@@ -54,24 +54,63 @@
 @stop
 
 @section('content')
-    <div class="container">
+<div class="container">
+    <a href="{{route('distribucion.create_equipo')}}">
+        <div class="card" style="text-align: center;">
+            <i id="icon_crear_orden" class="fas fa-toggle-on"></i> <!-- Interruptor -->
+            <br>
+            <h5><b>Interruptores</b></h5>
+        </div>
+    </a>
+
+    <a href="{{route('distribucion.create_equipo')}}">
+        <div class="card" style="text-align: center;">
+            <i id="icon_crear_orden" class="fas fa-exchange-alt"></i> <!-- Seccionador -->
+            <br>
+            <h5><b>Seccionadores</b></h5>
+        </div>
+    </a>
+
+    <a href="{{route('distribucion.create_equipo')}}">
+        <div class="card" style="text-align: center;">
+            <i id="icon_crear_orden" class="fas fa-bolt"></i> <!-- Pararrayos -->
+            <br>
+            <h5><b>Pararrayos</b></h5>
+        </div>
+    </a>
+</div>
+
+<div class="container">
+    <a href="{{route('distribucion.create_equipo')}}">
+        <div class="card" style="text-align: center;">
+            <i id="icon_crear_orden" class="fas fa-plug"></i> <!-- Trafo CT -->
+            <br>
+            <h5><b>Trafo CT</b></h5>
+        </div>
+    </a>
+    <a href="{{route('distribucion.create_equipo')}}">
+        <div class="card" style="text-align: center;">
+            <i id="icon_crear_orden" class="fas fa-plug"></i> <!-- Trafo PT -->
+            <br>
+            <h5><b>Trafo PT</b></h5>
+        </div>
+    </a>
+    <a href="{{route('distribucion.create_equipo')}}">
+        <div class="card" style="text-align: center;">
+            <i id="icon_crear_orden" class="fas fa-plug"></i> <!-- Trafo Potencia -->
+            <br>
+            <h5><b>Trafo Potencia</b></h5>
+        </div>
+    </a>
+</div>
+
+
+        
+            
 
 
 
-        <a href="{{route('distribucion.create_equipo')}}" > <!-- Route define and wep.php--->
-            <div class="card" style="text-align: center;">
-                <i id="icon_crear_orden" class="fas fa-cogs"></i>
-                <br>
-                <h5>
-                    <b>
-                        Equipos
-                    </b>
-                </h5>
-            </div>
-        </a>
-
-
-    </div>
+    
 @stop
 
 @section('js')
