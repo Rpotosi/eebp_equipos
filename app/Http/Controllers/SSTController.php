@@ -41,22 +41,22 @@ class SSTController extends Controller
         $query->where('nombre_equipo', 'like', '%' . $buscarpor . '%');
 
         // Ejecutamos la consulta y obtenemos los pedidos filtrados
-        $equipos = $query->paginate(8);
+        $equipos = $query->paginate(5);
 
         return view ('SST.SST-show', compact('equipos', 'buscarpor','user'));
     }
 
+
     public function show_equipo_CV(Request $request, $id_equipo)
     {
-        // Obtiene el usuario actual, y lo guarda en la variable $user
+        // Obtiene el usuario actual
         $user = $this->getCurrentUser();
-        // Busca la orden correspondiente al id proporcionado
-        $equipo = SST::find($id_equipo);
-        // Trae todos los registros de la tabla mantenimientoVehiculo
-        $query = MantenimientoEquipoSst::query();
 
-        // Ejecutamos la consulta y obtenemos los pedidos filtrados
-        $mantenimientos = $query->paginate(5);
+        // Busca el equipo por ID
+        $equipo = SST::find($id_equipo);
+
+        // Obtiene los mantenimientos del equipo, paginados
+        $mantenimientos = $equipo->mantenimientos()->paginate(5);
 
         // Devuelve la vista con los datos
         return view('SST.SST-show-CV-equipo', compact('equipo', 'mantenimientos','user'));

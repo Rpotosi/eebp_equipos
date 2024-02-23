@@ -63,7 +63,7 @@ class SST extends Model
     ];
     public function mantenimientos(): HasMany
     {
-        return $this->hasMany(MantenimientoVehiculo::class, 'id_equipo_fk', 'id_equipo');
+        return $this->hasMany(MantenimientoEquipoSst::class, 'id_equipo_fk', 'id_equipo');
     }
 
 }
