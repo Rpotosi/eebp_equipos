@@ -180,10 +180,10 @@ class SSTController extends Controller
         $file = $request->file('anexos');
         $extension = $file->getClientOriginalExtension();
         $uniqueFileName = uniqid() . '.' . $extension;
-        $path = $file->storeAs('public/mantenimientos/anexos', $uniqueFileName);
+        $path = $file->storeAs('public/mantenimientos_equipo_sst/anexos', $uniqueFileName);
 
         // Almacena la URL del archivo en la base de datos
-        $url = '/storage/mantenimientos/anexos/' . $uniqueFileName;
+        $url = '/storage/mantenimientos_equipo_sst/anexos/' . $uniqueFileName;
         $mantenimiento->anexos = $url;
 
         // Asocia el mantenimiento al vehículo
