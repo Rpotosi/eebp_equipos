@@ -218,10 +218,10 @@ class AdministrativoController extends Controller
         $originalFileName = $file->getClientOriginalName();
 
         // Almacena el archivo en el directorio 'public/mantenimientos/anexos' con su nombre original
-        $path = $file->storeAs('public/mantenimientos/anexos', $originalFileName);
+        $path = $file->storeAs('public/mantenimientos_vehiculos_admin/anexos', $originalFileName);
 
         // Construye la URL del archivo
-        $url = '/storage/mantenimientos/anexos/' . $originalFileName;
+        $url = '/storage/mantenimientos_vehiculos_admin/anexos/' . $originalFileName;
 
         // Asigna la URL del archivo al objeto $mantenimiento
         $mantenimiento->anexos = $url;
@@ -402,10 +402,10 @@ class AdministrativoController extends Controller
 
         $originalFileName = $file->getClientOriginalName();
      
-        $path = $file->storeAs('public/mantenimientos/anexos', $originalFileName);
+        $path = $file->storeAs('public/mantenimientos_equipo_admin/anexos', $originalFileName);
 
         // Almacena la URL del archivo en la base de datos en la carpeta storage
-        $url = '/storage/mantenimientos/anexos/' . $originalFileName;
+        $url = '/storage/mantenimientos_equipo_admin/anexos/' . $originalFileName;
         $mantenimiento->anexos = $url;
 
         // Asocia el mantenimiento al vehículo
