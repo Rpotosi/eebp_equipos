@@ -82,10 +82,8 @@
                 </h5>
             </div>
         </a>
-
-
     </div>
-    
+@stop   
 
 @section('js')
     <!--código js si es requerido-->
