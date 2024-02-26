@@ -46,7 +46,7 @@ class DistribucionController extends Controller
         return view ('Distribucion.Dis-show_equipo_interruptor', compact('equipos','buscarpor','user'));
     }
 
-    public function show_equipo_CV(Request $request, $id_equipo)
+    public function show_equipo_CV_interruptor(Request $request, $id_equipo)
     {
          // Obtiene el usuario actual, y lo guarda en la variable $user
          $user = $this->getCurrentUser();

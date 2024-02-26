@@ -70,8 +70,8 @@ Route::middleware(['auth'])->group(function () {
 Route::controller(DistribucionController::class)->group(function(){
     Route::get('dis-show-form', 'show_form')->name('distribucion.show_form');
 
-    Route::get('dis-show-equipo', 'show_equipo_interruptor')->name('distribucion.show_equipo_interruptor');
-    Route::get('dis-show-equipo-CV/{id_equipo}', 'show_equipo_CV')->name('distribucion.show_equipo_CV');
+    Route::get('dis-show-equipo_inte', 'show_equipo_interruptor')->name('distribucion.show_equipo_interruptor');
+    Route::get('dis-show-equipo-CV_inte/{id_equipo}', 'show_equipo_CV_interruptor')->name('distribucion.show_equipo_CV_interruptor');
 
     Route::get('dis-create-equipo_interruptor','create_equipo_interruptor')->name('distribucion.create_equipo_interruptor');
     Route::post('dis-create-equipo_interruptor', 'store_equipo_interruptor')->name('distribucion.store_equipo_interruptor');

@@ -144,7 +144,7 @@
                         </td>
 
                         <td class="text-center">
-                            <a href="{{ route('distribucion.show_equipo_CV', $equipo) }}">
+                            <a href="{{ route('distribucion.show_equipo_CV_interruptor', $equipo) }}">
                                 <button class="btn btn-success" onclick="Editar"><i class="fas fa-file"></i></button>
                             </a>
                         </td>
