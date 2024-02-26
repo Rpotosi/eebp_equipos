@@ -79,16 +79,16 @@
         <table class="table table-hover table-condensed table-bordered mt-5">
             <thead class="thead-light">
                 <tr>
-                <th>Id_equipo</th>
+                <th>id_equipo</th>
+                    <th>Nombre_interruptor</th>
+                    <th>Area</th>
+                    <th>Subestación</th>
+                    <th>IUA</th>
+                    <th>Pais</th>
                     <th>Nombre Equipo</th>
-                    <th>Marca</th>
-                    <th>Modelo</th>
-                    <th>No_activo</th>
-                    <th>Codigo</th>
-                    <th>Lugar|Proceso</th>
-                    <th>Fecha|Entrega</th>
-                    <th>Nombre_Responsable</th>
-                    <th>Cargo</th>
+                    <th>Fecha|Cierre</th>
+                    <th>Año fabricación</th>
+                    <th>Numero nro_ref_catalogo</th>
                     <th>Mantenimiento ➕</th>
                     <th>Hoja de Vida</th>
 
@@ -104,41 +104,41 @@
                             {{$equipo->id_equipo}}
                         </td>
                         <td>
+                            {{$equipo->nombre_interruptor}}
+                        </td>
+
+                        <td>
+                            {{$equipo->area}}
+                        </td>
+
+                        <td>
+                            {{$equipo->subestacion}}
+                        </td>
+
+                        <td>
+                            {{$equipo->fabricante}}
+                        </td>
+                        <td>
+                            {{$equipo->iua}}
+                        </td>
+
+                        <td>
                             {{$equipo->nombre_equipo}}
                         </td>
 
                         <td>
-                            {{$equipo->marca}}
-                        </td>
-
-                        <td>
-                            {{$equipo->modelo}}
-                        </td>
-
-                        <td>
-                            {{$equipo->no_activo}}
+                            {{$equipo->forma_cierre_desconexion}}
                         </td>
                         <td>
-                            {{$equipo->codigo}}
-                        </td>
-
-                        <td>
-                            {{$equipo->lugar_proceso}}
-                        </td>
-
-                        <td>
-                            {{$equipo->fecha_entrega}}
+                            {{$equipo->año_fabricacion}}
                         </td>
                         <td>
-                            {{$equipo->nombre_responsable}}
-                        </td>
-                        <td>
-                            {{$equipo->cargo}}
+                            {{$equipo->nro_ref_catalogo}}
                         </td>
 
 
                         <td class="text-center">
-                            <a href="{{ route('distribucion.create_mantenimiento_equipo', $equipo) }}">
+                            <a href="{{ route('distribucion.create_mantenimiento_equipo_interruptor', $equipo) }}">
                                 <button class="btn btn-success" onclick="Editar"><i class="fas fa-edit"></i></button>
                             </a>
                         </td>

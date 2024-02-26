@@ -9,7 +9,7 @@ class MantenimientoEquipoDis_interruptor extends Model
 {
     use HasFactory;
 
-    protected $table = 'create_mantenimiento_equipo_dis';
+    protected $table = 'create_mantenimiento_equipo_dis_interruptor';
     protected $primaryKey = 'id';
     public $timestamps = false;
     protected $fillable = [

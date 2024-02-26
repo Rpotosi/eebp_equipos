@@ -51,7 +51,7 @@ class DistribucionController extends Controller
          // Obtiene el usuario actual, y lo guarda en la variable $user
          $user = $this->getCurrentUser();
         // Busca el equipo correspondiente al id proporcionado
-        $equipo = Distribucion::findOrFail($id_equipo);
+        $equipo = Distribucion_interruptor::findOrFail($id_equipo);
 
         $mantenimientos = $equipo->mantenimientos()->paginate(5);
       
@@ -186,7 +186,7 @@ class DistribucionController extends Controller
         $path = $file->storeAs('public/mantenimientos_dis_interruptor/anexos', $originalFileName);
     
         // Almacena la URL del archivo en la base de datos
-        $url = '/storage/mantenimientos_dis_interruptor/anexos' . $originalFileName;
+        $url = '/storage/mantenimientos_dis_interruptor/anexos/' . $originalFileName;
         $mantenimiento->anexos = $url;
     
         // Asocia el mantenimiento al equipo
