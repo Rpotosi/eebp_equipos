@@ -363,7 +363,7 @@ return [
                 ],
                                [
                     'text' => 'Consultar Equipo',
-                    'url'  => 'dis-show-equipo',
+                    'url'  => 'dis-show-equipo_inte',
                 ],
             ],
         ],
