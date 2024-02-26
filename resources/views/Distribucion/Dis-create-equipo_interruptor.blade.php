@@ -66,7 +66,7 @@
 
     <div style="text-align: center;">
         <div style="background-color: white; display: inline-block; padding: 12px;">
-            <p style="margin: 0;"> 🔹Nuevo Equipo🔹</p>
+            <p style="margin: 0;"> 🔹Nuevo Interruptor  🔹</p>
         </div>
     </div>
 
@@ -95,535 +95,348 @@
 
             <div class="col-12">
                 <label for="text" class="form-label"> <br>
-                🔹IDENTIFICACIÓN Y ESPECIFICACIONES DEL EQUIPO
+                🔹DATOS GENERALES
                 </label>
             </div>
 
             <div class="col-md-2">
-                <label for="nombre_equipo" class="form-label">
-                    Nombre tecnico del equipo
+                <label for="nombre_interruptor" class="form-label">
+                    Nombre Activo  
                 </label>
-                <input type="text" class="form-control" id="nombre_equipo" name="nombre_equipo" required/>
+                <input type="text" class="form-control" id="nombre_interruptor" name="nombre_interruptor" required/>
             </div>
 
             <div class="col-md-2">
-                <label for="ubicacion_equipo" class="form-label">
-                    Ubicación del equipo
+                <label for="area" class="form-label">
+                    Area
                 </label>
-                <select id="ubicacion_equipo" class="custom-select" placeholder="" name="ubicacion_equipo" required>
+                <select id=""  type="text" class="form-control" name="area" id="area" required>
                     <option selected></option>
-                    <option value="Sede PA">Sede PA</option>
-                    <option value="Sede VG">Sede VG</option>
-                    <option value="Sede Caicedo">Sede Caicedo</option>
-                    <option value="Sede la Dorada">Sede la Dorada</option>
-                    <option value="Subestacione PA">Subestacione PA</option>
-                    <option value="Subestacion PC">Subestacion PC</option>
-                    <option value="Subestacion Yarumo">Subestacion Yarumo</option>
-                    <option value="Subestacion la Hormiga">Subestacion la Hormiga</option>
+                    <option value="Distribucion">Distribución</option>
                 </select>
             </div>
 
 
             <div class="col-md-2">
-                <label for="estado" class="form-label">
-                    Estado
+                <label for="subestacion" class="form-label">
+                    subestacion	
                 </label>
-                <select id="estado" class="custom-select" name="estado" required>
+                <select id="subestacion" class="custom-select" name="subestacion" required>
                     <option selected></option>
-                    <option value="Nuevo">Nuevo</option>
-                    <option value="En uso">En uso</option>
-                    <option value="Fuero de servicio">Fuero de servicio</option>
-                    <option value="En mantenimiento">En mantenimiento</option>
-                    <option value="Para disposición final">Para disposición final</option>
+                    <option value="Nuevo">Puerto Asis</option>
+                    <option value="En uso">Puerto Caicedo</option>
+                    <option value="Fuero de servicio">Valle Del Guamuez</option>
+                    <option value="En mantenimiento">Yarumo</option>
                 </select>
             </div>
 
             <div class="col-md-2">
-                <label for="fecha_fabrica" class="form-label">
-                    Fecha de fabrica
+                <label for="nivel_tension" class="form-label">
+                    Nivel de Tensión
                 </label>
-                <input type="date" class="form-control" id="fecha_fabrica" placeholder="" name="fecha_fabrica" required/>
+                <select type="text" class="form-control" id="nivel_tension" placeholder="" name="nivel_tension" required>
+                    <option selected></option>
+                    <option value="13.2">13.2 kv</option>
+                    <option value="34.5">34.5 kv</option>
+                    <option value="115">115 kv</option>
+                    
+
+
+                </select>
             </div>
 
             <div class="col-md-2">
-                <label for="marca" class="form-label">
-                    Marca
+                <label for="bahia" class="form-label">
+                    Bahia
                 </label>
-                <select id="marca" class="custom-select" placeholder="" name="marca" required>
+                <select id="bahia" class="custom-select" placeholder="" name="bahia" required>
                     <option selected></option>
-                    <option value="Nuevo uso">Nuevo uso</option>
-                    <option value="Dimanik">Dimanik</option>
-                    <option value="Link tech">Link tech</option>
-                    <option value="Insafe">Insafe</option>
-                    <option value="Sosega">Sosega</option>
-                    <option value="Yoke">Yoke</option>
-                    <option value="Petzel">Petzel</option>
-                    <option value="Armadura">Armadura</option>
-                    <option value="3M">3M</option>
-                    <option value="Ecolift">Ecolift</option>
-                    <option value="Arseg">Arseg</option>
-                    <option value="Delta Plus">Delta Plus</option>
-                    <option value="Regeltex">Regeltex</option>
-                    <option value="Iproteccion">Iproteccion</option>
-                    <option value="Alcovisor">Alcovisor</option>
-                    <option value="DR Meter">DR Meter</option>
-                    <option value="Gil">Gil</option>
-                    <option value="GH Voltaje">GH Voltaje</option>
+                    <option value="Linea">Bahia Linea</option>
+                    <option value="Transformador">Bahia Transformador</option>
                 </select>
             </div>
 
 
 
             <div class="col-2">
-                <label for="modelo" class="form-label">
-                    Modelo
+                <label for="fabricante" class="form-label">
+                    fabricante
                 </label>
-                <input type="text" class="form-control" id="modelo" placeholder="" name="modelo" required/>
+                <select type="text" class="form-control" id=" fabricante" placeholder="" name="fabricante" required>
+                    <option selected></option>
+                    <option value="ABB">ABB</option>
+                    <option value="Siemens">Siemens</option>
+                </select>
             </div>
             <div class="col-2">
-                <label for="no_serie" class="form-label">
-                    No. Serie
+                <label for="costo_adquisicion" class="form-label">
+                    Costo de adquisición
                 </label>
-                <input type="text" class="form-control" id="no_serie" placeholder="" name="no_serie" required/>
+                <input type="text" class="form-control" id="costo_adquisicion" placeholder="" name="costo_adquisicion" required/>
             </div>
             <div class="col-2">
-                <label for="no_lote" class="form-label">
-                    No. Lote
+                <label for="fecha_puesta_servicio" class="form-label">
+                    Fecha de puesta en servicio
                 </label>
-                <input type="text" class="form-control" id="no_lote" placeholder="" name="no_lote" required/>
+                <input type="date" class="form-control" id="fecha_puesta_servicio" placeholder="" name="fecha_puesta_servicio" required/>
             </div>
             <div class="col-2">
-                <label for="no_activo" class="form-label">
-                    No. de activo fijo
+                <label for="fecha_fabricacion" class="form-label">
+                    Fecha de fabricación
                 </label>
-                <input type="text" class="form-control" id="no_activo" placeholder="" name="no_activo" required/>
+                <input type="date" class="form-control" id="fecha_fabricacion" placeholder="" name="fecha_fabricacion" required/>
             </div>
 
             <div class="col-2">
                 <label for="iua_creg" class="form-label">
-                    IUA_CREG
+                    Pais de origen
                 </label>
-                <input type="text" class="form-control" id="iua_creg" placeholder="" name="iua_creg" required/>
-            </div>
+                <select type="text" class="form-control" id="iua_creg" placeholder="" name="iua_creg" required>
+                    <option value=""></option>
+                    <option value="Colombia">Colombia</option>
+                    <option value="Brasil">Brasil</option>
+                    <option value="Alemania">Alemania</option>        
+                    <option value="India">India</option>
+                    <option value="Suecia">Suecia</option>
 
-            <div class="col-2">
-                <label for="codigo" class="form-label">
-                    Codigo
-                </label>
-                <input type="text" class="form-control" id="codigo" placeholder="" name="codigo" required/>
-            </div>
-
-            <div class="col-2">
-                <label for="fecha_ensayo" class="form-label">
-                    Fecha del ensayo dieléctrico
-                </label>
-                <input type="date" class="form-control" id="fecha_ensayo" placeholder="" name="fecha_ensayo" required/>
-            </div>
-
-            <div class="col-2" style="text-align: left;">
-                <label for="validez" class="form-label">
-                    Validez
-                </label>
-                <select id="validez"  class="custom-select" placeholder="" name="validez" required>
-                    <option selected></option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="Mayor | 3">Mayor | 3</option>
                 </select>
             </div>
 
-
-            <div class="col-2" style="text-align: left;">
-                <label for="fecha_conformidad" class="form-label">
-                    Fecha certificado de conformidad
-                </label>
-                <input type="date" class="form-control" id="fecha_conformidad" placeholder="" name="fecha_conformidad" required/>
-
-            </div>
-
-            <div class="col-2" style="text-align: left;">
-                <label for="fecha_operacion" class="form-label">
-                    Fecha Inicio de Operación
-                </label>
-                <input type="date" class="form-control" id="fecha_operacion" placeholder="" name="fecha_operacion" required/>
-
-            </div>
-            <div class="col-2" style="text-align: left;">
-                <label for="propiedad" class="form-label">
-                    Propiedad
-                </label>
-                <input type="text" class="form-control" id="propiedad" placeholder="" name="propiedad" required/>
-
-            </div>
-
             <div class="col-2">
-                <label for="img_dis" class="form-label">
+                <label for="img_interruptor" class="form-label">
                     Cargar Imagén
                 </label>
-                <input type="file" name="img_dis" id="img_dis" required>
+                <input type="file" class="form-control" id="img_interruptor" placeholder="" name="img_interruptor" required/>
             </div>
 
 
             <div class="col-12">
                 <label for="text" class="form-label"> <br>
-                    🔹RESPONSABLE DEL EQUIPO
+                    🔹ESPECIFICACIONES
                 </label>
             </div>
 
 
             <div class="col-2"style="text-align: left;">
-                <label for="nombre_responsable" class="form-label">
-                    Nombre
+                <label for="nombre_equipo" class="form-label">
+                    Nombre del equipo
                 </label>
-                <input type="text" class="form-control" id="nombre_responsable" placeholder="" name="nombre_responsable" required/>
+                <input type="text" class="form-control" id="nombre_equipo" placeholder="" name="nombre_equipo" required/>
 
             </div>
             <div class="col-2"style="text-align: left;">
-                <label for="cargo" class="form-label">
-                    Cargo
+                <label for="modelo_fabricacion" class="form-label">
+                    Modelo de fabricación
                 </label>
-                <input type="text" class="form-control" id="cargo" placeholder="" name="cargo" required/>
+                <input type="text" class="form-control" id="cmodelo_fabricacionargo" placeholder="" name="modelo_fabricacion" required/>
 
             </div>
 
             <div class="col-md-2">
-                <label for="lugar_proceso" class="form-label">
-                    Lugar o Proceso
+                <label for="nro_serie_fabricacion" class="form-label">
+                    Numero de serie de fabricación
                 </label>
-                <select id="lugar_proceso" class="custom-select"  placeholder="" name="lugar_proceso" required>
-                <option selected></option>
-                    <option value="Almacén">Almacén</option>
-                    <option value="Bodega">Bodega</option>
-                    <option value="Vehículo PAK175">Vehículo PAK175</option>
-                    <option value="PAK176">PAK176</option>
-                    <option value="Vehículo PAK178">Vehículo PAK178</option>
-                    <option value="Vehículo PAK 169">Vehículo PAK 169</option>
-                    <option value="Vehículo  PAK167">Vehículo  PAK167</option>
-                    <option value="Vehículo LFL640 ">Vehículo LFL640 </option>
-                    <option value="Vehículo PAK172">Vehículo PAK172</option>
-                    <option value="Vehículo PAK171">Vehículo PAK171</option>
-                    <option value="Vehículo PAK170">Vehículo PAK170</option>
-                    <option value="Vehículo AVI892">Vehículo AVI892</option>
-                    <option value="Vehículo AVA496">Vehículo AVA496</option>
-                    <option value="Vehículo JHD10F">Vehículo JHD10F</option>
-                    <option value="cuadrilla 1">cuadrilla 1</option>
-                    <option value="cuadrilla 2">cuadrilla 2</option>
-                    <option value="cuadrilla 3">cuadrilla 3</option>
-                    <option value="cuadrilla 4">cuadrilla 4</option>
-                    <option value="SST">SST</option>
-                    <option value="Talento Humano">Talento Humano</option>
-                    <option value="Control de Energía">Control de Energía</option>
-                </select>
+                <input type="text" id="nro_serie_fabricacion" class="custom-select"  placeholder="" name="nro_serie_fabricacion" required> 
+             
             </div>
 
             <div class="col-2" style="text-align: left;">
-                <label for="fecha_entrega" class="form-label">
-                    Fecha de entrega
+                <label for="voltage_aislamiento_nominal" class="form-label">
+                    Voltaje de aislamiento nominal
                 </label>
-                <input type="date" class="form-control" id="fecha_entrega" placeholder="" name="fecha_entrega" required/>
+                <input type="text" class="form-control" id="voltage_aislamiento_nominal" placeholder="" name="voltage_aislamiento_nominal" required/>
 
             </div>
 
             <div class="col-2" style="text-align: left;">
-                <label for="observacion_responsable" class="form-label">
-                    Observaciones
+                <label for="frecuencia_nominal" class="form-label">
+                    Frecuencia nominal
                 </label>
-                <textarea type="text" class="form-control" rows="1" id="observacion_responsable" placeholder="" name="observacion_responsable"></textarea>
+                <input type="text" class="form-control" rows="1" id="frecuencia_nominal" placeholder="" name="frecuencia_nominal" required/>
 
             </div>
 
-            <div class="col-12">
-                <label for="text" class="form-label"> <br>
-                    🔹DATOS DEL PROVEEDOR
+            <div class="col-2" style="text-align: left;">
+                <label for="voltage_frequencia_indutrial" class="form-label">
+                    Voltaje de frecuencia industrial
                 </label>
+            <input type="text" class="form-control" id="voltage_frequencia_indutrial" placeholder="" name="voltage_frequencia_indutrial" required/>
+
+            </div>
+
+            <div class="col-2" style="text-align: left;">
+                <label for="voltage_impulso" class="form-label">
+                    Voltaje de impulso
+                </label>
+                <input type="text" class="form-control" id="voltage_impulso" placeholder="" name="voltage_impulso" required/>
+            </div>
+
+            <div class="col-2" style="text-align: left;">
+                <label for="corrientes_nominal" class="form-label">
+                    Corriente nominal
+                </label>
+                <input type="text" class="form-control" id="corrientes_nominal" placeholder="" name="corrientes_nominal" required/>
+            </div>    
+
+            <div class="col-2" style="text-align: left;">
+                <label for="corriente_termica" class="form-label">
+                    Corriente termica
+                </label>
+                <input type="text" class="form-control" id="corriente_termica" placeholder="" name="corriente_termica" required/>
+            </div>
+
+            <div class="col-2" style="text-align: left;">
+                <label for="corriente_dinamica" class="form-label">
+                    Corriente dinamica
+                </label>
+                <input type="text" class="form-control" id="corriente_dinamica" placeholder="" name="corriente_dinamica" required/>
+            </div>
+
+            <div class="col-2" style="text-align: left;">
+                <label for="corriente_nominal_cierre" class="form-label">
+                    Corriente nominal de cierre
+                </label>
+                <input type="text" class="form-control" id="corriente_nominal_cierre" placeholder="" name="corriente_nominal_cierre" required/>
             </div>
 
 
             <div class="col-2" style="text-align: left;">
-                <label for="fabricante" class="form-label">
-                    Fabricante
+                <label for="medio_extincion" class="form-label">
+                    Medio de extinción
                 </label>
-                <select id="fabricante" class="custom-select" placeholder="" name="fabricante" required>
+                <input type="text" class="form-control" id="medio_extincion" placeholder="" name="medio_extincion" required/>
+            </div>
+
+            <div class="col-2" style="text-align: left;">
+                <label for="año_fabricacion" class="form-label">
+                    Año de fabricación
+                </label>
+                <input type="text" class="form-control" id="año_fabricacion" placeholder="" name="año_fabricacion" required/>
+            </div>
+
+            <div class="col-2" style="text-align: left;">
+                <label for="forma_cierre_desconexion" class="form-label">
+                    Forma de cierre y desconexion
+                </label>
+                <input type="text" class="form-control" id="forma_cierre_desconexion" placeholder="" name="forma_cierre_desconexion" required/>
+            </div>
+
+            <div class="col-2" style="text-align: left;">
+                <label for="factor_primer_polo" class="form-label">
+                    Factor de primer polo
+                </label>
+                <input type="text" class="form-control" id="factor_primer_polo" placeholder="" name="factor_primer_polo" required/>
+            </div>
+            
+            <div class="col-2" style="text-align: left;">
+                <label for="secuencia_nominal_maniobra" class="form-label">
+                    Secuencia nominal de maniobra
+                </label>
+                <input type="text" class="form-control" id="secuencia_nominal_maniobra" placeholder="" name="secuencia_nominal_maniobra" required/>
+            </div>
+
+            <div class="col-2" style="text-align: left;">
+                <label for="presion" class="form-label">
+                    Presión
+                </label>
+                <input type="text" class="form-control" id="presion" placeholder="" name="presion" required/>
+            </div>
+
+            <div class="col-2" style="text-align: left;">
+                <label for="acondicionamiento" class="form-label">
+                    Acondicionamiento
+                </label>
+                <select type="text" class="form-control" id="acondicionamiento" placeholder="" name="acondicionamiento" required>
                     <option selected></option>
-                    <option value="Sew">Sew</option>
-                    <option value="Supersafe">Supersafe</option>
-                    <option value="WJ Rescates">WJ Rescates</option>
-                    <option value="Dinamik">Dinamik</option>
-                    <option value="Steelpro">Steelpro</option>
-                    <option value="Petzel">Petzel</option>
-                    <option value="Alcovisor">Alcovisor</option>
-                    <option value="Hastings">Hastings</option>
-                    <option value="Regeltex">Regeltex</option>
-                    <option value="Super safe">Super safe</option>
+                    <option value="Hidráulico">Hidráulico</option>
+                    <option value="Neumático">Neumático</option>
+                    <option value="Resorte">Resorte</option>
+                    <option value="Solenoide">Solenoide</option>
+
                 </select>
+            </div>  
 
-            </div>
             <div class="col-2" style="text-align: left;">
-                <label for="fecha_adquisicion" class="form-label">
-                    Fecha de adquisición
+                <label for="acondicionamiento_fabricante" class="form-label">
+                    Acondicionamiento fabricante
                 </label>
-                <input type="date" class="form-control" id="fecha_adquisicion" placeholder="" name="fecha_adquisicion" required/>
-
-            </div>
-            <div class="col-2" style="text-align: left;">
-                <label for="nombre_proveedor" class="form-label">
-                    Nombre
-                </label>
-                <input type="text" class="form-control" id="nombre_proveedor" placeholder="" name="nombre_proveedor" required/>
-
-            </div>
-            <div class="col-2" style="text-align: left;">
-                <label for="direccion_proveedor" class="form-label">
-                    Dirección
-                </label>
-                <input type="text" class="form-control" id="direccion_proveedor" placeholder="" name="direccion_proveedor" required/>
-
-            </div>
-            <div class="col-2" style="text-align: left;">
-                <label for="email_proveedor" class="form-label">
-                    E-mail
-                </label>
-                <input type="text" class="form-control" id="email_proveedor" placeholder="" name="email_proveedor" required/>
-
-            </div>
-            <div class="col-2" style="text-align: left;">
-                <label for="telefono_proveedor" class="form-label">
-                    Telefono
-                </label>
-                <input type="text" class="form-control" id="telefono_proveedor" placeholder="" name="telefono_proveedor" required/>
-
-            </div>
-            <div class="col-1" style="text-align: left;">
-                <label for="catalogo" class="form-label">
-                    Posee catálogo de manejo OP
-                </label>
-                <select id="clase" class="custom-select" id="catalogo" placeholder="" name="catalogo" required>
-                    <option selected=""></option>
-                    <option value="SI">SI</option>
-                    <option value="NO">NO</option>
-                </select>
-
-            </div>
-            <div class="col-2" style="text-align: left;">
-                <label for="mantenimiento_recomendado" class="form-label">
-                    <br>
-                    Mantenimiento recomendado
-                </label>
-                <select id="mantenimiento_recomendado" class="custom-select"  placeholder="" name="mantenimiento_recomendado" required>
-                    <option selected></option>
-                    <option value="Preventivo">Preventivo</option>
-                    <option value="Inspección">Inspección</option>
-                    <option value="Verificación">Verificación</option>
-                    <option value="Ensayo">Ensayo</option>
-                    <option value="Calibración">Calibración</option>
-                </select>
-
+                <input type="text" class="form-control" id="acondicionamiento_fabricante" placeholder="" name="acondicionamiento_fabricante" required/>
             </div>
 
             <div class="col-2" style="text-align: left;">
-                <label for="condiciones_operacion" class="form-label"> <br>
-                    Condiciones de operación:
+                <label for="acondicionamiento_serie" class="form-label">
+                    Acondicionamiento serie
                 </label>
-                <input type="text" class="form-control" id="condiciones_operacion" placeholder="" name="condiciones_operacion" required/>
-
+                <input type="text" class="form-control" id="acondicionamiento_serie" placeholder="" name="acondicionamiento_serie" required/>
             </div>
+
             <div class="col-2" style="text-align: left;">
-                <label for="observacion_fabricante" class="form-label"> <br>
-                    Observaciones
+                <label for="peso_cantidad_carga" class="form-label">
+                    Peso o cantidad de carga
                 </label>
-                <textarea type="text" class="form-control" rows="1" id="observacion_fabricante" placeholder="" name="observacion_fabricante"></textarea>
-
+                <input type="text" class="form-control" id="peso_cantidad_carga" placeholder="" name="peso_cantidad_carga" required/>
             </div>
 
-            <div class="col-12">
-                <label for="text" class="form-label"><br>
-                    🔹 CARACTERISTICAS DEL EQUIPO
+            <div class="col-2" style="text-align: left;">
+                <label for="c_auxiliares_mando" class="form-label">
+                    Cantidad de auxiliares de mando
                 </label>
+                <input type="text" class="form-control" id="c_auxiliares_mando" placeholder="" name="c_auxiliares_mando" required/>
+            </div>
+
+            <div class="col-2" style="text-align: left;">
+                <label for="c_auxiliares_acondicionamiento" class="form-label">
+                   Auxiliares_acondicionamiento
+                </label>
+                <input type="text" class="form-control" id="c_auxiliares_acondicionamiento" placeholder="" name="c_auxiliares_acondicionamiento" required/>
             </div>
 
 
             <div class="col-2" style="text-align: left;">
-                <label for="medicion" class="form-label">
-                    Medición a realizar
+                <label for="c_auxiliares_calefaccion" class="form-label">
+                    Auxiliares de calefacción
                 </label>
-                <input type="text" class="form-control" id="medicion" placeholder="" name="medicion" required/>
-
+                <input type="text" class="form-control" id="c_auxiliares_calefaccion" placeholder="" name="c_auxiliares_calefaccion" required/>
             </div>
-            <div class="col-2" style="text-align: left;">
-                <label for="rango_uso" class="form-label">
-                    Rango de Uso
-                </label>
-                <input type="text" class="form-control" id="rango_uso" placeholder="" name="rango_uso" required/>
 
-            </div>
+            
             <div class="col-2" style="text-align: left;">
-                <label for="resolucion" class="form-label">
-                    Resolución
+                <label for="altura_instalacion" class="form-label">
+                    Altura de instalación
                 </label>
-                <input type="text" class="form-control" id="resolucion" placeholder="" name="resolucion" required/>
-
+                <input type="text" class="form-control" id="altura_instalacion" placeholder="" name="altura_instalacion" required/>
             </div>
 
             <div class="col-2" style="text-align: left;">
-                <label for="exactitud" class="form-label">
-                    Exactitud
+                <label for="clase_temperatura" class="form-label">
+                    Clase de temperatura
                 </label>
-                <input type="text" class="form-control" id="exactitud" placeholder="" name="exactitud" required/>
-
-            </div>
-            <div class="col-2" style="text-align: left;">
-                <label for="fecha_calibracion" class="form-label">
-                    Frecuencia de Calibración
-                </label>
-                <input type="text" class="form-control" id="fecha_calibracion" placeholder="" name="fecha_calibracion" required/>
-
-            </div>
-            <div class="col-2" style="text-align: left;">
-                <label for="fecha_verificacion" class="form-label">
-                    Frecuencia de Verificación
-                </label>
-                <input type="text" class="form-control" id="fecha_verificacion" placeholder="" name="fecha_verificacion" required/>
-
-            </div>
-            <div class="col-2" style="text-align: left;">
-                <label for="patrones" class="form-label">
-                    Patrones
-                </label>
-                <input type="text" class="form-control" id="patrones" placeholder="" name="patrones" required/>
-
-            </div>
-            <div class="col-2" style="text-align: left;">
-                <label for="estandares" class="form-label">
-                    Estándares
-                </label>
-                <input type="text" class="form-control" id="estandares" placeholder="" name="estandares" required/>
-
-            </div>
-            <div class="col-2" style="text-align: left;">
-                <label for="regulaciones" class="form-label">
-                    Regulaciones
-                </label>
-                <input type="text" class="form-control" id="regulaciones" placeholder="" name="regulaciones" required/>
-
+                <input type="text" class="form-control" id="clase_temperatura" placeholder="" name="clase_temperatura" required/>
             </div>
 
             <div class="col-2" style="text-align: left;">
-                <label for="otras_caracteristicas" class="form-label">
-                    Otras características
+                <label for="normas_fabricacion" class="form-label">
+                    Normas de fabricación
                 </label>
-                <input type="text" class="form-control" id="otras_caracteristicas" placeholder="" name="otras_caracteristicas" required/>
-
-            </div>
-
-            <div class="col-md-1">
-                <label for="garantia" class="form-label">
-                    Garantía
-                </label>
-                <select id="garantia" class="custom-select"  placeholder="" name="garantia" required>
-                    <option selected></option>
-                    <option value= "SI">SI</option>
-                    <option value="NO">NO</option>
-                    <option value="N/A">N/A</option>
-                </select>
+                <input type="text" class="form-control" id="normas_fabricacion" placeholder="" name="normas_fabricacion" required/>
             </div>
 
             <div class="col-2" style="text-align: left;">
-                <label for="fecha_inicio" class="form-label">
-                    Fecha Inicio
+                <label for="nro_ref_catalogo" class="form-label">
+                    Nro de referencia de catálogo
                 </label>
-                <input type="date" class="form-control" id="fecha_inicio" placeholder="" name="fecha_inicio" required/>
-
-            </div>
-            <div class="col-2" style="text-align: left;">
-                <label for="fecha_fin" class="form-label">
-                    Fecha de Terminación
-                </label>
-                <input type="date" class="form-control" id="fecha_fin" placeholder="" name="fecha_fin" required/>
-            </div>
-
-            <div class="col-12">
-                <label for="text" class="form-label"> <br>
-                    🔹CARACTERISTICAS DE TRANSFORMADORES DE INSTRUMENTACIÓN (PUNTOS DE MEDIDA Y PROTECCION)
-                </label>
-                <br>
-                <br>
-            </div>
-
-            <div class="col-md-6">
-                <div class="protecciones">
-                    <h6>Selecione</h6>
-                    <input type="checkbox" name="protecciones]" value="conos">
-                    <label for="examen_a">Potencia Nominal</label><br>
-                    <input type="checkbox" name="protecciones]" value="pendones_viales">
-                    <label for="examen_b">Voltaje aislamiento Nominal (Vn)</label><br>
-                    <input type="checkbox" name="protecciones]" value="baston_luminoso">
-                    <label for="examen_c">Frecuencia Nominal (fn)</label><br>
-                    <input type="checkbox" name="protecciones]" value="llanta_emergencia">
-                    <label for="examen_a">Voltaje máximo Soportable (Urw)</label><br>
-                    <input type="checkbox" name="protecciones]" value="cruceta">
-                    <label for="examen_b">Voltaje Impulso Soportable (Uw / BIL)</label><br>
-                    <input type="checkbox" name="protecciones]" value="botiquin">
-                    <label for="examen_c">Corriente Primaria Nominal (In)</label><br>
-                    <input type="checkbox" name="protecciones]" value="conos">
-                    <label for="examen_a">Voltaje Primario Nominal (In)</label><br>
-
-
-                    <input type="checkbox" name="protecciones]" value="pendones_viales">
-                    <label for="examen_b">Capacitancia Total</label><br>
-                    <input type="checkbox" name="protecciones]" value="baston_luminoso">
-                    <label for="examen_c">Capacitancia primaria:  C1</label><br>
-                    <input type="checkbox" name="protecciones]" value="llanta_emergencia">
-                    <label for="examen_a">Capacitancia secundaria:  C2</label><br>
-                    <input type="checkbox" name="protecciones]" value="cruceta">
-                    <label for="examen_b">Norma de Fabricación</label><br>
-                    <input type="checkbox" name="protecciones]" value="botiquin">
-                    <label for="examen_c">Medio Aislante</label><br>
-                  </div>
+                <input type="text" class="form-control" id="nro_ref_catalogo" placeholder="" name="nro_ref_catalogo" required/>
             </div>
 
             <div class="col-2" style="text-align: left;">
-                <label for="nucleo_1" class="form-label">
-                    Posee catálogo de manejo OP
-                </label>
-                <select id="clase" class="custom-select" id="nucleo_1" placeholder="" name="nucleo_1" required>
-                    <option selected=""></option>
-                    <option>Relación</option>
-                    <option>Presición</option>
-                </select>
-
+                <label for="normas_fabricacion" class="form-label"></label>
             </div>
             <div class="col-2" style="text-align: left;">
-                <label for="nucleo_2" class="form-label">
-                    Posee catálogo de manejo OP
-                </label>
-                <select id="clase" class="custom-select" id="nucleo_2" placeholder="" name="nucleo_2" required>
-                    <option selected=""></option>
-                    <option>Relación</option>
-                    <option>Presición</option>
-                </select>
-
+                <label for="normas_fabricacion" class="form-label"></label>
             </div>
-            <div class="col-2
-
-            " style="text-align: left;">
-                <label for="nucleo_3" class="form-label">
-                    Posee catálogo de manejo OP
-                </label>
-                <select id="clase" class="custom-select" id="nucleo_3" placeholder="" name="nucleo_3" required>
-                    <option selected=""></option>
-                    <option>Relación</option>
-                    <option>Presición</option>
-                </select>
-
-            </div>
-
-            <div class="col-12">
-
-            </div>
-
-            <br>
+          
             <div class="box-footer" style="margin-bottom: 25px;">
+            <br>
                 <button type="submit" class="btn btn-primary" id="guardar-btn">Guardar</button>
             </div>
         </form>
