@@ -63,7 +63,7 @@
         </div>
     </a>
 
-    <a href="{{route('distribucion.create_equipo_interruptor')}}">
+    <a href="{{route('distribucion.create_equipo_seccionador')}}">
         <div class="card" style="text-align: center;">
             <i id="icon_crear_orden" class="fas fa-exchange-alt"></i> <!-- Seccionador -->
             <br>

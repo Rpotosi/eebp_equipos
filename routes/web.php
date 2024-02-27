@@ -78,6 +78,11 @@ Route::controller(DistribucionController::class)->group(function(){
 
     Route::get('dis-create-mantenimiento-equipo/{id_equipo}', 'create_mantenimiento_equipo_interruptor')->name('distribucion.create_mantenimiento_equipo_interruptor');
     Route::post('dis-create-mantenimiento-equipo/{id_equipo}', 'store_mantenimiento_equipo_interruptor')->name('distribucion.store_mantenimiento_equipo_interruptor');
+
+    // Seccionador
+
+    Route::get('dis-create-equipo_seccionador','create_equipo_seccionador')->name('distribucion.create_equipo_seccionador');
+    Route::post('dis-create-equipo_seccionador', 'store_equipo_seccionador')->name('distribucion.store_equipo_seccionador');
 });
 });
 

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Distribucion_interruptor;
+use App\Models\MantenimientoEquipoDis_seccionador;
 use App\Models\User;
 use App\Models\MantenimientoEquipoDis_interruptor;
+use App\Models\Distribucion_seccionador;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
@@ -30,6 +32,8 @@ class DistribucionController extends Controller
         return view('Distribucion.Dis-create-form',compact('user'));
     }
 
+
+
     public function show_equipo_interruptor(Request $request)
     {
         $user = $this->getCurrentUser();
@@ -46,6 +50,25 @@ class DistribucionController extends Controller
         return view ('Distribucion.Dis-show_equipo_interruptor', compact('equipos','buscarpor','user'));
     }
 
+
+    public function show_equipo_seccionador(Request $request)
+    {
+        $user = $this->getCurrentUser();
+        //busca el equipo por nombre_equipo
+        $buscarpor = $request->input('nombre_equipo_sec');
+        // Crea una consulta del modelo Distribucion
+        $query = Distribucion_seccionador::query();   
+
+        $query->where('nombre_equipo_sec', 'like', '%' .$buscarpor . '%');
+        // Ejecutamos la consulta y obtenemos los pedidos filtrados
+
+        $equipos = $query->paginate(8);
+
+        return view ('Distribucion.seccionador.Dis-show_equipo_seccionador', compact('equipos','buscarpor','user'));
+    }
+
+ 
+
     public function show_equipo_CV_interruptor(Request $request, $id_equipo)
     {
          // Obtiene el usuario actual, y lo guarda en la variable $user
@@ -60,6 +83,21 @@ class DistribucionController extends Controller
 
     }
 
+    public function show_equipo_CV_seccionador(Request $request, $id_equipo)
+    {
+         // Obtiene el usuario actual, y lo guarda en la variable $user
+         $user = $this->getCurrentUser();
+        // Busca el equipo correspondiente al id proporcionado
+        $equipo = Distribucion_seccionador::findOrFail($id_equipo);
+
+        $mantenimientos = $equipo->mantenimientos()->paginate(5);
+      
+        // Devuelve la vista con los datos 
+        return view('Distribucion.seccionador.Dis-show-CV-equipo', compact('equipo', 'mantenimientos', 'user'));
+
+    }
+
+
     public function create_equipo_interruptor()
     {
          // Obtiene el usuario actual, y lo guarda en la variable $user
@@ -68,6 +106,17 @@ class DistribucionController extends Controller
         return view("Distribucion.Dis-create-equipo_interruptor", compact('user'));
     }
 
+    
+
+    public function create_equipo_seccionador()
+    {
+         // Obtiene el usuario actual, y lo guarda en la variable $user
+         $user = $this->getCurrentUser();
+         
+        return view("Distribucion.seccionador.Dis-create-equipo_seccionador", compact('user'));
+    }
+
+    
     /**
      * Store a newly created resource in storage.
      */
@@ -134,6 +183,82 @@ class DistribucionController extends Controller
         // Redirecciona a la página anterior
         return back();
     }
+
+    public function store_equipo_seccionador(Request $request)
+    {
+        // Crea una nueva instancia del controlador Distribucion
+        $equipo = new Distribucion_seccionador();
+
+        $equipo->nombre_activo_sec = $request->nombre_activo_sec;
+        $equipo->area_sec = $request->area_sec;
+        $equipo->subestacion_sec = $request->subestacion_sec;
+        $equipo->nivel_tension_sec = $request->nivel_tension_sec;
+        $equipo->bahia_sec = $request->bahia_sec;
+        $equipo->iua_sec = $request->iua_sec;
+        $equipo->fabricante_sec = $request->fabricante_sec;
+        $equipo->costo_adquisicion_sec = $request->costo_adquisicion_sec;
+        $equipo->fecha_puesta_servicio_sec = $request->fecha_puesta_servicio_sec;
+        $equipo->pais_origen_sec = $request->pais_origen_sec;
+        $equipo->img_sec = $request->img_sec;
+
+        $equipo->nombre_equipo_sec = $request->nombre_equipo_sec;
+        $equipo->modelo_fabricacion_sec = $request->modelo_fabricacion_sec;
+        $equipo->nro_serie_fabricacion_sec = $request->nro_serie_fabricacion_sec;
+        $equipo->fecha_fabricacion_sec = $request->fecha_fabricacion_sec;
+        $equipo->volt_aislto_nominal_sec = $request->volt_aislto_nominal_sec;
+        $equipo->frecuencia_nominal_sec = $request->frecuencia_nominal_sec;
+        $equipo->volt_impulso_sec = $request->volt_impulso_sec;
+        $equipo->corrt_nominal_sec = $request->corrt_nominal_sec;
+        $equipo->corrt_termica_sec = $request->corrt_termica_sec;
+        $equipo->peso_sec = $request->peso_sec;
+
+        $equipo->accionamiento_clase_sec = $request->accionamiento_clase_sec;
+        $equipo->accionamiento_tipo_sec = $request->accionamiento_tipo_sec;
+        $equipo->año_fabricacion_sec = $request->año_fabricacion_sec;
+        $equipo->peso_mando_motor_sec = $request->peso_mando_motor_sec;
+        $equipo->volt_mando_sec = $request->volt_mando_sec;
+        $equipo->volt_motor_sec = $request->volt_motor_sec;
+        $equipo->volt_calefaccion_sec = $request->volt_calefaccion_sec;
+        $equipo->corrt_nominal_sec = $request->corrt_nominal_sec;
+        $equipo->altura_instalacion_sec = $request->altura_instalacion_sec;
+        $equipo->nro_rfe_catalogo_sec = $request->nro_rfe_catalogo_sec;
+        $equipo->par_total_sec = $request->par_total_sec;
+
+        $equipo->accionamiento_clase_cuchuilla_sec = $request->accionamiento_clase_cuchuilla_sec;
+        $equipo->accionamiento_tipo_cuchuilla_sec = $request->accionamiento_tipo_cuchuilla_sec;
+        $equipo->año_fabricacion_cuchuilla_sec = $request->año_fabricacion_cuchuilla_sec;
+        $equipo->peso_mando_motor_cuchuilla_sec = $request->peso_mando_motor_cuchuilla_sec;
+        $equipo->volt_mando_cuchuilla_sec = $request->volt_mando_cuchuilla_sec;
+        $equipo->volt_motor_cuchuilla_sec = $request->volt_motor_cuchuilla_sec;
+        $equipo->volt_calefaccion_cuchuilla_sec = $request->volt_calefaccion_cuchuilla_sec;
+        $equipo->altura_instalacion_cuchuilla_sec = $request->altura_instalacion_cuchuilla_sec;
+        $equipo->nro_rfe_catalogo_cuchuilla_sec = $request->nro_rfe_catalogo_cuchuilla_sec;
+        $equipo->par_total_cuchuilla_sec = $request->par_total_cuchuilla_sec;
+
+        // Lógica para cargar la img adjunta
+        $file = $request->file('img_sec');
+
+        $originalFileName = $file->getClientOriginalName();
+
+        $path = $file->storeAs('public/equipo_dis_seccionador/img', $originalFileName);
+
+        // Almacena la imagén en la base de datos
+
+        $url = '/storage/equipo_dis_seccionador/img/' . $originalFileName;
+
+        $equipo->img_sec = $url;
+
+        $equipo->save();
+        // Muestra un mensaje de éxito en la sesión si el equipo se guardò en la baase de datos 
+        session()->flash('success', 'Equipo creado exitosamente ⚙️ ');
+
+        // Redirecciona a la página anterior
+        return back();
+    }
+
+
+
+        
         
 
     /**
